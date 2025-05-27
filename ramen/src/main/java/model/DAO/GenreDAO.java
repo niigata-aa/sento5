@@ -18,28 +18,29 @@ import model.Bean.GenreBean;
 
 	public class GenreDAO {
 
-		public List<GenreBean> selectCategory() throws SQLException, ClassNotFoundException{
+		public List<GenreBean> selectGenre() throws SQLException, ClassNotFoundException{
 			
-			List<GenreBean> genrelist = new ArrayList<GenreBean>();
+			List<GenreBean> genreList = new ArrayList<GenreBean>();
 			
-			String sql = "select genre_name from m_genre";
+			String sql = "select * from m_genre";
 			
 			try(Connection con = ConnectionManager.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(sql);
 					ResultSet res = pstmt.executeQuery()){
 				
 				while (res.next()) {
-					String GenreName = res.getString("GenreName");
+					String genreName = res.getString("genreName");
+					int genreId = res.getInt("gnreId");
 					
 					GenreBean genre = new GenreBean();
-					genre.setGenreName(GenreName);
+					genre.setGenreName(genreName);
+					genre.setGenreId(genreId);
+					
+					genreList.add(genre);
 				}
-			}catch(SQLException e) {
-				System.out.print(e);
-				e.printStackTrace();
-				throw e;
+			
 			}
-			return genrelist;
+			return genreList;
 			
 		}
 		
