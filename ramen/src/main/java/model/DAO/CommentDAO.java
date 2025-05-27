@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Bean.CommentBean;
-import model.ConnectionManager.ConnectionManager;
 
 public class CommentDAO {
 
