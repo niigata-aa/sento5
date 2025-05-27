@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Bean.GenreBean;
+
 	/*
 	 *m_genreテーブルのDAO 
 	 * @return genrelist
@@ -14,7 +16,7 @@ import java.util.List;
 	 * @throws ClassNotFoundException
 	 */
 
-	public class GanreDAO {
+	public class GenreDAO {
 
 		public List<GenreBean> selectCategory() throws SQLException, ClassNotFoundException{
 			
