@@ -1,0 +1,196 @@
+package model.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Bean.CommentBean;
+import model.ConnectionManager.ConnectionManager;
+
+public class CommentDAO {
+
+
+	/**
+	 * コメント削除
+	 * @return count
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public int daleteComment(int commentid)throws SQLException, ClassNotFoundException {
+
+		int count = 0;
+
+		String sql = "delete from m_comment where comment_id = ?";
+
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			pstmt.setInt(1,commentid);
+			count = pstmt.executeUpdate();
+		}catch(SQLException e){
+			System.out.print(e);
+			e.printStackTrace();
+			throw e;
+		}
+
+		return count;
+
+	}
+
+
+
+	/**
+	 * コメント追加
+	 * @return count
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public int insertComment(CommentBean comment)throws SQLException, ClassNotFoundException{
+
+		String sql = "insert into m_comment (review, rate, comment_photo, commenet_time, menu, value) value (?,?,?,?,?,?)";
+
+		int count = 0;
+
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			pstmt.setString(1, comment.getReview());
+			pstmt.setInt(2, comment.getRate());
+			pstmt.setString(3, comment.getCommentPhoto());
+			pstmt.setTimestamp(4, comment.getCommentTime());
+			pstmt.setString(5, comment.getMenu());
+			pstmt.setInt(6, comment.getValue());
+
+			count = pstmt.executeUpdate();
+
+		}catch(SQLException e) {
+			System.out.print(e);
+			e.printStackTrace();
+			throw e;
+		}
+		return count;
+	}
+	//shopIdごとにコメントを取得する
+	public List<CommentBean> selectComment(int shopId) throws SQLException, ClassNotFoundException{
+		List<CommentBean> commentList = new ArrayList<CommentBean>();
+		CommentBean comment = new CommentBean();
+
+		String sql = "SELECT * m_comment where shop_id = ?";
+
+		//データベースの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setInt(1,shopId);
+
+			//SQLステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+
+			//結果の操作
+			while (res.next()) {
+				comment.setCommentId(res.getInt("comment_id"));
+				comment.setUserId(res.getInt("user_id"));
+				comment.setShopId(res.getInt("shop_id"));
+				comment.setGenreId(res.getInt("genre_id"));
+				comment.setReview(res.getString("review"));
+				comment.setRate(res.getInt("rate"));
+				comment.setCommentPhoto(res.getString("comment_photo"));
+				comment.setCommentTime(res.getTimestamp("comment_time"));
+				comment.setMenu(res.getString("menu"));
+				comment.setValue(res.getInt("value"));
+				
+				commentList.add(comment);
+
+
+			}
+		}
+		return commentList;
+
+
+	}
+
+	//ジャンルでコメントを検索
+	public List<CommentBean> selectCategoryComment(int genreId)throws SQLException, ClassNotFoundException{
+
+		List<CommentBean> commentCategoryList = new ArrayList<CommentBean>();
+		CommentBean comment = new CommentBean();
+
+		String sql = "SELECT * m_comment where genre_id = ?";
+
+		//データベースの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setInt(1,genreId);
+
+			//SQLステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+
+			//結果の操作
+			while (res.next()) {
+				comment.setCommentId(res.getInt("comment_id"));
+				comment.setUserId(res.getInt("user_id"));
+				comment.setShopId(res.getInt("shop_id"));
+				comment.setGenreId(res.getInt("genre_id"));
+				comment.setReview(res.getString("review"));
+				comment.setRate(res.getInt("rate"));
+				comment.setCommentPhoto(res.getString("comment_photo"));
+				comment.setCommentTime(res.getTimestamp("comment_time"));
+				comment.setMenu(res.getString("menu"));
+				comment.setValue(res.getInt("value"));
+
+				commentCategoryList.add(comment);
+
+			}
+
+		}
+
+		return commentCategoryList;
+	}
+
+	//ユーザでコメントを検索
+	public List<CommentBean> selectUserComment(int userId)
+			throws SQLException, ClassNotFoundException{
+		List<CommentBean> commentUserList = new ArrayList<CommentBean>();
+		CommentBean comment = new CommentBean();
+
+		String sql = "SELECT * m_comment where user_id = ?";
+
+		//データベースの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			//プレースホルダへの値の設定
+			pstmt.setInt(1,userId);
+
+			//SQLステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+
+			//結果の操作
+			while (res.next()) {
+				comment.setCommentId(res.getInt("comment_id"));
+				comment.setUserId(res.getInt("user_id"));
+				comment.setShopId(res.getInt("shop_id"));
+				comment.setGenreId(res.getInt("genre_id"));
+				comment.setReview(res.getString("review"));
+				comment.setRate(res.getInt("rate"));
+				comment.setCommentPhoto(res.getString("comment_photo"));
+				comment.setCommentTime(res.getTimestamp("comment_time"));
+				comment.setMenu(res.getString("menu"));
+				comment.setValue(res.getInt("value"));
+
+				commentUserList.add(comment);
+
+			}
+
+		}
+
+		return commentUserList;
+	}
+
+}
+
+
