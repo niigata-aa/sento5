@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,9 @@
 <body>
 <h2>ログインページ</h2>
 <h2>ユーザ登録</h2>
+<%if(request.getAttribute("errorMessage")!=null){%>
+<%=request.getAttribute("errorMessage")%>
+<%} %>
 <form action="login-servlet"method="POST">
 ユーザID：<input type="text" name="userName"value="" placeholder="ユーザID"><br>
 パスワード：<input type="password" name=""value="" placeholder="パスワード"><br>
