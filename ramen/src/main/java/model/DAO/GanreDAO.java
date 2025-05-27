@@ -1,15 +1,11 @@
 package model.DAO;
 
-public class CategoryDAO {
-	
-	package model.dao;
-
 	import java.sql.Connection;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
-	import java.sql.SQLException;
-	import java.util.ArrayList;
-	import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 	/*
 	 *m_genreテーブルのDAO 
@@ -18,7 +14,7 @@ public class CategoryDAO {
 	 * @throws ClassNotFoundException
 	 */
 
-	public class CategoryDAO {
+	public class GanreDAO {
 
 		public List<GenreBean> selectCategory() throws SQLException, ClassNotFoundException{
 			
@@ -48,4 +44,4 @@ public class CategoryDAO {
 	}
 
 
-}
+
