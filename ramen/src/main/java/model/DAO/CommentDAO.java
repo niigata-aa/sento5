@@ -47,7 +47,7 @@ public class CommentDAO {
 	 */
 	public int insertComment(CommentBean comment)throws SQLException, ClassNotFoundException{
 
-		//ユーザid、店舗id、ジャンルidインポートとセット
+		//ユーザid、店舗id、ジャンルidインポートとゲット追加
 		String sql = "insert into m_comment (user_id, shop_id, genre_id,review, rate, comment_photo, commenet_time, menu, value) value (?,?,?,?,?,?,?,?,?)";
 
 		int count = 0;
