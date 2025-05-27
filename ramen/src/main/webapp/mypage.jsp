@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>マイページ</title>
 </head>
 <body>
+<h1>マイページ</h1>
 
+<form action = "comment-list-servlet" method = "POST">
+<input type = "submit" value = "コメント一覧">
+
+<input type = "button"  onclick = "history.vack()" value = "戻る">
+</form>
 </body>
 </html>
