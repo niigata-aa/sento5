@@ -29,7 +29,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
-//				String genre = res.getString("genre_name");
+				//				String genre = res.getString("genre_name");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
