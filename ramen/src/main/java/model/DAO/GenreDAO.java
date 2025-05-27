@@ -29,8 +29,8 @@ import model.Bean.GenreBean;
 					ResultSet res = pstmt.executeQuery()){
 				
 				while (res.next()) {
-					String genreName = res.getString("genreName");
-					int genreId = res.getInt("gnreId");
+					String genreName = res.getString("genre_name");
+					int genreId = res.getInt("genre_id");
 					
 					GenreBean genre = new GenreBean();
 					genre.setGenreName(genreName);
