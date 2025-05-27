@@ -10,9 +10,18 @@
 	<form action="mypqge.jsp" method="post">
 		<input type="submit" value="戻る">
 	</form>
-	<% List<String>commentList=(List)session.getAttribute("commentList");%>
-	<%for(String comment:commentList){ %>
-		<%=comment%><br>
+	<% List<CommentBean>commentList=(List)request.getAttribute("commentList");%>
+	<%for(CommentBean comment:commentList){ %>
+		<%=comment.comment_id%><br>
+		<%=comment.user_id %>
+		<%=comment.shop_id %>
+		<%=comment.genre_id %>
+		<%=comment.review %>
+		<%=comment.rate %>
+		<%=comment.comment_photo %>
+		<%=comment.comment_time %>
+		<%=comment.menu %>
+		<%=comment.value %>
 	
 	<form action="CommentDelete" method="post">
 		<input type="submit" value="削除">
