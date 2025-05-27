@@ -102,7 +102,7 @@ public class UserDAO {
 	 * @throws ClassNotFoundException
 	 */
 	public int insertUser(int userId, String userName, String password) throws SQLException, ClassNotFoundException{
-		String sql = "INSERT INTO m_user(user_id, user_name, password, roll) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO m_user(user_id, user_name, password) VALUES (?, ?, ?)";
 		int result = 0;	
 		
 		// データベースへの接続の取得、PreparedStatementの取得
