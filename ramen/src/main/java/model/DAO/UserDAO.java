@@ -21,15 +21,15 @@ public class UserDAO {
 	 */
 	public boolean loginCheck(int userId, String password) throws SQLException, ClassNotFoundException{
 		String sql = "SELECT * FROM m_user WHERE user_id=? AND password =?";
-		
+
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
-			
+
 			//プレースホルダーへの値の設定
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, password);
-			
+
 			ResultSet res = pstmt.executeQuery();
 			if(res.next()) {
 				return true;
@@ -37,7 +37,7 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * 権限のチェックを行う。
 	 * @param roll
@@ -45,24 +45,26 @@ public class UserDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public boolean rollCheck(int userId) throws SQLException, ClassNotFoundException{
+	public int rollCheck(int userId) throws SQLException, ClassNotFoundException{
+		int roll = 1;
+
 		String sql = "SELECT * FROM m_user WHERE user_id=?";
-		
+
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
-			
+
 			//プレースホルダーへの値の設定
 			pstmt.setInt(1, userId);
-						
+
 			ResultSet res = pstmt.executeQuery();
-			if(res.next()) {
-				return true;
+			while(res.next()){
+				roll= res.getInt("roll");
 			}
 		}
-		return false;
+		return roll;
 	}
-	
+
 	/**
 	 * すべてのユーザのリストを返す。
 	 * 
@@ -72,14 +74,14 @@ public class UserDAO {
 	 */
 	public List<UserBean>selectAll() throws SQLException, ClassNotFoundException{
 		List<UserBean> userList = new ArrayList<UserBean>();
-		
+
 		String sql = "SELECT * FROM m_user";
-		
+
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
-			
+
 			while(res.next()) {
 				UserBean user = new UserBean();
 				user.setUserId(res.getInt("user_id"));
@@ -89,7 +91,7 @@ public class UserDAO {
 		}
 		return userList;
 	}
-	
+
 	/**
 	 * ユーザの登録を行う。
 	 * 
@@ -104,23 +106,23 @@ public class UserDAO {
 	public int insertUser(int userId, String userName, String password) throws SQLException, ClassNotFoundException{
 		String sql = "INSERT INTO m_user(user_id, user_name, password) VALUES (?, ?, ?)";
 		int result = 0;	
-		
+
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(sql)){
-			
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
 			//プレースホルダーへの値の設定
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, userName);
 			pstmt.setString(3, password);
-			
+
 			// SQLステートメントの実行
 			result = pstmt.executeUpdate();
 		}
 		return result;
-		
+
 	}
-	
+
 	/**
 	 * ユーザの削除を行う。
 	 * 
@@ -130,7 +132,7 @@ public class UserDAO {
 	 * @throws ClassNotFoundException
 	 */
 	public int deleteUser(int userId) throws SQLException, ClassNotFoundException{
-		
+
 		String sql = "DELETE FROM m_user WHERE user_id=?";
 
 		int count = 0;
@@ -138,10 +140,10 @@ public class UserDAO {
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			//プレースホルダーへの値の設定
 			pstmt.setInt(1, userId);
-			
+
 			// SQLステートメントの実行
 			count = pstmt.executeUpdate(sql);
 		}
