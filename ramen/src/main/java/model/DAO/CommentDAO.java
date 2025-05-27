@@ -47,18 +47,22 @@ public class CommentDAO {
 	 */
 	public int insertComment(CommentBean comment)throws SQLException, ClassNotFoundException{
 
-		String sql = "insert into m_comment (review, rate, comment_photo, commenet_time, menu, value) value (?,?,?,?,?,?)";
+		//ユーザid、店舗id、ジャンルidインポートとセット
+		String sql = "insert into m_comment (user_id, shop_id, genre_id,review, rate, comment_photo, commenet_time, menu, value) value (?,?,?,?,?,?,?,?,?)";
 
 		int count = 0;
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
-			pstmt.setString(1, comment.getReview());
-			pstmt.setInt(2, comment.getRate());
-			pstmt.setString(3, comment.getCommentPhoto());
-			pstmt.setTimestamp(4, comment.getCommentTime());
-			pstmt.setString(5, comment.getMenu());
-			pstmt.setInt(6, comment.getValue());
+			pstmt.setInt(1, comment.getUserId());
+			pstmt.setInt(2, comment.getShopId());
+			pstmt.setInt(3, comment.getGenreId());
+			pstmt.setString(4, comment.getReview());
+			pstmt.setInt(5, comment.getRate());
+			pstmt.setString(6, comment.getCommentPhoto());
+			pstmt.setTimestamp(7, comment.getCommentTime());
+			pstmt.setString(8, comment.getMenu());
+			pstmt.setInt(9, comment.getValue());
 
 			count = pstmt.executeUpdate();
 
