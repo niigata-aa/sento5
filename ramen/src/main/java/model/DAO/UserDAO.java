@@ -45,7 +45,7 @@ public class UserDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public boolean rollCheck(int roll) throws SQLException, ClassNotFoundException{
+	public boolean rollCheck(int userId) throws SQLException, ClassNotFoundException{
 		String sql = "SELECT * FROM m_user WHERE user_id=?";
 		
 		// データベースへの接続の取得、PreparedStatementの取得
@@ -53,7 +53,7 @@ public class UserDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			
 			//プレースホルダーへの値の設定
-			pstmt.setInt(1, roll);
+			pstmt.setInt(1, userId);
 						
 			ResultSet res = pstmt.executeQuery();
 			if(res.next()) {
