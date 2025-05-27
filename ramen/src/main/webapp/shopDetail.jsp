@@ -29,13 +29,12 @@
 			<input type="submit" value="削除">
 		</form>
 	<%} %>
-	<img class="photo"src=<%%> alt="<% %>+の店舗の写真"><br> 
-	店名かな<%=shopkana%><br> 
-	店名<%=shopname%><br> 
-	住所<%=address%><br> 
-	営業時間<%=openTime%>～<%=closeTime%><br>
-	定休日<%=closedDay %><br>
-	詳細<%=detail%><br>
+	<img class="photo"src=<%=request.getAttribute("photo")%> alt="<%=request.getAttribute("shopKana") %>+の店舗の写真"><br> 
+	店名かな<%=request.getAttribute("shopKana")%><br> 
+	店名<%=request.getAttribute("shopName")%><br> 
+	住所<%=request.getAttribute("address")%><br> request.getAttribute("closeTime")%><br>
+	定休日<%=request.getAttribute("closedDay") %><br>
+	詳細<%=request.getAttribute("detail")%><br>
 	
 	<form action="comment-regist-confirm-servlet" method="post">
 		<input type="submit" value="コメント投稿">
@@ -50,19 +49,19 @@
 
 	<ul>
 	<%
-		List＜CommentBean＞ list = (List＜CommentBean＞) session.getAttribute("list"));
+		List＜CommentBean＞ list = (List＜CommentBean＞) session.getAttribute("commentList");
 		if (list != null && list.size() != 0) {
 	%>
 	<% for(CommentBean shop : List){%>
 		<li>
-			<%shop.getCommentTime()%>
-			<img class = "commentphoto" src="" alt=""><br>
+			<%=shop.getCommentTime()%>
+			<img class = "commentphoto" src="<%=shop.getCommentPhoto()%>" alt="<%=shop.getMenu()%>の写真"><br>
 			<%=ゆーざねーむ %>
-			<%=shop.getRate() %>
-			<%=shop.getGenre() %>
-			<%=shop.getMenu() %>
-			<%=shop.getValue() %>
-			<%=shop.getReview() %>	
+			<%=shop.getRate()%>
+			<%=shop.getGenre()%>
+			<%=shop.getMenu()%>
+			<%=shop.getValue()%>
+			<%=shop.getReview()%>	
 			<%if(管理者だったら){ %>
 				<form action="comment-delete-confirm-servlet" method="post">
 					<input type="submit" value="削除">
