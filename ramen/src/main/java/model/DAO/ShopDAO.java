@@ -19,7 +19,7 @@ public class ShopDAO {
 	 */
 	public List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
 		List<ShopBean> shopAllList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop";
+		String sql = "SELECT * FROM m_shop ";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -29,6 +29,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
+//				String genre = res.getString("genre_name");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -58,7 +59,7 @@ public class ShopDAO {
 				String shopName = res.getString("shop_name");
 				String shopKana = res.getString("shop_kana");
 				String address = res.getString("address");
-				Time openTime = res.getTime("opne_time");
+				Time openTime = res.getTime("open_time");
 				Time closeTime = res.getTime("close_time");
 				String closedDay = res.getString("closed_day");
 				String shopPhoto = res.getString("photo");
@@ -87,7 +88,7 @@ public class ShopDAO {
 	 */
 	public List<ShopBean> selectGenreShop(int genreId) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopGenreList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop s JOIN m_comment c ON s.shopID = c.shopID WHERE c.genreID = ?;";
+		String sql = "SELECT * FROM m_shop s JOIN m_comment c ON s.shop_id = c.shop_id WHERE c.genre_id = ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -116,7 +117,7 @@ public class ShopDAO {
 	 */
 	public List<ShopBean> selectShopNameShop(String shopname) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopNameSearchList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM WHERE shop_name LIKE '%?%'";
+		String sql = "SELECT * FROMFROM m_shop WHERE shop_name LIKE '%?%'";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -167,6 +168,13 @@ public class ShopDAO {
 		}
 		return shopAreaList;
 	}
+	/**
+	 * 店舗削除
+	 * @param shopId
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public int deleteShop(int shopId) throws ClassNotFoundException, SQLException{
 
 		int count=0;
@@ -181,10 +189,19 @@ public class ShopDAO {
 		return count;
 	}
 
+	/**
+	 * 店舗編集
+	 * @param shop
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public int updateShop(ShopBean shop)throws SQLException,ClassNotFoundException{
 
 
-		String sql = "UPDATE m_shop SET shop_id=? WHERE shop_name = ?,shop_kana=?,address=?,open_time=?,close_time=?,closed_day=?,photo=?,detail=?";
+		String sql = "UPDATE m_shop "
+				+ "SET shop_name = ?,shop_kana=?,address=?,open_time=?,close_time=?,closed_day=?,photo=?,detail=?"
+				+ " WHERE shop_id=? ";
 
 
 		int processingNumber = 0; //処理件数
@@ -192,15 +209,15 @@ public class ShopDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			// DTOからのデータの取り出し
-			int shopId=shop.getShopId();
-			String shopName=shop.getShopName();
-			String shopKana=shop.getShopKana();
-			String address=shop.getAddress();
-			Time openTime=shop.getOpenTime();
-			Time closeTime=shop.getCloseTime();
-			String closedDay=shop.getClosedDay();
-			String photo=shop.getPhoto();
-			String detail=shop.getDetail();
+			int shopId = shop.getShopId();
+			String shopName = shop.getShopName();
+			String shopKana = shop.getShopKana();
+			String address = shop.getAddress();
+			Time openTime = shop.getOpenTime();
+			Time closeTime = shop.getCloseTime();
+			String closedDay = shop.getClosedDay();
+			String photo = shop.getPhoto();
+			String detail = shop.getDetail();
 
 			// プレースホルダへの値の設定
 			pstmt.setInt(1, shopId);
@@ -221,21 +238,28 @@ public class ShopDAO {
 
 	}
 
+	/**
+	 * 店舗登録
+	 * @param shop
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public int insertShop(ShopBean shop) throws SQLException, ClassNotFoundException{
 		int count=0;
-		String sql = "insert into m_employee values(?,?,?,?,?,?,?,?,?)";
-		try(Connection con=ConnectionManager.getConnection();
-				PreparedStatement pstmt=con.prepareStatement(sql)){
+		String sql = "insert into m_shop (shop_name,shop_kana,address,open_time,close_time,closed_day,photo,detail) values(?,?,?,?,?,?,?,?)";
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
-			int shopId=shop.getShopId();
-			String shopName=shop.getShopName();
-			String shopKana=shop.getShopKana();
-			String address=shop.getAddress();
-			Time openTime=shop.getOpenTime();
-			Time closeTime=shop.getCloseTime();
-			String closed_day=shop.getClosedDay();
-			String photo=shop.getPhoto();
-			String detail=shop.getDetail();
+			int shopId = shop.getShopId();
+			String shopName = shop.getShopName();
+			String shopKana = shop.getShopKana();
+			String address = shop.getAddress();
+			Time openTime = shop.getOpenTime();
+			Time closeTime = shop.getCloseTime();
+			String closed_day = shop.getClosedDay();
+			String photo = shop.getPhoto();
+			String detail = shop.getDetail();
 
 
 			// プレースホルダへの値の設定
@@ -249,7 +273,7 @@ public class ShopDAO {
 			pstmt.setString(8, photo);
 			pstmt.setString(9, detail);
 
-			count=pstmt.executeUpdate();
+			count = pstmt.executeUpdate();
 
 		}
 		return count;
