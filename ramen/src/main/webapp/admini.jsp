@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者ページ</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
+<h1>管理者ページ</h1>
+<form action="shop-list-servlet" method="post">
+<input type="submit" value="店舗一覧・編集">
+</form>
+<br>
+<form action="user-list-servlet" method="post">
+<input type="submit" value="ユーザ一覧">
+</form>
+<br>
 </body>
 </html>
