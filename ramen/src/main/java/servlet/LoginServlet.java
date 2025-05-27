@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメーターの取得
-		String userIdStr = request.getParameter("userId");
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		String password =request.getParameter("password");
 		String url = null;
 
@@ -53,15 +53,18 @@ public class LoginServlet extends HttpServlet {
 		UserDAO dao = new UserDAO();
 		int roll=1;
 		try {
-			int userId = Integer.parseInt(userIdStr);
-			if(userIdStr!=null && dao.loginCheck(userId, password)) {
+			//DAOの生成
+			if(dao.loginCheck(userId, password)) {
+				//セッションにユーザIDをセット
 				HttpSession session = request.getSession();
 				session.setAttribute("userId", userId);
+				//rollが0（管理者)ならセッションにset
 				if(dao.rollCheck(userId)==0) {
 					session.setAttribute("roll",roll);
 				}
+				//トップページに遷移
 				url="top.jsp";
-			}else {
+			}else {//ログイン失敗
 				url="login-failure.html";
 			}
 		} catch (ClassNotFoundException e) {
