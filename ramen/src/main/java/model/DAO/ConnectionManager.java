@@ -1,4 +1,4 @@
-package model.ConnectionManager;
+package model.DAO;
 
 public class ConnectionManager {
 
