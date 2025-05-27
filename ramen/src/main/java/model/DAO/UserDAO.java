@@ -11,7 +11,15 @@ import java.util.List;
 import model.Bean.UserBean;
 
 public class UserDAO {
-	public boolean loginCheck(int userid, String password) throws SQLException, ClassNotFoundException{
+	/**
+	 * ログインのチェックを行う。
+	 * @param userId
+	 * @param password
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public boolean loginCheck(int userId, String password) throws SQLException, ClassNotFoundException{
 		String sql = "SELECT * FROM m_user WHERE user_id=? AND password =?";
 		
 		// データベースへの接続の取得、PreparedStatementの取得
@@ -19,9 +27,34 @@ public class UserDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			
 			//プレースホルダーへの値の設定
-			pstmt.setInt(1, userid);
+			pstmt.setInt(1, userId);
 			pstmt.setString(2, password);
 			
+			ResultSet res = pstmt.executeQuery();
+			if(res.next()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * 権限のチェックを行う。
+	 * @param roll
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public boolean rollCheck(int roll) throws SQLException, ClassNotFoundException{
+		String sql = "SELECT * FROM m_user WHERE roll = 0";
+		
+		// データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			//プレースホルダーへの値の設定
+			pstmt.setInt(1, roll);
+						
 			ResultSet res = pstmt.executeQuery();
 			if(res.next()) {
 				return true;
@@ -38,7 +71,7 @@ public class UserDAO {
 	 * @throws ClassNotFoundException
 	 */
 	public List<UserBean>selectAll() throws SQLException, ClassNotFoundException{
-		List<UserBean> list = new ArrayList<UserBean>();
+		List<UserBean> userList = new ArrayList<UserBean>();
 		
 		String sql = "SELECT * FROM m_user";
 		
@@ -51,10 +84,10 @@ public class UserDAO {
 				UserBean user = new UserBean();
 				user.setUserId(res.getInt("user_id"));
 				user.setUserName(res.getString("name"));
-				list.add(user);
+				userList.add(user);
 			}
 		}
-		return list;
+		return userList;
 	}
 	
 	/**
@@ -68,8 +101,8 @@ public class UserDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int insertUser(int userid, String username, String password, String roll) throws SQLException, ClassNotFoundException{
-		String sql = "INSERT INTO m_user(user_id, user_name, password, roll) VALUES (?, ?, ?, ?)";
+	public int insertUser(int userId, String userName, String password) throws SQLException, ClassNotFoundException{
+		String sql = "INSERT INTO m_user(user_id, user_name, password, roll) VALUES (?, ?, ?)";
 		int result = 0;	
 		
 		// データベースへの接続の取得、PreparedStatementの取得
@@ -77,10 +110,9 @@ public class UserDAO {
 			PreparedStatement pstmt = con.prepareStatement(sql)){
 			
 			//プレースホルダーへの値の設定
-			pstmt.setInt(1, userid);
-			pstmt.setString(2, username);
+			pstmt.setInt(1, userId);
+			pstmt.setString(2, userName);
 			pstmt.setString(3, password);
-			pstmt.setString(4, roll);
 			
 			// SQLステートメントの実行
 			result = pstmt.executeUpdate();
@@ -92,12 +124,12 @@ public class UserDAO {
 	/**
 	 * ユーザの削除を行う。
 	 * 
-	 * @param userid
+	 * @param userId
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int deleteUser(int userid) throws SQLException, ClassNotFoundException{
+	public int deleteUser(int userId) throws SQLException, ClassNotFoundException{
 		
 		String sql = "DELETE FROM m_user WHERE user_id=?";
 
@@ -108,7 +140,7 @@ public class UserDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			
 			//プレースホルダーへの値の設定
-			pstmt.setInt(1, userid);
+			pstmt.setInt(1, userId);
 			
 			// SQLステートメントの実行
 			count = pstmt.executeUpdate(sql);
