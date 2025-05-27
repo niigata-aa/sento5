@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.dao.UserBean;
+import model.Bean.UserBean;
 
 public class UserDAO {
 	public boolean loginCheck(int userid, String password) throws SQLException, ClassNotFoundException{
@@ -50,7 +50,7 @@ public class UserDAO {
 			while(res.next()) {
 				UserBean user = new UserBean();
 				user.setUserId(res.getInt("user_id"));
-				user.setName(res.getString("name"));
+				user.setUserName(res.getString("name"));
 				list.add(user);
 			}
 		}
