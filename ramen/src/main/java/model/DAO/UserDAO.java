@@ -46,7 +46,7 @@ public class UserDAO {
 	 * @throws ClassNotFoundException
 	 */
 	public boolean rollCheck(int roll) throws SQLException, ClassNotFoundException{
-		String sql = "SELECT * FROM m_user WHERE roll = 0";
+		String sql = "SELECT * FROM m_user WHERE user_id=?";
 		
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
