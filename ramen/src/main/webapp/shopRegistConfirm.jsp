@@ -28,11 +28,11 @@
 開店時間
 <jsp:getProperty property="openTime" name="shop"/><br>
 閉店時間
-<jsp:getProperty property="endTime" name="shop"/><br>
+<jsp:getProperty property="closeTime" name="shop"/><br>
 詳細
 <jsp:getProperty property="detaile" name="shop"/><br>
 写真ファイル
-<jsp:getProperty property="file" name="shop"/><br>
+<jsp:getProperty property="photo" name="shop"/><br>
 ジャンル
 <jsp:getProperty property="genre" name="shop"/><br>
 

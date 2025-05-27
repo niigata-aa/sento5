@@ -21,11 +21,11 @@
 開店時間
 <input type="hidden" name="openTime" value="<%= request.getAttribute("openTime") != null ? request.getAttribute("openTime") : ""%>">
 閉店時間
-<input type="hidden" name="endTime" value="<%= request.getAttribute("endTime") != null ? request.getAttribute("endTime") : ""%>">
+<input type="hidden" name="closeTime" value="<%= request.getAttribute("CloseTime") != null ? request.getAttribute("endTime") : ""%>">
 詳細
 <input type="hidden" name="deteil" value="<%= request.getAttribute("deteil")%>">
 写真ファイル
-<input type="hidden" name="file" value="<%= request.getAttribute("file") != null ? request.getAttribute("file") : ""%>">
+<input type="hidden" name="photo" value="<%= request.getAttribute("Photo") != null ? request.getAttribute("file") : ""%>">
 ジャンル
 <input type="hidden" name="genre" value="<%= request.getAttribute("genre")%>">
 <input type="submit" value="登録する">
