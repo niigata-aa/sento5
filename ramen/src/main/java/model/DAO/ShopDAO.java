@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Bean.ShopBean;
-import model.ConnectionManager.ConnectionManager;
-
 public class ShopDAO {
 
 	/**
