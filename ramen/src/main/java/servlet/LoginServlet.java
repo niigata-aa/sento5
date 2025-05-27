@@ -43,8 +43,41 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメーターの取得
 		int userId = Integer.parseInt(request.getParameter("userId"));
+		String userId1 = request.getParameter("userId");
 		String password =request.getParameter("password");
 		String url = null;
+		//入力チェック
+
+		String message = null;
+        if(userId1 == null || password == null){
+
+            //ダイレクトアクセス時のエラー設定
+
+            message = "フォーム画面から入力してね。";
+
+        }else if(userId1.equals("") || password.equals("")){
+
+            //空白の場合のエラー設定
+
+            message = "何も入力されていませんよ。";
+
+        }else{
+            try{
+
+                int num1 = Integer.parseInt(userId1);
+
+                int num2 = Integer.parseInt(password);
+  
+            }catch(NumberFormatException e){
+
+                //文字が入力された場合のエラー設定
+
+                message = "数字を入力してね。";
+
+            }
+
+        }
+
 
 		/**
 		 * ログイン処理
