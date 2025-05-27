@@ -1,4 +1,4 @@
-package sarvlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class A_servlet
+ * Servlet implementation class UploadImageServlet
  */
-@WebServlet("/A_servlet")
-public class A_servlet extends HttpServlet {
+@WebServlet("/upload-image-servlet")
+public class UploadImageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public A_servlet() {
+    public UploadImageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
