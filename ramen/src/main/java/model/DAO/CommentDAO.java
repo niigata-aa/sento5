@@ -18,7 +18,7 @@ public class CommentDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int daleteComment(int commentid)throws SQLException, ClassNotFoundException {
+	public int daleteComment(int commentId)throws SQLException, ClassNotFoundException {
 
 		int count = 0;
 
@@ -26,7 +26,7 @@ public class CommentDAO {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
-			pstmt.setInt(1,commentid);
+			pstmt.setInt(1,commentId);
 			count = pstmt.executeUpdate();
 		}catch(SQLException e){
 			System.out.print(e);
@@ -37,7 +37,6 @@ public class CommentDAO {
 		return count;
 
 	}
-
 
 
 	/**
