@@ -19,14 +19,14 @@ import model.DAO.UserDAO;
 @WebServlet("/login-servlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメーターの取得
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		String userIdStr = request.getParameter("userId");
 		String password =request.getParameter("password");
 		String url = null;
 
@@ -51,17 +51,18 @@ public class LoginServlet extends HttpServlet {
 		 * パスワードが一致したらuser_idをセッションに設定
 		 */
 		UserDAO dao = new UserDAO();
+		int roll=1;
 		try {
-			if(dao.loginCheck(userId, password)) {
+			int userId = Integer.parseInt(userIdStr);
+			if(userIdStr!=null && dao.loginCheck(userId, password)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("userId", userId);
-				int roll=dao.rollCheck(userId);
-				session.setAttribute("roll",roll);
+				if(dao.rollCheck(userId)==0) {
+					session.setAttribute("roll",roll);
+				}
 				url="top.jsp";
 			}else {
-				url="login.html";
-				request.setAttribute("errorMessage", "ユーザー名またはパスワードが正しくありません。");
-				//エラーメッセージを表示させたい		
+				url="login-failure.html";
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
