@@ -17,15 +17,15 @@
 店名かな
 <%=registShop.getShopKana()%>
 住所
-
+<%=registShop.getAddress()%><br>
 開店時間
-
+<%=registShop.getOpenTime()%><br>
 閉店時間
-
+<%=registShop.getCloseTime()%><br>
 詳細
-
+<%=registShop.getDetail()%><br>
 写真ファイル
-
+<%=registShop.getPhoto()%><br>
 
 </body>
 </html>
