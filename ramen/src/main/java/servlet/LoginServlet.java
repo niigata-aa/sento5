@@ -70,6 +70,8 @@ public class LoginServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
+		} catch (NumberFormatException|NullPointerException e) {
+			e.printStackTrace();
 		}
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
