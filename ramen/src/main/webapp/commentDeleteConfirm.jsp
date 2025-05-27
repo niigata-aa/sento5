@@ -12,14 +12,14 @@
 
 <% List<CommentBean>commentList=(List<CommentBean>)request.getAttribute("commentList");%>
 <%for(CommentBean comment:commentList){ %>
-		<%=comment.getCommentId() %><br>
-		<%=comment.getGenreId() %>
-		<%=comment.getReview() %>
-		<%=comment.getRate() %>
-		<%=comment.getCommentPhoto() %>
-		<%=comment.getCommentTime() %>
-		<%=comment.getMenu() %>
-		<%=comment.getValue() %>
+		コメントID<%=comment.getCommentId() %><br>
+		カテゴリーID<%=comment.getGenreId() %>
+		レビュー<%=comment.getReview() %>
+		評価<%=comment.getRate() %>
+		写真<%=comment.getCommentPhoto() %>
+		投稿時間<%=comment.getCommentTime() %>
+		メニュ<%=comment.getMenu() %>
+		値段<%=comment.getValue() %>
 <%} %>
 <button type="button"onclick="history.back()">戻る</button>
 <form action="coment-delete-confirm-servlet" method="post">
