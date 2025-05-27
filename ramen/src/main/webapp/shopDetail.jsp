@@ -1,6 +1,8 @@
 <%--各店舗画面--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.Bean.CommentBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,19 +50,19 @@
 
 	<ul>
 	<%
-	セレクトオールコメント
+		List＜CommentBean＞ list = (List＜CommentBean＞) session.getAttribute("list"));
 		if (list != null && list.size() != 0) {
 	%>
-	<% for （コメントリストサイズぶん）｛%>
+	<% for(CommentBean shop : List){%>
 		<li>
-			<%commenttime %>
+			<%shop.getCommentTime()%>
 			<img class = "commentphoto" src="" alt=""><br>
 			<%=ゆーざねーむ %>
-			<%=rate %>
-			<%=genre %>
-			<%=menu %>
-			<%=value %>
-			<%=review %>	
+			<%=shop.getRate() %>
+			<%=shop.getGenre() %>
+			<%=shop.getMenu() %>
+			<%=shop.getValue() %>
+			<%=shop.getReview() %>	
 			<%if(管理者だったら){ %>
 				<form action="comment-delete-confirm-servlet" method="post">
 					<input type="submit" value="削除">

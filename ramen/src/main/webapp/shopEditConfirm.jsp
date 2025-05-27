@@ -13,6 +13,7 @@
 	%>
 	<h1>編集確認ページ</h1>
 	<form action="shop-edit-servlet" method="post">
+	<jsp:useBean id="shop"class="model.Bean.ShopBean"scope="session"/>
 		店名入力<jsp:getProperty name="shop" property="shopName"/><br>
 		店名かな入力<jsp:getProperty name="shop" property="shopKana"/><br>
 		住所<jsp:getProperty name="shop" property="address"/><br>
