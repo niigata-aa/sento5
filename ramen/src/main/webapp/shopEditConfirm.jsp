@@ -1,12 +1,28 @@
+<%--店舗編集確認画面--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>店舗編集確認</title>
 </head>
 <body>
-
+	<%
+		request.setCharacterEncoding("UTF-8");
+	%>
+	<h1>編集確認ページ</h1>
+	<form action="shop-edit-servlet" method="post">
+		店名入力<jsp:getProperty name="shop" property="shopName"/><br>
+		店名かな入力<jsp:getProperty name="shop" property="shopKana"/><br>
+		住所<jsp:getProperty name="shop" property="address"/><br>
+		開店時間<jsp:getProperty name="shop" property="openTime"/><br>
+		閉店時間<jsp:getProperty name="shop" property="endTime"/><br>
+		詳細<jsp:getProperty name="shop" property="detail"/><br>
+		写真<jsp:getProperty name="shop" property=写真/><br>
+		ジャンル<jsp:getProperty name="shop" property=ジャンル/>
+		<input type="submit" value="登録">
+	</form>
+	<button onclick="history.back()" value="戻る"></button>
 </body>
 </html>
