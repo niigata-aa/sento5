@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,23 +41,29 @@ public class UserRegistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
+		String url ="userRegistConfirm.jsp";
 		
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		
-		try{
-			UserDAO userDao = new UserDAO();
-			
+		
+		//DAOの生成
+		UserDAO userdao = new UserDAO();
+		int processingNumber = 0;
+		
+		try {
 			//DAOの利用
-			if(userDao.insertUser(userId,userName,password)) {
-				
-			}
-			
-		} catch (Exception e) {
+			 processingNumber = userdao.insertUser(userId, userName, password);
+		} catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		//リクエストスコープへの属性の設定
+		request.setAttribute("processingNumber", processingNumber);
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request,response);
 
+		}
+}
 
-}
-}
