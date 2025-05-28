@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +36,18 @@ public class UserRegistConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		request.setCharacterEncoding("UTF-8");
+		//リクエストパラメータの取得
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		
+		request.setAttribute("useri", userId);
+		request.setAttribute("UserName", userName);
+		request.setAttribute("password", password);
+			
+		
 	}
 
 }

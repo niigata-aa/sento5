@@ -18,7 +18,7 @@ public class CommentDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int daleteComment(int commentId)throws SQLException, ClassNotFoundException {
+	public int deleteComment(int commentId)throws SQLException, ClassNotFoundException {
 
 		int count = 0;
 

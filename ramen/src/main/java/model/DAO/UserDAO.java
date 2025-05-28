@@ -32,6 +32,8 @@ public class UserDAO {
 
 			ResultSet res = pstmt.executeQuery();
 			if(res.next()) {
+				UserBean user = new UserBean();
+				user.setUserName(res.getString("name"));
 				return true;
 			}
 		}
