@@ -116,11 +116,11 @@ public class ShopDAO {
 	 */
 	public static List<ShopBean> selectShopNameShop(String shopname) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopNameSearchList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop WHERE shop_name LIKE '%?%'";
+		String sql = "SELECT * FROM m_shop WHERE shop_name LIKE ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
-			pstmt.setString(1,shopname);
+			pstmt.setString(1,"%"+shopname+"%");
 			ResultSet res = pstmt.executeQuery();
 
 			while(res.next()) {
@@ -144,11 +144,11 @@ public class ShopDAO {
 	 */
 	public static List<ShopBean> selectAreaShop(String area) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopAreaList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop WHERE address LIKE '%?%'";
+		String sql = "SELECT * FROM m_shop WHERE address LIKE ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
-			pstmt.setString(1,area);
+			pstmt.setString(1,"%"+area+"%");
 			ResultSet res = pstmt.executeQuery();
 
 			while(res.next()) {
