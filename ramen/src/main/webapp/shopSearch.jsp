@@ -28,7 +28,7 @@ if(shopList != null && !shopList.isEmpty() ){
 
 <% for (ShopBean shop : shopList){ %>
 <%=shop.getShopName() %>
-<img src="<%=shop.getPhoto() %>" alt="店舗写真">
+<a href="ShopDetailServlet?shopId=<%= shop.getShopId() %>"></a><img src="<%=shop.getPhoto() %>" alt="店舗写真">
 <% } %>
 
 <%}else{%>
