@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Bean.UserBean;
 import model.DAO.UserDAO;
 
 /**
@@ -42,30 +43,43 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメーターの取得
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		String userId = request.getParameter("userId");
 		String password =request.getParameter("password");
-		String url = null;
-
+		
+		//入力チェック
+		if(userId==null || userId.trim().isEmpty()||
+		   password == null || password.trim().isEmpty()) {
+			
+			request.setAttribute("errorMessage", "ユーザ名とパスワードを入力してください");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+			return;
+		}
 		/**
 		 * ログイン処理
 		 * パスワードが一致したらuser_idをセッションに設定
 		 */
 		UserDAO dao = new UserDAO();
+		UserBean user = new UserBean();
 		int roll=1;
 		try {
 			//DAOの生成
-			if(dao.loginCheck(userId, password)) {
+			if(dao.loginCheck(Integer.parseInt(userId), password)) {
 				//セッションにユーザIDをセット
 				HttpSession session = request.getSession();
 				session.setAttribute("userId", userId);
+				session.setAttribute("userName", user.getUserName());
 				//rollが0（管理者)ならセッションにset
-				if(dao.rollCheck(userId)==0) {
+				if(dao.rollCheck(Integer.parseInt(userId))==0) {
 					session.setAttribute("roll",roll);
 				}
 				//トップページに遷移
-				url="top.jsp";
+				response.sendRedirect("top.jsp");
+
 			}else {//ログイン失敗
-				url="login-failure.html";
+				request.setAttribute("errorMessage", "ユーザ名またはパスワードが間違えています。");
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+				rd.forward(request, response);
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
@@ -76,9 +90,7 @@ public class LoginServlet extends HttpServlet {
 		} catch (NumberFormatException|NullPointerException e) {
 			e.printStackTrace();
 		}
-		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher(url);
-		rd.forward(request, response);
+
 	}
 
 }
