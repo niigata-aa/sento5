@@ -30,12 +30,9 @@
 	int roll = (Integer)session.getAttribute("roll");
 	if(roll !=1){
 	%>
-<<<<<<< HEAD
+
 		<form action="shop-edit-info" method="post">
-=======
-		<form action="shop-edit" method="post">
 		    <input type="hidden" value="<%= shopId %>">
->>>>>>> refs/remotes/origin/master
 			<input type="submit" value="編集">
 		</form>
 		
