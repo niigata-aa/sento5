@@ -45,7 +45,7 @@ public class UserRegistServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String url ="login.jsp";
+		String url ="user-regist-complete.jsp";
 		
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		String userName = request.getParameter("userName");
@@ -67,7 +67,6 @@ public class UserRegistServlet extends HttpServlet {
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request,response);
-		//登録完了したことを伝える画面が必要
 
 		}
 }
