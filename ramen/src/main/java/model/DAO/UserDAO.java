@@ -39,6 +39,28 @@ public class UserDAO {
 	}
 
 	/**
+	 * ユーザIDでユーザ名を取得する
+	 * @param userId
+	 * @return　ユーザ名
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public String selectUserName(int userId) throws SQLException, ClassNotFoundException {
+		String userName=null;
+		String sql = "SELECT * FROM m_user WHERE user_id = ?";
+
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet res = pstmt.executeQuery()){
+
+			while (res.next()) {
+				userName = res.getString("user_name");
+			}
+			return userName;
+
+		}
+	}
+	/**
 	 * 権限のチェックを行う。
 	 * @param roll
 	 * @return

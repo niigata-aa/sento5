@@ -59,18 +59,21 @@ public class LoginServlet extends HttpServlet {
 		 * パスワードが一致したらuser_idをセッションに設定
 		 */
 		UserDAO dao = new UserDAO();
-		UserBean user = new UserBean();
+		UserBean userInfo = new UserBean();
 		int roll=1;
+		String userName = null;
 		try {
 			//DAOの生成
 			if(dao.loginCheck(Integer.parseInt(userId), password)) {
+				userName=dao.selectUserName(Integer.parseInt(userId));
+				userInfo.setUserId(Integer.parseInt(userId));
+				userInfo.setUserName(userName);
 				//セッションにユーザIDをセット
 				HttpSession session = request.getSession();
-				session.setAttribute("userId", userId);
-				session.setAttribute("userName", user.getUserName());
+				session.setAttribute("userInfo", userInfo);
 				//rollが0（管理者)ならセッションにset
 				if(dao.rollCheck(Integer.parseInt(userId))==0) {
-					session.setAttribute("roll",roll);
+					userInfo.setRoll(roll);
 				}
 				//トップページに遷移
 				response.sendRedirect("top.jsp");
