@@ -26,7 +26,7 @@
 	int roll = (Integer)request.getAttribute("roll");
 	if(roll !=1){
 	%>
-		<form action="shop-edit" method="post">
+		<form action="shop-edit-info" method="post">
 			<input type="submit" value="編集">
 		</form>
 		
