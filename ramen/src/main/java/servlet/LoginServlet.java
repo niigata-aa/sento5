@@ -45,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 		//リクエストパラメーターの取得
 		String userId = request.getParameter("userId");
 		String password =request.getParameter("password");
-		
 		//入力チェック
 		if(userId==null || userId.trim().isEmpty()||
 		   password == null || password.trim().isEmpty()) {
@@ -60,18 +59,21 @@ public class LoginServlet extends HttpServlet {
 		 * パスワードが一致したらuser_idをセッションに設定
 		 */
 		UserDAO dao = new UserDAO();
-		UserBean user = new UserBean();
+		UserBean userInfo = new UserBean();
 		int roll=1;
+		String userName = null;
 		try {
 			//DAOの生成
 			if(dao.loginCheck(Integer.parseInt(userId), password)) {
-				//セッションにユーザIDをセット
+				userName=dao.selectUserName(Integer.parseInt(userId));
+				//セッションにユーザIDとユーザ名をセット
 				HttpSession session = request.getSession();
 				session.setAttribute("userId", userId);
-				session.setAttribute("userName", user.getUserName());
+				session.setAttribute("userName", userName);
 				//rollが0（管理者)ならセッションにset
-				if(dao.rollCheck(Integer.parseInt(userId))==0) {
-					session.setAttribute("roll",roll);
+				 roll=dao.rollCheck(Integer.parseInt(userId));
+				if(roll==0) {
+					session.setAttribute("roll", roll);
 				}
 				//トップページに遷移
 				response.sendRedirect("top.jsp");
