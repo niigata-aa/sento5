@@ -1,15 +1,13 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.DAO.CommentDAO;
 
 /**
  * Servlet implementation class ComentDeleteConfirmServlet
@@ -41,20 +39,27 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		int mentId=request.getParameter("commentId");
+		int commentId=Integer.parseInt(request.getParameter("commentId"));
+		String genreId=request.getParameter("genreId");
+		String review=request.getParameter("review");
+		String rate=request.getParameter("rate");
+		String commentPhoto=request.getParameter("commentPhoto");
+		String commentTime=request.getParameter("commentTime");
+		String menu=request.getParameter("menu");
+		String value=request.getParameter("value");
 		
-		CommentDAO dao=new CommentDAO();
-		
-		int count=0;
-		
-		try {
-			count=dao.deleteComment(commentId);
-			
-		}catch  (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
+		request.setAttribute("commentId",commentId );
+		request.setAttribute("genreId",genreId );
+		request.setAttribute("review",review );
+		request.setAttribute("rate",rate );
+		request.setAttribute("commentPhoto",commentPhoto );
+		request.setAttribute("commentTime",commentTime );
+		request.setAttribute("menu",menu );
+		request.setAttribute("value",value );
 
+		RequestDispatcher rd = request.getRequestDispatcher("commentDeleteConfirm.jsp");
 		
+		rd.forward(request, response);
 	}
 
 }

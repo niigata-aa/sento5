@@ -22,9 +22,16 @@
 		<input type="submit" value="店舗詳細">
 		<input type="hidden" name="shopId" value="<%comment.getShopId(); %>">
 		</form>
-	<form action="comment-delete-servlet" method="post">
+	<form action="coment-delete-confirm-servlet" method="post">
 		<input type="submit" value="削除">
 		<input type="hidden" name="commentId" value="<%comment.getCommentId(); %>">
+		<input type="hidden" name="genreId" value="<%comment.getGenreId(); %>">
+		<input type="hidden" name="review" value="<%comment.getReview(); %>">
+		<input type="hidden" name="rate" value="<%comment.getRate(); %>">
+		<input type="hidden" name="commentphotp" value="<%comment.getCommentPhoto(); %>">
+		<input type="hidden" name="commenttime" value="<%comment.getCommentTime(); %>">
+		<input type="hidden" name="menu" value="<%comment.getMenu(); %>">
+		<input type="hidden" name="value" value="<%comment.getValue(); %>">
 		</form>
 	<%} %>
 </body>

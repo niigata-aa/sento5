@@ -20,11 +20,13 @@
 		投稿時間<%=comment.getCommentTime() %>
 		メニュ<%=comment.getMenu() %>
 		値段<%=comment.getValue() %>
+		<button type="button"onclick="history.back()">戻る</button>
+		<form action="coment-delete-servlet" method="post">
+			<input type="submit" value="削除する">
+			<input type="hidden" name="commentId" value="<%comment.getCommentId(); %>">
+		</form>
 <%} %>
-<button type="button"onclick="history.back()">戻る</button>
-<form action="coment-delete-confirm-servlet" method="post">
-	<input type="submit" value="削除する">
-</form>
+
 
 </body>
 </html>
