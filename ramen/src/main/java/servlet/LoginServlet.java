@@ -59,7 +59,6 @@ public class LoginServlet extends HttpServlet {
 		 * パスワードが一致したらuser_idをセッションに設定
 		 */
 		UserDAO dao = new UserDAO();
-		UserBean userInfo = new UserBean();
 		int roll=1;
 		String userName = null;
 		try {

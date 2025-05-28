@@ -12,8 +12,7 @@
 <form action = "comment-list-servlet" method = "POST">
 <input type = "submit" value = "コメント一覧">
 <input type = "hidden"  name="userId" >
-
-<input type = "button"  onclick = "history.vack()" value = "戻る">
 </form>
+<input type = "button"  onclick = "history.vack()" value = "戻る">
 </body>
 </html>
