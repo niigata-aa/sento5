@@ -45,16 +45,15 @@ public class CommentListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		
-		HttpSession session=request.getSession();
-		int userId=Integer.parseInt((String) session.getAttribute("userId"));
-		
 		List<CommentBean> commentList=null;
 		
-		CommentDAO dao=new CommentDAO();
 		
 		try {
-			commentList=dao.selectUserComment(userId);
+			HttpSession session=request.getSession();
+			String userId=(String) session.getAttribute("userId");
+			
+			CommentDAO dao=new CommentDAO();
+			commentList=dao.selectUserComment(Integer.parseInt(userId));
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
 		}
