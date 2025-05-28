@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>店舗削除確認画面</h1>
-<form action="ShopDeleteServlet	" method="post">
+<form action="shop-delete-confirm" method="post">
 	この店舗を削除しますか<br>
 	店名かな：<%=request.getAttribute("shopKana")%><br>
 	店名：<%=request.getAttribute("shopName")%><br>

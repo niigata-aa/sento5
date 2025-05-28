@@ -33,7 +33,7 @@ public class UserDAO {
 			ResultSet res = pstmt.executeQuery();
 			if(res.next()) {
 				UserBean user = new UserBean();
-				user.setUserName(res.getString("name"));
+				user.setUserName(res.getString("user_name"));
 				return true;
 			}
 		}
@@ -87,13 +87,13 @@ public class UserDAO {
 			while(res.next()) {
 				UserBean user = new UserBean();
 				user.setUserId(res.getInt("user_id"));
-				user.setUserName(res.getString("name"));
+				user.setUserName(res.getString("user_name"));
 				userList.add(user);
 			}
 		}
 		return userList;
 	}
-
+	
 	/**
 	 * ユーザの登録を行う。
 	 * 
