@@ -54,7 +54,7 @@ public class UserRegistConfirmServlet extends HttpServlet {
 			return;
 		}
 		
-		request.setAttribute("useri", userId);
+		request.setAttribute("userId", userId);
 		request.setAttribute("UserName", userName);
 		request.setAttribute("password", password);
 		
