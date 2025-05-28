@@ -52,7 +52,7 @@ public class UserDAO {
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet res = pstmt.executeQuery()){
-
+			pstmt.setInt(1, userId);
 			while (res.next()) {
 				userName = res.getString("user_name");
 			}
