@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +37,49 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		//リクエストパラメータの取得
+		String userId = request.getParameter("userId");
+		String shopId = request.getParameter("shopId");
+		String genreId = request.getParameter("genreId");
+		String review = request.getParameter("review");
+		String rate = request.getParameter("rate");
+		String commentPhoto = request.getParameter("commentPhoto");
+		String commentTime = request.getParameter("commentTime");
+		String menu = request.getParameter("menu");
+		String value = request.getParameter("value");
+		
+		//入力チェック
+		if(genreId==null || genreId.trim().isEmpty()||
+		   review == null || review.trim().isEmpty()||
+		   rate==null || rate.trim().isEmpty()||
+		   commentPhoto==null || commentPhoto.trim().isEmpty()||
+		   menu==null || menu.trim().isEmpty()||
+		   value==null || value.trim().isEmpty()) {
+			
+			request.setAttribute("errorMessage", "メニュー名・値段・評価・ジャンル・レビューをすべて入力してください");
+			RequestDispatcher rd = request.getRequestDispatcher("commentRegist.html");
+			rd.forward(request, response);
+			return;
+		}
+		
+		request.setAttribute("userId", userId);
+		request.setAttribute("shopId", shopId);
+		request.setAttribute("genreId", genreId);
+		request.setAttribute("review",review );
+		request.setAttribute("rate",rate );
+		request.setAttribute("commentPhoto",commentPhoto );
+		request.setAttribute("commentTime", commentTime );
+		request.setAttribute("menu", menu );
+		request.setAttribute("value",value);
+		
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher("commentRegistConfirm.jsp");
+		rd.forward(request,response);
+			
+		
+	
 	}
 
 }

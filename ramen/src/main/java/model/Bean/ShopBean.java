@@ -1,7 +1,6 @@
 package model.Bean;
 
 import java.io.Serializable;
-import java.sql.Time;
 
 
 public class ShopBean implements Serializable{
@@ -29,12 +28,12 @@ public class ShopBean implements Serializable{
 	/**
 	 * 開店時間
 	 */
-	private Time openTime;
+	private String openTime;
 	
 	/**
 	 * 閉店時間
 	 */
-	private Time closeTime;
+	private String closeTime;
 	
 	/**
 	 * 定休日
@@ -50,6 +49,8 @@ public class ShopBean implements Serializable{
 	 * 店舗詳細
 	 */
 	private String detail;
+	
+	private String genre;
 	
 	public ShopBean() {
 		
@@ -87,19 +88,19 @@ public class ShopBean implements Serializable{
 		this.address = address;
 	}
 
-	public Time getOpenTime() {
+	public String getOpenTime() {
 		return openTime;
 	}
 
-	public void setOpenTime(Time openTime) {
+	public void setOpenTime(String openTime) {
 		this.openTime = openTime;
 	}
 
-	public Time getCloseTime() {
+	public String getCloseTime() {
 		return closeTime;
 	}
 
-	public void setCloseTime(Time closeTime) {
+	public void setCloseTime(String closeTime) {
 		this.closeTime = closeTime;
 	}
 
@@ -125,6 +126,14 @@ public class ShopBean implements Serializable{
 
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	
 	

@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.Bean.CommentBean;
+import model.DAO.CommentDAO;
 
 /**
  * Servlet implementation class ComentSearchServlet
@@ -35,7 +42,24 @@ public class CommentSearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		int genreId=Integer.parseInt(request.getParameter("genreId"));
+		
+		List<CommentBean> commentList=null;
+		
+		CommentDAO dao=new CommentDAO();
+		
+		try {
+			commentList=dao.selectUserComment(genreId);
+		}catch (SQLException  |  ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("commentList", commentList);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
+		
+		rd.forward(request, response);
 	}
 
 }

@@ -30,7 +30,7 @@
 </select>
 </form>
 <button onclick="history.back()" value="戻る"></button>
-<form action="shop-edit-confirm-servlet" method="post">
+<form action="shop-edit-confirm" method="post">
 	<input type="submit" value="確認">
 </form>
 </body>

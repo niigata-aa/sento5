@@ -12,7 +12,6 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 	<h1>編集確認ページ</h1>
-	<form action="shop-edit-servlet" method="post">
 	<jsp:useBean id="shop"class="model.Bean.ShopBean"scope="session"/>
 		店名入力<jsp:getProperty name="shop" property="shopName"/><br>
 		店名かな入力<jsp:getProperty name="shop" property="shopKana"/><br>
@@ -22,6 +21,8 @@
 		詳細<jsp:getProperty name="shop" property="detail"/><br>
 		写真<jsp:getProperty name="shop" property=写真/><br>
 		ジャンル<jsp:getProperty name="shop" property=ジャンル/>
+	
+	<form action="shop-detail" method="post">
 		<input type="submit" value="登録">
 	</form>
 	<button onclick="history.back()" value="戻る"></button>

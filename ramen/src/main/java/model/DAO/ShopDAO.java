@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class ShopDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
+	public static List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
 		List<ShopBean> shopAllList = new ArrayList<ShopBean>();
 		String sql = "SELECT * FROM m_shop ";
 		try(Connection con = ConnectionManager.getConnection();
@@ -59,8 +58,8 @@ public class ShopDAO {
 				String shopName = res.getString("shop_name");
 				String shopKana = res.getString("shop_kana");
 				String address = res.getString("address");
-				Time openTime = res.getTime("open_time");
-				Time closeTime = res.getTime("close_time");
+				String openTime = res.getString("open_time");
+				String closeTime = res.getString("close_time");
 				String closedDay = res.getString("closed_day");
 				String shopPhoto = res.getString("photo");
 				String detail = res.getString("detail");
@@ -115,13 +114,13 @@ public class ShopDAO {
 	/**
 	 * 店名で指定して、店舗一覧を表示する
 	 */
-	public List<ShopBean> selectShopNameShop(String shopname) throws SQLException, ClassNotFoundException {
+	public static List<ShopBean> selectShopNameShop(String shopname) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopNameSearchList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop WHERE shop_name LIKE '%?%'";
+		String sql = "SELECT * FROM m_shop WHERE shop_name LIKE ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
-			pstmt.setString(1,shopname);
+			pstmt.setString(1,"%"+shopname+"%");
 			ResultSet res = pstmt.executeQuery();
 
 			while(res.next()) {
@@ -143,13 +142,13 @@ public class ShopDAO {
 	/**
 	 * エリアで指定して、店舗一覧を表示する
 	 */
-	public List<ShopBean> selectAreaShop(String area) throws SQLException, ClassNotFoundException {
+	public static List<ShopBean> selectAreaShop(String area) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopAreaList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop WHERE address LIKE '%?%'";
+		String sql = "SELECT * FROM m_shop WHERE address LIKE ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
-			pstmt.setString(1,area);
+			pstmt.setString(1,"%"+area+"%");
 			ResultSet res = pstmt.executeQuery();
 
 			while(res.next()) {
@@ -213,8 +212,8 @@ public class ShopDAO {
 			String shopName = shop.getShopName();
 			String shopKana = shop.getShopKana();
 			String address = shop.getAddress();
-			Time openTime = shop.getOpenTime();
-			Time closeTime = shop.getCloseTime();
+			String openTime = shop.getOpenTime();
+			String closeTime = shop.getCloseTime();
 			String closedDay = shop.getClosedDay();
 			String photo = shop.getPhoto();
 			String detail = shop.getDetail();
@@ -224,8 +223,8 @@ public class ShopDAO {
 			pstmt.setString(1, shopName);
 			pstmt.setString(2, shopKana);
 			pstmt.setString(3, address);
-			pstmt.setTime(4, openTime);
-			pstmt.setTime(5, closeTime);
+			pstmt.setString(4, openTime);
+			pstmt.setString(5, closeTime);
 			pstmt.setString(6, closedDay);
 			pstmt.setString(7, photo);
 			pstmt.setString(8, detail);
@@ -255,8 +254,8 @@ public class ShopDAO {
 			String shopName = shop.getShopName();
 			String shopKana = shop.getShopKana();
 			String address = shop.getAddress();
-			Time openTime = shop.getOpenTime();
-			Time closeTime = shop.getCloseTime();
+			String openTime = shop.getOpenTime();
+			String closeTime = shop.getCloseTime();
 			String closedDay = shop.getClosedDay();
 			String photo = shop.getPhoto();
 			String detail = shop.getDetail();
@@ -266,8 +265,8 @@ public class ShopDAO {
 			pstmt.setString(1, shopName);
 			pstmt.setString(2, shopKana);
 			pstmt.setString(3, address);
-			pstmt.setTime(4, openTime);
-			pstmt.setTime(5, closeTime);
+			pstmt.setString(4, openTime);
+			pstmt.setString(5, closeTime);
 			pstmt.setString(6, closedDay);
 			pstmt.setString(7, photo);
 			pstmt.setString(8, detail);

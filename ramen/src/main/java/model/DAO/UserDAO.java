@@ -32,14 +32,34 @@ public class UserDAO {
 
 			ResultSet res = pstmt.executeQuery();
 			if(res.next()) {
-				UserBean user = new UserBean();
-				user.setUserName(res.getString("name"));
 				return true;
 			}
 		}
 		return false;
 	}
 
+	/**
+	 * ユーザIDでユーザ名を取得する
+	 * @param userId
+	 * @return　ユーザ名
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public String selectUserName(int userId) throws SQLException, ClassNotFoundException {
+		String userName=null;
+		String sql = "SELECT * FROM m_user WHERE user_id = ?";
+
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet res = pstmt.executeQuery()){
+
+			while (res.next()) {
+				userName = res.getString("user_name");
+			}
+			return userName;
+
+		}
+	}
 	/**
 	 * 権限のチェックを行う。
 	 * @param roll
@@ -87,13 +107,13 @@ public class UserDAO {
 			while(res.next()) {
 				UserBean user = new UserBean();
 				user.setUserId(res.getInt("user_id"));
-				user.setUserName(res.getString("name"));
+				user.setUserName(res.getString("user_name"));
 				userList.add(user);
 			}
 		}
 		return userList;
 	}
-
+	
 	/**
 	 * ユーザの登録を行う。
 	 * 
