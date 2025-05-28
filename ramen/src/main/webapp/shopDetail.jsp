@@ -67,7 +67,8 @@
 	<form action="comment-delete-confirm" method="post">
 	<table>
 		<% 
-		List<UserBean> userList =(List<UserBean>) request.getAttribute("commentList");
+		String userName = (String)request.getAttribute("userName");
+		String genreName = (String)request.getAttribute("genreName");
 		ArrayList<CommentBean> commentList = (ArrayList<CommentBean>) request.getAttribute("commentList");
 		for(int i = 1; i<commentList.size(); i++){
 		CommentBean comment = commentList.get(i);
@@ -77,9 +78,9 @@
 			<td><%=comment.getCommentTime()%></td>
 			<td><%=comment.getCommentId()%></td>
 			<td><img class = "commentphoto" src="<%=comment.getCommentPhoto()%>" alt="の写真"></td>
-			<td><%=comment.getUsername %></td>
+			<td><%=userName%></td>
 			<td><%=comment.getRate()%></td>
-			<td><%=comment.getGenreId()%></td>
+			<td><%=genreName%></td>
 			<td><%=comment.getMenu()%></td>
 			<td><%=comment.getValue()%></td>
 			<td><%=comment.getReview()%></td>	
