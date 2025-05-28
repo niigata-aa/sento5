@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.DAO.CommentDAO;
+
 /**
  * Servlet implementation class ComentDeleteConfirmServlet
  */
@@ -35,7 +37,18 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		String commentId=request.getParameter("commentId");
+		
+		CommentDAO dao=new CommentDAO();
+		
+		int count=0;
+		
+		try {
+			count=dao.daleteComment(commentId);
+		}
+		
 	}
 
 }
