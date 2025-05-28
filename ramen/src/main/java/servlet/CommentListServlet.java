@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
@@ -44,7 +45,9 @@ public class CommentListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		int userId=Integer.parseInt(request.getParameter("userId"));
+		
+		HttpSession session=request.getSession();
+		int userId=Integer.parseInt((String) session.getAttribute("userId"));
 		
 		List<CommentBean> commentList=null;
 		
