@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,12 +63,20 @@ public class ShopSearchServlet extends HttpServlet {
 				shopList = ShopDAO.selectShopNameShop(shopName);
 			}else if((shopName == null || shopName.isEmpty())&&(area != null || area.isEmpty())){
 				shopList = ShopDAO.selectAreaShop(area);
+			}else {
+				shopList = ShopDAO.selectShopNameAndAreaShop(shopName, area);
 			}
-		}catch (SQLException | ClassNotFoundException e){}
+			//検索結果をリクエストスコープに保存
+			request.setAttribute("shopList", shopList);
+			request.setAttribute("shopName", shopName);
+			request.setAttribute("area", area);
+			
+		}catch (SQLException | ClassNotFoundException e){
+			e.printStackTrace();
+		}
 		
-		
-		
-		doGet(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/ShopSearch.jsp");
+        dispatcher.forward(request, response);
 	}
 
 }
