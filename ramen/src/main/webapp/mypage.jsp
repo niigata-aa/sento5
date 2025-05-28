@@ -13,6 +13,6 @@
 <input type = "submit" value = "コメント一覧">
 <input type = "hidden"  name="userId" >
 </form>
-<input type = "button"  onclick = "history.vack()" value = "戻る">
+<input type = "button"  onclick = "history.back()" value = "戻る">
 </body>
 </html>

@@ -14,7 +14,7 @@ if(shoprankList() != 0){
 %>
 
 <%=shop.getShopName %>
-<%=shop.getPhoto %>
+<img src = <%=shop.getPhoto %>
 <%} %>
 
 <%} else{ %>
