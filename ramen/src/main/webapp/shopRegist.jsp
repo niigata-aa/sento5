@@ -46,6 +46,10 @@
     </select>
     	定休日：<input type="text" name="closedDay">
 		詳細：<input type="text" name="detail"> 
+		
+		徒歩圏内：<input type="radio" name="walkingDistance" value="true">
+		徒歩圏外：<input type="radio" name="walkingDistance" value="false">
+		
 		写真：<input type="file" name="image">
 		
 		<button type="submit" value="確認へ"></button>

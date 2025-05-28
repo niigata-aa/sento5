@@ -50,6 +50,21 @@ public class ShopBean implements Serializable{
 	 */
 	private String detail;
 	
+	/*
+	 * 徒歩圏内情報
+	 */
+	private boolean walkingDistance; //徒歩圏内：true 徒歩圏外：false
+	
+	
+
+	public boolean isWalkingDistance() {
+		return walkingDistance;
+	}
+
+	public void setWalkingDistance(boolean walkingDistance) {
+		this.walkingDistance = walkingDistance;
+	}
+
 	private String genre;
 	
 	public ShopBean() {
