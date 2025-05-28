@@ -16,7 +16,7 @@ public class ShopDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
+	public static List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
 		List<ShopBean> shopAllList = new ArrayList<ShopBean>();
 		String sql = "SELECT * FROM m_shop ";
 		try(Connection con = ConnectionManager.getConnection();
@@ -114,7 +114,7 @@ public class ShopDAO {
 	/**
 	 * 店名で指定して、店舗一覧を表示する
 	 */
-	public List<ShopBean> selectShopNameShop(String shopname) throws SQLException, ClassNotFoundException {
+	public static List<ShopBean> selectShopNameShop(String shopname) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopNameSearchList = new ArrayList<ShopBean>();
 		String sql = "SELECT * FROM m_shop WHERE shop_name LIKE '%?%'";
 		try(Connection con = ConnectionManager.getConnection();
@@ -142,7 +142,7 @@ public class ShopDAO {
 	/**
 	 * エリアで指定して、店舗一覧を表示する
 	 */
-	public List<ShopBean> selectAreaShop(String area) throws SQLException, ClassNotFoundException {
+	public static List<ShopBean> selectAreaShop(String area) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopAreaList = new ArrayList<ShopBean>();
 		String sql = "SELECT * FROM m_shop WHERE address LIKE '%?%'";
 		try(Connection con = ConnectionManager.getConnection();
