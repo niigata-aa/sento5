@@ -61,8 +61,8 @@
 	<form action="comment-delete-confirm" method="post">
 	<table>
 		<% 
-		String userName = request.getAttribute("userName");
-		String genreName = request.getAttribute("genreName");
+		String userName = (String)request.getAttribute("userName");
+		String genreName = (String)request.getAttribute("genreName");
 		ArrayList<CommentBean> commentList = (ArrayList<CommentBean>) request.getAttribute("commentList");
 		for(int i = 1; i<commentList.size(); i++){
 		CommentBean comment = commentList.get(i);
