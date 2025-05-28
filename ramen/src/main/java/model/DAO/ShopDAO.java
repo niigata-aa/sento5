@@ -167,6 +167,39 @@ public class ShopDAO {
 		}
 		return shopAreaList;
 	}
+	
+	/**
+	 * 店舗検索、エリア検索両方入力
+	 */
+	public static List<ShopBean> selectShopNameAndAreaShop(String shopname, String area) throws SQLException, ClassNotFoundException {
+		List<ShopBean> shopAndList = new ArrayList<ShopBean>();
+		String sql = "SELECT * FROM m_shop WHERE shop_name LIKE ? AND address LIKE ?";
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			pstmt.setString(1,"%"+shopname+"%");
+			pstmt.setString(2,"%"+area+"%");
+			ResultSet res = pstmt.executeQuery();
+
+			while(res.next()) {
+				int shopId = res.getInt("shop_id");
+				String shopName = res.getString("shop_name");
+				String shopPhoto = res.getString("photo");
+
+				ShopBean shop = new ShopBean();
+				shop.setShopId(shopId);
+				shop.setShopName(shopName);
+				shop.setPhoto(shopPhoto);
+
+				shopAndList.add(shop);
+			}
+
+		}
+		return shopAndList;
+	}
+	
+	
+	
 	/**
 	 * 店舗削除
 	 * @param shopId

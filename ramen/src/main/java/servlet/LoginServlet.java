@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Bean.UserBean;
 import model.DAO.UserDAO;
 
 /**
@@ -59,7 +58,6 @@ public class LoginServlet extends HttpServlet {
 		 * パスワードが一致したらuser_idをセッションに設定
 		 */
 		UserDAO dao = new UserDAO();
-		UserBean userInfo = new UserBean();
 		int roll=1;
 		String userName = null;
 		try {
