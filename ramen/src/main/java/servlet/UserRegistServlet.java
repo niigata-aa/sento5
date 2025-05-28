@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.DAO.UserDAO;
 
@@ -61,11 +62,12 @@ public class UserRegistServlet extends HttpServlet {
 		} catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		//リクエストスコープへの属性の設定
-		request.setAttribute("processingNumber", processingNumber);
+		HttpSession session = request.getSession();
+		session.invalidate();
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request,response);
+		//登録完了したことを伝える画面が必要
 
 		}
 }
