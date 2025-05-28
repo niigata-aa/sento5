@@ -4,13 +4,17 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.Bean.UserBean"%>
-<%@ page import="model.Bean.CommentBean"%>
+<%@ page import="model.Bean.CommentBean,model.Bean.ShopBean"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>各店ページ</title>
 </head>
+<% 
+	ShopBean shop = (ShopBean)session.getAttribute("shop"); 
+	int shopId = shop.getShopId();
+%>
 <body>
 	<form action="top.jsp" method="post">
 		<input type="submit" value="トップ">
@@ -23,14 +27,20 @@
 	<h1>各店ページ</h1>
 	
 	<%
-	int roll = (Integer)request.getAttribute("roll");
+	int roll = (Integer)session.getAttribute("roll");
 	if(roll !=1){
 	%>
+<<<<<<< HEAD
 		<form action="shop-edit-info" method="post">
+=======
+		<form action="shop-edit" method="post">
+		    <input type="hidden" value="<%= shopId %>">
+>>>>>>> refs/remotes/origin/master
 			<input type="submit" value="編集">
 		</form>
 		
-		<form action="shop-delete" method="post">
+		<form action="shop-delete-confirm" method="post">
+			<input type="hidden" value="<%= shopId %>">
 			<input type="submit" value="削除">
 		</form>
 	<%} %>
