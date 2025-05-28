@@ -49,7 +49,7 @@ public class UserRegistConfirmServlet extends HttpServlet {
 		   password == null || password.trim().isEmpty()) {
 			
 			request.setAttribute("errorMessage", "ユーザ名とパスワードを入力してください");
-			RequestDispatcher rd = request.getRequestDispatcher("userRegist.html");
+			RequestDispatcher rd = request.getRequestDispatcher("userRegist.jsp");
 			rd.forward(request, response);
 			return;
 		}

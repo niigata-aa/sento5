@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,8 @@
 <body>
 <h2>ユーザ登録</h2>
 <button onclick="location.href='login.jsp'">ログイン画面へ</button>
-<form action="user-regist-confirm-servlet"method="POST">
+
+<form action="user-regist-confirm-servlet" method="POST">
 ユーザ名：<input type="text" name="userName" placeholder="ユーザ名を入力してください"><br>
 ユーザID：<input type="text" name="userId" placeholder="ユーザID"><br>
 パスワード：<input type="password" name="password" placeholder="パスワード"><br>
