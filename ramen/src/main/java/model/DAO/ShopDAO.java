@@ -199,10 +199,10 @@ public class ShopDAO {
 	}
 	
 	//店舗平均評価点計算
-	public double Averagerate(int shopId) throws SQLException, ClassNotFoundException{
+	public double averageRate(int shopId) throws SQLException, ClassNotFoundException{
 
 		double averagerate = 0.0;
-		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ?"; 
+		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ? ORDER BY averate_rate DESC" ; 
 		
 		try(Connection con=ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)){
