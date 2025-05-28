@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,9 +49,10 @@ public class UserDAO {
 		String sql = "SELECT * FROM m_user WHERE user_id = ?";
 
 		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql);
-				ResultSet res = pstmt.executeQuery()){
+				PreparedStatement pstmt = con.prepareStatement(sql);){
 			pstmt.setInt(1, userId);
+			
+			ResultSet res = pstmt.executeQuery();
 			while (res.next()) {
 				userName = res.getString("user_name");
 			}
@@ -101,9 +101,9 @@ public class UserDAO {
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
+				PreparedStatement stmt = con.prepareStatement(sql);){
 
+			ResultSet res = stmt.executeQuery();
 			while(res.next()) {
 				UserBean user = new UserBean();
 				user.setUserId(res.getInt("user_id"));
