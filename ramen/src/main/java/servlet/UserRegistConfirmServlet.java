@@ -55,7 +55,7 @@ public class UserRegistConfirmServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("userId", userId);
-		request.setAttribute("UserName", userName);
+		request.setAttribute("userName", userName);
 		request.setAttribute("password", password);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("userRegistConfirm.jsp");
