@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,9 +40,11 @@ public class CommentDeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		int commentId=Integer.parseInt(request.getParameter("commentId"));
+		
+		String str;
 		
 		CommentDAO dao=new CommentDAO();
 		
@@ -53,7 +56,9 @@ request.setCharacterEncoding("UTF-8");
 		}catch  (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
 		
+		rd.forward(request, response);
 		
 	}
 
