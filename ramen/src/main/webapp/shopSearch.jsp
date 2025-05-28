@@ -21,6 +21,7 @@
 </div>
 
 <div>
+<form action="shop-detail-servlet" method="post">
 <h2>店舗一覧</h2>
 <%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 if(shopList != null && !shopList.isEmpty() ){
@@ -34,6 +35,7 @@ if(shopList != null && !shopList.isEmpty() ){
 <%}else{%>
 一致する内容がありません。
 <% } %>
+</form>
 </div>
 
 </body>
