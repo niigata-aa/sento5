@@ -22,7 +22,7 @@
 		写真<jsp:getProperty name="shop" property=写真/><br>
 		ジャンル<jsp:getProperty name="shop" property=ジャンル/>
 	
-	<form action="shop-edit-confirm" method="post">
+	<form action="shop-edit" method="post">
 		<input type="submit" value="登録">
 	</form>
 	<button onclick="history.back()" value="戻る"></button>
