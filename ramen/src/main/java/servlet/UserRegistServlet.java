@@ -44,7 +44,6 @@ public class UserRegistServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String url ="userRegistConfirm.jsp";
 		
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		String userName = request.getParameter("userName");
@@ -57,14 +56,13 @@ public class UserRegistServlet extends HttpServlet {
 		
 		try {
 			//DAOの利用
-			 processingNumber = userdao.insertUser(userId, userName, password);
+			processingNumber = userdao.insertUser(userId, userName, password);
 		} catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		//リクエストスコープへの属性の設定
-		request.setAttribute("processingNumber", processingNumber);
+
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 		rd.forward(request,response);
 
 		}
