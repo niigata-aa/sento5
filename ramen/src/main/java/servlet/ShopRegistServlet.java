@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,6 +60,10 @@ public class ShopRegistServlet extends HttpServlet {
 		}
 		//店舗登録情報をセッションから削除
 		session.removeAttribute("shopInfo");
+		
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher("shop-detail-servlet");
+		rd.forward(request, response);
 	}
 
 }
