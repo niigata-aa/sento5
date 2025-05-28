@@ -43,49 +43,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメーターの取得
-<<<<<<< HEAD
-		int userId = Integer.parseInt(request.getParameter("userId"));
-		String userId1 = request.getParameter("userId");
-=======
 		String userId = request.getParameter("userId");
->>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 		String password =request.getParameter("password");
-<<<<<<< HEAD
-		String url = null;
-		//入力チェック
-
-		String message = null;
-        if(userId1 == null || password == null){
-
-            //ダイレクトアクセス時のエラー設定
-
-            message = "フォーム画面から入力してね。";
-
-        }else if(userId1.equals("") || password.equals("")){
-
-            //空白の場合のエラー設定
-
-            message = "何も入力されていませんよ。";
-
-        }else{
-            try{
-
-                int num1 = Integer.parseInt(userId1);
-
-                int num2 = Integer.parseInt(password);
-  
-            }catch(NumberFormatException e){
-
-                //文字が入力された場合のエラー設定
-
-                message = "数字を入力してね。";
-
-            }
-
-        }
-
-
-=======
 		
 		//入力チェック
 		if(userId==null || userId.trim().isEmpty()||
@@ -96,7 +55,6 @@ public class LoginServlet extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
->>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 		/**
 		 * ログイン処理
 		 * パスワードが一致したらuser_idをセッションに設定
