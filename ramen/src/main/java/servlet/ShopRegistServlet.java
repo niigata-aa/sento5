@@ -42,7 +42,7 @@ public class ShopRegistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		
+		//セッションから店舗情報を取得
 		HttpSession session = request.getSession();
 		ShopBean shopInfo = (ShopBean)session.getAttribute("shopInfo"); 
 		
@@ -57,6 +57,8 @@ public class ShopRegistServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		//店舗登録情報をセッションから削除
+		session.removeAttribute("shopInfo");
 	}
 
 }

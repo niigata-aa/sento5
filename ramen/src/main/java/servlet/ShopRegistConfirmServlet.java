@@ -78,7 +78,7 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 		shopInfo.setDetail(detail);	
 		shopInfo.setPhoto(filename);
 		
-		//セッションの取得・設定
+		//セッション
 		HttpSession session = request.getSession();
 		session.setAttribute("shopInfo", shopInfo);
 		
