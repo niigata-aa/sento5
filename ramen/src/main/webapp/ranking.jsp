@@ -7,20 +7,22 @@
 <title>おすすめランキング</title>
 </head>
 <body>
+<form action="shop-detail-servlet" method = "POST">
 <%
-List<ShopBean> shoprankList = (List<ShopBean>) request.getAttribute("shoprankList");
-if(shoprankList() != 0){	
+	List<ShopBean> shoprankList = (List<ShopBean>)request.getAttribute("shoprankList");	
 	for(ShopBean shop : shoprankList){
 %>
 
-<%=shop.getShopName %>
-<img src = <%=shop.getPhoto %>
+		<%=shop.getShopName() %>
+		<img src = <%=shop.getPhoto() %>>
+		
+		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
+		<input type="submit" name="photo" value="<%shop.getPhoto();%>">
 <%} %>
 
-<%} else{ %>
-	店舗情報がありません
-	<%} 
+<% %>
+	<%
 	%>
-
+</form>
 </body>
 </html>
