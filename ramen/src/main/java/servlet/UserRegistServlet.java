@@ -44,7 +44,7 @@ public class UserRegistServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String url ="userRegistConfirm.jsp";
+		String url ="login.jsp";
 		
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		String userName = request.getParameter("userName");
