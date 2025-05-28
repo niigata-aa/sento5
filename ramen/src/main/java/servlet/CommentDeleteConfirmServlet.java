@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,15 +41,19 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		String commentId=request.getParameter("commentId");
+		int mentId=request.getParameter("commentId");
 		
 		CommentDAO dao=new CommentDAO();
 		
 		int count=0;
 		
 		try {
-			count=dao.daleteComment(commentId);
+			count=dao.deleteComment(commentId);
+			
+		}catch  (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
 		}
+
 		
 	}
 
