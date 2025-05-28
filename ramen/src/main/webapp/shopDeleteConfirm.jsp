@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>店舗削除確認画面</h1>
-<form action="shop-delete-servlet" method="post">
+<form action="shop-delete" method="post">
 	この店舗を削除しますか<br>
 	<%
 		ShopBean shop = (ShopBean)session.getAttribute("shop");
