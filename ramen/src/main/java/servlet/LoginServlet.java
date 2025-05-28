@@ -66,14 +66,14 @@ public class LoginServlet extends HttpServlet {
 			//DAOの生成
 			if(dao.loginCheck(Integer.parseInt(userId), password)) {
 				userName=dao.selectUserName(Integer.parseInt(userId));
-				userInfo.setUserId(Integer.parseInt(userId));
-				userInfo.setUserName(userName);
-				//セッションにユーザIDをセット
+				//セッションにユーザIDとユーザ名をセット
 				HttpSession session = request.getSession();
-				session.setAttribute("userInfo", userInfo);
+				session.setAttribute("userId", userId);
+				session.setAttribute("userName", userName);
 				//rollが0（管理者)ならセッションにset
-				if(dao.rollCheck(Integer.parseInt(userId))==0) {
-					userInfo.setRoll(roll);
+				 roll=dao.rollCheck(Integer.parseInt(userId));
+				if(roll==0) {
+					session.setAttribute("roll", roll);
 				}
 				//トップページに遷移
 				response.sendRedirect("top.jsp");
