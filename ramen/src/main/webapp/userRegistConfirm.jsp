@@ -9,13 +9,13 @@
 <body>
 <h2>ユーザ登録確認画面</h2>
 <form action="user-regist-servlet" method="post">
-<jsp:useBean id="user" scope="request" class="model.Bean.UserBean"/>
 このアカウントで登録しますか<br>
-ユーザID：<jsp:getProperty name="user" property="userId"/><br>
-パスワード：<jsp:getProperty name="user" property="password"/><br>
-ユーザ名:<jsp:getProperty name="user" property="userName"/><br>
-<button type="button"onclick="history.back()">戻る</button>
+ユーザID：<%=session.getAttribute("userId") %><br>
+パスワード：<%=session.getAttribute("password") %><br>
+ユーザ名:<%= session.getAttribute("userName") %><br>
 <input type="submit" value="登録">	
+<button type="button"onclick="history.back()">戻る</button>
+
 </form>
 </body>
 </html>

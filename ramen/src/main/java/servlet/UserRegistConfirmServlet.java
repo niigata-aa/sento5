@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class UserRegistConfirmServlet
@@ -53,10 +54,10 @@ public class UserRegistConfirmServlet extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-		
-		request.setAttribute("userId", userId);
-		request.setAttribute("userName", userName);
-		request.setAttribute("password", password);
+		HttpSession session = request.getSession();
+		session.setAttribute("userId", userId);
+		session.setAttribute("userName", userName);
+		session.setAttribute("password", password);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("userRegistConfirm.jsp");
 		rd.forward(request,response);
