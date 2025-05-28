@@ -53,6 +53,10 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 		String closeTime = request.getParameter("closeTime");
 		String closedDay = request.getParameter("closedDay");
 		String detail = request.getParameter("detail");
+		String walkingDistanceStr = request.getParameter("walkingDistance");
+
+        // Stringからbooleanへの変換
+        boolean walkingDistance = Boolean.parseBoolean(walkingDistanceStr); // "true" なら true, "false" なら false
 			
 		
 		//name属性がpictのファイルをPartオブジェクトとして取得
@@ -77,6 +81,7 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 		shopInfo.setClosedDay(closedDay);
 		shopInfo.setDetail(detail);	
 		shopInfo.setPhoto(filename);
+		shopInfo.setWalkingDistance(walkingDistance);
 		
 		//セッション
 		HttpSession session = request.getSession();

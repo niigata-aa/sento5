@@ -314,7 +314,7 @@ public class ShopDAO {
 			String closedDay = shop.getClosedDay();
 			String photo = shop.getPhoto();
 			String detail = shop.getDetail();
-
+//          boolean walkingDistanceStr = shop.isWalkingDistance();
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, shopName);
@@ -325,6 +325,7 @@ public class ShopDAO {
 			pstmt.setString(6, closedDay);
 			pstmt.setString(7, photo);
 			pstmt.setString(8, detail);
+//			pstmt.setBoolean(9, walkingDistanceStr);
 
 			count = pstmt.executeUpdate();
 
