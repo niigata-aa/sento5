@@ -50,7 +50,7 @@ public class GenreDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public String selectGenre(int genreId) throws SQLException, ClassNotFoundException {
+	public String selectGenreName(int genreId) throws SQLException, ClassNotFoundException {
 		String genreName=null;
 		String sql = "SELECT * FROM m_genre WHERE genre_id = ?";
 
