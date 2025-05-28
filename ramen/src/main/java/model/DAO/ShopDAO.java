@@ -198,6 +198,25 @@ public class ShopDAO {
 		return shopAndList;
 	}
 	
+	//店舗平均評価点計算
+	public double Averagerate(int shopId) throws SQLException, ClassNotFoundException{
+
+		double averagerate = 0.0;
+		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ?"; 
+		
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+			pstmt.setInt(1,shopId);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			if(res.next()) {
+				averagerate = res.getDouble("average_rate");
+			}
+		}
+		return averagerate;
+		}
+	
 	
 	
 	/**
@@ -310,6 +329,8 @@ public class ShopDAO {
 		return count;
 
 	}
+	
 
+	
 }
 
