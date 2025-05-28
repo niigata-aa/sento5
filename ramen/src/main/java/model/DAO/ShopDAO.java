@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Bean.CommentBean;
 import model.Bean.ShopBean;
 public class ShopDAO {
 
@@ -199,9 +200,9 @@ public class ShopDAO {
 	}
 	
 	//店舗平均評価点計算
-	public double averageRate(int shopId) throws SQLException, ClassNotFoundException{
-
-		double averagerate = 0.0;
+	public List<CommentBean> shopRank(int shopId) throws SQLException, ClassNotFoundException{
+		List<CommentBean> shoprankList = new ArrayList<CommentBean>();
+		
 		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ? ORDER BY averate_rate DESC" ; 
 		
 		try(Connection con=ConnectionManager.getConnection();
@@ -210,11 +211,13 @@ public class ShopDAO {
 			
 			ResultSet res = pstmt.executeQuery();
 			
-			if(res.next()) {
-				averagerate = res.getDouble("average_rate");
+			while(res.next()) {
+				CommentBean comment = new CommentBean();
+				comment.setRate(res.getInt("rate"));
+				shoprankList.add(comment);
 			}
 		}
-		return averagerate;
+		return shoprankList;
 		}
 	
 	
