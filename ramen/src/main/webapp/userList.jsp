@@ -19,7 +19,7 @@
 		<table>
 		<tr><th>ユーザID</th><th>ユーザネーム</th></tr>
 		<% for(UserBean user : userList){%>
-		<tr><td><%=user.getUserId() %><%=user.getUserName() %></td></tr>
+		<tr><td><%=user.getUserId() %><%=user.getUserName() %></td><td><button type="submit">削除</button></td></tr>
 
 
 	
@@ -28,7 +28,7 @@
 <input type="hidden" name="userId" value="<%user.getUserId(); %>">
 <input type="hidden" name="userName" value="<%user.getUserName(); %>">
 
-<button type="submit">削除</button>
+
 <br>
 	<%} %>
 </form>

@@ -46,7 +46,12 @@ public class UserDeleteServlet extends HttpServlet {
 		
 		UserDAO dao =new UserDAO();
 		try {
+			//ユーザ削除
 			dao.deleteUser(userId);
+			//ユーザ削除情報のセッションの削除
+			session.removeAttribute("d_userId");
+			session.removeAttribute("d_userName");
+			
 		} catch (ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -54,9 +59,7 @@ public class UserDeleteServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		session.removeAttribute("d_userId");
-		session.removeAttribute("d_userName");
-		
+
 				
 	}
 

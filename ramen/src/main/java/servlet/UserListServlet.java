@@ -49,8 +49,8 @@ public class UserListServlet extends HttpServlet {
 		//セッションオブジェクトの取得
 		HttpSession session = request.getSession();
 		
-		//ログイン確認済みかどうかを確認
-		if(session.getAttribute("userId") != null) {
+		//ログイン確認済みかどうかを確認/管理者確認
+		if(session.getAttribute("userId") != null && (int)session.getAttribute("roll")==0) {
 			//認証済み
 			try {
 				UserDAO userDao = new UserDAO();
