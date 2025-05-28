@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,13 +40,26 @@ public class UserRegistConfirmServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		//リクエストパラメータの取得
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		String userId = request.getParameter("userId");
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
+		
+		//入力チェック
+		if(userId==null || userId.trim().isEmpty()||
+		   password == null || password.trim().isEmpty()) {
+			
+			request.setAttribute("errorMessage", "ユーザ名とパスワードを入力してください");
+			RequestDispatcher rd = request.getRequestDispatcher("userRegist.html");
+			rd.forward(request, response);
+			return;
+		}
 		
 		request.setAttribute("useri", userId);
 		request.setAttribute("UserName", userName);
 		request.setAttribute("password", password);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("userRegistConfirm.jsp");
+		rd.forward(request,response);
 			
 		
 	}

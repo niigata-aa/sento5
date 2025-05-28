@@ -11,12 +11,20 @@
 <h2>ユーザ一覧</h2>
 <div>
 <form action="user-delete-confirm-servlet" method="POST">
+
+テーブルの行の固定をCSSで記入する
 	<% 
 		List<UserBean> userList =(List<UserBean>)request.getAttribute("userList"); 
-		for(UserBean user : userList){
 	%>
+		<table>
+		<tr><th>ユーザID</th><th>ユーザネーム</th></tr>
+		<% for(UserBean user : userList){%>
+		<tr><td><%=user.getUserId() %><%=user.getUserName() %></td></tr>
 
-		<%=user.getUserId() %><%=user.getUserName() %> 
+
+	
+<!--				-->
+</table>
 <input type="hidden" name="userId" value="<%user.getUserId(); %>">
 <input type="hidden" name="userName" value="<%user.getUserName(); %>">
 
