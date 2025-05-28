@@ -42,14 +42,14 @@
 		</form>
 	<%} %>
 	
-	<jsp:useBean id="shop"class="model.Bean.ShopBean"scope="session"/>
-	<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shop" property="shopKana"/>+の店舗の写真"><br> 
-	店名かな<jsp:getProperty name="shop" property="shopKana"/><br> 
-	店名<jsp:getProperty name="shop" property="shopName"/><br> 
-	住所<jsp:getProperty name="shop" property="address"/><br>
-	営業時間<jsp:getProperty name="shop" property="openTime"/>～<jsp:getProperty name="shop" property="closeTime"/><br>
-	定休日<jsp:getProperty name="shop" property="closedDay"/><br>
-	詳細<jsp:getProperty name="shop" property="detail"/><br>
+	<jsp:useBean id="shopdetail"class="model.Bean.ShopBean"scope="session"/>
+	<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shopdetail" property="shopKana"/>+の店舗の写真"><br> 
+	店名かな<jsp:getProperty name="shopdetail" property="shopKana"/><br> 
+	店名<jsp:getProperty name="shopdetail" property="shopName"/><br> 
+	住所<jsp:getProperty name="shopdetail" property="address"/><br>
+	営業時間<jsp:getProperty name="shopdetail" property="openTime"/>～<jsp:getProperty name="shopdetail" property="closeTime"/><br>
+	定休日<jsp:getProperty name="shopdetail" property="closedDay"/><br>
+	詳細<jsp:getProperty name="shopdetail" property="detail"/><br>
 	
 	<form action="comment-regist-confirm" method="post">
 		<input type="submit" value="コメント投稿">
@@ -78,7 +78,7 @@
 		<tr>
 			<td><%=comment.getCommentTime()%></td>
 			<td><%=comment.getCommentId()%></td>
-			<td><img class = "commentphoto" src="<%=comment.getCommentPhoto()%>" alt="の写真"></td>
+			<td><img class = "commentphoto" src="<%=comment.getCommentPhoto()%>" alt="<%=comment.getMenu()%>の写真"></td>
 			<td><%=userName%></td>
 			<td><%=comment.getRate()%></td>
 			<td><%=genreName%></td>

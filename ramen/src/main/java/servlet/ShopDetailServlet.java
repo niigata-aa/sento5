@@ -59,14 +59,14 @@ public class ShopDetailServlet extends HttpServlet {
 		CommentDAO commentdao = new CommentDAO();
 		try {
 			//DAOの利用
-			List<ShopBean> shop = shopdao.selectShop(shopId);
+			List<ShopBean> shopdetail = shopdao.selectShop(shopId);
 			String userName = userdao.selectUserName(userId);
 			String genreName = genredao.selectGenreName(Integer.parseInt(genreId));
 			ArrayList<CommentBean> commentList = (ArrayList<CommentBean>) commentdao.selectComment(shopId);
 			//セッションオブジェクトの生成
 			HttpSession session = request.getSession();
 			//セッションスコープへの属性の設定
-			session.setAttribute("shop", shop);
+			session.setAttribute("shopdetail", shopdetail);
 			//管理者だった場合
 			if(userdao.rollCheck(roll)==0) {
 				//リクエストスコープへの属性の設定
