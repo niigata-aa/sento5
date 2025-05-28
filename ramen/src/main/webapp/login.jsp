@@ -15,6 +15,6 @@
 パスワード：<input type="password" name="password" placeholder="パスワード"><br>
 <input type="reset"value="クリア"><input type="submit"value="ログイン">
 </form>
-<button onclick="location.href='userRegist.html'">新規登録はこちら</button>
+<button onclick="location.href='userRegist.jsp'">新規登録はこちら</button>
 </body>	
 </html>

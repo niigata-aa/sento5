@@ -42,8 +42,8 @@
 		</form>
 	<%} %>
 	
-	<jsp:useBean id="shopdetail"class="model.Bean.ShopBean"scope="session"/>
-	<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shopdetail" property="shopKana"/>+の店舗の写真"><br> 
+	<jsp:useBean id="shopdetail" class="model.Bean.ShopBean" scope="session"/>
+	<img class="photo"src=<jsp:getProperty name="shopdetail" property="photo"/> alt="<jsp:getProperty name="shopdetail" property="shopKana"/>+の店舗の写真"><br> 
 	店名かな<jsp:getProperty name="shopdetail" property="shopKana"/><br> 
 	店名<jsp:getProperty name="shopdetail" property="shopName"/><br> 
 	住所<jsp:getProperty name="shopdetail" property="address"/><br>
@@ -58,7 +58,15 @@
 	<form action="comment-search" method="post">
 		<input type="text" name="userserch">
 		<select name="genreserch">
-			<option value=""></option>
+			<option value="syoyu">醤油</option>
+			<option value="sio">塩</option>
+			<option value="miso">味噌</option>
+			<option value="seabura">背油</option>
+			<option value="tonnkotu">豚骨</option>
+			<option value="syougasyoyu">生姜醤油</option>
+			<option value="mabo">麻婆</option>
+			<option value="tanntannmenn">担々麵</option>
+			<option value="etc">その他</option>
 		</select>
 		<input type="submit" value="コメント検索">
 	</form>
