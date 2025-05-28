@@ -44,7 +44,6 @@ public class CommentDeleteServlet extends HttpServlet {
 		
 		int commentId=Integer.parseInt(request.getParameter("commentId"));
 		
-		String str;
 		
 		CommentDAO dao=new CommentDAO();
 		
