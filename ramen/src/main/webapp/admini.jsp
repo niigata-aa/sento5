@@ -7,14 +7,19 @@
 <title>管理者ページ</title>
 </head>
 <body>
-<h1>管理者ページ</h1>
+<div class="title"><!-- title タイトル -->
+<h1>管理者ページ</h1></div>
+
+<div class="serchbutton"><!-- serchbutton 検索ボタン -->
 <form action="shop-list-servlet" method="post">
 <input type="submit" value="店舗一覧・編集">
-</form>
+</form></div>
 <br>
+
+<div class="userbutton"><!-- userbutton ユーザー一覧ボタン -->
 <form action="user-list-servlet" method="post">
 <input type="submit" value="ユーザ一覧">
-</form>
+</form></div>
 <br>
 </body>
 </html>
