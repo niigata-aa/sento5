@@ -7,10 +7,13 @@
 <title>ユーザ登録完了！</title>
 </head>
 <body>
+<div class="regist-container"><!-- regist-container 登録全体のコンテナ -->
 さんこんにちは。
 ユーザ登録完了しました
+<div class="button"><!-- button ボタン -->
 <button onclick="location.href='login.jsp'">ログイン画面へ</button>
-
+</div>
 <%session.invalidate(); %>
+</div>
 </body>
 </html>
