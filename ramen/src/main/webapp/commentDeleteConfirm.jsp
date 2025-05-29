@@ -11,6 +11,7 @@
 	<h2>投稿削除ページ</h2>
 	<div class="commendeleteconfirm"><!-- コメントの削除確認まとめて -->
 	コメントID<%=session.getAttribute("commentId") %><br> 
+	店ID:<%=request.getParameter("shopId")%><br>
 	カテゴリーID<%=request.getParameter("genreId")%><br>
 	レビュー<%=request.getParameter("review")%><br>
 	評価<%=request.getParameter("rate")%><br>
