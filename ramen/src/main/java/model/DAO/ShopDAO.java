@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Bean.CommentBean;
 import model.Bean.ShopBean;
 public class ShopDAO {
 
@@ -92,7 +91,7 @@ public class ShopDAO {
 	 */
 	public List<ShopBean> selectGenreShop(int genreId) throws SQLException, ClassNotFoundException {
 		List<ShopBean> shopGenreList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop s JOIN m_comment c ON s.shop_id = c.shop_id WHERE c.genre_id = ?";
+		String sql = "SELECT * FROM m_shop s JOIN m_shop c ON s.shop_id = c.shop_id WHERE c.genre_id = ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -212,10 +211,10 @@ public class ShopDAO {
 	}
 	
 	//店舗平均評価点計算
-	public List<CommentBean> shopRank(int shopId) throws SQLException, ClassNotFoundException{
-		List<CommentBean> shoprankList = new ArrayList<CommentBean>();
+	public List<ShopBean> shopRank(int shopId) throws SQLException, ClassNotFoundException{
+		List<ShopBean> shoprankList = new ArrayList<ShopBean>();
 		
-		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ? ORDER BY average_rate DESC LIMIT 5" ; 
+		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ? ORDER BY average_rate " ; 
 		
 		try(Connection con=ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)){
@@ -224,9 +223,9 @@ public class ShopDAO {
 			ResultSet res = pstmt.executeQuery();
 			
 			while(res.next()) {
-				CommentBean comment = new CommentBean();
-				comment.setRate(res.getInt("rate"));
-				shoprankList.add(comment);
+				ShopBean shop = new ShopBean();
+				shop.setRate(res.getInt("rate"));
+				shoprankList.add(shop);
 			}
 		}
 		return shoprankList;

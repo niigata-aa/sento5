@@ -56,6 +56,8 @@ public class RankingServlet extends HttpServlet {
 		if(session.getAttribute("userId") != null) {
 		
 		try {
+			
+			
 			//DAOの生成
 			ShopDAO shopdao = new ShopDAO();
 			//DAOの利用

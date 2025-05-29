@@ -56,6 +56,19 @@ public class ShopBean implements Serializable{
 	private boolean walkingDistance; //徒歩圏内：true 徒歩圏外：false
 	
 	
+	/*
+	 *店舗平均評価 
+	 */
+
+	private double averageRate;
+	
+	public double getAverageRate() {
+		return averageRate;
+	}
+
+	public void setAverageRate(double averageRate) {
+		this.averageRate = averageRate;
+	}
 
 	public boolean isWalkingDistance() {
 		return walkingDistance;

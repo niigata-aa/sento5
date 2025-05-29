@@ -20,6 +20,5 @@
 <a href="ShopDetailServlet?shopId=<%= shop.getShopId() %>"></a><img src="<%=shop.getPhoto() %>" alt="店舗写真">
 <% } %>
 
-
 </body>
 </html>
