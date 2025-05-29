@@ -18,7 +18,7 @@ import model.DAO.ShopDAO;
 /**
  * Servlet implementation class RankingServlet
  */
-@WebServlet("/ranking-servlet")
+@WebServlet("/login-servlet")
 public class RankingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,9 +45,9 @@ public class RankingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		String url = "top.jsp";
+		String url = "ranking.jsp";
 		
-		int shopId = Integer.parseInt(request.getParameter("shopid"));
+		int shopId = Integer.parseInt(request.getParameter("shopId"));
 		
 		//セッションオブジェクトの取得
 				HttpSession session = request.getSession();

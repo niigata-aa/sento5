@@ -47,7 +47,6 @@ public class CommentListServlet extends HttpServlet {
 		
 		List<CommentBean> commentList=null;
 		
-		
 		try {
 			HttpSession session=request.getSession();
 			String userId=(String) session.getAttribute("userId");

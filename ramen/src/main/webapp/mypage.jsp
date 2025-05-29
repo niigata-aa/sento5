@@ -10,8 +10,8 @@
 <h1>マイページ</h1>
 
 <form action = "comment-list-servlet" method = "POST">
-<input type = "submit" value = "コメント一覧">
 <input type = "hidden"  name="userId" value="<%=session.getAttribute("userId")%>">
+<input type = "submit" value = "コメント一覧">
 </form>
 <input type = "button"  onclick = "history.back()" value = "戻る">
 </body>
