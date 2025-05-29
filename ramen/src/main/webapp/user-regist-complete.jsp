@@ -11,6 +11,6 @@
 ユーザ登録完了しました
 <button onclick="location.href='login.jsp'">ログイン画面へ</button>
 
-session.invalidate();
+<%session.invalidate(); %>
 </body>
 </html>
