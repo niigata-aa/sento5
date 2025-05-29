@@ -37,7 +37,7 @@
 	徒歩圏外
 <%} %>
 <input type="submit" value="登録">	
-<button type="button"onclick="history.back()" value="戻る"></button>
+<button type="button"onclick="history.back()" >	戻る</button>
 
 </form>
 
