@@ -13,7 +13,7 @@
 	<% 
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
-	<form action="shop-edit-confirm" method="post">
+	<form action="shop-edit-confirm" method="post"enctype="multipart/form-data">
 
 		<div class="shopedit">
 			<!-- ショップ編集フォーム -->
