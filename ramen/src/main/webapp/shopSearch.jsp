@@ -67,8 +67,8 @@
 				<!-- listdetail 一店舗ごとのブロック -->
 				<form action="shop-detail" method="post">
 					<input type="submit" value="<%=shop.getShopName() %>"> 
-					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> <img
-						src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> 
+					<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
 					<%if(shop.isWalkingDistance()){ %>
 					徒歩圏内
 					<%} else {%>
