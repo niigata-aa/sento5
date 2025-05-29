@@ -29,12 +29,14 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
+				boolean walkingDistance = res.getBoolean("walkingDistance");
 				//				String genre = res.getString("genre_name");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
 				shop.setShopName(shopName);
 				shop.setPhoto(shopPhoto);
+				shop.setWalkingDistance(walkingDistance);
 
 				shopAllList.add(shop);
 			}
@@ -64,6 +66,7 @@ public class ShopDAO {
 				String closedDay = res.getString("closed_day");
 				String shopPhoto = res.getString("photo");
 				String detail = res.getString("detail");
+				boolean walkingDistance = res.getBoolean("walkingDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -75,6 +78,7 @@ public class ShopDAO {
 				shop.setClosedDay(closedDay);
 				shop.setPhoto(shopPhoto);
 				shop.setDetail(detail);
+				shop.setWalkingDistance(walkingDistance);
 
 				shopList.add(shop);
 			}
@@ -99,11 +103,13 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
+				boolean walkingDistance = res.getBoolean("walkingDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
 				shop.setShopName(shopName);
 				shop.setPhoto(shopPhoto);
+				shop.setWalkingDistance(walkingDistance);
 
 				shopGenreList.add(shop);
 			}
@@ -128,12 +134,14 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
+				boolean walkingDistance = res.getBoolean("walkingDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
 				shop.setShopName(shopName);
 				shop.setPhoto(shopPhoto);
-
+				shop.setWalkingDistance(walkingDistance);
+				
 				shopNameSearchList.add(shop);
 			}
 
@@ -156,12 +164,14 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
+				boolean walkingDistance = res.getBoolean("walkingDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
 				shop.setShopName(shopName);
 				shop.setPhoto(shopPhoto);
-
+				shop.setWalkingDistance(walkingDistance);
+				
 				shopAreaList.add(shop);
 			}
 
@@ -186,11 +196,13 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
+				boolean walkingDistance = res.getBoolean("walkingDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
 				shop.setShopName(shopName);
 				shop.setPhoto(shopPhoto);
+				shop.setWalkingDistance(walkingDistance);
 
 				shopAndList.add(shop);
 			}
@@ -254,7 +266,7 @@ public class ShopDAO {
 
 
 		String sql = "UPDATE m_shop "
-				+ "SET shop_name = ?,shop_kana=?,address=?,open_time=?,close_time=?,closed_day=?,photo=?,detail=?"
+				+ "SET shop_name = ?,shop_kana=?,address=?,open_time=?,close_time=?,closed_day=?,photo=?,detail=?, walkingDistance=?"
 				+ " WHERE shop_id=? ";
 
 
@@ -272,6 +284,7 @@ public class ShopDAO {
 			String closedDay = shop.getClosedDay();
 			String photo = shop.getPhoto();
 			String detail = shop.getDetail();
+			boolean walkingDistanceStr = shop.isWalkingDistance();
 
 			// プレースホルダへの値の設定
 
@@ -283,7 +296,9 @@ public class ShopDAO {
 			pstmt.setString(6, closedDay);
 			pstmt.setString(7, photo);
 			pstmt.setString(8, detail);
-			pstmt.setInt(9, shopId);
+			pstmt.setInt(10, shopId);
+			pstmt.setBoolean(9, walkingDistanceStr);
+			
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
