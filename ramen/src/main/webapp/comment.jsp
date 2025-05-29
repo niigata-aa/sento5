@@ -9,12 +9,12 @@
 <body>
 	<button type="button"onclick="history.back()">戻る</button>
 	<% List<CommentBean>commentList=(List<CommentBean>)request.getAttribute("commentList");%>
-	<% if(commentList == null || commentList.isEmpty()){ %> <%-- ★修正箇所★ --%>
+	<% if(commentList.size()==0){ %> <%-- ★修正箇所★ --%>
  	何も入っていませんでした
 	 <%} else{ %>
 	
 		<%for(CommentBean comment:commentList){ %>
-			<%=comment.getCommentId() %><br>
+			<%=comment.getCommentId() %>
 			<%=comment.getGenreId() %>
 			<%=comment.getReview() %>
 			<%=comment.getRate() %>
@@ -26,9 +26,9 @@
 				<input type="submit" value="店舗詳細">
 				<input type="hidden" name="shopId" value="<%=comment.getShopId() %>">
 			</form>
-	<form action="coment-delete-confirm-servlet" method="post">
-		<input type="submit" value="削除">
-		<input type="hidden" name="commentId" value="<%=comment.getCommentId() %>">
+			<form action="coment-delete-confirm-servlet" method="post">
+			<input type="submit" value="削除">
+			<input type="hidden" name="commentId" value="<%=comment.getCommentId() %>">
 		</form>
 		<%} %>
 	
