@@ -7,19 +7,15 @@
 <title>店舗一覧</title>
 </head>
 <body>
+店舗一覧
 
 <form action="shop-detail-servlet" method="POST">
 <% 
 		List<ShopBean> shopList =(List<ShopBean>)request.getAttribute("shopList"); 
 		for(ShopBean shop : shopList){
 	%>
-
-		<%=shop.getShopName() %> 
 	<img src="/ramen/upload/<%=shop.getPhoto() %>">
-		
-<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
-<input type="submit" name="photo" value="<%shop.getPhoto();%>">
-
+<input type="submit" name="photo" value="<%=shop.getShopName() %> ">
 		
 		<%} %>
 </form>
