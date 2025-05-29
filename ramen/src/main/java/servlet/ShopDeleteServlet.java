@@ -44,7 +44,7 @@ public class ShopDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
-		ShopBean shop = (ShopBean)session.getAttribute("shop");
+		ShopBean shop = (ShopBean)session.getAttribute("shopdetail");
 		int shopId = shop.getShopId();
 		
 		ShopDAO dao = new ShopDAO();
@@ -61,8 +61,10 @@ public class ShopDeleteServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		//店舗情報の削除
+		session.removeAttribute("shopdetail");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("shop-search-servlet");
+		RequestDispatcher rd = request.getRequestDispatcher("shop-list-servlet");
 		rd.forward(request, response);
 	}
 

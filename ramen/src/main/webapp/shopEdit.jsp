@@ -32,7 +32,9 @@
 				name="detail" value="<%=shop.getDetail()%>"><br> 
 			写真<input
 				type="file" name="image" value="<%=shop.getPhoto()%>"><br>
+				<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
 		</div>
+		
 
 
 	<div class="back">

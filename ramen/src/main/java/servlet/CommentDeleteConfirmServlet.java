@@ -41,6 +41,7 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int commentId=Integer.parseInt(request.getParameter("commentId"));
+		int shopId=Integer.parseInt(request.getParameter("shopId"));
 		String genreId=request.getParameter("genreId");
 		String review=request.getParameter("review");
 		String rate=request.getParameter("rate");
@@ -49,6 +50,7 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		String value=request.getParameter("value");
 		HttpSession session=request.getSession();
 		session.setAttribute("commentId",commentId );
+		request.setAttribute("genreId",shopId );
 		request.setAttribute("genreId",genreId );
 		request.setAttribute("review",review );
 		request.setAttribute("rate",rate );
