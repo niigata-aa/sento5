@@ -31,7 +31,6 @@
 </div>
 
 <div class="shoplistcontainer"><!-- shoplist 店舗一覧全体 -->
-<form action="shop-detail-servlet" method="post">
 
 <div class="listtitle"><!-- listtitle タイトル -->
 <h2>店舗一覧</h2></div>
@@ -42,22 +41,21 @@ if(shopList != null && !shopList.isEmpty() ){
 %>
 
 <% for (ShopBean shop : shopList){ %>
-<%=shop.getShopName() %><br>
+<br>
 <form action="shop-detail-servlet" method="post">
-<a href="ShopDetailServlet?shopId=<%= shop.getShopId() %>"></a><br>
+<input type="submit" value="<%=shop.getShopName() %>">
+<input type="hidden"value="<%= shop.getShopId() %>"><br>
 <img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
 <%if(shop.isWalkingDistance()){ %>
 徒歩圏内
 <%} else {%>
 徒歩圏外
 <%} %>
-</form>
 <% } %>
-
+</form>
 <%}else{%>
 一致する内容がありません。
 <% } %></div>
-</form>
 </div>
 
 </body>

@@ -75,7 +75,7 @@ public class ShopSearchServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/ShopSearch.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/shopSearch.jsp");
         dispatcher.forward(request, response);
 	}
 
