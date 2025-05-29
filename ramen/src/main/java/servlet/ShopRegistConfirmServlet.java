@@ -20,11 +20,7 @@ import model.Bean.ShopBean;
  * Servlet implementation class ShopRegistConfirmServlet
  */
 @WebServlet("/shop-regist-confirm-servlet")
-@MultipartConfig(
-	    maxFileSize = 10485760,           // 10MB (1ファイルの最大サイズ)
-	    maxRequestSize = 52428800,        // 50MB (リクエスト全体の最大サイズ)
-	    fileSizeThreshold = 2097152       // 2MB (メモリ上で保持する最大サイズ)
-	)
+@MultipartConfig
 public class ShopRegistConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,6 +40,10 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	// アップロードされたファイルを保存するフォルダ
+	//プロジェクト内にフォルダは作成しないでOK
+	//サーバーが動くときに、自動的に生成（Tomcatが仮展開する場所に）
+	private static final String UPLOAD_DIR = "uploads";
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -63,15 +63,28 @@ public class ShopRegistConfirmServlet extends HttpServlet {
         boolean walkingDistance = Boolean.parseBoolean(walkingDistanceStr); // "true" なら true, "false" なら false
 			
 		
-		//name属性がimageのファイルをPartオブジェクトとして取得
-		Part photo=request.getPart("image");
-		//ファイル名を取得
-		String filename=Paths.get(photo.getSubmittedFileName()).getFileName().toString();
-		//アップロードするフォルダ
-		String path=getServletContext().getRealPath("/upload");
-		//書き込み
-		photo.write(path+File.separator+filename);
+     // 保存ディレクトリのパス（アプリケーションのルートから相対パス）
+     		//フォルダの場所を取得
+     		String appPath = request.getServletContext().getRealPath("");
+     		//↑のuploadsフォルダの場所
+     		String savePath = appPath + File.separator + UPLOAD_DIR;
 
+     		// フォルダがなければ作成
+     		File uploadDir = new File(savePath);
+     		if (!uploadDir.exists())
+     			uploadDir.mkdir();
+
+     		// ブラウザから送られてきたファイル（`name="image"`）を受け取る
+     		//getSubmittedFileName()：アップロードされたファイルの「元の名前」を取得
+     		Part part = request.getPart("image");
+     		String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+
+     		// ファイル保存
+     		part.write(savePath + File.separator + filename);
+
+     		//実際に保存されている場所
+     		//サーバを再公開した場合はファイルはなくなる可能性あり
+     		System.out.println(request.getServletContext().getRealPath(""));
 		
 		ShopBean shopInfo = new ShopBean();
 		shopInfo.setShopName(shopName);
