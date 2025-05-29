@@ -62,7 +62,7 @@ public class ShopRegistServlet extends HttpServlet {
 		session.removeAttribute("shopInfo");
 		
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("shop-detail-servlet");
+		RequestDispatcher rd = request.getRequestDispatcher("shop-list-servlet");
 		rd.forward(request, response);
 	}
 

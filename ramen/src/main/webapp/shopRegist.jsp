@@ -51,10 +51,10 @@
 		徒歩圏外：<input type="radio" name="walkingDistance" value="false">
 		<br>
 		写真：<input type="file" name="image">
-		
+		<br>
 		<input type="submit" value="確認へ">
 	</form>
-	<button onclick="history.back()" value="戻る"></button>
+	<button onclick="history.back()">戻る</button>
 
 </body>
 </html>
