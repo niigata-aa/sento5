@@ -10,7 +10,7 @@
 	<button type="button"onclick="history.back()">戻る</button>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
- 	何も入っていませんでした
+ 	何もコメントされていません
 	 <%} else{ %>
 	
 		<%for(CommentBean comment:commentList){ %>
