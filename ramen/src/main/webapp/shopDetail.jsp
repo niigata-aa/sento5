@@ -16,10 +16,6 @@
 %>
 <body>
 <%@include file = "header.jsp" %>
-	<form action="top.jsp" method="post">
-		<input type="submit" value="トップ">
-	</form>
-
 	<form action="shop-list-servlet" method="post">
 		<input type="submit" value="検索へ">
 	</form>
