@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.List,java.util.ArrayList,model.Bean.CommentBean"%>
+	pageEncoding="UTF-8"
+	import="java.util.List,java.util.ArrayList,model.Bean.CommentBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,25 +8,23 @@
 <title>コメント削除確認</title>
 </head>
 <body>
-<h2>投稿確認ページ</h2>
+	<h2>投稿削除ページ</h2>
 
-
-<% List<CommentBean>commentList=(List<CommentBean>)request.getAttribute("commentList");%>
-<%for(CommentBean comment:commentList){ %>
-		コメントID<%=comment.getCommentId() %><br>
-		カテゴリーID<%=comment.getGenreId() %>
-		レビュー<%=comment.getReview() %>
-		評価<%=comment.getRate() %>
-		写真<%=comment.getCommentPhoto() %>
-		投稿時間<%=comment.getCommentTime() %>
-		メニュ<%=comment.getMenu() %>
-		値段<%=comment.getValue() %>
-		<button type="button"onclick="history.back()">戻る</button>
-		<form action="coment-delete-servlet" method="post">
-			<input type="submit" value="削除する">
-			<input type="hidden" name="commentId" value="<%comment.getCommentId(); %>">
-		</form>
-<%} %>
+	コメントID<%=request.getParameter("commentId") %><br> 
+	カテゴリーID<%=request.getParameter("genreId")%><br>
+	レビュー<%=request.getParameter("review")%><br>
+	評価<%=request.getParameter("rate")%><br>
+	写真<%=request.getParameter("commentphoto") %><br>
+	投稿時間<%=request.getParameter("commentTime") %><br>
+	メニュ<%=request.getParameter("menu")%><br>
+	値段<%=request.getParameter("value")%><br>
+	<button type="button" onclick="history.back()">戻る</button>
+	<form action="coment-delete-servlet" method="post">
+		<input type="submit" value="削除する"> 
+		<input type="hidden"
+			name="commentId" value="<%request.getParameter("commentId"); %>">
+	</form>
+	
 
 
 </body>
