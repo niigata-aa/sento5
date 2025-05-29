@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 		UserDAO dao = new UserDAO();
 		int roll=1;
 		String userName = null;
+	
 		try {
 			//DAOの生成
 			if(dao.loginCheck(Integer.parseInt(userId), password)) {
@@ -72,9 +73,12 @@ public class LoginServlet extends HttpServlet {
 				 roll=dao.rollCheck(Integer.parseInt(userId));
 				if(roll==0) {
 					session.setAttribute("roll", roll);
-				}
+					RequestDispatcher rd = request.getRequestDispatcher("admini.jsp");
+					rd.forward(request, response);
+				}else {
 				//トップページに遷移
 				response.sendRedirect("top.jsp");
+				}
 
 			}else {//ログイン失敗
 				request.setAttribute("errorMessage", "ユーザ名またはパスワードが間違えています。");
