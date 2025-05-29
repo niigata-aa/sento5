@@ -7,13 +7,18 @@
 <title>コメント投稿ページ</title>
 </head>
 <body>
+
 <% 
 	ShopBean shop = (ShopBean)session.getAttribute("shop");
 %>
 <h2><%=shop.getShopName() %>コメント投稿ページ</h2>
 
+<div class="title"><!-- title タイトル -->
+<h2><%=request.getAttribute("shop_name") %>コメント投稿ページ</h2></div>
+>
 	<form action="comment-regist-confirm-servlet"method="post">
 		<input type="hidden" name="shopName" value="<%=shop.getShopId() %>">
+	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ<input type="text" name="menu"><br>
 	値段<input type="text" name="value"><br>
 	写真<input type="file"name="comentphoto"><br>
@@ -34,7 +39,19 @@
 		<option value="豚骨">豚骨</option>
 	</select><br>
 	<input type="submit" value="登録">
+		<option value="醤油">1</option>
+		<option value="塩">2</option>
+		<option value="味噌">3</option>
+		<option value="背油">4</option>
+		<option value="豚骨">5</option>
+	</select></div><br>
+	
+	<div class="registbutton"><!-- registbutton 登録ボタン -->
+	<input type="submit" value="登録"></div>	
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 	</form>
-	<button type="button"onclick="history.back()">戻る</button>
+	
+	<div class="backbutton"><!-- buckbutton 戻るボタン -->
+	<button type="button"onclick="history.back()">戻る</button></div>
 </body>
 </html>

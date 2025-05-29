@@ -45,7 +45,7 @@ public class RankingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		String url = "ranking.jsp";
+		String url = "top.jsp";
 		
 		int shopId = Integer.parseInt(request.getParameter("shopId"));
 		

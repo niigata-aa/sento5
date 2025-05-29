@@ -26,7 +26,10 @@
 エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
 
 <div class="button">
-<input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>
+<input type="submit" value="検索"></div><br>
+</form>
+<form action = "top.jsp" method = "POST">
+<input type = "submit"  value = "トップへ戻る">
 </form>
 </div>
 
@@ -35,17 +38,29 @@
 <div class="listtitle"><!-- listtitle タイトル -->
 <h2>店舗一覧</h2></div>
 
-<div class="">
+<div class="list"><!-- list 一覧 -->
 <%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 if(shopList != null && !shopList.isEmpty() ){
 %>
 
+<<<<<<< HEAD
 <% for (ShopBean shop : shopList){ %>
 <br>
 <form action="shop-detail" method="post">
+=======
+<% for (ShopBean shop : shopList){ %><br>
+
+<div class="listdetail"><!-- listdetail 一店舗ごとのブロック -->
+<form action="shop-detail-servlet" method="post">
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 <input type="submit" value="<%=shop.getShopName() %>">
+<<<<<<< HEAD
 <input type="hidden"name="shopId"value="<%= shop.getShopId() %>"><br>
 <img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
+=======
+<input type="hidden"value="<%= shop.getShopId() %>"><br>
+<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 <%if(shop.isWalkingDistance()){ %>
 徒歩圏内
 <%} else {%>
@@ -53,6 +68,7 @@ if(shopList != null && !shopList.isEmpty() ){
 <%} %>
 <% } %>
 </form>
+</div>
 <%}else{%>
 一致する内容がありません。
 <% } %></div>

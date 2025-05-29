@@ -88,7 +88,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		}
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("commentRegistConfirm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("commentConfirm.jsp");
 		rd.forward(request,response);
 			
 		

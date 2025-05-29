@@ -47,7 +47,7 @@ public class CommentBean implements Serializable {
 	/**
 	 * 値段
 	 */
-	private int value;
+	private String value;
 	
 	public CommentBean() {
 		
