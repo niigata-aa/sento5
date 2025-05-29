@@ -35,10 +35,35 @@
 <div class="listtitle"><!-- listtitle タイトル -->
 <h2>店舗一覧</h2></div>
 
+<<<<<<< HEAD
 <div class="">
 <%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 if(shopList != null && !shopList.isEmpty() ){
 %>
+=======
+		<div class="list">
+			<!-- list 一覧 -->
+			<%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
+			if(shopList != null && !shopList.isEmpty() ){%>
+			<% for (ShopBean shop : shopList){ %><br>
+			<div class="listdetail">
+				<!-- listdetail 一店舗ごとのブロック -->
+				<form action="shop-detail" method="post">
+					<input type="submit" value="<%=shop.getShopName() %>"> 
+					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> 
+					<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+					<%if(shop.isWalkingDistance()){ %>
+					徒歩圏内
+					<%} else {%>
+					徒歩圏外
+					<%} %>
+					</form>
+					<%} %>
+			</div>
+			<%}else{%>
+			一致する内容がありません。
+			<%} %>
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 
 <% for (ShopBean shop : shopList){ %>
 <br>

@@ -7,6 +7,7 @@
 <title>店舗登録</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <div class="shopregist"> <!-- ショップ登録まとめ-->
 	<form action="shop-regist-confirm-servlet" method="post"enctype="multipart/form-data">
 		店名入力：<input type="text" name="shopName"> <br>

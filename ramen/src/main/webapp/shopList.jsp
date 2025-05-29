@@ -7,6 +7,7 @@
 <title>店舗一覧</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 店舗一覧
 
 <form action="shop-detail-servlet" method="POST">

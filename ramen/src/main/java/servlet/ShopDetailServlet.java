@@ -54,7 +54,7 @@ public class ShopDetailServlet extends HttpServlet {
 		CommentDAO commentdao = new CommentDAO();
 		try {
 			//DAOの利用
-			List<ShopBean> shopdetail = shopdao.selectShop(shopId);
+			ShopBean shopdetail = shopdao.selectShop(shopId);
 			List<CommentBean> commentList = commentdao.selectComment(shopId);
 
 			//セッションスコープへの属性の設定

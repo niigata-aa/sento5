@@ -7,6 +7,7 @@
 <title>トップページ</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 
 <div class="mypage"><!-- mypage マイページボタン -->
 <input type = "button" onclick = "location.href='mypage.jsp'" value = "マイページ">

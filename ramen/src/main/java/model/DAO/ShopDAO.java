@@ -47,8 +47,8 @@ public class ShopDAO {
 	/**
 	 * 店舗IDで指定して、店舗情報を表示する
 	 */
-	public List<ShopBean> selectShop(int shopId) throws SQLException, ClassNotFoundException {
-		List<ShopBean> shopList = new ArrayList<ShopBean>();
+	public ShopBean selectShop(int shopId) throws SQLException, ClassNotFoundException {
+		ShopBean shop = new ShopBean();
 		String sql = "SELECT * FROM m_shop WHERE shop_id = ?";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -67,7 +67,6 @@ public class ShopDAO {
 				String detail = res.getString("detail");
 				boolean walkingDistance = res.getBoolean("walkDistance");
 
-				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
 				shop.setShopName(shopName);
 				shop.setShopKana(shopKana);
@@ -79,11 +78,10 @@ public class ShopDAO {
 				shop.setDetail(detail);
 				shop.setWalkingDistance(walkingDistance);
 
-				shopList.add(shop);
 			}
 
 		}
-		return shopList;
+		return shop;
 	}
 
 	/**

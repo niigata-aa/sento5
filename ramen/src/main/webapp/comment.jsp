@@ -7,6 +7,7 @@
 <title>コメント一覧</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 	<div class="back" ><!-- 戻るボタン -->
 	<button type="button"onclick="history.back()">戻る</button>
 	</div>
