@@ -5,19 +5,24 @@
 <form action="shop-detail-servlet" method = "POST">
 <%
 	List<ShopBean> shoprankList = (List<ShopBean>)request.getAttribute("shoprankList");
+	int rank = 1;
 if (shoprankList == null || shoprankList.size() == 0) {
 	%>
 	何もありません
 <%}else {
 	for(ShopBean shop : shoprankList){
+		
 %>
-
+		第 <%=rank %>位
 		<%=shop.getShopName() %>
 		<img src = <%=shop.getPhoto() %>>
 		
 		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
 		<input type="submit" name="photo" value="<%shop.getPhoto();%>">
-<%}} %>
+		<br>
+		
+<%rank += 1;
+}} %>
 
 <% %>
 	<%
