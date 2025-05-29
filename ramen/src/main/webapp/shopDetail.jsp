@@ -26,18 +26,18 @@
 	<h1>各店ページ</h1>
 
 	<%
-	int roll = (Integer)session.getAttribute("roll");
-	if(roll !=1){
+	int roll = (int)session.getAttribute("roll");
+	if(roll==0){
 	%>
 
 	<form action="shop-edit-info" method="post">
-		<input type="hidden" value="<%= shop.getShopId() %>"> <input
-			type="submit" value="編集">
+		<input type="hidden" name = "shopId"value="<%= shop.getShopId() %>"> 
+		<input type="submit" value="編集">
 	</form>
 
 	<form action="shop-delete-confirm" method="post">
-		<input type="hidden" value="<%= shop.getShopId() %>"> <input
-			type="submit" value="削除">
+		<input type="hidden" name="shopId"value="<%= shop.getShopId() %>"> 
+		<input type="submit" value="削除">
 	</form>
 	<%} %>
 
