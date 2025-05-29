@@ -30,7 +30,7 @@
 			写真:<%=comment.getCommentPhoto() %><br>
 			メニュ:<%=comment.getMenu() %><br>
 			値段:<%=comment.getValue() %><br>
-			<form action="shop-detail-servlet" method="post">
+			<form action="shop-detail" method="post">
 				<input type="submit" value="店舗詳細">
 				<input type="hidden" name="shopId" value="<%=comment.getShopId() %>">
 			</form>
