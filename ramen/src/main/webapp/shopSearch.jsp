@@ -65,7 +65,7 @@
 			<% for (ShopBean shop : shopList){ %><br>
 			<div class="listdetail">
 				<!-- listdetail 一店舗ごとのブロック -->
-				<form action="shop-detail-servlet" method="post">
+				<form action="shop-detail" method="post">
 					<input type="submit" value="<%=shop.getShopName() %>"> <input
 						type="hidden" value="<%= shop.getShopId() %>"><br> <img
 						src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
