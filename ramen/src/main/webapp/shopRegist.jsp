@@ -14,6 +14,8 @@
 		店名かな入力：<input type="text" name="shopKana"> <br>
 		住所：<input type="text"name="address"> <br>
 		開店時間：
+		<input type="time" name="openTime"><br>
+		<%-- 
 		 <select name="openTime">
         <%
         for (int h = 0; h < 24; h++) {
@@ -30,22 +32,9 @@
         }
         %>
     </select><br>
-		閉店時間：
-		 <select name="closeTime">
-        <%
-        for (int h = 0; h < 24; h++) {
-            for (int m = 0; m < 60; m += 30) {
-                // 時と分を2桁表示にフォーマット
-                String hour = String.format("%02d", h);
-                String minute = String.format("%02d", m);
-                String timeValue = hour + ":" + minute;
-        %>
-                <option value="<%= timeValue %>"><%= timeValue %></option>
-        <%
-            }
-        }
-        %>
-    </select><br>
+    --%>
+		閉店時間：<input type="time" name="closeTime"><br>
+
     	定休日：<input type="text" name="closedDay"><br>
 		詳細：<input type="text" name="detail"> <br>
 		
