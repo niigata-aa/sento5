@@ -17,7 +17,7 @@
 
 	この店舗を削除しますか<br>
 	<%
-		ShopBean shop = (ShopBean)session.getAttribute("shop");
+		ShopBean shop = (ShopBean)session.getAttribute("shopdetail");
 	%>
 	
 	<div class="shopcontainer"><!-- shopcontainer ショップ確認コンテナ -->
@@ -27,7 +27,7 @@
 	営業時間：<%=shop.getOpenTime()%>～<%=shop.getCloseTime()%><br>
 	定休日：<%=shop.getClosedDay() %><br>
 	詳細：<%=shop.getDetail()%><br>
-	写真：<img class="photo"src=<%=shop.getPhoto()%> alt="<%=shop.getShopName() %>+の店舗の写真"><br></div>
+	写真：<img class="photo"src="/ramen/upload/<%=shop.getPhoto()%>" alt="<%=shop.getShopName() %>+の店舗の写真"><br></div>
 	
 	<div class="buckbutton"><!-- buckbutton 戻るボタン -->
 	<button type="button" onclick="history.back()">戻る</button></div>
