@@ -7,10 +7,13 @@
 <title>コメント投稿ページ</title>
 </head>
 <body>
-<h2><%=request.getAttribute("shop_name") %>コメント投稿ページ</h2>
+
+<div class="title"><!-- title タイトル -->
+<h2><%=request.getAttribute("shop_name") %>コメント投稿ページ</h2></div>
 
 	<form action="CommentRegistConfirm"method="post">
-		
+	
+	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ<input type="text" name="menu"><br>
 	値段<input type="text" name="price"><br>
 	写真<input type="image"name="comentphoto"><br>
@@ -29,9 +32,13 @@
 		<option value="味噌">3</option>
 		<option value="背油">4</option>
 		<option value="豚骨">5</option>
-	</select><br>
-	<input type="submit" value="登録">
+	</select></div><br>
+	
+	<div class="registbutton"><!-- registbutton 登録ボタン -->
+	<input type="submit" value="登録"></div>	
 	</form>
-	<button type="button"onclick="history.back()">戻る</button>
+	
+	<div class="backbutton"><!-- buckbutton 戻るボタン -->
+	<button type="button"onclick="history.back()">戻る</button></div>
 </body>
 </html>
