@@ -31,13 +31,13 @@
 	%>
 
 	<form action="shop-edit-info" method="post">
-		<input type="hidden" value="<%= shop.getShopId() %>"> <input
-			type="submit" value="編集">
+		<input type="hidden" name = "shopId"value="<%= shop.getShopId() %>"> 
+		<input type="submit" value="編集">
 	</form>
 
 	<form action="shop-delete-confirm" method="post">
-		<input type="hidden" value="<%= shop.getShopId() %>"> <input
-			type="submit" value="削除">
+		<input type="hidden" name="shopId"value="<%= shop.getShopId() %>"> 
+		<input type="submit" value="削除">
 	</form>
 	<%} %>
 
