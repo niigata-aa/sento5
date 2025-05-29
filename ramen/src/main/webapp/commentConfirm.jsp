@@ -7,9 +7,11 @@
 <title>投稿確認ページ</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
+<div class="posted_confirmation_page"><!-- posted_confirmation_pageのコンテナ -->
 <h2>投稿確認ページ</h2>
-
-
+</div>
+<div  class="posted_schedule"><!-- posted_scheduleのコンテナ -->
 <% List<CommentBean>commentList=(List<CommentBean>)request.getAttribute("commentList");%>
 <%for(CommentBean comment:commentList){ %>
 		ジャンルID<%=comment.getGenreId() %><br>
@@ -20,9 +22,14 @@
 		メニュー<%=comment.getMenu() %><br>
 		値段<%=comment.getValue() %><br>
 <%} %>
+</div>
+<div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>
+</div>
+<div class="confirm"><!-- button 登録 -->
 <form action="coment-regist-confirm-servlet" method="post">
 	<input type="submit" value="登録">
 </form>
+</div>
 </body>
 </html>
