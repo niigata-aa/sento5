@@ -23,7 +23,6 @@
 			レビュー:<%=comment.getReview() %><br>
 			評価:<%=comment.getRate() %><br>
 			写真:<%=comment.getCommentPhoto() %><br>
-			投稿時間:<%=comment.getCommentTime() %><br>
 			メニュ:<%=comment.getMenu() %><br>
 			値段:<%=comment.getValue() %><br>
 			<form action="shop-detail-servlet" method="post">
@@ -39,7 +38,6 @@
 		<input type="hidden" name="review" value="<%=comment.getReview() %>">
 		<input type="hidden" name="rate" value="<%=comment.getRate() %>">
 		<input type="hidden" name="commentphotp" value="<%=comment.getCommentPhoto() %>">
-		<input type="hidden" name="commentTime" value="<%=comment.getCommentTime() %>">
 		<input type="hidden" name="menu" value="<%=comment.getMenu() %>">
 		<input type="hidden" name="value" value="<%=comment.getValue() %>">
 		</form>

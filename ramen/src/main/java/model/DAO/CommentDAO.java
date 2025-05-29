@@ -48,7 +48,7 @@ public class CommentDAO {
 	public int insertComment(CommentBean comment)throws SQLException, ClassNotFoundException{
 
 		//ユーザid、店舗id、ジャンルidインポートとゲット追加
-		String sql = "insert into m_comment (user_id, shop_id, genre_id,review, rate, comment_photo, commenet_time, menu, value) values (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into m_comment (user_id, shop_id, genre_id,review, rate, comment_photo, menu, value) values (?,?,?,?,?,?,?,?)";
 
 		int count = 0;
 
@@ -58,11 +58,10 @@ public class CommentDAO {
 			pstmt.setInt(2, comment.getShopId());
 			pstmt.setInt(3, comment.getGenreId());
 			pstmt.setString(4, comment.getReview());
-			pstmt.setInt(5, comment.getRate());
+			pstmt.setString(5, comment.getRate());
 			pstmt.setString(6, comment.getCommentPhoto());
-			pstmt.setTimestamp(7, comment.getCommentTime());
-			pstmt.setString(8, comment.getMenu());
-			pstmt.setInt(9, comment.getValue());
+			pstmt.setString(7, comment.getMenu());
+			pstmt.setString(8, comment.getValue());
 
 			count = pstmt.executeUpdate();
 
@@ -97,11 +96,10 @@ public class CommentDAO {
 				comment.setShopId(res.getInt("shop_id"));
 				comment.setGenreId(res.getInt("genre_id"));
 				comment.setReview(res.getString("review"));
-				comment.setRate(res.getInt("rate"));
+				comment.setRate(res.getString("rate"));
 				comment.setCommentPhoto(res.getString("comment_photo"));
-				comment.setCommentTime(res.getTimestamp("comment_time"));
 				comment.setMenu(res.getString("menu"));
-				comment.setValue(res.getInt("value"));
+				comment.setValue(res.getString("value"));
 				
 				commentList.add(comment);
 
@@ -138,11 +136,10 @@ public class CommentDAO {
 				comment.setShopId(res.getInt("shop_id"));
 				comment.setGenreId(res.getInt("genre_id"));
 				comment.setReview(res.getString("review"));
-				comment.setRate(res.getInt("rate"));
+				comment.setRate(res.getString("rate"));
 				comment.setCommentPhoto(res.getString("comment_photo"));
-				comment.setCommentTime(res.getTimestamp("comment_time"));
 				comment.setMenu(res.getString("menu"));
-				comment.setValue(res.getInt("value"));
+				comment.setValue(res.getString("value"));
 
 				commentCategoryList.add(comment);
 
@@ -179,11 +176,10 @@ public class CommentDAO {
 				comment.setShopId(res.getInt("shop_id"));
 				comment.setGenreId(res.getInt("genre_id"));
 				comment.setReview(res.getString("review"));
-				comment.setRate(res.getInt("rate"));
+				comment.setRate(res.getString("rate"));
 				comment.setCommentPhoto(res.getString("comment_photo"));
-				comment.setCommentTime(res.getTimestamp("comment_time"));
 				comment.setMenu(res.getString("menu"));
-				comment.setValue(res.getInt("value"));
+				comment.setValue(res.getString("value"));
 
 				commentUserList.add(comment);
 
