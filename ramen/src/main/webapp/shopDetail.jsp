@@ -12,7 +12,7 @@
 <title>各店ページ</title>
 </head>
 <% 
-	ShopBean shop = (ShopBean)session.getAttribute("shop"); 
+	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
 <body>
 	<form action="top.jsp" method="post">
@@ -41,11 +41,14 @@
 	</form>
 	<%} %>
 
-	<img class="photo" src="/ramen/upload/<%=shop.getPhoto() %>"
-		alt="<%=shop.getShopName() %>+の店舗の写真">
-	<br> 店名かな:<%=shop.getShopKana() %><br> 店名:<%=shop.getShopName() %><br>
-	住所:<%=shop.getAddress() %><br> 営業時間:<%=shop.getOpenTime() %>～<%=shop.getCloseTime() %><br>
-	定休日:<%=shop.getClosedDay() %><br> 詳細:<%=shop.getDetail() %><br>
+	<img class="photo" src="/ramen/upload/<%=shop.getPhoto()%>"alt="<%=shop.getShopName() %>+の店舗の写真">
+	<br> 
+	店名かな:<%=shop.getShopKana() %><br> 
+	店名:<%=shop.getShopName() %><br>
+	住所:<%=shop.getAddress() %><br> 
+	営業時間:<%=shop.getOpenTime() %>～<%=shop.getCloseTime() %><br>
+	定休日:<%=shop.getClosedDay() %><br> 
+	詳細:<%=shop.getDetail() %><br>
 
 	<input type = "button" onclick = "location.href='commentForm.jsp'" value = "コメント投稿">
 	<%--ジャンルをfor文で回す --%>
