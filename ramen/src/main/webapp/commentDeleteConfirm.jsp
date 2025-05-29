@@ -10,7 +10,7 @@
 <body>
 	<h2>投稿削除ページ</h2>
 
-	コメントID<%=request.getParameter("commentId") %><br> 
+	コメントID<%=session.getAttribute("commentId") %><br> 
 	カテゴリーID<%=request.getParameter("genreId")%><br>
 	レビュー<%=request.getParameter("review")%><br>
 	評価<%=request.getParameter("rate")%><br>
@@ -21,8 +21,7 @@
 	<button type="button" onclick="history.back()">戻る</button>
 	<form action="coment-delete-servlet" method="post">
 		<input type="submit" value="削除する"> 
-		<input type="hidden"
-			name="commentId" value="<%request.getParameter("commentId"); %>">
+		<input type="hidden" name="commentId" value="<%request.getParameter("commentId"); %>">
 	</form>
 	
 

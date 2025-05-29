@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ComentDeleteConfirmServlet
@@ -47,8 +48,8 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		String commentTime=request.getParameter("commentTime");
 		String menu=request.getParameter("menu");
 		String value=request.getParameter("value");
-		
-		request.setAttribute("commentId",commentId );
+		HttpSession session=request.getSession();
+		session.setAttribute("commentId",commentId );
 		request.setAttribute("genreId",genreId );
 		request.setAttribute("review",review );
 		request.setAttribute("rate",rate );
