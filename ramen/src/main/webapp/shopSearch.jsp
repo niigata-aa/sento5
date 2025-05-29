@@ -42,7 +42,8 @@ if(shopList != null && !shopList.isEmpty() ){
 %>
 
 <% for (ShopBean shop : shopList){ %>
-<%=shop.getShopName() %>
+<%=shop.getShopName() %><br>
+<form action="shop-detail-servlet" method="post">
 <a href="ShopDetailServlet?shopId=<%= shop.getShopId() %>"></a><br>
 <img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
 <%if(shop.isWalkingDistance()){ %>
@@ -50,6 +51,7 @@ if(shopList != null && !shopList.isEmpty() ){
 <%} else {%>
 徒歩圏外
 <%} %>
+</form>
 <% } %>
 
 <%}else{%>
