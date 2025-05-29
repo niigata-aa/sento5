@@ -43,7 +43,8 @@ if(shopList != null && !shopList.isEmpty() ){
 
 <% for (ShopBean shop : shopList){ %>
 <%=shop.getShopName() %>
-<a href="ShopDetailServlet?shopId=<%= shop.getShopId() %>"></a><img src="<%=shop.getPhoto() %>" alt="店舗写真">
+<a href="ShopDetailServlet?shopId=<%= shop.getShopId() %>"></a><br>
+<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
 <%if(shop.isWalkingDistance()){ %>
 徒歩圏内
 <%} else {%>
