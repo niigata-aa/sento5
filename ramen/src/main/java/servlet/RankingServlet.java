@@ -18,7 +18,7 @@ import model.DAO.ShopDAO;
 /**
  * Servlet implementation class RankingServlet
  */
-@WebServlet("/login-servlet")
+@WebServlet("/ranking-servlet")
 public class RankingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

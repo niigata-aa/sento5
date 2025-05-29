@@ -30,10 +30,13 @@
 <%=shopInfo.getDetail() %><br>
 写真
 <img src="/fileupload/upload/<%=shopInfo.getPhoto() %>"><br>
-
-
-<button type="button"onclick="history.back()" value="戻る"></button>
+<%if(shopInfo.isWalkingDistance()){%>
+	徒歩圏内
+<% }else{%>
+	徒歩圏外
+<%} %>
 <input type="submit" value="登録">	
+<button type="button"onclick="history.back()" value="戻る"></button>
 
 </form>
 
