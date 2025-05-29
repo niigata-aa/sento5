@@ -20,7 +20,7 @@
 		<input type="submit" value="トップ">
 	</form>
 
-	<form action="shoplist.jsp" method="post">
+	<form action="shop-list-servlet" method="post">
 		<input type="submit" value="検索へ">
 	</form>
 
@@ -66,39 +66,35 @@
 			<option value="9">その他</option>
 		</select> <input type="submit" value="コメント検索">
 	</form>
-
-
-
-	<form action="comment-delete-confirm" method="post">
 		<table>
+		<tr><th>写真</th><th>評価</th><th>ジャンル</th><th>メニュー</th><th>値段</th><th>レビュー</th></tr>
 			<% 
 		List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
 		for(CommentBean comment : commentList){
 		%>
+			
 			<tr>
-				<td><img class="commentphoto"
-					src="/ramen/upload/<%=comment.getCommentPhoto()%>"
-					alt="<%=comment.getMenu()%>の写真"></td>
-
+				<td><img class="commentphoto" 
+				src="/ramen/upload/<%=comment.getCommentPhoto()%>"alt="<%=comment.getMenu()%>の写真"></td>
 				<td><%=comment.getRate()%></td>
 				<td><%=comment.getGenreId()%></td>
 				<td><%=comment.getMenu()%></td>
 				<td><%=comment.getValue()%></td>
 				<td><%=comment.getReview()%></td>
-				<%
-			if(roll !=1){ 
-			%>
+				<%if(roll==0){ %>
 				<td>
-					<form action="comment-delete-servlet" method="post">
-						<input type="hidden" name="commentId"value="<%=comment.getCommentId()%>">
-						<input type="submit" name="delete" value="削除">
+					<form action="comment-delete-confirm" method="post">	
+					<input type="hidden" name="commentId" value="<%=comment.getCommentId() %>">
+					<input type="submit" name="delete" value="削除">
 					</form>
 				</td>
 				<%} %>
 			</tr>
-			<%} %>
+			
+		<%} %>
+			
 		</table>
-	</form>
+
 
 
 </body>
