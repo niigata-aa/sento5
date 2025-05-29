@@ -9,10 +9,14 @@
 <body>
 
 <div class="mypage"><!-- mypage マイページボタン -->
-<input type = "button" onclick = "location.href='mypage.jsp'" value = "マイページ"></div>
+<input type = "button" onclick = "location.href='mypage.jsp'" value = "マイページ">
+</div>
 
 <div class="shopsearch"><!-- shopsearch 検索ボタン -->
-<input type = "button" onclick = "location.href='shopSearch.jsp'" value = "店舗検索"></div>
+<form action="shop-list-servlet" method="post">
+<input type="submit" value="店舗検索">
+</form>
+</div>
 
 <div class="shopregist"><!-- shopregist 登録ボタン -->
 <input type = "button" onclick = "location.href='shopRegist.jsp'" value = "店舗登録"></div>
