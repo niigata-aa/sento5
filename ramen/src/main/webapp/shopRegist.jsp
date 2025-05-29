@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="shop-regist-confirm-servlet" method="post"enctype="multipart/form-data">
-		店名入力：<input type="text" name="shopName"> 
-		店名かな入力：<input type="text" name="shopKana"> 
-		住所：<input type="text"name="address"> 
+		店名入力：<input type="text" name="shopName"> <br>
+		店名かな入力：<input type="text" name="shopKana"> <br>
+		住所：<input type="text"name="address"> <br>
 		開店時間：
 		 <select name="openTime">
         <%
@@ -27,7 +27,7 @@
             }
         }
         %>
-    </select>
+    </select><br>
 		閉店時間：
 		 <select name="closeTime">
         <%
@@ -43,16 +43,16 @@
             }
         }
         %>
-    </select>
-    	定休日：<input type="text" name="closedDay">
-		詳細：<input type="text" name="detail"> 
+    </select><br>
+    	定休日：<input type="text" name="closedDay"><br>
+		詳細：<input type="text" name="detail"> <br>
 		
 		徒歩圏内：<input type="radio" name="walkingDistance" value="true">
 		徒歩圏外：<input type="radio" name="walkingDistance" value="false">
-		
+		<br>
 		写真：<input type="file" name="image">
 		
-		<button type="submit" value="確認へ"></button>
+		<input type="submit" value="確認へ">
 	</form>
 	<button onclick="history.back()" value="戻る"></button>
 
