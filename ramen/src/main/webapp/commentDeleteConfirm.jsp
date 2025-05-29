@@ -15,7 +15,6 @@
 	レビュー<%=request.getParameter("review")%><br>
 	評価<%=request.getParameter("rate")%><br>
 	写真<%=request.getParameter("commentphoto") %><br>
-	投稿時間<%=request.getParameter("commentTime") %><br>
 	メニュ<%=request.getParameter("menu")%><br>
 	値段<%=request.getParameter("value")%><br>
 	</div>
