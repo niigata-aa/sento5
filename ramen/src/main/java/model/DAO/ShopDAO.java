@@ -224,7 +224,7 @@ public class ShopDAO {
 			
 			while(res.next()) {
 				ShopBean shop = new ShopBean();
-				shop.setRate(res.getInt("rate"));
+				shop.setAverageRate(res.getInt("average_rate"));
 				shoprankList.add(shop);
 			}
 		}

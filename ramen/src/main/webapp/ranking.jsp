@@ -9,7 +9,7 @@
 <body>
 <form action="shop-detail-servlet" method = "POST">
 <%
-	List<CommentBean> shoprankList = (List<CommentBean>)request.getAttribute("shoprankList");	
+	List<ShopBean> shoprankList = (List<ShopBean>)request.getAttribute("shoprankList");	
 	for(ShopBean shop : shoprankList){
 %>
 

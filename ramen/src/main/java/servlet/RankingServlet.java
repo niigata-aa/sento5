@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Bean.CommentBean;
+import model.Bean.ShopBean;
 import model.DAO.ShopDAO;
 
 /**
@@ -61,7 +61,7 @@ public class RankingServlet extends HttpServlet {
 			//DAOの生成
 			ShopDAO shopdao = new ShopDAO();
 			//DAOの利用
-			List<CommentBean> shoprankList = shopdao.shopRank(shopId);
+			List<ShopBean> shoprankList = shopdao.shopRank(shopId);
 			request.setAttribute("shoprankList", shoprankList);
 			
 		} catch(ClassNotFoundException | SQLException e) {
