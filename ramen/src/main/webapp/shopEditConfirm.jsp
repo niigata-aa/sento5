@@ -12,6 +12,7 @@
 		request.setCharacterEncoding("UTF-8");
 	%>
 	<h1>編集確認ページ</h1>
+	<div class="shopeditconfirm"><!--ショップ編集確認一覧  -->
 	<jsp:useBean id="shop" class="model.Bean.ShopBean" scope="session"/>
 		店名入力<jsp:getProperty name="shop" property="shopName"/><br>
 		店名かな入力<jsp:getProperty name="shop" property="shopKana"/><br>
@@ -21,11 +22,16 @@
 		定休日<jsp:getProperty name="shop" property="closedDay"/><br>
 		詳細<jsp:getProperty name="shop" property="detail"/><br>
 		写真<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shop" property="shopKana"/>+の店舗の写真"><br>
-	
+	</div>
+	<div class="back"><!-- 戻るボタン -->
 	<button type="button" onclick="history.back()">戻る</button>
+	</div>
+	
+	<div class="shopedit"><!-- 登録ボタン -->
 	<form action="shop-edit" method="post">
 		<input type="submit" value="登録">
 	</form>
+	</div>
 	
 </body>
 </html>
