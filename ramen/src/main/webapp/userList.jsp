@@ -9,10 +9,11 @@
 </head>
 <body>
 	<h1>管理者ページ</h1>
+	<div class="user-container"><!-- user-container ユーザ全体のコンテナ -->
 	<h2>ユーザ一覧</h2>
-	<div>
+	
 
-
+	<div class="userall"><!-- userall ユーザ表示-->
 			テーブルの行の固定をCSSで記入する
 			<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
@@ -30,9 +31,15 @@
 					<td><%=user.getUserId()%></td>
 					<td><%=user.getUserName()%></td>
 					<td><form action="user-delete-confirm-servlet" method="POST">
+						<div class="userID"><!-- userID　ユーザIDの表示 -->
 						<input type="hidden" name="userId" value="<%=user.getUserId()%>">
+						</div>
+						<div class="username"><!-- username　ユーザネームの表示 -->
 						<input type="hidden" name="userName" value="<%=user.getUserName()%>">
+						</div>
+						<div class="submit"><!-- submit ボタン -->
 						<button type="submit">削除</button>
+						</div>
 						</form>
 					</td>
 				</tr>
@@ -40,6 +47,7 @@
 				<!--				-->
 			</table>
 			<br>
+	</div>
 	</div>
 </body>
 </html>
