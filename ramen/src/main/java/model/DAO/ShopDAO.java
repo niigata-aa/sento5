@@ -214,7 +214,7 @@ public class ShopDAO {
 	public List<ShopBean> shopRank(int shopId) throws SQLException, ClassNotFoundException{
 		List<ShopBean> shoprankList = new ArrayList<ShopBean>();
 		
-		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ? ORDER BY average_rate " ; 
+		String sql ="SELECT AVG(rate) AS average_rate FROM m_comment WHERE shop_id = ? ORDER BY average_rate LIMIT 5 " ; 
 		
 		try(Connection con=ConnectionManager.getConnection();
 				PreparedStatement pstmt=con.prepareStatement(sql)){
