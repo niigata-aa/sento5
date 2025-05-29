@@ -12,14 +12,12 @@
 <h2>投稿確認ページ</h2>
 </div>
 <div  class="posted_schedule"><!-- posted_scheduleのコンテナ -->
-<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
-<%for(CommentBean comment:commentList){ %>>
+<% CommentBean comment = (CommentBean)session.getAttribute("comment");%>
 		レビュー<%=comment.getReview() %><br>
 		評価<%=comment.getRate() %><br>
 		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>">br>
 		メニュー<%=comment.getMenu() %><br>
 		値段<%=comment.getValue() %><br>
-<%} %>
 </div>
 <div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>

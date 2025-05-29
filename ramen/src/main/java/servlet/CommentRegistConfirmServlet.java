@@ -52,7 +52,6 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		String menu = request.getParameter("menu");
 		String value = request.getParameter("value");
 		String commentPhoto = request.getParameter("commentPhoto");
-		
 		String review = request.getParameter("review");
 		String rate = request.getParameter("rate");
 

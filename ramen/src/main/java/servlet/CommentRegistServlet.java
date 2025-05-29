@@ -64,8 +64,7 @@ public class CommentRegistServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		//リクエストスコープへの属性の設定
-		request.setAttribute("processingNumber", processingNumber);
+		session.removeAttribute("comment");
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request,response);

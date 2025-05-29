@@ -38,17 +38,10 @@
 		<option value="背油">背油</option>
 		<option value="豚骨">豚骨</option>
 	</select><br>
-	<input type="submit" value="登録">
-		<option value="醤油">1</option>
-		<option value="塩">2</option>
-		<option value="味噌">3</option>
-		<option value="背油">4</option>
-		<option value="豚骨">5</option>
-	</select></div><br>
+	</div><br>
 	
 	<div class="registbutton"><!-- registbutton 登録ボタン -->
 	<input type="submit" value="登録"></div>	
->>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 	</form>
 	
 	<div class="backbutton"><!-- buckbutton 戻るボタン -->
