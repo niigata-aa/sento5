@@ -8,7 +8,7 @@
 </head>
 <body>
 <%@include file = "header.jsp" %>
-	<div class="back" ><!-- 戻るボタン -->
+	<div class="back" ><!-- 戻るボタンだお -->
 	<button type="button"onclick="history.back()">戻る</button>
 	</div>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
