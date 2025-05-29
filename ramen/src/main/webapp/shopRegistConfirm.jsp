@@ -12,7 +12,7 @@
 <% 
 	ShopBean shopInfo = (ShopBean)session.getAttribute("shopInfo"); 
 %>
-<form action="shop-regist-servle" method="post">
+<form action="shop-regist-servlet" method="post">
 
 この内容で登録します<br>
 店舗名

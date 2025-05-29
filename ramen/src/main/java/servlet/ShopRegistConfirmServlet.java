@@ -21,7 +21,7 @@ import model.Bean.ShopBean;
  */
 @WebServlet("/shop-regist-confirm-servlet")
 @MultipartConfig(
-	    location = "/var/webapp/upload", // 実際のアップロード先ディレクトリ
+	    location = "C:\\temp_uploads", // 実際のアップロード先ディレクトリ
 	    maxFileSize = 10485760,           // 10MB (1ファイルの最大サイズ)
 	    maxRequestSize = 52428800,        // 50MB (リクエスト全体の最大サイズ)
 	    fileSizeThreshold = 2097152       // 2MB (メモリ上で保持する最大サイズ)
