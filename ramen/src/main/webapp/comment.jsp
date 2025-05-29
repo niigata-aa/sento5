@@ -9,7 +9,7 @@
 <body>
 	<button type="button"onclick="history.back()">戻る</button>
 	<% List<CommentBean>commentList=(List<CommentBean>)request.getAttribute("commentList");%>
-	<% if(commentList.size()==0){ %> <%-- ★修正箇所★ --%>
+	<% if(commentList.size()==0){ %>
  	何も入っていませんでした
 	 <%} else{ %>
 	
