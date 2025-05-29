@@ -7,6 +7,7 @@
 <title>管理者ページ</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <div class="title"><!-- title タイトル -->
 <h1>管理者ページ</h1></div>
 

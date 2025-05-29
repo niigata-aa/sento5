@@ -8,6 +8,7 @@
 <title>ユーザ一覧</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 	<h1>管理者ページ</h1>
 	<div class="user-container"><!-- user-container ユーザ全体のコンテナ -->
 	<h2>ユーザ一覧</h2>

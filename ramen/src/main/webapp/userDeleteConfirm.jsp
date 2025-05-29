@@ -7,6 +7,7 @@
 <title>ユーザ削除確認</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <form action="user-delete-servlet" method="post">
 <div class="title"><!-- title 	タイトルのみ -->
 <h1>ユーザ削除確認画面</h1>

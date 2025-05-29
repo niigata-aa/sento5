@@ -7,6 +7,7 @@
 <title>ユーザ登録確認画面</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <div class="title"><!-- title 	タイトルのみ -->
 <h2>ユーザ登録確認画面</h2>
 </div>

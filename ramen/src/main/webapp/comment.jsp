@@ -7,7 +7,8 @@
 <title>コメント一覧</title>
 </head>
 <body>
-	<div class="back" ><!-- 戻るボタン -->
+<%@include file = "header.jsp" %>
+	<div class="back" ><!-- 戻るボタンだお -->
 	<button type="button"onclick="history.back()">戻る</button>
 	</div>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>

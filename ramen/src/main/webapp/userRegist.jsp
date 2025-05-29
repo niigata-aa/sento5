@@ -7,6 +7,7 @@
 <title>ユーザ登録</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <div class="title"><!-- title 	タイトルのみ -->
 <h2>ユーザ登録</h2>
 </div>

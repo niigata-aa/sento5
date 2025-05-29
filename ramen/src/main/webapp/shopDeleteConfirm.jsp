@@ -8,6 +8,7 @@
 <title>店舗削除確認</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 
 <div class="title"><!-- title タイトル -->
 <h1>店舗削除確認画面</h1></div>

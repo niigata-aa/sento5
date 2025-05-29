@@ -8,6 +8,7 @@
 <title>店舗編集</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <h1>店舗編集ページ</h1>
 <% 
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 

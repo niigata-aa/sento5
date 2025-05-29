@@ -9,6 +9,7 @@
 <title>店舗登録確認</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <% 
 	ShopBean shopInfo = (ShopBean)session.getAttribute("shopInfo"); 
 %>
