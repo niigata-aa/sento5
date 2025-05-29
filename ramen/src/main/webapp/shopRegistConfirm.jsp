@@ -38,7 +38,7 @@
 <%} %>
 </div>
 
-<div class="regist"> <!-- 登録ボタン -->
+<div class="regist"> <!-- 登録ボタンですよ -->
 <input type="submit" value="登録">	
 </div>
 

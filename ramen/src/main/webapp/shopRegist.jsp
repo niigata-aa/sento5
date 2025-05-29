@@ -7,7 +7,7 @@
 <title>店舗登録</title>
 </head>
 <body>
-<div class="shopregist"> <!-- ショップ登録まとめ -->
+<div class="shopregist"> <!-- ショップ登録まとめですよ -->
 	<form action="shop-regist-confirm-servlet" method="post"enctype="multipart/form-data">
 		店名入力：<input type="text" name="shopName"> <br>
 		店名かな入力：<input type="text" name="shopKana"> <br>
