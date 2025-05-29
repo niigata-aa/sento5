@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.DAO.CommentDAO;
 
@@ -42,8 +43,8 @@ public class CommentDeleteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		int commentId=Integer.parseInt(request.getParameter("commentId"));
-		
+		HttpSession session=request.getSession();
+		int commentId=(int)session.getAttribute("commentId");
 		
 		CommentDAO dao=new CommentDAO();
 		
