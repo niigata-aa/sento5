@@ -29,14 +29,15 @@
 詳細
 <%=shopInfo.getDetail() %><br>
 写真
-<img src="/upload/<%=shopInfo.getPhoto() %>"><br>
+<img src="/ramen/upload/<%=shopInfo.getPhoto() %>"><br>
+
 <%if(shopInfo.isWalkingDistance()){%>
 	徒歩圏内
 <% }else{%>
 	徒歩圏外
 <%} %>
 <input type="submit" value="登録">	
-<button type="button"onclick="history.back()" value="戻る"></button>
+<button type="button"onclick="history.back()" >	戻る</button>
 
 </form>
 

@@ -7,13 +7,16 @@
 <title>マイページ</title>
 </head>
 <body>
+<div class="title"><!-- title タイトル -->
+<h1>マイページ</h1></div>
 
-<h1>マイページ</h1>
-
+<div class="comment"><!-- comment 	コメント一覧 -->
 <form action = "coment-list-servlet" method = "POST">
 <input type = "hidden"  name="userId" value="<%=session.getAttribute("userId")%>">
 <input type = "submit" value = "コメント一覧">
-</form>
-<input type = "button"  onclick = "history.back()" value = "戻る">
+</form></div>
+
+<div class="button"><!-- button 戻るボタン -->
+<input type = "button"  onclick = "history.back()" value = "戻る"></div>
 </body>
 </html>

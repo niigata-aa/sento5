@@ -15,7 +15,7 @@
 	%>
 
 		<%=shop.getShopName() %> 
-		<%=shop.getPhoto() %>
+	<img src="/ramen/upload/<%=shop.getPhoto() %>">
 		
 <input type="hidden" name="shopname" value="<%shop.getShopName();%>">
 <input type="submit" name="photo" value="<%shop.getPhoto();%>">
@@ -23,6 +23,7 @@
 		
 		<%} %>
 </form>
+	<button onclick="history.back()">戻る</button>
 
 </body>
 </html>
