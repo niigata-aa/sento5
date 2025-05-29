@@ -2,10 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,23 +45,12 @@ public class CommentRegistServlet extends HttpServlet {
 		
 		String url ="commentRegistConfirm.jsp";
 		
-		//タイムスタンプのため何とか
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
-		Date date = null;
-		try {
-			date = sdf.parse("commentTime");
-		} catch (ParseException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-		
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		int shopId = Integer.parseInt(request.getParameter("shopId"));
 		int genreId = Integer.parseInt(request.getParameter("genreId"));
 		String review = request.getParameter("review");
 		int rate = Integer.parseInt(request.getParameter("rate"));
 		String commentPhoto = request.getParameter("commentPhoto");
-		Timestamp commentTime = new Timestamp(date.getTime());
 		String menu = request.getParameter("menu");
 		int value = Integer.parseInt(request.getParameter("value"));
 		
@@ -81,7 +66,6 @@ public class CommentRegistServlet extends HttpServlet {
 		comment.setReview(review);
 		comment.setRate(rate);
 		comment.setCommentPhoto(commentPhoto);
-		comment.setCommentTime(commentTime);
 		comment.setMenu(menu);
 		comment.setValue(value);
 		try {

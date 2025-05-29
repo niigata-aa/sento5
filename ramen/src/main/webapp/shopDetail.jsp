@@ -1,5 +1,6 @@
 <%--各店舗画面--%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.Bean.UserBean"%>
@@ -12,51 +13,44 @@
 </head>
 <% 
 	ShopBean shop = (ShopBean)session.getAttribute("shop"); 
-	int shopId = shop.getShopId();
 %>
 <body>
 	<form action="top.jsp" method="post">
 		<input type="submit" value="トップ">
 	</form>
-	
+
 	<form action="shoplist.jsp" method="post">
 		<input type="submit" value="検索へ">
 	</form>
-	
+
 	<h1>各店ページ</h1>
-	
+
 	<%
 	int roll = (Integer)session.getAttribute("roll");
 	if(roll !=1){
 	%>
 
-		<form action="shop-edit-info" method="post">
-		    <input type="hidden" value="<%= shopId %>">
-			<input type="submit" value="編集">
-		</form>
-		
-		<form action="shop-delete-confirm" method="post">
-			<input type="hidden" value="<%= shopId %>">
-			<input type="submit" value="削除">
-		</form>
-	<%} %>
-	
-	<jsp:useBean id="shopdetail" class="model.Bean.ShopBean" scope="session"/>
-	<img class="photo"src=<jsp:getProperty name="shopdetail" property="photo"/> alt="<jsp:getProperty name="shopdetail" property="shopKana"/>+の店舗の写真"><br> 
-	店名かな<jsp:getProperty name="shopdetail" property="shopKana"/><br> 
-	店名<jsp:getProperty name="shopdetail" property="shopName"/><br> 
-	住所<jsp:getProperty name="shopdetail" property="address"/><br>
-	営業時間<jsp:getProperty name="shopdetail" property="openTime"/>～<jsp:getProperty name="shopdetail" property="closeTime"/><br>
-	定休日<jsp:getProperty name="shopdetail" property="closedDay"/><br>
-	詳細<jsp:getProperty name="shopdetail" property="detail"/><br>
-	
-	<form action="comment-regist-confirm" method="post">
-		<input type="submit" value="コメント投稿">
+	<form action="shop-edit-info" method="post">
+		<input type="hidden" value="<%= shop.getShopId() %>"> <input
+			type="submit" value="編集">
 	</form>
+
+	<form action="shop-delete-confirm" method="post">
+		<input type="hidden" value="<%= shop.getShopId() %>"> <input
+			type="submit" value="削除">
+	</form>
+	<%} %>
+
+	<img class="photo" src="/ramen/upload/<%=shop.getPhoto() %>"
+		alt="<%=shop.getShopName() %>+の店舗の写真">
+	<br> 店名かな:<%=shop.getShopKana() %><br> 店名:<%=shop.getShopName() %><br>
+	住所:<%=shop.getAddress() %><br> 営業時間:<%=shop.getOpenTime() %>～<%=shop.getCloseTime() %><br>
+	定休日:<%=shop.getClosedDay() %><br> 詳細:<%=shop.getDetail() %><br>
+
+	<input type = "button" onclick = "location.href='commentForm.jsp'" value = "コメント投稿">
 	<%--ジャンルをfor文で回す --%>
 	<form action="comment-search" method="post">
-		<input type="text" name="userserch">
-		<select name="genreserch">
+		<input type="text" name="userserch"> <select name="genreserch">
 			<option value="1">醤油</option>
 			<option value="2">塩</option>
 			<option value="3">味噌</option>
@@ -66,47 +60,43 @@
 			<option value="7">麻婆</option>
 			<option value="8">担々麵</option>
 			<option value="9">その他</option>
-		</select>
-		<input type="submit" value="コメント検索">
+		</select> <input type="submit" value="コメント検索">
 	</form>
 
-	
-	
+
+
 	<form action="comment-delete-confirm" method="post">
-	<table>
-		<% 
-		String userName = (String)request.getAttribute("userName");
-		String genreName = (String)request.getAttribute("genreName");
-		ArrayList<CommentBean> commentList = (ArrayList<CommentBean>) request.getAttribute("commentList");
-		for(int i = 1; i<commentList.size(); i++){
-		CommentBean comment = commentList.get(i);
+		<table>
+			<% 
+		List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
+		for(CommentBean comment : commentList){
 		%>
-		
-		<tr>
-			<td><%=comment.getCommentTime()%></td>
-			<td><%=comment.getCommentId()%></td>
-			<td><img class = "commentphoto" src="<%=comment.getCommentPhoto()%>" alt="<%=comment.getMenu()%>の写真"></td>
-			<td><%=userName%></td>
-			<td><%=comment.getRate()%></td>
-			<td><%=genreName%></td>
-			<td><%=comment.getMenu()%></td>
-			<td><%=comment.getValue()%></td>
-			<td><%=comment.getReview()%></td>	
-			<%
+			<tr>
+				<td><%=comment.getCommentTime()%></td>
+				<td><img class="commentphoto"
+					src="/ramen/upload/<%=comment.getCommentPhoto()%>"
+					alt="<%=comment.getMenu()%>の写真"></td>
+				<td><%=comment.getUserId()%></td>
+				<td><%=comment.getRate()%></td>
+				<td><%=comment.getGenreId()%></td>
+				<td><%=comment.getMenu()%></td>
+				<td><%=comment.getValue()%></td>
+				<td><%=comment.getReview()%></td>
+				<%
 			if(roll !=1){ 
 			%>
-					<td><input type="checkbox" name="delete" value="<%=comment.getCommentId()%>"></td>
+				<td>
+					<form action="comment-delete" method="post">
+						<input type="hidden" value="<%=comment.getCommentId()%>">
+						<input type="submit" name="delete" value="削除">
+					</form>
+				</td>
+				<%} %>
+			</tr>
 			<%} %>
-		</tr>
-		<%} %>
-	</table>
-		<%
-		if(roll !=1){ 
-		%>
-		<input type="submit" value="削除">
-		<%} %>
+		</table>
 	</form>
-	
-	
+
+
 </body>
 </html>

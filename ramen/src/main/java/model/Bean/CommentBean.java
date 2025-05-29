@@ -1,7 +1,6 @@
 package model.Bean;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 public class CommentBean implements Serializable {
 	/**
@@ -32,17 +31,13 @@ public class CommentBean implements Serializable {
 	/**
 	 * 評価
 	 */
-	private int rate;
+	private String rate;
 	
 	/**
 	 * コメントの写真
 	 */
 	private String commentPhoto;
 	
-	/**
-	 * タイムスタンプ
-	 */
-	private Timestamp commentTime;
 	
 	/**
 	 * メニュー
@@ -98,11 +93,11 @@ public class CommentBean implements Serializable {
 		this.review = review;
 	}
 
-	public int getRate() {
+	public String getRate() {
 		return rate;
 	}
 
-	public void setRate(int rate) {
+	public void setRate(String rate) {
 		this.rate = rate;
 	}
 
@@ -114,14 +109,6 @@ public class CommentBean implements Serializable {
 		this.commentPhoto = commentPhoto;
 	}
 
-	public Timestamp getCommentTime() {
-		return commentTime;
-	}
-
-	public void setCommentTime(Timestamp commentTime) {
-		this.commentTime = commentTime;
-	}
-
 	public String getMenu() {
 		return menu;
 	}
@@ -130,11 +117,11 @@ public class CommentBean implements Serializable {
 		this.menu = menu;
 	}
 
-	public int getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 	
