@@ -10,19 +10,33 @@
 <title>店舗検索・一覧</title>
 </head>
 <body>
-<h1>店舗検索・一覧</h1>
-<div>
-<h2>店舗検索</h2>
+<div class="title"><!-- title　タイトル -->
+<h1>店舗検索・一覧</h1></div>
+<div class="search"><!-- search 検索フォーム全体 -->
+
+<div class="searchtitle"><!-- searchtitle 検索タイトル -->
+<h2>店舗検索</h2></div>
+
+
 <form action="shop-search-servlet" method="POST">
-店舗名：<input type="text" name="shopName" value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>" placeholder="店舗名を入力"><br>
-エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"><br>
-<input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"><br>
+<div class="namesearch"><!-- namesearch 店名入力 -->
+店舗名：<input type="text" name="shopName" value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>" placeholder="店舗名を入力"></div><br>
+
+<div class="areasearch"><!-- areasearch 地域入力 -->>
+エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
+
+<div class="button">
+<input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>
 </form>
 </div>
 
-<div>
+<div class="shoplistcontainer"><!-- shoplist 店舗一覧全体 -->
 <form action="shop-detail-servlet" method="post">
-<h2>店舗一覧</h2>
+
+<div class="listtitle"><!-- listtitle タイトル -->
+<h2>店舗一覧</h2></div>
+
+<div class="">
 <%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 if(shopList != null && !shopList.isEmpty() ){
 %>
@@ -39,7 +53,7 @@ if(shopList != null && !shopList.isEmpty() ){
 
 <%}else{%>
 一致する内容がありません。
-<% } %>
+<% } %></div>
 </form>
 </div>
 
