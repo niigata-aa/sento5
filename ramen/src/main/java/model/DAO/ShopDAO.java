@@ -28,7 +28,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
-				boolean walkingDistance = res.getBoolean("walkingDistance");
+				boolean walkingDistance = res.getBoolean("walkDistance");
 				//				String genre = res.getString("genre_name");
 
 				ShopBean shop = new ShopBean();
@@ -65,7 +65,7 @@ public class ShopDAO {
 				String closedDay = res.getString("closed_day");
 				String shopPhoto = res.getString("photo");
 				String detail = res.getString("detail");
-				boolean walkingDistance = res.getBoolean("walkingDistance");
+				boolean walkingDistance = res.getBoolean("walkDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -102,7 +102,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
-				boolean walkingDistance = res.getBoolean("walkingDistance");
+				boolean walkingDistance = res.getBoolean("walkDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -133,7 +133,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
-				boolean walkingDistance = res.getBoolean("walkingDistance");
+				boolean walkingDistance = res.getBoolean("walkDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -163,7 +163,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
-				boolean walkingDistance = res.getBoolean("walkingDistance");
+				boolean walkingDistance = res.getBoolean("walkDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -195,7 +195,7 @@ public class ShopDAO {
 				int shopId = res.getInt("shop_id");
 				String shopName = res.getString("shop_name");
 				String shopPhoto = res.getString("photo");
-				boolean walkingDistance = res.getBoolean("walkingDistance");
+				boolean walkingDistance = res.getBoolean("walkDistance");
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
@@ -265,7 +265,7 @@ public class ShopDAO {
 
 
 		String sql = "UPDATE m_shop "
-				+ "SET shop_name = ?,shop_kana=?,address=?,open_time=?,close_time=?,closed_day=?,photo=?,detail=?, walkingDistance=?"
+				+ "SET shop_name = ?,shop_kana=?,address=?,open_time=?,close_time=?,closed_day=?,photo=?,detail=?, walkDistance=?"
 				+ " WHERE shop_id=? ";
 
 
@@ -316,7 +316,7 @@ public class ShopDAO {
 	 */
 	public int insertShop(ShopBean shop) throws SQLException, ClassNotFoundException{
 		int count=0;
-		String sql = "INSERT INTO m_shop (shop_name,shop_kana,address,open_time,close_time,closed_day,photo,detail, walkingDistance) VALUES(?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO m_shop (shop_name,shop_kana,address,open_time,close_time,closed_day,photo,detail, walkDistance) VALUES(?,?,?,?,?,?,?,?,?)";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
