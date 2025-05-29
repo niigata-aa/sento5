@@ -48,7 +48,7 @@ public class CommentDAO {
 	public int insertComment(CommentBean comment)throws SQLException, ClassNotFoundException{
 
 		//ユーザid、店舗id、ジャンルidインポートとゲット追加
-		String sql = "insert into m_comment (user_id, shop_id, genre_id,review, rate, comment_photo, commenet_time, menu, value) value (?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into m_comment (user_id, shop_id, genre_id,review, rate, comment_photo, commenet_time, menu, value) values (?,?,?,?,?,?,?,?,?)";
 
 		int count = 0;
 
@@ -78,7 +78,7 @@ public class CommentDAO {
 		List<CommentBean> commentList = new ArrayList<CommentBean>();
 		CommentBean comment = new CommentBean();
 
-		String sql = "SELECT * m_comment where shop_id = ?";
+		String sql = "SELECT * from m_comment where shop_id = ?";
 
 		//データベースの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
@@ -159,7 +159,7 @@ public class CommentDAO {
 		List<CommentBean> commentUserList = new ArrayList<CommentBean>();
 		CommentBean comment = new CommentBean();
 
-		String sql = "SELECT * m_comment where user_id = ?";
+		String sql = "SELECT * from m_comment where user_id = ?";
 
 		//データベースの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
