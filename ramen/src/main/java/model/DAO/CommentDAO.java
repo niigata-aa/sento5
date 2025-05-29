@@ -119,7 +119,7 @@ public class CommentDAO {
 		List<CommentBean> commentCategoryList = new ArrayList<CommentBean>();
 		CommentBean comment = new CommentBean();
 
-		String sql = "SELECT * m_comment where genre_id = ?";
+		String sql = "SELECT * from m_comment where genre_id = ?";
 
 		//データベースの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
