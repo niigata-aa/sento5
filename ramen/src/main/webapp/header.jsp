@@ -3,7 +3,7 @@ pageEncoding= "UTF-8" %>
 
 ログインユーザ：<%=session.getAttribute("userName") %>
 
-<form action = "LogoutServlet" method = "POST">
+<form action = "logout-servlet" method = "POST">
 <input type = "submit"  value = "ログアウト">
 </form>
 
