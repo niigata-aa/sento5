@@ -20,8 +20,8 @@
 	営業時間：<%=shop.getOpenTime()%>～<%=shop.getCloseTime()%><br>
 	定休日：<%=shop.getClosedDay() %><br>
 	詳細：<%=shop.getDetail()%><br>
-	写真：<img class="photo"src=<%=shop.getPhoto()%> alt="<%=shop.getShopName() %>+の店舗の写真">
-	<button onclick="history.back()" value="戻る"></button>
+	写真：<img class="photo"src=<%=shop.getPhoto()%> alt="<%=shop.getShopName() %>+の店舗の写真"><br>
+	<button type="button" onclick="history.back()">戻る</button>
 	<input type="submit" value="削除">
 </form>
 </body>

@@ -18,12 +18,14 @@
 		住所<jsp:getProperty name="shop" property="address"/><br>
 		開店時間<jsp:getProperty name="shop" property="openTime"/><br>
 		閉店時間<jsp:getProperty name="shop" property="closeTime"/><br>
+		定休日<jsp:getProperty name="shop" property="closedDay"/><br>
 		詳細<jsp:getProperty name="shop" property="detail"/><br>
-		写真<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shop" property="shopKana"/>+の店舗の写真">
+		写真<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shop" property="shopKana"/>+の店舗の写真"><br>
 	
+	<button type="button" onclick="history.back()">戻る</button>
 	<form action="shop-edit" method="post">
 		<input type="submit" value="登録">
 	</form>
-	<button onclick="history.back()" value="戻る"></button>
+	
 </body>
 </html>
