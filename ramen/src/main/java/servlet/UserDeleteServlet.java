@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +43,7 @@ public class UserDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("d_useId");
+		String userId = (String)session.getAttribute("d_userId");
 		int count=0;
 		UserDAO dao =new UserDAO();
 		try {
@@ -59,8 +60,10 @@ public class UserDeleteServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher("user-list-servlet");
+		rd.forward(request, response);
 
-				
 	}
 
 }
