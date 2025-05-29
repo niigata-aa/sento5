@@ -7,6 +7,7 @@
 <title>マイページ</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <div class="title"><!-- title タイトル -->
 <h1>マイページ</h1></div>
 
