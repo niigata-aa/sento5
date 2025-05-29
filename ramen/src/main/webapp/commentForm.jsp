@@ -7,9 +7,9 @@
 <title>コメント投稿ページ</title>
 </head>
 <body>
-
+<%@include file = "header.jsp" %>
 <% 
-	ShopBean shop = (ShopBean)session.getAttribute("shop");
+	ShopBean shop = (ShopBean)session.getAttribute("shopdetail");
 %>
 <h2><%=shop.getShopName() %>コメント投稿ページ</h2>
 
