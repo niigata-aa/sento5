@@ -1,6 +1,8 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import model.Bean.CommentBean;
 import model.Bean.ShopBean;
@@ -35,13 +38,40 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
+	// アップロードされたファイルを保存するフォルダ
+	//プロジェクト内にフォルダは作成しないでOK
+	//サーバーが動くときに、自動的に生成（Tomcatが仮展開する場所に）
+	private static final String UPLOAD_DIR = "upload";
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
+		
+		 // 保存ディレクトリのパス（アプリケーションのルートから相対パス）
+ 		//フォルダの場所を取得
+ 		String appPath = request.getServletContext().getRealPath("");
+ 		//↑のuploadフォルダの場所
+ 		String savePath = appPath + File.separator + UPLOAD_DIR;
+
+ 		// フォルダがなければ作成
+ 		File uploadDir = new File(savePath);
+ 		if (!uploadDir.exists())
+ 			uploadDir.mkdir();
+
+ 		// ブラウザから送られてきたファイル（`name="image"`）を受け取る
+ 		//getSubmittedFileName()：アップロードされたファイルの「元の名前」を取得
+ 		Part part = request.getPart("commentPhoto");
+ 		String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+
+ 		// ファイル保存
+ 		part.write(savePath + File.separator + filename);
+
+ 		//実際に保存されている場所
+ 		//サーバを再公開した場合はファイルはなくなる可能性あり
+ 		System.out.println(request.getServletContext().getRealPath(""));
+ 		
 		HttpSession session = request.getSession();
 		ShopBean shop = (ShopBean) session.getAttribute("shop");
 		
@@ -51,7 +81,6 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 
 		String menu = request.getParameter("menu");
 		String value = request.getParameter("value");
-		String commentPhoto = request.getParameter("commentPhoto");
 		String review = request.getParameter("review");
 		String rate = request.getParameter("rate");
 
@@ -62,7 +91,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		comment.setGenreId(shopId);
 		comment.setReview(review);
 		comment.setRate(rate);
-		comment.setCommentPhoto(commentPhoto);
+		comment.setCommentPhoto(filename);
 		comment.setMenu(menu);
 		comment.setValue(value);
 		
@@ -72,7 +101,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		if(
 		   review == null || review.trim().isEmpty()||
 		   rate==null || rate.trim().isEmpty()||
-		   commentPhoto==null || commentPhoto.trim().isEmpty()||
+		   filename==null || filename.trim().isEmpty()||
 		   menu==null || menu.trim().isEmpty()||
 		  value==null || value.trim().isEmpty()) {
 		 	
