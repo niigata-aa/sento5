@@ -9,7 +9,7 @@
 <body>
 <h1>マイページ</h1>
 
-<form action = "comment-list-servlet" method = "POST">
+<form action = "coment-list-servlet" method = "POST">
 <input type = "hidden"  name="userId" value="<%=session.getAttribute("userId")%>">
 <input type = "submit" value = "コメント一覧">
 </form>
