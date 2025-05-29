@@ -57,7 +57,7 @@ public class ShopListServlet extends HttpServlet {
 				ShopDAO shopDao = new ShopDAO();
 				List<ShopBean> shopList = shopDao.selectAllshop();
 				request.setAttribute("shopList", shopList);
-				url = "shopList.jsp";
+				url = "shopSearch.jsp";
 			}catch(Exception e){
 				e.printStackTrace();
 			}
