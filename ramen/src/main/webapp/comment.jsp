@@ -14,14 +14,14 @@
 	 <%} else{ %>
 	
 		<%for(CommentBean comment:commentList){ %>
-			<%=comment.getCommentId() %>
-			<%=comment.getGenreId() %>
-			<%=comment.getReview() %>
-			<%=comment.getRate() %>
-			<%=comment.getCommentPhoto() %>
-			<%=comment.getCommentTime() %>
-			<%=comment.getMenu() %>
-			<%=comment.getValue() %>
+			<%=comment.getCommentId() %><br>
+			<%=comment.getGenreId() %><br>
+			<%=comment.getReview() %><br>
+			<%=comment.getRate() %><br>
+			<%=comment.getCommentPhoto() %><br>
+			<%=comment.getCommentTime() %><br>
+			<%=comment.getMenu() %><br>
+			<%=comment.getValue() %><br>
 			<form action="shop-detail-servlet" method="post">
 				<input type="submit" value="店舗詳細">
 				<input type="hidden" name="shopId" value="<%=comment.getShopId() %>">
