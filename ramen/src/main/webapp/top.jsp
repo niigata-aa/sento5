@@ -11,7 +11,7 @@
 <input type = "button" onclick = "location.href='mypage.jsp'" value = "マイページ">
 <input type = "button" onclick = "location.href='shopSearch.jsp'" value = "店舗検索">
 <input type = "button" onclick = "location.href='shopRegist.jsp'" value = "店舗登録">
- <h2>おすすめランキング</h2>
+ <h2>平均評価点ランキング</h2>
 <%@include file = "ranking.jsp" %>
 
 </body>
