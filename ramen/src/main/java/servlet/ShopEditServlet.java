@@ -45,7 +45,7 @@ public class ShopEditServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//セッションスコープから属性値の取得
-		ShopBean shopUpdate = (ShopBean) session.getAttribute("shopUpdate");
+		ShopBean shopUpdate = (ShopBean) session.getAttribute("editInfo");
 		
 		//DAOの生成
 		ShopDAO shopDAO = new ShopDAO();
@@ -60,8 +60,10 @@ public class ShopEditServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("count", count);
+		//編集のセッション情報削除
+		session.removeAttribute("editInfo");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("shopEdit.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("shop-list-servlet");
 		rd.forward(request, response);
 	}
 
