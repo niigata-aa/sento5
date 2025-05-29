@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,7 +57,6 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		String rate = request.getParameter("rate");
 
 	
-		List<CommentBean> commentList = new ArrayList<CommentBean>();
 		CommentBean comment = new CommentBean();
 		comment.setUserId((int)session.getAttribute("userId"));
 		comment.setShopId(shopId);
@@ -69,9 +66,8 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		comment.setCommentPhoto(commentPhoto);
 		comment.setMenu(menu);
 		comment.setValue(value);
-		commentList.add(comment);
 		
-		session.setAttribute("commentList", commentList);
+		session.setAttribute("comment", comment);
 		
 		//入力チェック
 		if(
@@ -82,7 +78,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		  value==null || value.trim().isEmpty()) {
 		 	
 			request.setAttribute("errorMessage", "メニュー名・値段・評価・ジャンル・レビューをすべて入力してください");
-			RequestDispatcher rd = request.getRequestDispatcher("commentRegist.html");
+			RequestDispatcher rd = request.getRequestDispatcher("commentRegist.jsp");
 			rd.forward(request, response);
 			return;
 		}

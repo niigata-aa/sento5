@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,14 +20,14 @@ import model.DAO.CommentDAO;
 @WebServlet("/coment-regist-servlet")
 public class CommentRegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CommentRegistServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CommentRegistServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,28 +43,34 @@ public class CommentRegistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String url ="commentRegistConfirm.jsp";
 
 		HttpSession session = request.getSession();
-		List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");
-		
+		CommentBean comment=(CommentBean)session.getAttribute("comment");
+
 		//DAOの生成
 		CommentDAO commentdao = new CommentDAO();
 		int processingNumber = 0;
-	
-			//DAOの利用
-			 processingNumber = commentdao.insertComment(comment);
-		} catch(ClassNotFoundException | SQLException e) {
+
+		//DAOの利用
+		try {
+			processingNumber = commentdao.insertComment(comment);
+		} catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+
 		//リクエストスコープへの属性の設定
 		request.setAttribute("processingNumber", processingNumber);
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request,response);
 
-		}
-	
+	}
+
 
 }
