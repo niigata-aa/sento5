@@ -29,7 +29,8 @@
 詳細
 <%=shopInfo.getDetail() %><br>
 写真
-<img src="/upload/<%=shopInfo.getPhoto() %>"><br>
+<img src="/ramen/upload/<%=shopInfo.getPhoto() %>"><br>
+
 <%if(shopInfo.isWalkingDistance()){%>
 	徒歩圏内
 <% }else{%>

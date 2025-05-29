@@ -43,7 +43,7 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 	// アップロードされたファイルを保存するフォルダ
 	//プロジェクト内にフォルダは作成しないでOK
 	//サーバーが動くときに、自動的に生成（Tomcatが仮展開する場所に）
-	private static final String UPLOAD_DIR = "uploads";
+	private static final String UPLOAD_DIR = "upload";
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
