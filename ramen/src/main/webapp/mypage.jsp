@@ -7,6 +7,7 @@
 <title>マイページ</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <h1>マイページ</h1>
 
 <form action = "coment-list-servlet" method = "POST">
