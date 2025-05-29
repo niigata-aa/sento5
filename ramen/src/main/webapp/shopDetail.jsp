@@ -72,11 +72,10 @@
 		for(CommentBean comment : commentList){
 		%>
 			<tr>
-				<td><%=comment.getCommentTime()%></td>
 				<td><img class="commentphoto"
 					src="/ramen/upload/<%=comment.getCommentPhoto()%>"
 					alt="<%=comment.getMenu()%>の写真"></td>
-				<td><%=comment.getUserId()%></td>
+
 				<td><%=comment.getRate()%></td>
 				<td><%=comment.getGenreId()%></td>
 				<td><%=comment.getMenu()%></td>
@@ -86,8 +85,8 @@
 			if(roll !=1){ 
 			%>
 				<td>
-					<form action="comment-delete" method="post">
-						<input type="hidden" value="<%=comment.getCommentId()%>">
+					<form action="comment-delete-servlet" method="post">
+						<input type="hidden" name="commentId"value="<%=comment.getCommentId()%>">
 						<input type="submit" name="delete" value="削除">
 					</form>
 				</td>
