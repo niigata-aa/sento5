@@ -43,13 +43,24 @@
 if(shopList != null && !shopList.isEmpty() ){
 %>
 
+<<<<<<< HEAD
+<% for (ShopBean shop : shopList){ %>
+<br>
+<form action="shop-detail" method="post">
+=======
 <% for (ShopBean shop : shopList){ %><br>
 
 <div class="listdetail"><!-- listdetail 一店舗ごとのブロック -->
 <form action="shop-detail-servlet" method="post">
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 <input type="submit" value="<%=shop.getShopName() %>">
+<<<<<<< HEAD
+<input type="hidden"name="shopId"value="<%= shop.getShopId() %>"><br>
+<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
+=======
 <input type="hidden"value="<%= shop.getShopId() %>"><br>
 <img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 <%if(shop.isWalkingDistance()){ %>
 徒歩圏内
 <%} else {%>

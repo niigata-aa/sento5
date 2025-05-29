@@ -18,7 +18,7 @@ if (shoprankList == null || shoprankList.size() == 0) {
         <div class="rankbox"><!-- rankbox ランクごとの箱 -->
 		第 <%=rank %>位
 		<%=shop.getShopName() %>
-		<img src = <%=shop.getPhoto() %>>
+		<img src = "/ramen/upload/<%=shop.getPhoto() %>">
 		
 		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
 		<input type="submit" name="photo" value="<%shop.getPhoto();%>"></div>

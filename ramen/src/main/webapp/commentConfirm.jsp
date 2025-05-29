@@ -12,22 +12,18 @@
 <h2>投稿確認ページ</h2>
 </div>
 <div  class="posted_schedule"><!-- posted_scheduleのコンテナ -->
-<% List<CommentBean>commentList=(List<CommentBean>)request.getAttribute("commentList");%>
-<%for(CommentBean comment:commentList){ %>
-		ジャンルID<%=comment.getGenreId() %><br>
+<% CommentBean comment = (CommentBean)session.getAttribute("comment");%>
 		レビュー<%=comment.getReview() %><br>
 		評価<%=comment.getRate() %><br>
-		写真<%=comment.getCommentPhoto() %><br>
-		投稿時間<%=comment.getCommentTime() %><br>
+		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>">br>
 		メニュー<%=comment.getMenu() %><br>
 		値段<%=comment.getValue() %><br>
-<%} %>
 </div>
 <div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>
 </div>
 <div class="confirm"><!-- button 登録 -->
-<form action="coment-regist-confirm-servlet" method="post">
+<form action="coment-regist-servlet" method="post">
 	<input type="submit" value="登録">
 </form>
 </div>
