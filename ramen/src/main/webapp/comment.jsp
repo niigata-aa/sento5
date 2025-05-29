@@ -8,7 +8,9 @@
 </head>
 <body>
 	<div class="back" ><!-- 戻るボタン -->
-	<button type="button"onclick="history.back()">戻る</button>
+	<form action="mypage.jsp" method="post">
+		<input type="submit" value="戻る"> 
+	</form>
 	</div>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
