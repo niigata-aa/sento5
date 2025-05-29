@@ -66,7 +66,7 @@ public class ShopRegistConfirmServlet extends HttpServlet {
      // 保存ディレクトリのパス（アプリケーションのルートから相対パス）
      		//フォルダの場所を取得
      		String appPath = request.getServletContext().getRealPath("");
-     		//↑のuploadsフォルダの場所
+     		//↑のuploadフォルダの場所
      		String savePath = appPath + File.separator + UPLOAD_DIR;
 
      		// フォルダがなければ作成
