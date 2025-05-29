@@ -1,6 +1,6 @@
 <%--店舗編集確認画面--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.Bean.ShopBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,18 +11,18 @@
 <%@include file = "header.jsp" %>
 	<%
 		request.setCharacterEncoding("UTF-8");
+	ShopBean shop = (ShopBean)session.getAttribute("editInfo"); 
 	%>
 	<h1>編集確認ページ</h1>
 	<div class="shopeditconfirm"><!--ショップ編集確認一覧  -->
-	<jsp:useBean id="shop" class="model.Bean.ShopBean" scope="session"/>
-		店名入力<jsp:getProperty name="shop" property="shopName"/><br>
-		店名かな入力<jsp:getProperty name="shop" property="shopKana"/><br>
-		住所<jsp:getProperty name="shop" property="address"/><br>
-		開店時間<jsp:getProperty name="shop" property="openTime"/><br>
-		閉店時間<jsp:getProperty name="shop" property="closeTime"/><br>
-		定休日<jsp:getProperty name="shop" property="closedDay"/><br>
-		詳細<jsp:getProperty name="shop" property="detail"/><br>
-		写真<img class="photo"src=<jsp:getProperty name="shop" property="photo"/> alt="<jsp:getProperty name="shop" property="shopKana"/>+の店舗の写真"><br>
+		店名:<%=shop.getShopName() %>><br>
+		店名かな:<%=shop.getShopKana() %><br>
+		住所:<%=shop.getAddress() %><br>
+		開店時間:<%=shop.getOpenTime() %>><br>
+		閉店時間:<%=shop.getCloseTime() %>><br>
+		定休日:<%=shop.getClosedDay() %>><br>
+		詳細:<%=shop.getDetail() %>><br>
+		写真<img class="photo" src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
 	</div>
 	<div class="back"><!-- 戻るボタン -->
 	<button type="button" onclick="history.back()">戻る</button>
