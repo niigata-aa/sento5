@@ -23,9 +23,9 @@
 				type="text" name="shopKana" value="<%=shop.getShopKana()%>"><br>
 			住所<input type="text" name="address" value="<%=shop.getAddress()%>"><br>
 			開店時間<input type="time" name="openTime"
-				value="<%=shop.getOpenTime()"%>"><br> 
+				value="<%=shop.getOpenTime()%>"><br> 
 			閉店時間<input
-				type="time" name="closeTime" value="<%=shop.getCloseTime()"%>"><br>
+				type="time" name="closeTime" value="<%=shop.getCloseTime()%>"><br>
 			定休日<input type="text" name="closedDay"
 				value="<%=shop.getClosedDay()%>"> 
 			詳細<input type="text"
