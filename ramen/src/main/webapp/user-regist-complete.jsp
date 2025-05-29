@@ -7,6 +7,7 @@
 <title>ユーザ登録完了！</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 <div class="regist-container"><!-- regist-container 登録全体のコンテナ -->
 さんこんにちは。
 ユーザ登録完了しました

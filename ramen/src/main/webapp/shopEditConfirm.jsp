@@ -8,6 +8,7 @@
 <title>店舗編集確認</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 	<%
 		request.setCharacterEncoding("UTF-8");
 	%>

@@ -7,9 +7,15 @@
 <title>店舗一覧</title>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="shoplisttitle">店舗一覧
 </div>
 <div class="shoptitle">
+=======
+<%@include file = "header.jsp" %>
+店舗一覧
+
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 <form action="shop-detail-servlet" method="POST">
 <% 
 		List<ShopBean> shopList =(List<ShopBean>)request.getAttribute("shopList"); 

@@ -15,6 +15,7 @@
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
 <body>
+<%@include file = "header.jsp" %>
 	<form action="top.jsp" method="post">
 		<input type="submit" value="トップ">
 	</form>

@@ -11,6 +11,10 @@
 	<form action="mypage.jsp" method="post">
 		<input type="submit" value="戻る"> 
 	</form>
+<%@include file = "header.jsp" %>
+	<div class="back" ><!-- 戻るボタンだお -->
+	<button type="button"onclick="history.back()">戻る</button>
+
 	</div>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
