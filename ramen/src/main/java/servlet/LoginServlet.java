@@ -92,6 +92,9 @@ public class LoginServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} catch (NumberFormatException|NullPointerException e) {
+			request.setAttribute("errorMessage", "5桁の社員番号を入力してください。");
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
 			e.printStackTrace();
 		}
 
