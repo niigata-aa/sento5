@@ -20,7 +20,12 @@ import model.Bean.ShopBean;
  * Servlet implementation class ShopRegistConfirmServlet
  */
 @WebServlet("/shop-regist-confirm-servlet")
-@MultipartConfig
+@MultipartConfig(
+	    location = "/var/webapp/upload", // 実際のアップロード先ディレクトリ
+	    maxFileSize = 10485760,           // 10MB (1ファイルの最大サイズ)
+	    maxRequestSize = 52428800,        // 50MB (リクエスト全体の最大サイズ)
+	    fileSizeThreshold = 2097152       // 2MB (メモリ上で保持する最大サイズ)
+	)
 public class ShopRegistConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -59,15 +64,12 @@ public class ShopRegistConfirmServlet extends HttpServlet {
         boolean walkingDistance = Boolean.parseBoolean(walkingDistanceStr); // "true" なら true, "false" なら false
 			
 		
-		//name属性がpictのファイルをPartオブジェクトとして取得
+		//name属性がimageのファイルをPartオブジェクトとして取得
 		Part photo=request.getPart("image");
 		//ファイル名を取得
-		//String filename=part.getSubmittedFileName();//ie対応が不要な場合
 		String filename=Paths.get(photo.getSubmittedFileName()).getFileName().toString();
 		//アップロードするフォルダ
 		String path=getServletContext().getRealPath("/upload");
-		//実際にファイルが保存されるパス確認
-		System.out.println(path);
 		//書き込み
 		photo.write(path+File.separator+filename);
 
