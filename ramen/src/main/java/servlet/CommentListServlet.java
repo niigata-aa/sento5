@@ -47,11 +47,12 @@ public class CommentListServlet extends HttpServlet {
 		
 		List<CommentBean> commentList=null;
 		
+		HttpSession session=request.getSession();
+		String userId=(String) session.getAttribute("userId");
+		
+		CommentDAO dao=new CommentDAO();
 		try {
-			HttpSession session=request.getSession();
-			String userId=(String) session.getAttribute("userId");
 			
-			CommentDAO dao=new CommentDAO();
 			commentList=dao.selectUserComment(Integer.parseInt(userId));
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
