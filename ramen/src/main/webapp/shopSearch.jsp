@@ -26,7 +26,10 @@
 エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
 
 <div class="button">
-<input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>
+<input type="submit" value="検索"></div><br>
+</form>
+<form action = "top.jsp" method = "POST">
+<input type = "submit"  value = "トップへ戻る">
 </form>
 </div>
 
