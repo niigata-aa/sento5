@@ -57,7 +57,7 @@ public class CommentListServlet extends HttpServlet {
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("commentList", commentList);
+		session.setAttribute("commentList", commentList);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
 		
