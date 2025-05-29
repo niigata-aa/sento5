@@ -38,17 +38,18 @@
 <div class="listtitle"><!-- listtitle タイトル -->
 <h2>店舗一覧</h2></div>
 
-<div class="">
+<div class="list"><!-- list 一覧 -->
 <%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 if(shopList != null && !shopList.isEmpty() ){
 %>
 
-<% for (ShopBean shop : shopList){ %>
-<br>
+<% for (ShopBean shop : shopList){ %><br>
+
+<div class="listdetail"><!-- listdetail 一店舗ごとのブロック -->
 <form action="shop-detail-servlet" method="post">
 <input type="submit" value="<%=shop.getShopName() %>">
 <input type="hidden"value="<%= shop.getShopId() %>"><br>
-<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
+<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
 <%if(shop.isWalkingDistance()){ %>
 徒歩圏内
 <%} else {%>
@@ -56,6 +57,7 @@ if(shopList != null && !shopList.isEmpty() ){
 <%} %>
 <% } %>
 </form>
+</div>
 <%}else{%>
 一致する内容がありません。
 <% } %></div>
