@@ -26,10 +26,7 @@
 エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
 
 <div class="button">
-<input type="submit" value="検索"></div><br>
-</form>
-<form action = "top.jsp" method = "POST">
-<input type = "submit"  value = "トップへ戻る">
+<input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>
 </form>
 </div>
 
@@ -37,30 +34,29 @@
 
 <div class="listtitle"><!-- listtitle タイトル -->
 <h2>店舗一覧</h2></div>
-
-<div class="list"><!-- list 一覧 -->
-<%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
-if(shopList != null && !shopList.isEmpty() ){
-%>
-
-<% for (ShopBean shop : shopList){ %><br>
-
-<div class="listdetail"><!-- listdetail 一店舗ごとのブロック -->
-<form action="shop-detail-servlet" method="post">
-<input type="submit" value="<%=shop.getShopName() %>">
-<input type="hidden"value="<%= shop.getShopId() %>"><br>
-<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
-<%if(shop.isWalkingDistance()){ %>
-徒歩圏内
-<%} else {%>
-徒歩圏外
-<%} %>
-<% } %>
-</form>
+		<div class="list">
+			<!-- list 一覧 -->
+			<%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
+			if(shopList != null && !shopList.isEmpty() ){%>
+			<% for (ShopBean shop : shopList){ %><br>
+			<div class="listdetail">
+				<!-- listdetail 一店舗ごとのブロック -->
+				<form action="shop-detail" method="post">
+					<input type="submit" value="<%=shop.getShopName() %>"> 
+					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> 
+					<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+					<%if(shop.isWalkingDistance()){ %>
+					徒歩圏内
+					<%} else {%>
+					徒歩圏外
+					<%} %>
+					</form>
+					<%} %>
+			</div>
+			<%}else{%>
+			一致する内容がありません。
+			<%} %>
 </div>
-<%}else{%>
-一致する内容がありません。
-<% } %></div>
 </div>
 
 </body>

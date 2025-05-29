@@ -72,11 +72,12 @@ public class LoginServlet extends HttpServlet {
 				//rollが0（管理者)ならセッションにset
 				 roll=dao.rollCheck(Integer.parseInt(userId));
 				if(roll==0) {
-					session.setAttribute("roll", roll);
+					session.setAttribute("roll", 0);
 					RequestDispatcher rd = request.getRequestDispatcher("admini.jsp");
 					rd.forward(request, response);
 				}else {
 				//トップページに遷移
+				session.setAttribute("roll", 1);
 				response.sendRedirect("top.jsp");
 				}
 

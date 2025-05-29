@@ -8,7 +8,11 @@
 <title>店舗削除確認</title>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="delete-container"><!-- delite-container 削除のコンテナ -->
+=======
+<%@include file = "header.jsp" %>
+>>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 
 <div class="title"><!-- title 	タイトルのみ -->
 <h1>店舗削除確認画面</h1>
