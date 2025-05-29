@@ -317,7 +317,7 @@ public class ShopDAO {
 	 */
 	public int insertShop(ShopBean shop) throws SQLException, ClassNotFoundException{
 		int count=0;
-		String sql = "INSERT INTO m_shop (shop_name,shop_kana,address,open_time,close_time,closed_day,photo,detail) VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO m_shop (shop_name,shop_kana,address,open_time,close_time,closed_day,photo,detail, walkingDistance) VALUES(?,?,?,?,?,?,?,?,?)";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -329,7 +329,7 @@ public class ShopDAO {
 			String closedDay = shop.getClosedDay();
 			String photo = shop.getPhoto();
 			String detail = shop.getDetail();
-//          boolean walkingDistanceStr = shop.isWalkingDistance();
+            boolean walkingDistanceStr = shop.isWalkingDistance();
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, shopName);
@@ -340,7 +340,7 @@ public class ShopDAO {
 			pstmt.setString(6, closedDay);
 			pstmt.setString(7, photo);
 			pstmt.setString(8, detail);
-//			pstmt.setBoolean(9, walkingDistanceStr);
+			pstmt.setBoolean(9, walkingDistanceStr);
 
 			count = pstmt.executeUpdate();
 
