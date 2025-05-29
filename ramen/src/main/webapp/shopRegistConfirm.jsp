@@ -13,7 +13,7 @@
 	ShopBean shopInfo = (ShopBean)session.getAttribute("shopInfo"); 
 %>
 <form action="shop-regist-servlet" method="post">
-
+<div class="shopregistconfirm"> <!-- ショップ登録確認まとめですよい -->
 この内容で登録します<br>
 店舗名
 <%=shopInfo.getShopName() %>
@@ -36,8 +36,15 @@
 <% }else{%>
 	徒歩圏外
 <%} %>
+</div>
+
+<div class="regist"> <!-- 登録ボタンですよ -->
 <input type="submit" value="登録">	
+</div>
+
+<div class="back"><!-- 戻るボタン -->
 <button type="button"onclick="history.back()" >	戻る</button>
+</div>
 
 </form>
 
