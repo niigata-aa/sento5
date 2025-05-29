@@ -7,6 +7,7 @@
 <title>コメント一覧</title>
 </head>
 <body>
+<%@include file = "header.jsp" %>
 	<button type="button"onclick="history.back()">戻る</button>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
