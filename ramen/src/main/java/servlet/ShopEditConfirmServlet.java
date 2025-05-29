@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import model.Bean.ShopBean;
  * Servlet implementation class ShopEditConfirmServlet
  */
 @WebServlet("/shop-edit-confirm")
+@MultipartConfig
 public class ShopEditConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
