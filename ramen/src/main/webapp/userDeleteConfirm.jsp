@@ -8,13 +8,12 @@
 </head>
 <body>
 <form action="user-delete-servlet" method="post">
-<jsp:useBean id="d_user" scope="session" class="model.Bean.UserBean"/>
 <h1>ユーザ削除確認画面</h1>
 本当にこのユーザを削除しますか<br>
-ユーザID:<jsp:getProperty name="d_user" property="d_userId"/><br>
-ユーザネーム：<jsp:getProperty name="d_user" property="d_userName"/><br>
-<button type="button"onclick="history.back()">戻る</button>
+ユーザID:<%=session.getAttribute("d_userId") %><br>
+ユーザネーム：<%=session.getAttribute("d_userName") %><br>
 <input type="submit" value="削除">
+<button type="button"onclick="history.back()">戻る</button>
 </form>
 </body>
 </html>

@@ -42,12 +42,12 @@ public class UserDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
-		int userId = (int) session.getAttribute("d_useId");
-		
+		String userId = (String)session.getAttribute("d_useId");
+		int count=0;
 		UserDAO dao =new UserDAO();
 		try {
 			//ユーザ削除
-			dao.deleteUser(userId);
+			count=dao.deleteUser(Integer.parseInt(userId));
 			//ユーザ削除情報のセッションの削除
 			session.removeAttribute("d_userId");
 			session.removeAttribute("d_userName");

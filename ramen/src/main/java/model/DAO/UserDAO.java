@@ -167,7 +167,7 @@ public class UserDAO {
 			pstmt.setInt(1, userId);
 
 			// SQLステートメントの実行
-			count = pstmt.executeUpdate(sql);
+			count = pstmt.executeUpdate();
 		}
 
 		return count;
