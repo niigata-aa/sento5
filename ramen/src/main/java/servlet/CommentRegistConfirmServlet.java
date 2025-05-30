@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import model.Bean.ShopBean;
  * Servlet implementation class ComentRegistConfirmServlet
  */
 @WebServlet("/comment-regist-confirm-servlet")
+@MultipartConfig
 public class CommentRegistConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,6 +38,9 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	// アップロードされたファイルを保存するフォルダ
@@ -76,9 +81,8 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		ShopBean shop = (ShopBean) session.getAttribute("shop");
 		
 		//リクエストパラメータの取得
-		int shopId = (int)shop.getShopId();
-//		String genreId = request.getParameter("genreId");
-
+		String shopId =request.getParameter("shopId");
+		String genreId = request.getParameter("genreId");
 		String menu = request.getParameter("menu");
 		String value = request.getParameter("value");
 		String review = request.getParameter("review");
@@ -87,8 +91,8 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 	
 		CommentBean comment = new CommentBean();
 		comment.setUserId((int)session.getAttribute("userId"));
-		comment.setShopId(shopId);
-		comment.setGenreId(shopId);
+		comment.setShopId(Integer.parseInt(shopId));
+		comment.setGenreId(Integer.parseInt(genreId));
 		comment.setReview(review);
 		comment.setRate(rate);
 		comment.setCommentPhoto(filename);
@@ -106,7 +110,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		  value==null || value.trim().isEmpty()) {
 		 	
 			request.setAttribute("errorMessage", "メニュー名・値段・評価・ジャンル・レビューをすべて入力してください");
-			RequestDispatcher rd = request.getRequestDispatcher("commentRegist.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("commentForm.jsp");
 			rd.forward(request, response);
 			return;
 		}

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"import="java.util.List,java.util.ArrayList,model.Bean.CommentBean"%>
+    pageEncoding="UTF-8"import="java.util.List,java.util.ArrayList,model.Bean.CommentBean,model.Bean.GenreBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +18,20 @@
 		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>">br>
 		メニュー<%=comment.getMenu() %><br>
 		値段<%=comment.getValue() %><br>
+
+
+<!-- -5/30----------------------------------------------------------------------------------- -->
+<select name="genre" required>
+           <option value="">選択してください</option>
+           <%List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList"); %>
+           <% 
+               for(GenreBean genre : genreList) { %>
+                   <option value="<%=genre.getGenreId()%>"><%=genre.getGenreName()%></option>
+           <% 
+           } %>
+       </select><br>
+<!-- ---------------------------------------------------------------------------------------- -->
+
 </div>
 <div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>

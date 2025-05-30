@@ -20,15 +20,15 @@
 <form action="user-regist-confirm-servlet" method="POST">
 
 <div class="inputname"><!-- inputname ユーザネーム入力 -->
-ユーザ名：<input type="text" name="userName" placeholder="ユーザ名を入力してください"><br>
+ユーザ名：<input type="text" name="userName" required placeholder="ユーザ名を入力してください"><br>
 </div>
 
 <div class="inputID"><!-- inputID ID入力 -->
-ユーザID：<input type="text" name="userId" placeholder="ユーザID"><br>
+ユーザID：<input type="text" name="userId" placeholder="ユーザID"required><br>
 </div>
 
 <div class="inputpass"><!-- inputpass パスワード入力 -->
-パスワード：<input type="password" name="password" placeholder="パスワード"><br>
+パスワード：<input type="password" minlength="8" name="password" placeholder="パスワード8文字以上" required><br>
 </div>
 
 <div class="submit"><!-- submit ボタン群 -->

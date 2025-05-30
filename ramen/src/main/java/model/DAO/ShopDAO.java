@@ -360,13 +360,109 @@ public class ShopDAO {
                 // shopNameカラムの値を取得
                 shopName = res.getString("shopName");
             }
-            // res は try-with-resources の外で使う必要がないので、ここで閉じられる (tryブロックを抜ける時に自動的に閉じられる)
+            
         }
-        // catchブロックはここでは省略しましたが、必要に応じて追加してください
-        // 例: catch (SQLException e) { ... }
-
+       
         return shopName; // 取得したshopNameを返す
     }
+
+			
+
+	
+	
+	
+//5/30追加分////////////////////////////////////////////////////
+	
+	public List<ShopBean> selectShopByMultipleConditions(String shopName, String area, Integer genreId)
+		       throws SQLException, ClassNotFoundException {
+		   List<ShopBean> shopList = new ArrayList<ShopBean>();
+		   StringBuilder sql = new StringBuilder();
+		   sql.append("SELECT DISTINCT s.shop_id, s.shop_name, s.photo, s.walkDistance");
+		  
+		   if (genreId != null) {
+		       sql.append(", g.genre_name");
+		       sql.append(" FROM m_shop s INNER JOIN m_comment c ON s.shop_id = c.shop_id");
+		       sql.append(" INNER JOIN m_genre g ON c.genre_id = g.genre_id");
+		   } else {
+		       sql.append(" FROM m_shop s");
+		   }
+		  
+		   //入力によってsql分を調整
+		  
+//		   if (shopName != null && !shopName.trim().isEmpty()) {
+//		       sql.append(" AND s.shop_name LIKE ?");
+//		   }
+//		   if (area != null && !area.trim().isEmpty()) {
+//		       sql.append(" AND s.address LIKE ?");
+//		   }
+//		   if (genreId != null) {
+//		       sql.append(" AND c.genre_id LIKE ?");
+//		   }
+		   
+		   boolean hasCondition = false;
+		   
+		   if (shopName != null && !shopName.trim().isEmpty()) {
+		       sql.append(hasCondition ? " AND" : " WHERE");
+		       sql.append(" s.shop_name LIKE ?");
+		       hasCondition = true;
+		   }
+		   if (area != null && !area.trim().isEmpty()) {
+		       sql.append(hasCondition ? " AND" : " WHERE");
+		       sql.append(" s.address LIKE ?");
+		       hasCondition = true;
+		   }
+		   if (genreId != null) {
+		       sql.append(hasCondition ? " AND" : " WHERE");
+		       sql.append(" c.genre_id = ?");
+		       hasCondition = true;
+		   }
+		  
+		   try(Connection con = ConnectionManager.getConnection();
+		           PreparedStatement pstmt = con.prepareStatement(sql.toString())){
+
+
+		       int placeholder = 1; //プレースホルダーを入力によって調整
+		      
+		       if (shopName != null && !shopName.trim().isEmpty()) {
+		           pstmt.setString(placeholder++, "%" + shopName + "%");
+		       }
+		       if (area != null && !area.trim().isEmpty()) {
+		           pstmt.setString(placeholder++, "%" + area + "%");
+		       }
+		       if (genreId != null) {
+		    	   pstmt.setInt(placeholder++, genreId);
+		       }
+		      
+		       ResultSet res = pstmt.executeQuery();
+
+
+		       while(res.next()) {
+		           int shopId = res.getInt("shop_id");
+		           String shopNameResult = res.getString("shop_name");
+		           String shopPhoto = res.getString("photo");
+		           boolean walkingDistance = res.getBoolean("walkDistance");
+
+
+		           ShopBean shop = new ShopBean();
+		           shop.setShopId(shopId);
+		           shop.setShopName(shopNameResult);
+		           shop.setPhoto(shopPhoto);
+		           shop.setWalkingDistance(walkingDistance);
+		          
+		           if (genreId != null) {
+		               shop.setGenre(res.getString("genre_name"));
+		           }
+
+
+		           shopList.add(shop);
+		       }
+		   }
+		   return shopList;
+		}
+
+	
+	
+
 
 	
 }
