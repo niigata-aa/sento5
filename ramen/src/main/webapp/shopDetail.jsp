@@ -53,7 +53,6 @@
 	<%--ジャンルをfor文で回す --%>
 
 	<form action="coment-search-servlet" method="post">
-		<input type="text" name="userserch"> 
 		<select name="genreserch">
 			<option value="1">醤油</option>
 			<option value="2">塩</option>
