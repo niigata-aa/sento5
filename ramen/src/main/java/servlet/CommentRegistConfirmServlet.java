@@ -67,7 +67,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 
  		// ブラウザから送られてきたファイル（`name="image"`）を受け取る
  		//getSubmittedFileName()：アップロードされたファイルの「元の名前」を取得
- 		Part part = request.getPart("commentPhoto");
+ 		Part part = request.getPart("commentphoto");
  		String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
  		// ファイル保存
@@ -78,6 +78,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
  		System.out.println(request.getServletContext().getRealPath(""));
  		
 		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
 		ShopBean shop = (ShopBean) session.getAttribute("shop");
 		
 		//リクエストパラメータの取得
@@ -90,7 +91,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 
 	
 		CommentBean comment = new CommentBean();
-		comment.setUserId((int)session.getAttribute("userId"));
+		comment.setUserId(Integer.parseInt(userId));
 		comment.setShopId(Integer.parseInt(shopId));
 		comment.setGenreId(Integer.parseInt(genreId));
 		comment.setReview(review);

@@ -19,7 +19,7 @@
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ:<input type="text" name="menu"><br>
 	値段:<input type="text" name="value"><br>
-	写真:<input type="file"name="comentphoto"><br>
+	写真:<input type="file"name="commentphoto"><br>
 	評価:
 	<select name="rate">
 		<option value="1">1</option>
@@ -36,6 +36,7 @@
 		<option value="4">背油</option>
 		<option value="5">豚骨</option>
 	</select><br>
+	レビュー：<textarea name="review" cols="40"rows="3"></textarea><br>
 	</div><br>
 	
 	<div class="registbutton"><!-- registbutton 登録ボタン -->
