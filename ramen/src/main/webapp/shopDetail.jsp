@@ -57,8 +57,8 @@
 		<select name="genreserch">
 			<option value="">選択してください</option>
 			<option value="1">醤油</option>
-			<option value="2">塩</option>
-			<option value="3">味噌</option>
+			<option value="2">味噌</option>
+			<option value="3">塩</option>
 			<option value="4">背油</option>
 			<option value="5">豚骨</option>
 			<option value="6">生姜醤油</option>

@@ -5,14 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ登録完了！</title>
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<%@include file = "header.jsp" %>
-<div class="regist-container"><!-- regist-container 登録全体のコンテナ -->
-さんこんにちは。
-ユーザ登録完了しました
-<div class="button"><!-- button ボタン -->
-<button onclick="location.href='login.jsp'">ログイン画面へ</button>
+<div class="container"><!-- container 登録全体のコンテナ -->
+ユーザ登録完了しました<br>
+<div class="top"><!-- button ボタン -->
+<a href='login.jsp'>ログイン画面へ</a>
 </div>
 <%session.invalidate(); %>
 </div>

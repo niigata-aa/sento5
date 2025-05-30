@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ削除確認</title>
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -17,14 +18,12 @@
 本当にこのユーザを削除しますか<br>
 ユーザID:<%=session.getAttribute("d_userId") %><br>
 ユーザネーム：<%=session.getAttribute("d_userName") %><br>
-</div>
 
-<div class="submit"><!-- submit 	削除ボタン -->
+<div class="button"><!-- button 	ボタン群 -->
+<button type="button"onclick="history.back()">戻る</button>
 <input type="submit" value="削除">
 </div>
 
-<div class="button"><!-- button 	戻るボタン -->
-<button type="button"onclick="history.back()">戻る</button>
 </div>
 </form>
 </body>
