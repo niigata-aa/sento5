@@ -8,14 +8,9 @@
 <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<%@include file = "header.jsp" %>
 
 <div class="title"><!-- title 	タイトルのみ -->
-<h2>ユーザ登録</h2>
-</div>
-
-<div class="top"><!-- top  -->
-<button onclick="location.href='login.jsp'">ログイン画面へ</button>
+<h1>ユーザ登録</h1>
 </div>
 
 <div class="regist-container"><!-- regist-container ユーザ登録のコンテナ -->
@@ -36,11 +31,12 @@
 <input type="password" minlength="8" name="password" placeholder="パスワード8文字以上" required><br>
 </div>
 
-<div class="button"><!-- submit ボタン群 -->
 <input type="submit"value="登録">
-</div>
 
 </form>
+</div>
+<div class="top"><!-- top  -->
+<a href='login.jsp'>ログイン画面へ</a>
 </div>
 </body>
 </html>

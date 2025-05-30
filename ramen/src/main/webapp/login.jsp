@@ -10,14 +10,10 @@
 <body>
 
 <div class="title"><!-- title 	タイトルのみ -->
-<h2>ログインページ</h2>
+<h1>ログインページ</h1>
 </div>
 
 <div class="login-container"><!-- login-container ログイン全体のコンテナ -->
-
-<div class="newregist"><!-- newregist 新規登録ボタン -->
-<button onclick="location.href='userRegist.jsp'">新規登録はこちら</button>
-</div>
 
 <p style="color:red;">
 	<%= request.getAttribute("errorMessage")!= null ? request.getAttribute("errorMessage"): ""%>
@@ -33,12 +29,15 @@
 <input type="password" name="password" placeholder="パスワード">
 </div><br>
 
-<div class="button"><!-- button ボタン群 -->
-<input type="reset"value="クリア"><input type="submit"value="ログイン">
-</div>
+<input type="reset"value="クリア"><br>
+<input type="submit"value="ログイン">
+
 </form>
-
-
 </div>
+
+<div class="href">
+<a href='userRegist.jsp'>新規登録はこちら</a>
+</div>
+
 </body>	
 </html>
