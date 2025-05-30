@@ -19,16 +19,14 @@
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
 	<% List<String> shopnameList=(List<String>)request.getAttribute("shopnameList");%>
 	
-	<% %>
+	<% int i=0; %>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
  	何もコメントされていません
 	 <%} else{ %>
 	<div class="comment"><!-- コメントの要素すべて -->
 		<%for(CommentBean comment:commentList){ %>
-			<% int i=0; %>
 			コメントID:<%=comment.getCommentId() %><br>
 			店ID: <%=comment.getShopId() %><br>
-			店名: <%= shopnameList.get(i)%>
 			ジャンルID:<%=comment.getGenreId() %><br>
 			レビュー:<%=comment.getReview() %><br>
 			評価:<%=comment.getRate() %><br>

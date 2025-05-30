@@ -82,7 +82,9 @@ if(genreList != null) {
 					<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
 					
 					<!-- 5/30---------------------------------- -->
-					ジャンル: <%=shop.getGenre()%><br>
+					ジャンル:
+					<%if(shop.getGenre() != null && shop.getGenre().isEmpty()) %> 
+					<%=shop.getGenre()%><br>
 					<!-- -------------------------------------- -->
 					
 					<%if(shop.isWalkingDistance()){ %>

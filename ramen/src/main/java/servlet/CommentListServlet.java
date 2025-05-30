@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
+import model.DAO.ShopDAO;
 
 /**
  * Servlet implementation class ComentListServlet
@@ -47,7 +48,7 @@ public class CommentListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		List<CommentBean> commentList=null;
-		List<String> shopnameList = new ArrayList<>(); 
+		List<String> shopnameList = new ArrayList<>();; 
 		
 		HttpSession session=request.getSession();
 		String userId=(String) session.getAttribute("userId");
@@ -59,9 +60,21 @@ public class CommentListServlet extends HttpServlet {
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		for(CommentBean comment:commentList){
-			shopnameList.add("ShopDAO.selectShopName(comment.getShopId())") ;
-		}
+		if (commentList != null) {
+            for (CommentBean comment : commentList) {
+                try {
+                    // selectShopNameの結果がnullの場合も考慮する（リストにはnullが追加されますが、JSPで表示する際に注意）
+                    String shopName = ShopDAO.selectShopName(comment.getShopId());
+                    shopnameList.add(shopName);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    shopnameList.add("ドライバエラー"); // エラー時に何か表示したい場合
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    shopnameList.add("DBエラー"); // エラー時に何か表示したい場合
+                }
+            }
+        }
 		session.setAttribute("commentList", commentList);
 		request.setAttribute("shopnameList", shopnameList);
 		
