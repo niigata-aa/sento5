@@ -11,11 +11,12 @@
 	<%@include file="header.jsp"%>
 	<h1>店舗編集ページ</h1>
 	<% 
+	request.setCharacterEncoding("UTF-8");
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
 	<form action="shop-edit-confirm" method="post">
 
-		<div class="shopedit">
+		<div class="shopedit">		
 			<!-- ショップ編集フォーム -->
 			店名入力<input type="text" name="shopName"
 				value="<%=shop.getShopName()%>"><br> 
@@ -26,13 +27,13 @@
 				value="<%=shop.getOpenTime()%>"><br> 
 			閉店時間<input
 				type="time" name="closeTime" value="<%=shop.getCloseTime()%>"><br>
-			定休日<input type="text" name="closedDay"
-				value="<%=shop.getClosedDay()%>"> 
+			定休日<input type="text" name="closedDay"value="<%=shop.getClosedDay()%>"> 
 			詳細<input type="text"
 				name="detail" value="<%=shop.getDetail()%>"><br> 
-			写真<input
-				type="file" name="image" value="<%=shop.getPhoto()%>"><br>
+			写真
+				<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
 		</div>
+		
 
 
 	<div class="back">

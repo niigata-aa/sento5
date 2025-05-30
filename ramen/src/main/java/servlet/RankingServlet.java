@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Bean.ShopBean;
-import model.DAO.ShopDAO;
+import model.DAO.RankingDAO;
 
 /**
  * Servlet implementation class RankingServlet
@@ -45,9 +45,9 @@ public class RankingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		String url = "top.jsp";
+		String url = "ranking.jsp";
 		
-		int shopId = Integer.parseInt(request.getParameter("shopId"));
+//		int shopId = Integer.parseInt(request.getParameter("shopId"));
 		
 		//セッションオブジェクトの取得
 				HttpSession session = request.getSession();
@@ -56,12 +56,10 @@ public class RankingServlet extends HttpServlet {
 		if(session.getAttribute("userId") != null) {
 		
 		try {
-			
-			
 			//DAOの生成
-			ShopDAO shopdao = new ShopDAO();
+			RankingDAO rankdao = new RankingDAO();
 			//DAOの利用
-			List<ShopBean> shoprankList = shopdao.shopRank(shopId);
+			List<ShopBean> shoprankList = rankdao.shopRank();
 			request.setAttribute("shoprankList", shoprankList);
 			
 		} catch(ClassNotFoundException | SQLException e) {

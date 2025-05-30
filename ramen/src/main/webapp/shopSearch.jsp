@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Bean.ShopBean, model.Bean.GenreBean" %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +21,10 @@
 
 <form action="shop-search-servlet" method="POST">
 <div class="namesearch"><!-- namesearch 店名入力 -->
-店舗名：<input type="text" name="shopName" value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>" placeholder="店舗名を入力"></div><br>
+店舗名：<input type="text" name="shopName"value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>"placeholder="店舗名を入力"></div><br>
 
 <div class="areasearch"><!-- areasearch 地域入力 -->>
-エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
+エリア：<input type="text" name="area"value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>"placeholder="エリアを入力"></div><br>
 
 
 <div>

@@ -10,10 +10,12 @@
 <%@include file = "header.jsp" %>
 <div class="shopregist"> <!-- ショップ登録まとめ-->
 	<form action="shop-regist-confirm-servlet" method="post"enctype="multipart/form-data">
-		店名入力：<input type="text" name="shopName"> <br>
-		店名かな入力：<input type="text" name="shopKana"> <br>
-		住所：<input type="text"name="address"> <br>
+		店名入力：<input type="text" name="shopName"required> <br>
+		店名かな入力：<input type="text" name="shopKana"required> <br>
+		住所：<input type="text"name="address"required> <br>
 		開店時間：
+		<input type="time" name="openTime"><br>
+		<%-- 
 		 <select name="openTime">
         <%
         for (int h = 0; h < 24; h++) {
@@ -30,29 +32,16 @@
         }
         %>
     </select><br>
-		閉店時間：
-		 <select name="closeTime">
-        <%
-        for (int h = 0; h < 24; h++) {
-            for (int m = 0; m < 60; m += 30) {
-                // 時と分を2桁表示にフォーマット
-                String hour = String.format("%02d", h);
-                String minute = String.format("%02d", m);
-                String timeValue = hour + ":" + minute;
-        %>
-                <option value="<%= timeValue %>"><%= timeValue %></option>
-        <%
-            }
-        }
-        %>
-    </select><br>
+    --%>
+		閉店時間：<input type="time" name="closeTime"><br>
+
     	定休日：<input type="text" name="closedDay"><br>
 		詳細：<input type="text" name="detail"> <br>
 		
 		徒歩圏内：<input type="radio" name="walkingDistance" value="true">
 		徒歩圏外：<input type="radio" name="walkingDistance" value="false">
 		<br>
-		写真：<input type="file" name="image">
+		写真：<input type="file" name="image"required>
 		<br>
 		<input type="submit" value="確認へ">
 	</form>

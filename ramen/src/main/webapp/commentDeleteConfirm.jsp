@@ -11,17 +11,19 @@
 	<h2>投稿削除ページ</h2>
 	<div class="commendeleteconfirm"><!-- コメントの削除確認まとめて -->
 	コメントID<%=session.getAttribute("commentId") %><br> 
+	店ID:<%=request.getParameter("shopId")%><br>
 	カテゴリーID<%=request.getParameter("genreId")%><br>
 	レビュー<%=request.getParameter("review")%><br>
 	評価<%=request.getParameter("rate")%><br>
 	写真<%=request.getParameter("commentphoto") %><br>
-	投稿時間<%=request.getParameter("commentTime") %><br>
 	メニュ<%=request.getParameter("menu")%><br>
 	値段<%=request.getParameter("value")%><br>
 	</div>
 	
 	<div class="back" ><!-- 戻るボタン -->
-	<button type="button" onclick="history.back()">戻る</button>
+	<form action="mypage.jsp" method="post">
+		<input type="submit" value="戻る"> 
+	</form>
 	</div>
 	
 	<div class="commentdelete"><!-- コメントの削除ボタン -->
