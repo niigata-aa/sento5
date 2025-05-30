@@ -10,7 +10,7 @@ pageEncoding= "UTF-8" %>
 </form></div>
 <div class = "rogo"><!-- ロゴのやつ --></div>
 <form action="ranking-servlet" method="post">
-			<input type="image" src="img/rogo2.png" >
+			<input type="image" src="img/rogo4.1.png" >
 			</form>
 
 		
