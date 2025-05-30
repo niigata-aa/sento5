@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
+import model.DAO.ShopDAO;
 
 /**
  * Servlet implementation class ComentListServlet
@@ -46,6 +47,7 @@ public class CommentListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		List<CommentBean> commentList=null;
+		List<String> shopnameList=null;
 		
 		HttpSession session=request.getSession();
 		String userId=(String) session.getAttribute("userId");
@@ -56,6 +58,17 @@ public class CommentListServlet extends HttpServlet {
 			commentList=dao.selectUserComment(Integer.parseInt(userId));
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
+		}
+		for(CommentBean comment:commentList){
+			try {
+				shopnameList.add(ShopDAO.selectShopName(comment.getShopId())) ;
+			} catch (ClassNotFoundException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		}
 		session.setAttribute("commentList", commentList);
 		
