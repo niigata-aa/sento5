@@ -12,7 +12,7 @@ pageEncoding= "UTF-8" %>
 <a href="#" id="triggerPost">Ra-share</a>
     <script>
         document.getElementById('triggerPost').addEventListener('click', function(event) {
-            event.preventDefault(); // リンクのデフォルト動作（GETリクエスト）をキャンセル
+            event.preventDefault(); // リンクのデフォルト動作（GETリクエスト）をキャンセルだお
 
             const url = "${pageContext.request.contextPath}/ranking-servlet"; // サーブレットのURLを指定
 
