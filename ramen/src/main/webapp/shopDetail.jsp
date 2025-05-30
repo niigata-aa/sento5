@@ -9,18 +9,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各店ページ</title>
-</head>
 <% 
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
+<title><%=shop.getShopName() %></title>
+</head>
+
 <body>
 <%@include file = "header.jsp" %>
 	<form action="shop-list-servlet" method="post">
 		<input type="submit" value="検索へ">
 	</form>
 
-	<h1>各店ページ</h1>
+	<h1><%=shop.getShopName() %></h1>
 
 	<%
 	int roll = (int)session.getAttribute("roll");
@@ -54,9 +55,10 @@
 
 	<form action="coment-search-servlet" method="post">
 		<select name="genreserch">
+			<option value="">選択してください</option>
 			<option value="1">醤油</option>
-			<option value="2">塩</option>
-			<option value="3">味噌</option>
+			<option value="2">味噌</option>
+			<option value="3">塩</option>
 			<option value="4">背油</option>
 			<option value="5">豚骨</option>
 			<option value="6">生姜醤油</option>

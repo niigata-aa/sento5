@@ -112,12 +112,13 @@ public class CommentDAO {
 	}
 
 	//ジャンルでコメントを検索
-	public List<CommentBean> selectCategoryComment(int genreId)throws SQLException, ClassNotFoundException{
+	public List<CommentBean> selectCategoryComment(int genreId,int shopId)throws SQLException, ClassNotFoundException{
 
 		List<CommentBean> commentCategoryList = new ArrayList<CommentBean>();
 		CommentBean comment = new CommentBean();
 
-		String sql = "SELECT * from m_comment where genre_id = ?";
+		String sql = "SELECT * from m_comment where genre_id = ? AND shop_id=?";
+
 
 		//データベースの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection();
@@ -125,6 +126,7 @@ public class CommentDAO {
 
 			//プレースホルダへの値の設定
 			pstmt.setInt(1,genreId);
+			pstmt.setInt(2, shopId);
 
 			//SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();

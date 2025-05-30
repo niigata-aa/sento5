@@ -56,10 +56,10 @@ public class ShopListServlet extends HttpServlet {
 		if(session.getAttribute("userId") != null) {
 			//認証済み
 			try {
-				ShopDAO shopDao = new ShopDAO();
+				ShopDAO shopDAO = new ShopDAO();
 				GenreDAO genreDAO = new GenreDAO();
 				
-				List<ShopBean> shopList = shopDao.selectAllshop();
+				List<ShopBean> shopList = ShopDAO.selectAllshop();
 				List<GenreBean> genreList =genreDAO.selectGenre();
 				
 				request.setAttribute("shopList", shopList);
