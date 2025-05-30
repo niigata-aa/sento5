@@ -5,24 +5,31 @@
 <head>
 <meta charset="UTF-8">
 <title>管理者ページ</title>
+<link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-<<<<<<< HEAD
-<h1>管理者ページ</h1>
-=======
 <%@include file = "header.jsp" %>
 <div class="title"><!-- title タイトル -->
-<h1>管理者ページ</h1></div>
+<h1>管理者ページ</h1>
+</div>
+
+<div class="contaner">
 
 <div class="serchbutton"><!-- serchbutton 検索ボタン -->
->>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
 <form action="shop-list-servlet" method="post">
 <input type="submit" value="店舗一覧・編集">
 </form>
 <br>
+</div>
+
+
+<div class="userbutton"><!-- userbutton ユーザー一覧ボタン -->
 <form action="user-list-servlet" method="post">
 <input type="submit" value="ユーザ一覧">
 </form>
 <br>
+</div>
+
+</div>
 </body>
 </html>
