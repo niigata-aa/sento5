@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
-<%@ page import="model.Bean.ShopBean" %>
+<%@ page import="model.Bean.ShopBean, model.Bean.GenreBean" %>
 
 <!DOCTYPE html>
 <html>
@@ -25,6 +25,35 @@
 <div class="areasearch"><!-- areasearch 地域入力 -->>
 エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
 
+
+<div>
+
+<!-- 5/30追加分------------------------------------------------------------------------ -->
+ジャンル：
+<select name="genreId">
+    <option value="">選択してください</option>
+<%
+List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList");
+Integer searchGenreId = (Integer) request.getAttribute("searchGenreId");
+
+if(genreList != null) {
+    for (GenreBean genre : genreList) {
+        String selected = "";
+        if (searchGenreId != null && searchGenreId.equals(genre.getGenreId())) {
+            selected = "selected";
+        }
+%>
+    <option value="<%= genre.getGenreId() %>" <%= selected %>><%= genre.getGenreName() %></option>
+<%
+    }
+}
+%>
+</select>
+<!-- ---------------------------------------------------------------------------------- -->
+
+</div>
+
+
 <div class="button">
 <input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>
 </form>
@@ -45,6 +74,11 @@
 					<input type="submit" value="<%=shop.getShopName() %>"> 
 					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> 
 					<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+					
+					<!-- 5/30---------------------------------- -->
+					ジャンル: <%=shop.getGenre()%><br>
+					<!-- -------------------------------------- -->
+					
 					<%if(shop.isWalkingDistance()){ %>
 					徒歩圏内
 					<%} else {%>
