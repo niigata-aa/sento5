@@ -51,6 +51,7 @@ public class ShopDeleteServlet extends HttpServlet {
 		int count = 0;
 		try {
 			//店舗削除
+			count = dao.deleteShopComment(shopId);
 			count = dao.deleteShop(shopId);
 			//セッションから店舗情報を削除
 			session.removeAttribute("shop");

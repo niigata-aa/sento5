@@ -253,6 +253,26 @@ public class ShopDAO {
 	}
 
 	/**
+	 * 店舗削除
+	 * @param shopId
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public int deleteShopComment(int shopId) throws ClassNotFoundException, SQLException{
+
+		int count=0;
+		String sql="DELETE FROM m_comment WHERE shop_id=?";
+		try(Connection con=ConnectionManager.getConnection();
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			pstmt.setInt(1,shopId );
+
+			count=pstmt.executeUpdate();
+		}
+		return count;
+	}
+	/**
 	 * 店舗編集
 	 * @param shop
 	 * @return
