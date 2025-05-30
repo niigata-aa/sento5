@@ -46,7 +46,7 @@ if (shoprankList == null || shoprankList.size() == 0) {
 		<%=shop.getAverageRate() %>点<br>
 		<img src = "/ramen/upload/<%=shop.getPhoto() %>" alt="<%=shop.getPhoto()%>">
 		
-	
+		
 		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
 		<input type="submit" name="photo" value="<%shop.getPhoto();%>"></div>
 		<br>
