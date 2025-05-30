@@ -43,15 +43,11 @@ if (shoprankList == null || shoprankList.size() == 0) {
 		第 <%=rank %>位
 		<%=shop.getShopName() %><br>
 		平均評価点：
-		<%=Math.floor(shop.getAverageRate() * 10) / 10 %>点<br>
-		<img src = "/ramen/upload/<%=shop.getPhoto() %>" alt="<%=shop.getPhoto()%>">
-		
-		
-		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
+		<%=Math.floor(shop.getAverageRate() * 10) / 10 %>点<br>	
 		</div>
 		<form action="shop-detail" method = "POST">
+		<input type="image" src="/ramen/upload/<%=shop.getPhoto()%>"alt="<%=shop.getPhoto()%>"title="<%=shop.getShopName() %>">
 		<input type="hidden" name = "shopId" value = "<%=shop.getShopId() %>">
-		<input type="submit"  value = "店舗ページへ">
 		</form>
 		<br>
 		

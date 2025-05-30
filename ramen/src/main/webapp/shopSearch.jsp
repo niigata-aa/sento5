@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Bean.ShopBean, model.Bean.GenreBean" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.Bean.ShopBean, model.Bean.GenreBean"%>
 
 
 <!DOCTYPE html>
@@ -11,98 +11,119 @@
 <title>店舗検索・一覧</title>
 </head>
 <body>
-<!--<div class="title"> title　タイトル -->
-<!--<h1>店舗検索・一覧</h1></div>-->
-<!--<div class="search"> search 検索フォーム全体 -->
+<%@include file = "header.jsp" %>
+	<!--<div class="title"> title　タイトル -->
+	<!--<h1>店舗検索・一覧</h1></div>-->
+	<!--<div class="search"> search 検索フォーム全体 -->
 
-<div class="searchtitle"><!-- searchtitle 検索タイトル -->
-<h2>店舗検索</h2></div>
-
-
-<form action="shop-search-servlet" method="POST">
-<div class="searchcontainer">
-<div class="search"><!-- namesearch 店名入力 -->
-店舗名：<input type="text" name="shopName"value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>"placeholder="店舗名を入力"></div><br>
-
-<div class="search"><!-- areasearch 地域入力 -->>
-エリア：<input type="text" name="area"value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>"placeholder="エリアを入力"></div><br>
+	<div class="searchtitle">
+		<!-- searchtitle 検索タイトル -->
+		<h2>店舗検索</h2>
+	</div>
 
 
-<div>
+	<form action="shop-search-servlet" method="POST">
+		<div class="searchcontainer">
+			<div class="search">
+				<!-- namesearch 店名入力 -->
+				店舗名：<input type="text" name="shopName"
+					value="<%=request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : ""%>"
+					placeholder="店舗名を入力">
+			</div>
+			<br>
 
-<!-- 5/30追加分------------------------------------------------------------------------ -->
-<class name="search">
-ジャンル：
-<select name="genreId">
-    <option value="">選択してください</option>
-<%
-List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList");
-Integer searchGenreId = (Integer) request.getAttribute("searchGenreId");
-
-if(genreList != null) {
-    for (GenreBean genre : genreList) {
-        String selected = "";
-        if (searchGenreId != null && searchGenreId.equals(genre.getGenreId())) {
-            selected = "selected";
-        }
-%>
-    <option value="<%= genre.getGenreId() %>" <%= selected %>><%= genre.getGenreName() %></option>
-<%
-    }
-}
-%></class>
-</select>
-<!-- ---------------------------------------------------------------------------------- -->
-
-</div>
+			<div class="search">
+				<!-- areasearch 地域入力 -->
+				> エリア：<input type="text" name="area"
+					value="<%=request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : ""%>"
+					placeholder="エリアを入力">
+			</div>
+			<br>
 
 
-<div class="button">
-<input type="submit" value="検索"></div><br>
-</div>
-</form>
+			<div class="search">
 
-<div class="backbutton"><!-- 戻るボタン -->
-<form action = "top.jsp" method = "POST">
-<input type = "submit"  value = "トップページへ戻る"></form></div>
+				<!-- 5/30追加分------------------------------------------------------------------------ -->
+			
+				ジャンル： 
+				<select name="genreId">
+					<option value="">選択してください</option>
+					<%
+					List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList");
+					Integer searchGenreId = (Integer) request.getAttribute("searchGenreId");
 
-</div>
+					if (genreList != null) {
+						for (GenreBean genre : genreList) {
+							String selected = "";
+							if (searchGenreId != null && searchGenreId.equals(genre.getGenreId())) {
+						selected = "selected";
+							}
+					%>
+					<option value="<%=genre.getGenreId()%>" <%=selected%>><%=genre.getGenreName()%></option>
+					<%
+					}
+					}
+					%>
+				</select>
+				<!-- ---------------------------------------------------------------------------------- -->
 
-<div class="shoplistcontainer"><!-- shoplist 店舗一覧全体 -->
+			</div>
 
-<div class="listtitle"><!-- listtitle タイトル -->
-<h2>店舗一覧</h2></div>
+
+			<div class="button">
+				<input type="submit" value="検索">
+			</div>
+			<br>
+		</div>
+	</form>
+
+
+	<div class="shoplistcontainer">
+		<!-- shoplist 店舗一覧全体 -->
+
+		<div class="listtitle">
+			<!-- listtitle タイトル -->
+			<h2>店舗一覧</h2>
+		</div>
 		<div class="list">
 			<!-- list 一覧 -->
-			<%List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
-			if(shopList != null && !shopList.isEmpty() ){%>
-			<% for (ShopBean shop : shopList){ %><br>
+			<%
+			List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
+			if (shopList != null && !shopList.isEmpty()) {
+			%>
+			<%
+			for (ShopBean shop : shopList) {
+			%><br>
 			<div class="listdetail">
 				<!-- listdetail 一店舗ごとのブロック -->
 				<form action="shop-detail" method="post">
-					<%=shop.getShopName() %>
-					<input type="image" src="/ramen/upload/<%=shop.getPhoto() %>" >
-					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> 
-					
+					<%=shop.getShopName()%>
+					<input type="image" src="/ramen/upload/<%=shop.getPhoto()%>">
+					<input type="hidden" name="shopId" value="<%=shop.getShopId()%>"><br>
+
 					<!-- 5/30---------------------------------- -->
 					ジャンル:
-					<%if(shop.getGenre() != null && shop.getGenre().isEmpty()) %> 
+					<%
+					if (shop.getGenre() != null && shop.getGenre().isEmpty())
+					%>
 					<%=shop.getGenre()%><br>
 					<!-- -------------------------------------- -->
-					
-					<%if(shop.isWalkingDistance()){ %>
+
+					<%
+					if (shop.isWalkingDistance()) {
+					%>
 					徒歩圏内
 					<%} else {%>
 					徒歩圏外
 					<%} %>
-					</form>
-					<%} %>
+				</form>
+				<%} %>
 			</div>
 			<%}else{%>
 			一致する内容がありません。
 			<%} %>
-</div>
-</div>
+		</div>
+	</div>
 
 </body>
 </html>
