@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -47,7 +48,7 @@ public class CommentListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		List<CommentBean> commentList=null;
-		List<String> shopnameList=null;
+		List<String> shopnameList = new ArrayList<>(); 
 		
 		HttpSession session=request.getSession();
 		String userId=(String) session.getAttribute("userId");
