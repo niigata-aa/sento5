@@ -56,8 +56,13 @@ if(genreList != null) {
 
 
 <div class="button">
-<input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>
+<input type="submit" value="検索"></div><br>
 </form>
+
+<div class="backbutton"><!-- 戻るボタン -->
+<form action = "top.jsp" method = "POST">
+<input type = "submit"  value = "トップページへ戻る"></form></div>
+
 </div>
 
 <div class="shoplistcontainer"><!-- shoplist 店舗一覧全体 -->
