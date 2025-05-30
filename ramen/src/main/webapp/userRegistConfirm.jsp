@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ登録確認画面</title>
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -32,13 +33,11 @@
 <input type="hidden" name="userName"value="<%=session.getAttribute("userName") %>">
 </div>
 
-<div class="submit"><!-- submit ボタン -->
+<div class="button"><!--  buttonボタン群 -->
+<button type="button"onclick="history.back()">戻る</button>
 <input type="submit" value="登録">
 </div>
 
-<div class="button"><!-- button ボタン -->	
-<button type="button"onclick="history.back()">戻る</button>
-</div>
 </form>
 </div>
 </body>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ登録完了！</title>
+
 </head>
 <body>
 <%@include file = "header.jsp" %>
