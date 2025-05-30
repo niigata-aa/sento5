@@ -345,7 +345,7 @@ public class ShopDAO {
 		return count;
 
 	}
-	public String selectShopName(int shopId) throws ClassNotFoundException, SQLException {
+	public static String selectShopName(int shopId) throws ClassNotFoundException, SQLException {
         String shopName = null; // 戻り値を保持する変数を初期化
         String sql = "select shopName from m_shop where shopId=?";
 
