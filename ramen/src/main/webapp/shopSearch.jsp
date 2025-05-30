@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗検索・一覧</title>
+<link rel="stylesheet" href="css/shoplist.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -98,7 +99,7 @@
 				<!-- listdetail 一店舗ごとのブロック -->
 				<form action="shop-detail" method="post">
 					<%=shop.getShopName()%>
-					<div class="ramen-card">
+					<div class="shop-photo">
 					<input type="image" src="/ramen/upload/<%=shop.getPhoto()%>">
 					<input type="hidden" name="shopId" value="<%=shop.getShopId()%>"><br>
 					</div>
