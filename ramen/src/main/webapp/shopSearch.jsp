@@ -98,9 +98,10 @@
 				<!-- listdetail 一店舗ごとのブロック -->
 				<form action="shop-detail" method="post">
 					<%=shop.getShopName()%>
+					<div class="ramen-card">
 					<input type="image" src="/ramen/upload/<%=shop.getPhoto()%>">
 					<input type="hidden" name="shopId" value="<%=shop.getShopId()%>"><br>
-
+					</div>
 					<!-- 5/30---------------------------------- -->
 					ジャンル:
 					<%
