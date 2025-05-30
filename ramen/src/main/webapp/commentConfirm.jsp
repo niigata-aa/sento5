@@ -18,13 +18,13 @@
 		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>"><br>
 		メニュー：<%=comment.getMenu() %><br>
 		値段：￥<%=comment.getValue() %><br>
+		<%=comment.getShopId() %>
 </div>
 <div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>
 </div>
 <div class="confirm"><!-- button 登録 -->
 <form action="coment-regist-servlet" method="post">
-<input type="hidden" value="<%=comment.getShopId()%>">
 	<input type="submit" value="登録">
 </form>
 </div>

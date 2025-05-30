@@ -46,7 +46,8 @@ public class ShopDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String shopId = request.getParameter("shopId");
+		
+		int shopId = Integer.parseInt(request.getParameter("shopId"));
 		
 		//DAOの生成
 		ShopDAO shopdao = new ShopDAO();
@@ -57,8 +58,8 @@ public class ShopDetailServlet extends HttpServlet {
 		
 		try {
 			//DAOの利用
-			ShopBean shopdetail = shopdao.selectShop(Integer.parseInt(shopId));
-			List<CommentBean> commentList = commentdao.selectComment(Integer.parseInt(shopId));
+			ShopBean shopdetail = shopdao.selectShop(shopId);
+			List<CommentBean> commentList = commentdao.selectComment(shopId);
 			
 			//セッションスコープへの属性の設定
 			session.setAttribute("shopdetail", shopdetail);

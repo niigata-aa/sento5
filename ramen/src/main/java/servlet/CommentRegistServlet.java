@@ -50,6 +50,7 @@ public class CommentRegistServlet extends HttpServlet {
 
 		//DAOの生成
 		CommentDAO commentdao = new CommentDAO();
+		int shopId = comment.getShopId();
 		
 		int processingNumber = 0;
 
@@ -64,10 +65,12 @@ public class CommentRegistServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+	
+		request.setAttribute("shopId",shopId);
+		request.setAttribute("count", processingNumber);
 		session.removeAttribute("comment");
-
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("shop-detail");
+		RequestDispatcher rd = request.getRequestDispatcher("comment-regist-complete.jsp");
 		rd.forward(request,response);
 
 	}
