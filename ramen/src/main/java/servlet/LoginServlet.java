@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("roll", 1);
 //				response.sendRedirect("top.jsp");
 				
-//				5/30齊藤調整
+//				5/30齊藤調整 一般ユーザのログイン成功時ランキングサーブレットに飛ばす
 		        RequestDispatcher rd = request.getRequestDispatcher("/ranking-servlet");
 		        rd.forward(request, response);
 				}
