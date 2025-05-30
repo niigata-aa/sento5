@@ -51,6 +51,7 @@
 	<input type ="submit" value = "コメント投稿">
 	</form>
 	<%--ジャンルをfor文で回す --%>
+
 	<form action="comment-search" method="post">
 		<input type="text" name="userserch"> 
 		<select name="genreserch">
@@ -81,6 +82,7 @@
 				<td><%=comment.getMenu()%></td>
 				<td><%=comment.getValue()%></td>
 				<td><%=comment.getReview()%></td>
+				<%-- 
 				<%if(roll==0){ %>
 				<td>
 					<form action="coment-delete-confirm-servlet" method="post">	
@@ -88,7 +90,7 @@
 					<input type="submit"  value="削除">
 					</form>
 				</td>
-				<%} %>
+				<%} %>--%>
 			</tr>
 			
 		<%} %>
