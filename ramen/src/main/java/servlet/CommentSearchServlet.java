@@ -49,7 +49,7 @@ public class CommentSearchServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		int genreId=Integer.parseInt(request.getParameter("genreId"));
+		int genreId=Integer.parseInt(request.getParameter("genreserch"));
 		int shopId=Integer.parseInt(request.getParameter("shopIdId"));
 		
 		List<CommentBean> commentList=null;
@@ -64,19 +64,13 @@ public class CommentSearchServlet extends HttpServlet {
 			genreList = genreDAO.selectGenre();
 			
 	           // 検索条件に応じた店舗検索
-	           if (genreId == null) {
+	           if ((genreId>10) || (genreId<1)) {
 	               // 全て未指定：全店舗
 	               commentList = dao.selectComment(shopId);
 	           } else {
-	               // 複合検索
-	               commentList = CommentDAO.selectCategoryComment(shopName, area, genreId);
+	               commentList =dao.selectCategoryComment(genreId);
 	           }
 		
-		try {
-			commentList=dao.selectUserComment(genreId);
-		}catch (SQLException  |  ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 		request.setAttribute("commentList", commentList);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("shopDetail.jsp");
