@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.menu{display: flex;}
+
+.rankcontainer{
+	display: flex;
+	grid-template-columns: repeat(5,1fr);/*均等に５*/
+	gap: 10px 20px;/*行間と列間隔*/
+	padding: 2em;;
+				}
+.rankbox{
+	width: 100%;
+	height: auto;
+	max-width: 200px;
+	max-height: 145px;
+	border-radius: 8px;
+	margin-bottom: 0.5em;
+	object-fit:cover;
+}
+.rankbox{
+    background-color: #fff0f0;
+    border: 2px solid #cc0000;
+    padding: 1.5em;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #cc0000;
+    border-radius: 10px;
+    transition: transform 0.3s,background-color 0.3s;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+.rankbox:hover{
+    background-color: #ffeaea;
+    transform: scale(1.05);
+}
+
+image{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    max-height: 145px;
+    border-radius: 8px;
+    margin-bottom: 0.5em;
+    object-fit:cover;
+}
+
+.rankbox h3{
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0;
+}
+

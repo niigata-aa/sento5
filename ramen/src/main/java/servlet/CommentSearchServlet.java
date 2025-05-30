@@ -64,17 +64,22 @@ public class CommentSearchServlet extends HttpServlet {
 					// TODO 自動生成された catch ブロック
 					e.printStackTrace();
 				}
+
 			} else {
-				try {
-					commentList =dao.selectCategoryComment(Integer.parseInt(genreId),shopId);
-				} catch (ClassNotFoundException e) {
-					// TODO 自動生成された catch ブロック
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO 自動生成された catch ブロック
-					e.printStackTrace();
-				}
+					try {
+						commentList =dao.selectCategoryComment(Integer.parseInt(genreId),shopId);
+					} catch (NumberFormatException e) {
+						// TODO 自動生成された catch ブロック
+						e.printStackTrace();
+					} catch (ClassNotFoundException e) {
+						// TODO 自動生成された catch ブロック
+						e.printStackTrace();
+					} catch (SQLException e) {
+						// TODO 自動生成された catch ブロック
+						e.printStackTrace();
+					}
 			}
+
 
 			request.setAttribute("commentList", commentList);
 
