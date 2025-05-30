@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.container{
+	background-color:rgb(199, 18, 54);
+}
+.name{
+	color:#EBE9EA;
+	text-align: right;
+	
+}
+.topbutton{
+	text-align: left;
+}
+.outbutton{
+	text-align: right;
+}

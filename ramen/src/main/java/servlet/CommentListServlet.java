@@ -71,6 +71,7 @@ public class CommentListServlet extends HttpServlet {
 			}
 		}
 		session.setAttribute("commentList", commentList);
+		request.setAttribute("shopnameList", shopnameList);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
 		
