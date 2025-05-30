@@ -37,7 +37,13 @@ public class ShopSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+			GenreDAO genreDAO = new GenreDAO();
+			List<GenreBean> genreList = new ArrayList<>();
+			request.setAttribute("genreList", genreList);
+		
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/shopSearch.jsp");
+	        dispatcher.forward(request, response);
 	}
 
 	/**
