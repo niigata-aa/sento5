@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.Bean.ShopBean"%>
+    pageEncoding="UTF-8" import="model.Bean.ShopBean,java.util.List,java.util.ArrayList,model.Bean.CommentBean,model.Bean.GenreBean""%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,7 @@
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ:<input type="text" name="menu"><br>
 	値段:<input type="text" name="value"><br>
-	写真:<input type="file"name="comentphoto"><br>
+	写真:<input type="file"name="commentphoto"><br>
 	評価:
 	<select name="rate">
 		<option value="1">1</option>
@@ -29,13 +29,16 @@
 		<option value="5">5</option>
 	</select><br>
 	ジャンル
-	<select name="genreId">
-		<option value="1">醬油</option>
-		<option value="2">塩</option>
-		<option value="3">味噌</option>
-		<option value="4">背油</option>
-		<option value="5">豚骨</option>
-	</select><br>
+<select name="genreId" required>
+           <option value="">選択してください</option>
+           <%List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList"); %>
+           <% 
+               for(GenreBean genre : genreList) { %>
+                   <option value="<%=genre.getGenreId()%>"><%=genre.getGenreName()%></option>
+           <% 
+           } %>
+       </select><br>
+	レビュー：<textarea name="review" cols="40"rows="3"></textarea><br>
 	</div><br>
 	
 	<div class="registbutton"><!-- registbutton 登録ボタン -->
