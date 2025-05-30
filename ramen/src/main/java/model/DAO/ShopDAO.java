@@ -345,7 +345,6 @@ public class ShopDAO {
 		return count;
 
 	}
-<<<<<<< HEAD
 	public void selectshopname(int shopId) {
 		String sql="select shopName from m_shop where shopId=?";
 		
@@ -450,15 +449,6 @@ public class ShopDAO {
 		}
 
 	
-///////////////////////////////////////////////////////////////
-
-	public static String selectShopName(int shopId) throws ClassNotFoundException, SQLException {
-        String shopName = null; // 戻り値を保持する変数を初期化
-        String sql = "select shopName from m_shop where shopId=?";
->>>>>>> branch 'master' of https://github.com/niigata-aa/sento5.git
-
-		
-	}
 	
 
 
