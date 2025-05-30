@@ -37,7 +37,21 @@ public class ShopSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+			
+			try {
+				GenreDAO genreDAO = new GenreDAO();
+			    List<GenreBean> genreList;
+				genreList = genreDAO.selectGenre();
+				request.setAttribute("genreList", genreList);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+			
+		
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/shopSearch.jsp");
+	        dispatcher.forward(request, response);
 	}
 
 	/**
