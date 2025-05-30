@@ -30,6 +30,7 @@ public class ShopDAO {
 				String shopPhoto = res.getString("photo");
 				boolean walkingDistance = res.getBoolean("walkDistance");
 				//				String genre = res.getString("genre_name");
+				
 
 				ShopBean shop = new ShopBean();
 				shop.setShopId(shopId);
