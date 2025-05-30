@@ -63,6 +63,7 @@
 			<option value="8">担々麵</option>
 			<option value="9">その他</option>
 		</select> <input type="submit" value="コメント検索">
+		<input type="hidden" name = "shopId"value="<%= shop.getShopId() %>"> 
 	</form>
 		<table>
 		<tr><th>写真</th><th>評価</th><th>ジャンル</th><th>メニュー</th><th>値段</th><th>レビュー</th></tr>
