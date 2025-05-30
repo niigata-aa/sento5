@@ -48,6 +48,7 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		String commentPhoto=request.getParameter("commentPhoto");
 		String menu=request.getParameter("menu");
 		String value=request.getParameter("value");
+		
 		HttpSession session=request.getSession();
 		session.setAttribute("commentId",commentId );
 		request.setAttribute("genreId",shopId );
@@ -57,7 +58,6 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		request.setAttribute("commentPhoto",commentPhoto );
 		request.setAttribute("menu",menu );
 		request.setAttribute("value",value );
-
 		RequestDispatcher rd = request.getRequestDispatcher("commentDeleteConfirm.jsp");
 		
 		rd.forward(request, response);

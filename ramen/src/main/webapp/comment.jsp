@@ -27,7 +27,6 @@
 		<%for(CommentBean comment:commentList){ %>
 			コメントID:<%=comment.getCommentId() %><br>
 			店ID: <%=comment.getShopId() %><br>
-			店名: <%= shopnameList.get(i)%>
 			ジャンルID:<%=comment.getGenreId() %><br>
 			レビュー:<%=comment.getReview() %><br>
 			評価:<%=comment.getRate() %><br>

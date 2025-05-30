@@ -15,7 +15,7 @@ public class RankingDAO {
 		public List<ShopBean> shopRank() throws SQLException, ClassNotFoundException{
 			List<ShopBean> shoprankList = new ArrayList<ShopBean>();
 			
-			String sql ="SELECT AVG(c.rate) AS average_rate,s.shop_name FROM m_comment c INNER JOIN m_shop s ON c.shop_id = s.shop_id GROUP BY s.shop_id ORDER BY average_rate DESC LIMIT 5" ; 
+			String sql ="SELECT AVG(c.rate) AS average_rate,shop_name,s.photo, s.shop_id FROM m_comment c INNER JOIN m_shop s ON c.shop_id = s.shop_id GROUP BY s.shop_id ORDER BY average_rate DESC LIMIT 5" ; 
 			
 			try(Connection con=ConnectionManager.getConnection();
 					PreparedStatement pstmt=con.prepareStatement(sql)){
@@ -27,6 +27,8 @@ public class RankingDAO {
 					ShopBean shop = new ShopBean();
 					shop.setAverageRate(res.getDouble("average_rate"));
 					shop.setShopName(res.getString("shop_name"));
+					shop.setPhoto(res.getString("photo"));
+					shop.setShopId(res.getInt("shop_id"));
 					shoprankList.add(shop);
 				}
 			}

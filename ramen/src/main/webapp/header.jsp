@@ -5,7 +5,7 @@ pageEncoding= "UTF-8" %>
 
 <div class="container">
 <div class="topbutton"><!-- topbutton トップページボタン -->
-<form action = "top.jsp" method = "POST">
+<form action = "ranking-servlet" method = "POST">
 <input type = "submit"  value = "トップページへ">
 </form></div>
 

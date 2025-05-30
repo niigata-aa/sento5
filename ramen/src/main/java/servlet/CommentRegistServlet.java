@@ -44,15 +44,14 @@ public class CommentRegistServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 
-		String url ="shop-detail";
 
 		HttpSession session = request.getSession();
 		CommentBean comment=(CommentBean)session.getAttribute("comment");
 
-		int shopId = comment.getShopId();
-		request.setAttribute("shopId", shopId);
 		//DAOの生成
 		CommentDAO commentdao = new CommentDAO();
+		int shopId = comment.getShopId();
+		
 		int processingNumber = 0;
 
 		//DAOの利用
@@ -66,9 +65,12 @@ public class CommentRegistServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+	
+		request.setAttribute("shopId",shopId);
+		request.setAttribute("count", processingNumber);
 		session.removeAttribute("comment");
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		RequestDispatcher rd = request.getRequestDispatcher("comment-regist-complete.jsp");
 		rd.forward(request,response);
 
 	}

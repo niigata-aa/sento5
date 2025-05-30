@@ -20,14 +20,14 @@ import model.DAO.CommentDAO;
 @WebServlet("/coment-search-servlet")
 public class CommentSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CommentSearchServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CommentSearchServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,23 +43,45 @@ public class CommentSearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		
-		int genreId=Integer.parseInt(request.getParameter("genreId"));
-		
-		List<CommentBean> commentList=null;
-		
-		CommentDAO dao=new CommentDAO();
-		
-		try {
-			commentList=dao.selectUserComment(genreId);
-		}catch (SQLException  |  ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		request.setAttribute("commentList", commentList);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
-		
-		rd.forward(request, response);
-	}
 
+		int genreId=Integer.parseInt(request.getParameter("genreserch"));
+		int shopId=Integer.parseInt(request.getParameter("shopId"));
+
+		List<CommentBean> commentList=null;
+
+		CommentDAO dao=new CommentDAO();
+
+
+			// 検索条件に応じた店舗検索
+			if ((genreId>9) || (genreId<1)) {
+				// 全て未指定：全店舗
+				try {
+					commentList = dao.selectComment(shopId);
+				} catch (ClassNotFoundException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
+			} else {
+				try {
+					commentList =dao.selectCategoryComment(genreId);
+				} catch (ClassNotFoundException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
+			}
+
+			request.setAttribute("commentList", commentList);
+
+			RequestDispatcher rd = request.getRequestDispatcher("shopDetail.jsp");
+
+			rd.forward(request, response);
+	
+
+	}
 }

@@ -47,10 +47,13 @@
 	定休日:<%=shop.getClosedDay() %><br> 
 	詳細:<%=shop.getDetail() %><br>
 
-	<input type = "button" onclick = "location.href='commentForm.jsp'" value = "コメント投稿">
+	<form action="genre-list-servlet" method="post">
+	<input type ="submit" value = "コメント投稿">
+	</form>
 	<%--ジャンルをfor文で回す --%>
-	<form action="comment-search" method="post">
-		<input type="text" name="userserch"> <select name="genreserch">
+
+	<form action="coment-search-servlet" method="post">
+		<select name="genreserch">
 			<option value="1">醤油</option>
 			<option value="2">塩</option>
 			<option value="3">味噌</option>
@@ -61,6 +64,7 @@
 			<option value="8">担々麵</option>
 			<option value="9">その他</option>
 		</select> <input type="submit" value="コメント検索">
+		<input type="hidden" name = "shopId"value="<%= shop.getShopId() %>"> 
 	</form>
 		<table>
 		<tr><th>写真</th><th>評価</th><th>ジャンル</th><th>メニュー</th><th>値段</th><th>レビュー</th></tr>
@@ -77,19 +81,24 @@
 				<td><%=comment.getMenu()%></td>
 				<td><%=comment.getValue()%></td>
 				<td><%=comment.getReview()%></td>
+				<%-- 
 				<%if(roll==0){ %>
 				<td>
-					<form action="comment-delete-confirm" method="post">	
+					<form action="coment-delete-confirm-servlet" method="post">	
 					<input type="hidden" name="commentId" value="<%=comment.getCommentId() %>">
-					<input type="submit" name="delete" value="削除">
+					<input type="submit"  value="削除">
 					</form>
 				</td>
-				<%} %>
+				<%} %>--%>
 			</tr>
+			
 			
 		<%} %>
 			
 		</table>
+		<%if(commentList==null){ %>
+			コメントされていません。
+		<%} %>
 
 
 

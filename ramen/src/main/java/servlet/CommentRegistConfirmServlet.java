@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import model.Bean.CommentBean;
-import model.Bean.ShopBean;
 
 /**
  * Servlet implementation class ComentRegistConfirmServlet
@@ -79,7 +78,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
  		
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("userId");
-		ShopBean shop = (ShopBean) session.getAttribute("shop");
+
 		
 		//リクエストパラメータの取得
 		String shopId =request.getParameter("shopId");
@@ -101,20 +100,6 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		comment.setValue(value);
 		
 		session.setAttribute("comment", comment);
-		
-		//入力チェック
-		if(
-		   review == null || review.trim().isEmpty()||
-		   rate==null || rate.trim().isEmpty()||
-		   filename==null || filename.trim().isEmpty()||
-		   menu==null || menu.trim().isEmpty()||
-		  value==null || value.trim().isEmpty()) {
-		 	
-			request.setAttribute("errorMessage", "メニュー名・値段・評価・ジャンル・レビューをすべて入力してください");
-			RequestDispatcher rd = request.getRequestDispatcher("commentForm.jsp");
-			rd.forward(request, response);
-			return;
-		}
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("commentConfirm.jsp");

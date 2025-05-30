@@ -17,11 +17,11 @@
 	<form action="comment-regist-confirm-servlet"method="post"enctype="multipart/form-data">
 		<input type="hidden" name="shopId" value="<%=shop.getShopId() %>">
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
-	メニュ:<input type="text" name="menu"><br>
-	値段:<input type="text" name="value"><br>
-	写真:<input type="file"name="commentphoto"><br>
+	メニュ:<input type="text" name="menu"required><br>
+	値段:<input type="text" name="value"required><br>
+	写真:<input type="file"name="commentphoto"required><br>
 	評価:
-	<select name="rate">
+	<select name="rate"required>
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -29,7 +29,7 @@
 		<option value="5">5</option>
 	</select><br>
 	ジャンル
-<select name="genreId" required>
+	<select name="genreId" required>
            <option value="">選択してください</option>
            <%List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList"); %>
            <% 
@@ -37,8 +37,9 @@
                    <option value="<%=genre.getGenreId()%>"><%=genre.getGenreName()%></option>
            <% 
            } %>
-       </select><br>
-	レビュー：<textarea name="review" cols="40"rows="3"></textarea><br>
+     </select>
+     <br>
+	レビュー：<textarea name="review" cols="40"rows="3"required></textarea><br>
 	</div><br>
 	
 	<div class="registbutton"><!-- registbutton 登録ボタン -->
