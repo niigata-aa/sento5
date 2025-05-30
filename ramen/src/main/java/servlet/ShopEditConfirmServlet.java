@@ -40,36 +40,15 @@ public class ShopEditConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
 		String shopName = request.getParameter("shopName");
 		String shopKana = request.getParameter("shopKana");
 		String address = request.getParameter("address");
 		String openTime = request.getParameter("openTime");
 		String closeTime = request.getParameter("closeTime");
-		String closedDay = request.getParameter("closeDay");
+		String closedDay = request.getParameter("closedDay");
 		String detail = request.getParameter("detail");
 
-//		if(shopName== null) {
-//			shopName=shop.getShopName();
-//		}
-//		if(shopKana==null) {
-//			shopKana=shop.getShopKana();
-//		}
-//		if(address==null) {
-//			address=shop.getAddress();
-//		}
-//		if(openTime==null) {
-//			openTime=shop.getOpenTime();
-//		}
-//		if(closeTime==null) {
-//			closeTime=shop.getCloseTime();
-//		}
-//		if(closedDay==null) {
-//			closedDay=shop.getClosedDay();
-//		}
-//		if(detail==null) {
-//			detail=shop.getDetail();
-//		}
- 		
 		ShopBean editInfo = new ShopBean();
 		editInfo.setShopName(shopName);
 		editInfo.setShopKana(shopKana);
@@ -82,6 +61,8 @@ public class ShopEditConfirmServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ShopBean shop =(ShopBean)session.getAttribute("shopdetail");
 		editInfo.setPhoto(shop.getPhoto());
+		editInfo.setWalkingDistance(shop.isWalkingDistance());
+		editInfo.setShopId(shop.getShopId());
 		session.setAttribute("editInfo", editInfo);
 		
 			
