@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,10 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Bean.CommentBean;
-import model.Bean.GenreBean;
-import model.Bean.ShopBean;
 import model.DAO.CommentDAO;
-import model.DAO.GenreDAO;
 
 /**
  * Servlet implementation class ComentSearchServlet
@@ -49,28 +45,15 @@ public class CommentSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		int genreId=Integer.parseInt(request.getParameter("genreserch"));
-		int shopId=Integer.parseInt(request.getParameter("shopIdId"));
+		int shopId=Integer.parseInt(request.getParameter("shopId"));
 
 		List<CommentBean> commentList=null;
 
 		CommentDAO dao=new CommentDAO();
-		GenreDAO genreDAO = new GenreDAO();
 
-		List<ShopBean> shopList = new ArrayList<>();
-		List<GenreBean> genreList = new ArrayList<>();
-
-			try {
-				genreList = genreDAO.selectGenre();
-			} catch (ClassNotFoundException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
 
 			// 検索条件に応じた店舗検索
-			if ((genreId>10) || (genreId<1)) {
+			if ((genreId>9) || (genreId<1)) {
 				// 全て未指定：全店舗
 				try {
 					commentList = dao.selectComment(shopId);
