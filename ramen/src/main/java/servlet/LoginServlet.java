@@ -78,7 +78,11 @@ public class LoginServlet extends HttpServlet {
 				}else {
 				//トップページに遷移
 				session.setAttribute("roll", 1);
-				response.sendRedirect("top.jsp");
+//				response.sendRedirect("top.jsp");
+				
+//				5/30齊藤調整
+		        RequestDispatcher rd = request.getRequestDispatcher("/ranking-servlet");
+		        rd.forward(request, response);
 				}
 
 			}else {//ログイン失敗

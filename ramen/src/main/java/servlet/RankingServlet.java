@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.Bean.ShopBean;
 import model.DAO.RankingDAO;
@@ -45,16 +44,8 @@ public class RankingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		String url = "ranking.jsp";
-		
-//		int shopId = Integer.parseInt(request.getParameter("shopId"));
-		
-		//セッションオブジェクトの取得
-				HttpSession session = request.getSession();
-				
-		//ログイン確認済みかどうかを確認
-		if(session.getAttribute("userId") != null) {
-		
+		String url = "top.jsp";
+						
 		try {
 			//DAOの生成
 			RankingDAO rankdao = new RankingDAO();
@@ -71,7 +62,6 @@ public class RankingServlet extends HttpServlet {
 		rd.forward(request,response);
 
 		
-				}
 	}
 
 }
