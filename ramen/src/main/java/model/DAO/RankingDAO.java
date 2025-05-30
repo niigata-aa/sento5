@@ -25,8 +25,8 @@ public class RankingDAO {
 				
 				while(res.next()) {
 					ShopBean shop = new ShopBean();
-					shop.setAverageRate(res.getInt("average_rate"));
-					shop.setShopName(res.getString("shopName"));
+					shop.setAverageRate(res.getDouble("average_rate"));
+					shop.setShopName(res.getString("shop_name"));
 					shoprankList.add(shop);
 				}
 			}
