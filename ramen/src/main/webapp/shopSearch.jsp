@@ -31,7 +31,7 @@
 <!-- 5/30追加分------------------------------------------------------------------------ -->
 ジャンル：
 <select name="genreId">
-    <option value="">ジャンル選択してください</option>
+    <option value="">選択してください</option>
 <%
 List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList");
 Integer searchGenreId = (Integer) request.getAttribute("searchGenreId");
