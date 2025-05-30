@@ -44,11 +44,13 @@ public class CommentRegistServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 
-		String url ="commentRegistConfirm.jsp";
+		String url ="shop-detail";
 
 		HttpSession session = request.getSession();
 		CommentBean comment=(CommentBean)session.getAttribute("comment");
 
+		int shopId = comment.getShopId();
+		request.setAttribute("shopId", shopId);
 		//DAOの生成
 		CommentDAO commentdao = new CommentDAO();
 		int processingNumber = 0;
