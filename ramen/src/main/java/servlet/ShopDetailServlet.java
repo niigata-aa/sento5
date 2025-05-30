@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
+import model.Bean.GenreBean;
 import model.Bean.ShopBean;
 import model.DAO.CommentDAO;
+import model.DAO.GenreDAO;
 import model.DAO.ShopDAO;
 
 /**
@@ -52,17 +54,21 @@ public class ShopDetailServlet extends HttpServlet {
 		ShopDAO shopdao = new ShopDAO();
 		
 		CommentDAO commentdao = new CommentDAO();
+		
+		GenreDAO genredao = new GenreDAO();
+		
 		try {
 			//DAOの利用
 			ShopBean shopdetail = shopdao.selectShop(shopId);
 			List<CommentBean> commentList = commentdao.selectComment(shopId);
-
+			List<GenreBean> genreList = genredao.selectGenre();
 			//セッションスコープへの属性の設定
 			session.setAttribute("shopdetail", shopdetail);
 
 			//リクエストスコープへの属性の設定
 			request.setAttribute("commentList", commentList);
-			
+			request.setAttribute("genreList", genreList);
+	
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

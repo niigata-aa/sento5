@@ -29,7 +29,7 @@
 		<option value="5">5</option>
 	</select><br>
 	ジャンル
-<select name="genreId" required>
+	<select name="genreId" required>
            <option value="">選択してください</option>
            <%List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList"); %>
            <% 
@@ -37,7 +37,8 @@
                    <option value="<%=genre.getGenreId()%>"><%=genre.getGenreName()%></option>
            <% 
            } %>
-       </select><br>
+     </select>
+     <br>
 	レビュー：<textarea name="review" cols="40"rows="3"></textarea><br>
 	</div><br>
 	
