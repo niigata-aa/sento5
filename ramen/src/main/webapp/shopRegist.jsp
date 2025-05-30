@@ -10,9 +10,9 @@
 <%@include file = "header.jsp" %>
 <div class="shopregist"> <!-- ショップ登録まとめ-->
 	<form action="shop-regist-confirm-servlet" method="post"enctype="multipart/form-data">
-		店名入力：<input type="text" name="shopName"> <br>
-		店名かな入力：<input type="text" name="shopKana"> <br>
-		住所：<input type="text"name="address"> <br>
+		店名入力：<input type="text" name="shopName"required> <br>
+		店名かな入力：<input type="text" name="shopKana"required> <br>
+		住所：<input type="text"name="address"required> <br>
 		開店時間：
 		<input type="time" name="openTime"><br>
 		<%-- 
@@ -41,7 +41,7 @@
 		徒歩圏内：<input type="radio" name="walkingDistance" value="true">
 		徒歩圏外：<input type="radio" name="walkingDistance" value="false">
 		<br>
-		写真：<input type="file" name="image">
+		写真：<input type="file" name="image"required>
 		<br>
 		<input type="submit" value="確認へ">
 	</form>
