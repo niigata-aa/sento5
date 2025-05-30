@@ -38,9 +38,17 @@ public class ShopSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-			GenreDAO genreDAO = new GenreDAO();
-			List<GenreBean> genreList = new ArrayList<>();
-			request.setAttribute("genreList", genreList);
+			
+			try {
+				GenreDAO genreDAO = new GenreDAO();
+			    List<GenreBean> genreList;
+				genreList = genreDAO.selectGenre();
+				request.setAttribute("genreList", genreList);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+			
 		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/shopSearch.jsp");
 	        dispatcher.forward(request, response);

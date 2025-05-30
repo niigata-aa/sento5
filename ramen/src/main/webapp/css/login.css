@@ -1,0 +1,47 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.title{
+	margin-top :30px;
+	text-align: center;
+	color:#34251F;
+}
+
+.login-container{
+	width: 400px;
+	margin-top :30px;
+	text-align: center;
+	margin-left:400px;
+	padding:10px;
+	background-color:#D5BDAE;
+}
+.newregist{
+	text-align: right;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 70%;
+  padding: 4px;
+  margin:4px;
+  font-size: 14px;
+  text-align: left;
+}
+
+span{
+	text-align: left;
+	margin:10px;
+	color:#34251F;
+	
+}
+.button{
+	text-align: center;
+	margin:10px;
+	color:#34251F;
+	
+}
+
