@@ -4,7 +4,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.Bean.UserBean"%>
-<%@ page import="model.Bean.CommentBean,model.Bean.ShopBean"%>
+<%@ page import="model.Bean.CommentBean,model.Bean.ShopBean,model.Bean.GenreBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,16 +55,13 @@
 
 	<form action="coment-search-servlet" method="post">
 		<select name="genreserch">
-			<option value="">選択してください</option>
-			<option value="1">醤油</option>
-			<option value="2">塩</option>
-			<option value="3">味噌</option>
-			<option value="4">背油</option>
-			<option value="5">豚骨</option>
-			<option value="6">生姜醤油</option>
-			<option value="7">麻婆</option>
-			<option value="8">担々麵</option>
-			<option value="9">その他</option>
+	          <option value="">選択してください</option>
+           <%List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList"); %>
+           <% 
+               for(GenreBean genre : genreList) { %>
+                   <option value="<%=genre.getGenreId()%>"><%=genre.getGenreName()%></option>
+           <% 
+           } %>
 		</select> <input type="submit" value="コメント検索">
 		<input type="hidden" name = "shopId"value="<%= shop.getShopId() %>"> 
 	</form>
