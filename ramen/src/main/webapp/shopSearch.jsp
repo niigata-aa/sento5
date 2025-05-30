@@ -11,26 +11,27 @@
 <title>店舗検索・一覧</title>
 </head>
 <body>
-<div class="title"><!-- title　タイトル -->
-<h1>店舗検索・一覧</h1></div>
-<div class="search"><!-- search 検索フォーム全体 -->
+<!--<div class="title"> title　タイトル -->
+<!--<h1>店舗検索・一覧</h1></div>-->
+<!--<div class="search"> search 検索フォーム全体 -->
 
 <div class="searchtitle"><!-- searchtitle 検索タイトル -->
 <h2>店舗検索</h2></div>
 
 
 <form action="shop-search-servlet" method="POST">
-<div class="namesearch"><!-- namesearch 店名入力 -->
+<div class="searchcontainer">
+<div class="search"><!-- namesearch 店名入力 -->
 店舗名：<input type="text" name="shopName"value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>"placeholder="店舗名を入力"></div><br>
 
-<div class="areasearch"><!-- areasearch 地域入力 -->>
+<div class="search"><!-- areasearch 地域入力 -->>
 エリア：<input type="text" name="area"value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>"placeholder="エリアを入力"></div><br>
 
 
 <div>
 
 <!-- 5/30追加分------------------------------------------------------------------------ -->
-<class name="genre">
+<class name="search">
 ジャンル：
 <select name="genreId">
     <option value="">選択してください</option>
@@ -58,6 +59,7 @@ if(genreList != null) {
 
 <div class="button">
 <input type="submit" value="検索"></div><br>
+</div>
 </form>
 
 <div class="backbutton"><!-- 戻るボタン -->
