@@ -47,7 +47,9 @@
 	定休日:<%=shop.getClosedDay() %><br> 
 	詳細:<%=shop.getDetail() %><br>
 
-	<input type = "button" onclick = "location.href='commentForm.jsp'" value = "コメント投稿">
+	<form action="genre-list-servlet" method="post">
+	<input type ="submit" value = "コメント投稿">
+	</form>
 	<%--ジャンルをfor文で回す --%>
 	<form action="comment-search" method="post">
 		<input type="text" name="userserch"> <select name="genreserch">
