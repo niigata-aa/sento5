@@ -41,7 +41,9 @@ public class ShopEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		//セッションオブジェクトの取得
+		
 		HttpSession session = request.getSession();
 		
 		//セッションスコープから属性値の取得

@@ -14,7 +14,7 @@
 
 <div class="title"><!-- title タイトル -->
 <h2><%=shop.getShopName() %>コメント投稿ページ</h2></div>
-	<form action="comment-regist-confirm-servlet"method="post">
+	<form action="comment-regist-confirm-servlet"method="post"enctype="multipart/form-data">
 		<input type="hidden" name="shopName" value="<%=shop.getShopId() %>">
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ:<input type="text" name="menu"><br>

@@ -1,8 +1,6 @@
 package servlet;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 import model.Bean.ShopBean;
 
@@ -37,57 +34,36 @@ public class ShopEditConfirmServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	// アップロードされたファイルを保存するフォルダ
-	//プロジェクト内にフォルダは作成しないでOK
-	//サーバーが動くときに、自動的に生成（Tomcatが仮展開する場所に）
-	private static final String UPLOAD_DIR = "upload";
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		String shopName = request.getParameter("shopName");
 		String shopKana = request.getParameter("shopKana");
 		String address = request.getParameter("address");
 		String openTime = request.getParameter("openTime");
 		String closeTime = request.getParameter("closeTime");
-		String closedDay = request.getParameter("closeDay");
+		String closedDay = request.getParameter("closedDay");
 		String detail = request.getParameter("detail");
-		//写真
-		// 保存ディレクトリのパス（アプリケーションのルートから相対パス）
- 		//フォルダの場所を取得
- 		String appPath = request.getServletContext().getRealPath("");
- 		//↑のuploadフォルダの場所
- 		String savePath = appPath + File.separator + UPLOAD_DIR;
 
- 		// フォルダがなければ作成
- 		File uploadDir = new File(savePath);
- 		if (!uploadDir.exists())
- 			uploadDir.mkdir();
-
- 		// ブラウザから送られてきたファイル（`name="image"`）を受け取る
- 		//getSubmittedFileName()：アップロードされたファイルの「元の名前」を取得
- 		Part part = request.getPart("image");
- 		String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-
- 		// ファイル保存
- 		part.write(savePath + File.separator + filename);
-
- 		//実際に保存されている場所
- 		//サーバを再公開した場合はファイルはなくなる可能性あり
- 		System.out.println(request.getServletContext().getRealPath(""));
- 		
-		ShopBean shopInfo = new ShopBean();
-		shopInfo.setShopName(shopName);
-		shopInfo.setShopKana(shopKana);
-		shopInfo.setAddress(address);
-		shopInfo.setOpenTime(openTime);
-		shopInfo.setCloseTime(closeTime);
-		shopInfo.setClosedDay(closedDay);
-		shopInfo.setDetail(detail);	
-		shopInfo.setPhoto(filename);
+		ShopBean editInfo = new ShopBean();
+		editInfo.setShopName(shopName);
+		editInfo.setShopKana(shopKana);
+		editInfo.setAddress(address);
+		editInfo.setOpenTime(openTime);
+		editInfo.setCloseTime(closeTime);
+		editInfo.setClosedDay(closedDay);
+		editInfo.setDetail(detail);	
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("editInfo", shopInfo);
+		ShopBean shop =(ShopBean)session.getAttribute("shopdetail");
+		editInfo.setPhoto(shop.getPhoto());
+		editInfo.setWalkingDistance(shop.isWalkingDistance());
+		editInfo.setShopId(shop.getShopId());
+		session.setAttribute("editInfo", editInfo);
 		
 			
 		RequestDispatcher rd = request.getRequestDispatcher("shopEditConfirm.jsp");

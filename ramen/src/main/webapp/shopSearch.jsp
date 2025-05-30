@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Bean.ShopBean" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="model.Bean.ShopBean"%>
 
 <!DOCTYPE html>
 <html>
@@ -20,10 +20,10 @@
 
 <form action="shop-search-servlet" method="POST">
 <div class="namesearch"><!-- namesearch 店名入力 -->
-店舗名：<input type="text" name="shopName" value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>" placeholder="店舗名を入力"></div><br>
+店舗名：<input type="text" name="shopName"value="<%= request.getAttribute("searchShopName") != null ? request.getAttribute("searchShopName") : "" %>"placeholder="店舗名を入力"></div><br>
 
 <div class="areasearch"><!-- areasearch 地域入力 -->>
-エリア：<input type="text" name="area" value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>" placeholder="エリアを入力"></div><br>
+エリア：<input type="text" name="area"value="<%= request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : "" %>"placeholder="エリアを入力"></div><br>
 
 <div class="button">
 <input type="submit" value="検索"><input type="button"onclick="history.back()" value="戻る"></div><br>

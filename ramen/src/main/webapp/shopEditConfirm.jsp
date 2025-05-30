@@ -10,19 +10,18 @@
 <body>
 <%@include file = "header.jsp" %>
 	<%
-		request.setCharacterEncoding("UTF-8");
-	ShopBean shop = (ShopBean)session.getAttribute("editInfo"); 
+	ShopBean editInfo = (ShopBean)session.getAttribute("editInfo"); 
 	%>
 	<h1>編集確認ページ</h1>
 	<div class="shopeditconfirm"><!--ショップ編集確認一覧  -->
-		店名:<%=shop.getShopName() %>><br>
-		店名かな:<%=shop.getShopKana() %><br>
-		住所:<%=shop.getAddress() %><br>
-		開店時間:<%=shop.getOpenTime() %>><br>
-		閉店時間:<%=shop.getCloseTime() %>><br>
-		定休日:<%=shop.getClosedDay() %>><br>
-		詳細:<%=shop.getDetail() %>><br>
-		写真<img class="photo" src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
+		店名:<%=editInfo.getShopName() %><br>
+		店名かな:<%=editInfo.getShopKana() %><br>
+		住所:<%=editInfo.getAddress() %><br>
+		開店時間:<%=editInfo.getOpenTime() %><br>
+		閉店時間:<%=editInfo.getCloseTime() %><br>
+		定休日:<%=editInfo.getClosedDay() %><br>
+		詳細:<%=editInfo.getDetail() %><br>
+		写真<img class="photo" src="/ramen/upload/<%=editInfo.getPhoto() %>" alt="店舗写真"><br>
 	</div>
 	<div class="back"><!-- 戻るボタン -->
 	<button type="button" onclick="history.back()">戻る</button>

@@ -345,7 +345,28 @@ public class ShopDAO {
 		return count;
 
 	}
-	
+	public static String selectShopName(int shopId) throws ClassNotFoundException, SQLException {
+        String shopName = null; // 戻り値を保持する変数を初期化
+        String sql = "select shopName from m_shop where shopId=?";
+
+        try (Connection con = ConnectionManager.getConnection(); // ConnectionManagerはConnectionを返すクラスと仮定
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+            pstmt.setInt(1, shopId);
+            ResultSet res = pstmt.executeQuery();
+
+            // 結果セットにデータがあるか確認
+            if (res.next()) {
+                // shopNameカラムの値を取得
+                shopName = res.getString("shopName");
+            }
+            // res は try-with-resources の外で使う必要がないので、ここで閉じられる (tryブロックを抜ける時に自動的に閉じられる)
+        }
+        // catchブロックはここでは省略しましたが、必要に応じて追加してください
+        // 例: catch (SQLException e) { ... }
+
+        return shopName; // 取得したshopNameを返す
+    }
 
 	
 }
