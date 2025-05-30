@@ -13,9 +13,7 @@ pageEncoding= "UTF-8" %>
 			<input type="image" src="img/rogo2.png" >
 			</form>
 
-			
-
-
+		
 <div class="name"><!-- name ユーザー名 -->
 ログインユーザ：<%=session.getAttribute("userName") %></div>
 
