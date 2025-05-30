@@ -52,7 +52,8 @@
 	</form>
 	<%--ジャンルをfor文で回す --%>
 	<form action="comment-search" method="post">
-		<input type="text" name="userserch"> <select name="genreserch">
+		<input type="text" name="userserch"> 
+		<select name="genreserch">
 			<option value="1">醤油</option>
 			<option value="2">塩</option>
 			<option value="3">味噌</option>
@@ -84,7 +85,7 @@
 				<td>
 					<form action="coment-delete-confirm-servlet" method="post">	
 					<input type="hidden" name="commentId" value="<%=comment.getCommentId() %>">
-					<input type="submit" name="delete" value="削除">
+					<input type="submit"  value="削除">
 					</form>
 				</td>
 				<%} %>
