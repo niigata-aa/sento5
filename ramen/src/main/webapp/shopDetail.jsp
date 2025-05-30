@@ -55,6 +55,7 @@
 
 	<form action="coment-search-servlet" method="post">
 		<select name="genreserch">
+			<option value="">選択してください</option>
 			<option value="1">醤油</option>
 			<option value="2">塩</option>
 			<option value="3">味噌</option>
