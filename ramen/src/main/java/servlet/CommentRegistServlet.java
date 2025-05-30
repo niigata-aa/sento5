@@ -48,8 +48,6 @@ public class CommentRegistServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		CommentBean comment=(CommentBean)session.getAttribute("comment");
 
-		int shopId = comment.getShopId();
-
 		//DAOの生成
 		CommentDAO commentdao = new CommentDAO();
 		
@@ -66,7 +64,6 @@ public class CommentRegistServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("shopId", shopId);
 		session.removeAttribute("comment");
 
 		//リクエストの転送

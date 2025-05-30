@@ -24,6 +24,7 @@
 </div>
 <div class="confirm"><!-- button 登録 -->
 <form action="coment-regist-servlet" method="post">
+<input type="hidden" value="<%=comment.getShopId()%>">
 	<input type="submit" value="登録">
 </form>
 </div>
