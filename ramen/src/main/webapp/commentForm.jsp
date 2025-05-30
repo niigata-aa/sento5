@@ -15,7 +15,7 @@
 <div class="title"><!-- title タイトル -->
 <h2><%=shop.getShopName() %>コメント投稿ページ</h2></div>
 	<form action="comment-regist-confirm-servlet"method="post"enctype="multipart/form-data">
-		<input type="hidden" name="shopName" value="<%=shop.getShopId() %>">
+		<input type="hidden" name="shopId" value="<%=shop.getShopId() %>">
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ:<input type="text" name="menu"><br>
 	値段:<input type="text" name="value"><br>
@@ -29,7 +29,7 @@
 		<option value="5">5</option>
 	</select><br>
 	ジャンル
-	<select name="genre">
+	<select name="genreId">
 		<option value="1">醬油</option>
 		<option value="2">塩</option>
 		<option value="3">味噌</option>
