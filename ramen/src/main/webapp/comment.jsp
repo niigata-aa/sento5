@@ -17,13 +17,16 @@
 
 	</div>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
+	<% %>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
  	何もコメントされていません
 	 <%} else{ %>
 	<div class="comment"><!-- コメントの要素すべて -->
 		<%for(CommentBean comment:commentList){ %>
+			<% int i=0; %>
 			コメントID:<%=comment.getCommentId() %><br>
 			店ID: <%=comment.getShopId() %><br>
+			店名: <%= %>
 			ジャンルID:<%=comment.getGenreId() %><br>
 			レビュー:<%=comment.getReview() %><br>
 			評価:<%=comment.getRate() %><br>
