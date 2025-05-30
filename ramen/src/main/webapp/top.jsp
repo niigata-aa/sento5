@@ -30,17 +30,10 @@
 		</div>
 
 	</div>
-	<div class="ave-cotainer">
-		<!-- ave-cotainer 評価のコンテナ -->
-		<div class="ave">
-			<!-- ave ランキングタイトル -->
-			<h2>平均評価点ランキング</h2>
-		</div>
-	</div>
 
 	<div class="rankcontainer">
 		<!-- rankcontainer ランキングコンテナ -->
-
+		<h2>平均評価点ランキング</h2>
 		<%
 		List<ShopBean> shoprankList = (List<ShopBean>) request.getAttribute("shoprankList");
 		int rank = 1;
