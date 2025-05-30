@@ -16,7 +16,7 @@ public class ShopDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
+	public static List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
 		List<ShopBean> shopAllList = new ArrayList<ShopBean>();
 		String sql = "SELECT * FROM m_shop ";
 		try(Connection con = ConnectionManager.getConnection();
