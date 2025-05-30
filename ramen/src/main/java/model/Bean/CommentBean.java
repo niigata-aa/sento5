@@ -49,6 +49,16 @@ public class CommentBean implements Serializable {
 	 */
 	private String value;
 	
+	private String genreName;
+	
+	public String getGenreName() {
+		return genreName;
+	}
+
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
+	}
+
 	public CommentBean() {
 		
 	}

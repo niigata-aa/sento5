@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import model.Bean.ShopBean;
  * Servlet implementation class ComentRegistConfirmServlet
  */
 @WebServlet("/comment-regist-confirm-servlet")
+@MultipartConfig
 public class CommentRegistConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,6 +38,9 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	// アップロードされたファイルを保存するフォルダ
@@ -77,8 +82,8 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		
 		//リクエストパラメータの取得
 		int shopId = (int)shop.getShopId();
-//		String genreId = request.getParameter("genreId");
-
+		
+		String genreId = request.getParameter("genreId");
 		String menu = request.getParameter("menu");
 		String value = request.getParameter("value");
 		String review = request.getParameter("review");
@@ -94,6 +99,9 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		comment.setCommentPhoto(filename);
 		comment.setMenu(menu);
 		comment.setValue(value);
+		//追加分//////////////////////////////////////
+		comment.setGenreId(Integer.parseInt(genreId));
+		//////////////////////////////////////////////
 		
 		session.setAttribute("comment", comment);
 		
