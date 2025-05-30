@@ -81,7 +81,7 @@
 				<td><%=comment.getReview()%></td>
 				<%if(roll==0){ %>
 				<td>
-					<form action="comment-delete-confirm" method="post">	
+					<form action="coment-delete-confirm-servlet" method="post">	
 					<input type="hidden" name="commentId" value="<%=comment.getCommentId() %>">
 					<input type="submit" name="delete" value="削除">
 					</form>

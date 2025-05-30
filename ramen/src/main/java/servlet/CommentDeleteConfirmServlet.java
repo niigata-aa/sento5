@@ -57,6 +57,8 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		request.setAttribute("commentPhoto",commentPhoto );
 		request.setAttribute("menu",menu );
 		request.setAttribute("value",value );
+		
+		request.setAttribute("commentId",commentId);
 
 		RequestDispatcher rd = request.getRequestDispatcher("commentDeleteConfirm.jsp");
 		
