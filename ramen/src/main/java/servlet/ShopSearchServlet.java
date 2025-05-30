@@ -41,9 +41,12 @@ public class ShopSearchServlet extends HttpServlet {
 			
 			try {
 				GenreDAO genreDAO = new GenreDAO();
-			    List<GenreBean> genreList;
-				genreList = genreDAO.selectGenre();
+				List<GenreBean> genreList = genreDAO.selectGenre();
 				request.setAttribute("genreList", genreList);
+				
+				List<ShopBean> shopList = ShopDAO.selectAllshop();
+				request.setAttribute("shopList", shopList);
+				
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Bean.GenreBean;
 import model.Bean.ShopBean;
+import model.DAO.GenreDAO;
 import model.DAO.ShopDAO;
 
 /**
@@ -55,8 +57,14 @@ public class ShopListServlet extends HttpServlet {
 			//認証済み
 			try {
 				ShopDAO shopDao = new ShopDAO();
+				GenreDAO genreDAO = new GenreDAO();
+				
 				List<ShopBean> shopList = shopDao.selectAllshop();
+				List<GenreBean> genreList =genreDAO.selectGenre();
+				
 				request.setAttribute("shopList", shopList);
+				request.setAttribute("genreList", genreList);
+				
 				url = "shopSearch.jsp";
 			}catch(Exception e){
 				e.printStackTrace();
