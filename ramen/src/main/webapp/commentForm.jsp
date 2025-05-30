@@ -30,11 +30,11 @@
 	</select><br>
 	ジャンル
 	<select name="genre">
-		<option value="醤油">醬油</option>
-		<option value="塩">塩</option>
-		<option value="味噌">味噌</option>
-		<option value="背油">背油</option>
-		<option value="豚骨">豚骨</option>
+		<option value="1">醬油</option>
+		<option value="2">塩</option>
+		<option value="3">味噌</option>
+		<option value="4">背油</option>
+		<option value="5">豚骨</option>
 	</select><br>
 	</div><br>
 	
