@@ -13,11 +13,11 @@
 </div>
 <div  class="posted_schedule"><!-- posted_scheduleのコンテナ -->
 <% CommentBean comment = (CommentBean)session.getAttribute("comment");%>
-		レビュー<%=comment.getReview() %><br>
-		評価<%=comment.getRate() %><br>
+		<%=comment.getReview() %><br>
+		評価：<%=comment.getRate() %><br>
 		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>"><br>
-		メニュー<%=comment.getMenu() %><br>
-		値段<%=comment.getValue() %><br>
+		メニュー：<%=comment.getMenu() %><br>
+		値段：￥<%=comment.getValue() %><br>
 </div>
 <div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>
