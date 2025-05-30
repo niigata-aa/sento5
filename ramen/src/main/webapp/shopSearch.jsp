@@ -80,9 +80,9 @@ if(genreList != null) {
 			<div class="listdetail">
 				<!-- listdetail 一店舗ごとのブロック -->
 				<form action="shop-detail" method="post">
-					<input type="submit" value="<%=shop.getShopName() %>"> 
+					<%=shop.getShopName() %>
+					<input type="image" src="/ramen/upload/<%=shop.getPhoto() %>" >
 					<input type="hidden" name = "shopId" value="<%= shop.getShopId() %>"><br> 
-					<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"><br>
 					
 					<!-- 5/30---------------------------------- -->
 					ジャンル:
