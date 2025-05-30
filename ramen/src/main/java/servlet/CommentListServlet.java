@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
-import model.DAO.ShopDAO;
 
 /**
  * Servlet implementation class ComentListServlet
@@ -61,15 +60,7 @@ public class CommentListServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		for(CommentBean comment:commentList){
-			try {
-				shopnameList.add(ShopDAO.selectShopName(comment.getShopId())) ;
-			} catch (ClassNotFoundException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
+			shopnameList.add("ShopDAO.selectShopName(comment.getShopId())") ;
 		}
 		session.setAttribute("commentList", commentList);
 		request.setAttribute("shopnameList", shopnameList);
