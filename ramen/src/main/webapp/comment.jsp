@@ -17,6 +17,8 @@
 
 	</div>
 	<% List<CommentBean>commentList=(List<CommentBean>)session.getAttribute("commentList");%>
+	<% List<String> shopnameList=(List<String>)request.getAttribute("shopnameList");%>
+	
 	<% %>
 	<% if(commentList == null || commentList.isEmpty()){ %> 
  	何もコメントされていません
@@ -26,7 +28,7 @@
 			<% int i=0; %>
 			コメントID:<%=comment.getCommentId() %><br>
 			店ID: <%=comment.getShopId() %><br>
-			店名: <%= %>
+			店名: <%= shopnameList.get(i)%>
 			ジャンルID:<%=comment.getGenreId() %><br>
 			レビュー:<%=comment.getReview() %><br>
 			評価:<%=comment.getRate() %><br>
@@ -51,6 +53,7 @@
 		<input type="hidden" name="value" value="<%=comment.getValue() %>">
 		</form>
 		</div>
+		<%i++; %>
 		<%} %>
 	
 	<%} %>
