@@ -27,7 +27,7 @@
  <h2>平均評価点ランキング</h2></div></div>
  
 <div class="rankcontainer"><!-- rankcontainer ランキングコンテナ -->
-<form action="shop-detail-servlet" method = "POST">
+
 <%
 	List<ShopBean> shoprankList = (List<ShopBean>)request.getAttribute("shoprankList");
 	int rank = 1;
@@ -48,16 +48,17 @@ if (shoprankList == null || shoprankList.size() == 0) {
 		
 		
 		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
-		<input type="submit" name="photo" value="<%shop.getPhoto();%>"></div>
+		</div>
+		<form action="shop-detail" method = "POST">
+		<input type="hidden" name = "shopId" value = "<%=shop.getShopId() %>">
+		<input type="submit"  value = "店舗ページへ">
+		</form>
 		<br>
 		
 <%rank += 1;
 }} %>
 
-<% %>
-	<%
-	%>
-</form>
+
 </div>
 </body>
 </html>
