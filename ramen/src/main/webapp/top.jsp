@@ -41,7 +41,9 @@ if (shoprankList == null || shoprankList.size() == 0) {
 %>
         <div class="rankbox"><!-- rankbox ランクごとの箱 -->
 		第 <%=rank %>位
-		<%=shop.getShopName() %>
+		<%=shop.getShopName() %><br>
+		平均評価点：
+		<%=shop.getAverageRate() %>点
 		<img src = "/ramen/upload/<%=shop.getPhoto() %>">
 		
 		<input type="hidden" name="shopname" value="<%shop.getShopName();%>">
