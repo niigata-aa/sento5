@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗一覧</title>
+<link rel="stylesheet" href="css/shoplist.css">
 </head>
 <body>
 <<<<<<< HEAD
 <div class="shoplisttitle">店舗一覧
 </div>
+
 <div class="shoptitle">
 =======
 <%@include file = "header.jsp" %>
