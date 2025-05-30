@@ -9,18 +9,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>各店ページ</title>
-</head>
 <% 
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
+<title><%=shop.getShopName() %></title>
+</head>
+
 <body>
 <%@include file = "header.jsp" %>
 	<form action="shop-list-servlet" method="post">
 		<input type="submit" value="検索へ">
 	</form>
 
-	<h1>各店ページ</h1>
+	<h1><%=shop.getShopName() %></h1>
 
 	<%
 	int roll = (int)session.getAttribute("roll");
