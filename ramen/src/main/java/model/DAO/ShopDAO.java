@@ -482,7 +482,40 @@ public class ShopDAO {
 		}
 
 	
-	
+	public static List<ShopBean> selectAllShopWithGenre() throws SQLException, ClassNotFoundException {
+	    List<ShopBean> shopList = new ArrayList<ShopBean>();
+	    
+	    String sql = "SELECT DISTINCT s.shop_id, s.shop_name, s.photo, s.walkDistance, " +
+	                 "GROUP_CONCAT(DISTINCT g.genre_name ORDER BY g.genre_name SEPARATOR ', ') AS genres " +
+	                 "FROM m_shop s " +
+	                 "LEFT JOIN m_comment c ON s.shop_id = c.shop_id " +
+	                 "LEFT JOIN m_genre g ON c.genre_id = g.genre_id " +
+	                 "GROUP BY s.shop_id, s.shop_name, s.photo, s.walkDistance";
+	    
+	    try(Connection con = ConnectionManager.getConnection();
+	            PreparedStatement pstmt = con.prepareStatement(sql)){
+
+	        ResultSet res = pstmt.executeQuery();
+
+	        while(res.next()) {
+	            int shopId = res.getInt("shop_id");
+	            String shopName = res.getString("shop_name");
+	            String shopPhoto = res.getString("photo");
+	            boolean walkingDistance = res.getBoolean("walkDistance");
+	            String genres = res.getString("genres");
+
+	            ShopBean shop = new ShopBean();
+	            shop.setShopId(shopId);
+	            shop.setShopName(shopName);
+	            shop.setPhoto(shopPhoto);
+	            shop.setWalkingDistance(walkingDistance);
+	            shop.setGenre(genres); // 複数ジャンルをカンマ区切りで設定
+
+	            shopList.add(shop);
+	        }
+	    }
+	    return shopList;
+	}
 
 
 	

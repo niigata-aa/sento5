@@ -59,7 +59,7 @@ public class ShopListServlet extends HttpServlet {
 				ShopDAO shopDAO = new ShopDAO();
 				GenreDAO genreDAO = new GenreDAO();
 				
-				List<ShopBean> shopList = ShopDAO.selectAllshop();
+				List<ShopBean> shopList = ShopDAO.selectAllShopWithGenre();
 				List<GenreBean> genreList =genreDAO.selectGenre();
 				
 				request.setAttribute("shopList", shopList);
