@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Bean.CommentBean;
+import model.Bean.GenreBean;
+import model.Bean.ShopBean;
 import model.DAO.CommentDAO;
+import model.DAO.GenreDAO;
+import model.DAO.ShopDAO;
 
 /**
  * Servlet implementation class ComentSearchServlet
@@ -45,10 +50,27 @@ public class CommentSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int genreId=Integer.parseInt(request.getParameter("genreId"));
+		int shopId=Integer.parseInt(request.getParameter("shopIdId"));
 		
 		List<CommentBean> commentList=null;
 		
 		CommentDAO dao=new CommentDAO();
+		GenreDAO genreDAO = new GenreDAO();
+		
+		List<ShopBean> shopList = new ArrayList<>();
+		List<GenreBean> genreList = new ArrayList<>();
+		try {
+	          
+			genreList = genreDAO.selectGenre();
+			
+	           // 検索条件に応じた店舗検索
+	           if (genreId == null) {
+	               // 全て未指定：全店舗
+	               commentList = dao.selectComment(shopId);
+	           } else {
+	               // 複合検索
+	               commentList = CommentDAO.selectCategoryComment(shopName, area, genreId);
+	           }
 		
 		try {
 			commentList=dao.selectUserComment(genreId);
@@ -57,7 +79,7 @@ public class CommentSearchServlet extends HttpServlet {
 		}
 		request.setAttribute("commentList", commentList);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("shopDetail.jsp");
 		
 		rd.forward(request, response);
 	}
