@@ -18,7 +18,6 @@
 		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>"><br>
 		メニュー：<%=comment.getMenu() %><br>
 		値段：￥<%=comment.getValue() %><br>
-		<%=comment.getShopId() %>
 </div>
 <div class="button"><!-- button 戻るボタン -->
 <button type="button"onclick="history.back()">戻る</button>
