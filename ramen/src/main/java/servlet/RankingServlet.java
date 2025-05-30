@@ -56,7 +56,7 @@ public class RankingServlet extends HttpServlet {
 		} catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
+				
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request,response);
