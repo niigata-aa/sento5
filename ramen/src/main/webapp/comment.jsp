@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>コメント一覧</title>
+<link rel="stylesheet" href="css/comment.css">
 </head>
 <body>
 	<div class="back">
@@ -41,6 +42,7 @@
 			<%
 			for (CommentBean comment : commentList) {
 			%>
+			<div>
 			店ID:
 			<%=comment.getShopId()%><br> ジャンルID:<%=comment.getGenreId()%><br>
 			レビュー:<%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
@@ -68,6 +70,7 @@
 			</div>
 
 
+		</div>
 		</div>
 		<%} %>
 
