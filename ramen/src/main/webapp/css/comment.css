@@ -4,3 +4,13 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 500px;
 }
+
+/* 画像コンテナ */
+.image input[type="image"] {
+    width: 150px;  /* お好みで調整 */
+    height: 150px;
+    border-radius: 5px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}

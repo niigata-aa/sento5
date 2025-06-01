@@ -61,12 +61,14 @@
 						value="<%=comment.getGenreId()%>"> <input type="hidden"
 						name="review" value="<%=comment.getReview()%>"> <input
 						type="hidden" name="rate" value="<%=comment.getRate()%>">
+						 <div class="image">
 					<input type="hidden" name="commentphoto"
-						value="<%=comment.getCommentPhoto()%>"> <input
-						type="hidden" name="menu" value="<%=comment.getMenu()%>">
+						value="<%=comment.getCommentPhoto()%>">
+						</div>
+						 <input	type="hidden" name="menu" value="<%=comment.getMenu()%>">
 					<input type="hidden" name="value" value="<%=comment.getValue()%>">
 				</form>
-			</div>
+				
 
 
 		
