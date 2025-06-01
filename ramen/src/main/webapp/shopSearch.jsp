@@ -111,13 +111,14 @@
 					<%=shop.getGenre()%><br>
 					<!-- -------------------------------------- -->
 
+					<div class="walk">
 					<%
 					if (shop.isWalkingDistance()) {
 					%>
 					徒歩圏内
 					<%} else {%>
 					徒歩圏外
-					<%} %>
+					<%} %></div>
 				</form>
 				<%} %>
 			</div>

@@ -59,8 +59,12 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 		String detail = request.getParameter("detail");
 		String walkingDistanceStr = request.getParameter("walkDistance");
 
-        // Stringからbooleanへの変換
-        boolean walkingDistance = Boolean.parseBoolean(walkingDistanceStr); // "true" なら true, "false" なら false
+		// Stringからbooleanへの変換
+        boolean walkingDistance = false; // デフォルトはfalse
+		if ("true".equals(walkingDistanceStr)) {
+			walkingDistance = true;
+		}
+		// "true" なら true, "false" なら false
 			
 		
      // 保存ディレクトリのパス（アプリケーションのルートから相対パス）

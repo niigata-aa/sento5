@@ -38,8 +38,10 @@
     	定休日：<input type="text" name="closedDay"><br>
 		詳細：<input type="text" name="detail"> <br>
 		
-		徒歩圏内：<input type="radio" name="walkingDistance" value="true">
-		徒歩圏外：<input type="radio" name="walkingDistance" value="false">
+		<!--修正分-->
+		徒歩圏内：<input type="radio" name="walkDistance" value="true" checked>
+		徒歩圏外：<input type="radio" name="walkDistance" value="false">
+		<!---->
 		<br>
 		写真：<input type="file" name="image"required>
 		<br>
