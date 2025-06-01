@@ -9,13 +9,13 @@
 </head>
 <body>
 
-<%@include file = "header.jsp" %>
+<%@include file = "header2.jsp" %>
 
 <div class="title"><!-- title タイトル -->
 <h1>管理者ページ</h1>
 </div>
 
-<div class="contaner">
+<div class="admincontaner">
 
 	
 	<form action="shop-list-servlet" method="post">
