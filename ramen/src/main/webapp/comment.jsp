@@ -52,7 +52,6 @@
 				<input type="submit" value="店舗詳細"> <input type="hidden"
 					name="shopId" value="<%=comment.getShopId()%>">
 			</form>
-			<div class="delete">
 				<!-- 削除ボタン -->
 				<form action="coment-delete-confirm-servlet" method="post">
 					<input type="submit" value="削除"> <input type="hidden"
@@ -70,7 +69,7 @@
 			</div>
 
 
-		</div>
+		
 		</div>
 		<%} %>
 
