@@ -106,9 +106,13 @@
 					<!-- 5/30---------------------------------- -->
 					ジャンル:
 					<%
-					if (shop.getGenre() != null && shop.getGenre().isEmpty())
+					if (shop.getGenre() != null && shop.getGenre().isEmpty()){
 					%>
-					<%=shop.getGenre()%><br>
+					<%=shop.getGenre()%>
+					<%}else if(shop.getGenre() == null) {%>
+					登録されていません
+					<%} %>
+					<br>
 					<!-- -------------------------------------- -->
 
 					<div class="walk">
