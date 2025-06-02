@@ -75,10 +75,13 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 				}
 				%>
 			</div>
-			<div class="shop-info">
+			
+			<div class="shop-img">
 				<img class="photo" src="/ramen/upload/<%=shop.getPhoto()%>"
 					alt="<%=shop.getShopName()%>+の店舗の写真"> <br>
+					</div>
 				<h2>店舗情報</h2>
+				<div class="shop-info">
 				<table>
 					<tr>
 						<th>店名</th>
@@ -94,7 +97,7 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					</tr>
 					<tr>
 						<th>定休日</th>
-						<td><%=shop.getClosedDay()%></td>>
+						<td><%=shop.getClosedDay()%></td>
 					</tr>
 					<tr>
 						<th>詳細</th>
@@ -110,7 +113,7 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					</form>
 					<form action="coment-search-servlet" method="post">
 						<select name="genreserch">
-							<option value="0">選択してください</option>
+							<option value="0">ジャンルを選択してください</option>
 							<option value="1">醤油</option>
 							<option value="2">味噌</option>
 							<option value="3">塩</option>
@@ -125,26 +128,29 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					</form>
 				</div>
 
-				<div class="comment-list">
+				<div class="commentlist">
 					<%
 				List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
 				for (CommentBean comment : commentList) {
 				%>
 				<div class="commentone">
 				<div class="comment-img">
-					<img src="/ramen/upload/<%=comment.getCommentPhoto()%>"alt="<%=comment.getMenu()%>の写真"> 
-						メニュ：<%=comment.getMenu()%><br>
+					<img 
+						src="/ramen/upload/<%=comment.getCommentPhoto()%>"
+						alt="<%=comment.getMenu()%>の写真"> 
 				</div>
+				メニュ：<%=comment.getMenu()%><br>
 					値段：<%=comment.getValue()%>円<br> 評価：<%=comment.getRate()%>/5<br>
 					ジャンル：<%=comment.getGenreId()%><br> レビュー<br>
 					<%=comment.getReview()%><br> ユーザID：<%=comment.getUserId()%><br>
-					</div>
+				</div>
 					<%} %>
-					</div>
+
 					<%if(commentList==null){ %>
 					コメントはありません。
 					<%} %>
-				
+				</div>
+				</div>
 			</div>
 			<p class="pagetop">
 				<a href="#wrap">▲</a>

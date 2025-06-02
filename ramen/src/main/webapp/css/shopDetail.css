@@ -53,16 +53,13 @@
 	height: auto;
 	max-width: 800px;
 }
-shop-info{
-	text-align: center;
-	justify-content: center;
-}
+
 .shop-info table{
-	justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    border-collapse: collapse;
-    margin-bottom: 30px;
+	width: 80%; /* または具体的なピクセル値など */
+	  margin-left: auto;
+	  margin-right: auto;
+	  /* またはショートハンドで以下のように書くこともできます */
+	  /* margin: 0 auto; */
 }
 
 .shop-info table th{
@@ -75,7 +72,12 @@ shop-info{
     border: 1px solid #bbb;
 }
 
-
+.shop-img img{
+	width: 800px;  /* お好みで調整 */
+		height: 800px;
+		border-radius: 5px;
+		object-fit: cover;
+}
 .section-title{
     margin: 30px 0 15px;
     padding-bottom: 10px;
@@ -83,20 +85,20 @@ shop-info{
     display: inline-block;
 }
 
-
+.commentlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  column-gap: 10px;
+  	  row-gap: 1em;
+}
 .comment-img img{
 	width: 150px;  /* お好みで調整 */
 	height: 150px;
 	border-radius: 5px;
 	object-fit: cover;
 }
-.commentlist {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 150px;
-  column-gap: 10px;
-  	  row-gap: 1em;
-}
+
 .commentone{
 	border: solid medium black;
 	border-radius:10px;
