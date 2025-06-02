@@ -23,7 +23,7 @@
 
 <div class="inputID"><!-- inputID ID入力 -->
 <span>ユーザID</span><br>
-<input type="number" name="userId" placeholder="5桁のユーザID"pattern="\d{5}"required/><br>
+<input type="text" name="userId" placeholder="5桁のユーザID"pattern="\d{5}" maxlength="5"required/><br>
 </div>
 
 <div class="inputpass"><!-- inputpass パスワード入力 -->
