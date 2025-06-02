@@ -4,28 +4,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>投稿確認ページ</title>
+<title>コメント投稿確認</title>
+<link rel="stylesheet" href="css/commentform.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
-<div class="posted_confirmation_page"><!-- posted_confirmation_pageのコンテナ -->
-<h2>投稿確認ページ</h2>
+<div class="commentformtitle"><!-- posted_confirmation_pageのコンテナ -->
+<h2>コメント投稿確認</h2>
 </div>
-<div  class="posted_schedule"><!-- posted_scheduleのコンテナ -->
-<% CommentBean comment = (CommentBean)session.getAttribute("comment");%>
-		<%=comment.getReview() %><br>
-		評価：<%=comment.getRate() %><br>
-		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>"><br>
-		メニュー：<%=comment.getMenu() %><br>
-		値段：￥<%=comment.getValue() %><br>
-</div>
-<div class="button"><!-- button 戻るボタン -->
-<button type="button"onclick="history.back()">戻る</button>
-</div>
-<div class="confirm"><!-- button 登録 -->
 <form action="coment-regist-servlet" method="post">
-	<input type="submit" value="登録">
+<div  class="commentcontainer"><!-- posted_scheduleのコンテナ -->
+<% CommentBean comment = (CommentBean)session.getAttribute("comment");%>
+		<div class="comment">
+		メニュー：<%=comment.getMenu() %><br>
+		</div>
+		<div class="comment">
+		値段：￥<%=comment.getValue() %><br>
+		</div>
+		<div class="comment">
+		<img src="/ramen/upload/<%=comment.getCommentPhoto() %>"><br>
+		</div>
+		<div class="comment">
+		評価：<%=comment.getRate() %><br>
+		</div>
+		<div class="comment">
+		<%=comment.getReview() %><br>
+		</div>
+		
+<div class="button"><!-- button 戻るボタン -->
+<input type="button"onclick="history.back()" value="戻る">
+<input type="submit" value="登録">
 </form>
+</div>
 </div>
 </body>
 </html>
