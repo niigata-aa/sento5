@@ -28,7 +28,7 @@
 <%
 	}
 %>
-<%@include file = "header.jsp" %>
+
 	<form action="shop-list-servlet" method="post">
 		<input type="submit" value="検索へ">
 	</form>
