@@ -16,6 +16,7 @@ pageEncoding= "UTF-8" %>
 			</div>
 			</form>
 			
+<%if(session.getAttribute("userId")!=null){ %>
 <div class="move"><!-- move 画面遷移 -->
 <form action = "mypage.jsp" method = "POST">
 <input type = "submit"  value = "マイページ">
@@ -32,8 +33,18 @@ pageEncoding= "UTF-8" %>
 		
 <div class="username"><!-- name ユーザー名 -->
 ユーザ名：<%=session.getAttribute("userName") %></div>
+<%} else{%>
+
 
 <div class="rogout"><!-- outbutton ログアウトボタン -->
+<form action = "userRegist.jsp" method = "POST">
+<input type = "submit"  value = "新規登録">
+</form>
+
+<form action = "login.jsp" method = "POST">
+<input type = "submit"  value = "ログイン">
+</form>
+<%}; %>
 <form action = "logout-servlet" method = "POST">
 <input type = "submit"  value = "ログアウト">
 </form></div>
