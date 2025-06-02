@@ -47,7 +47,9 @@
 			店ID:
 			<%=comment.getShopId()%><br> ジャンルID:<%=comment.getGenreId()%><br>
 			レビュー:<%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
+			 <div class="image">
 			写真:<img src="/ramen/upload/<%=comment.getCommentPhoto()%>"><br>
+			</div>
 			メニュ:<%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
 			<form action="shop-detail" method="post">
 				<input type="submit" value="店舗詳細"> <input type="hidden"
@@ -62,10 +64,8 @@
 						value="<%=comment.getGenreId()%>"> <input type="hidden"
 						name="review" value="<%=comment.getReview()%>"> <input
 						type="hidden" name="rate" value="<%=comment.getRate()%>">
-						 <div class="image">
 					<input type="hidden" name="commentphoto"
 						value="<%=comment.getCommentPhoto()%>">
-						</div>
 						 <input	type="hidden" name="menu" value="<%=comment.getMenu()%>">
 					<input type="hidden" name="value" value="<%=comment.getValue()%>">
 				</form>
