@@ -21,7 +21,7 @@
 		<input type="submit" value="検索へ">
 	</form>
 
-	<h1><%=shop.getShopName() %></h1>
+	<h1><ruby><%=shop.getShopName() %><rt><%=shop.getShopKana() %></rt></ruby></h1>
 
 	<%
 	int roll = (int)session.getAttribute("roll");
@@ -41,7 +41,6 @@
 
 	<img class="photo" src="/ramen/upload/<%=shop.getPhoto()%>"alt="<%=shop.getShopName() %>+の店舗の写真">
 	<br> 
-	店名かな:<%=shop.getShopKana() %><br> 
 	店名:<%=shop.getShopName() %><br>
 	住所:<%=shop.getAddress() %><br> 
 	営業時間:<%=shop.getOpenTime() %>～<%=shop.getCloseTime() %><br>

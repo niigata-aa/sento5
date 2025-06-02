@@ -19,7 +19,7 @@ pageEncoding= "UTF-8" %>
 
 		
 <div class="name"><!-- name ユーザー名 -->
-ログインユーザ：<%=session.getAttribute("userName") %></div>
+ユーザ名：<%=session.getAttribute("userName") %></div>
 
 <div class="rogout"><!-- outbutton ログアウトボタン -->
 <form action = "logout-servlet" method = "POST">
