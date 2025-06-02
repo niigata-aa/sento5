@@ -16,7 +16,19 @@
 </head>
 
 <body>
+<%
+	int roll = (int)session.getAttribute("roll");
+	if(roll==0){
+%>
+<%@include file = "header2.jsp" %>
+<%	
+	}else{
+%>
 <%@include file = "header.jsp" %>
+<%
+	}
+%>
+
 	<form action="shop-list-servlet" method="post">
 		<input type="submit" value="検索へ">
 	</form>
@@ -24,7 +36,6 @@
 	<h1><ruby><%=shop.getShopName() %><rt><%=shop.getShopKana() %></rt></ruby></h1>
 
 	<%
-	int roll = (int)session.getAttribute("roll");
 	if(roll==0){
 	%>
 

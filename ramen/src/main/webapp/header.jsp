@@ -16,9 +16,21 @@ pageEncoding= "UTF-8" %>
 			</div>
 			</form>
 			
+<div class="move"><!-- move 画面遷移 -->
+<form action = "mypage.jsp" method = "POST">
+<input type = "submit"  value = "マイページ">
+</form>
 
+<form action = "shop-list-servlet" method = "POST">
+<input type = "submit"  value = "店舗検索">
+</form>
+
+<form action = "shopRegist.jsp" method = "POST">
+<input type = "submit"  value = "店舗登録">
+</form>
+</div>
 		
-<div class="name"><!-- name ユーザー名 -->
+<div class="username"><!-- name ユーザー名 -->
 ユーザ名：<%=session.getAttribute("userName") %></div>
 
 <div class="rogout"><!-- outbutton ログアウトボタン -->

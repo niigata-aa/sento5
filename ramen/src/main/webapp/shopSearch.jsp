@@ -13,7 +13,19 @@
 <link rel="stylesheet" href="css/shopSearch.css">
 </head>
 <body>
+<%
+	int roll = (int)session.getAttribute("roll");
+	if(roll==0){
+%>
+<%@include file = "header2.jsp" %>
+<%	
+	}else{
+%>
 <%@include file = "header.jsp" %>
+<%
+	}
+%>
+
 	<!--<div class="title"> title　タイトル -->
 	<!--<h1>店舗検索・一覧</h1></div>-->
 	<!--<div class="search"> search 検索フォーム全体 -->
@@ -107,9 +119,11 @@
 					</div>
 					
 					<div class="shop-info">
+					<div class="shop-name">
 					店舗名：
-					<%=shop.getShopName()%><br>
+					<%=shop.getShopName()%></div><br>
 					<!-- 5/30---------------------------------- -->
+					<div class="genre">
 					ジャンル：
 					<%
 					if (shop.getGenre() != null && shop.getGenre().isEmpty()){
@@ -117,7 +131,7 @@
 					<%=shop.getGenre()%>
 					<%}else if(shop.getGenre() == null) {%>
 					登録されていません
-					<%} %>
+					<%} %></div>
 					<br>
 					<!-- -------------------------------------- -->
 

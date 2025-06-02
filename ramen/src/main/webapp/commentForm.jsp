@@ -17,7 +17,7 @@
 	<form action="comment-regist-confirm-servlet"method="post"enctype="multipart/form-data">
 		<input type="hidden" name="shopId" value="<%=shop.getShopId() %>">
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
-	メニュ:<input type="text" name="menu"required><br>
+	メニュ:<input type="text" name="menu"maxlength="50"required><br>
 	値段:<input type="text" name="value"required><br>
 	写真:<input type="file"name="commentphoto"required><br>
 	評価:
