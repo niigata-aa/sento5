@@ -83,19 +83,27 @@ shop-info{
     display: inline-block;
 }
 
-.comment-card{	
-	display: flex;
-	column-gap: 10px;
-	row-gap: 1em;
-	border: solid medium black;
-	border-radius:10px;
 
-}
-
-.comment-card img{
-	width: 200px;  /* お好みで調整 */
-	height: 200px;
+.comment-img img{
+	width: 150px;  /* お好みで調整 */
+	height: 150px;
 	border-radius: 5px;
 	object-fit: cover;
+}
+.commentlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 150px;
+  column-gap: 10px;
+  	  row-gap: 1em;
+}
+.commentone{
+	border: solid medium black;
+	border-radius:10px;
+	display: flex; 
+	    align-items: flex-start; 
+	    gap: 5px; 
+	    margin-bottom: 2px; 
+	
 }
 

@@ -125,27 +125,26 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					</form>
 				</div>
 
-				<div class="comment-card">
+				<div class="comment-list">
 					<%
 				List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
 				for (CommentBean comment : commentList) {
 				%>
+				<div class="commentone">
 				<div class="comment-img">
-					<img 
-						src="/ramen/upload/<%=comment.getCommentPhoto()%>"
-						alt="<%=comment.getMenu()%>の写真"> メニュ：<%=comment.getMenu()%><br>
+					<img src="/ramen/upload/<%=comment.getCommentPhoto()%>"alt="<%=comment.getMenu()%>の写真"> 
+						メニュ：<%=comment.getMenu()%><br>
 				</div>
 					値段：<%=comment.getValue()%>円<br> 評価：<%=comment.getRate()%>/5<br>
 					ジャンル：<%=comment.getGenreId()%><br> レビュー<br>
 					<%=comment.getReview()%><br> ユーザID：<%=comment.getUserId()%><br>
-
+					</div>
 					<%} %>
-
+					</div>
 					<%if(commentList==null){ %>
 					コメントはありません。
 					<%} %>
-				</div>
-				</div>
+				
 			</div>
 			<p class="pagetop">
 				<a href="#wrap">▲</a>

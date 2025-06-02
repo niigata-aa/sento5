@@ -45,7 +45,7 @@
 			店ID:
 			<%=comment.getShopId()%><br> ジャンルID:<%=comment.getGenreId()%><br>
 			レビュー:<br><%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
-			メニュ:<br><%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
+			メニュー:<br><%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
 			<form action="shop-detail" method="post">
 				<input type="submit" value="店舗詳細"> <input type="hidden"
 					name="shopId" value="<%=comment.getShopId()%>">
