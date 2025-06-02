@@ -28,7 +28,7 @@
 
 <div class="inputpass"><!-- inputpass パスワード入力 -->
 <span>パスワード</span><br>
-<input type="password"  name="password" pattern="\d{5}" placeholder="パスワード8文字以上" minlength="8" required/><br>
+<input type="password"  name="password"  placeholder="パスワード8文字以上" minlength="8" required/><br>
 </div>
 
 <input type="submit"value="登録">
