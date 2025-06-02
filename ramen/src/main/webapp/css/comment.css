@@ -6,7 +6,7 @@
 }
 
 /* 画像コンテナ */
-.image input[type="image"] {
+.image  {
     width: 150px;  /* お好みで調整 */
     height: 150px;
     border-radius: 5px;
