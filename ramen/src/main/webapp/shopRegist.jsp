@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗登録</title>
+<link rel="stylesheet" href="css/shopRegist.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
