@@ -1,15 +1,16 @@
 /* 全体の基本設定 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/** {*/
 
-body {
+/*}*/
+
+.shopsearchcontainer {
     font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
     background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* 検索エリア */

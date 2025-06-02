@@ -25,11 +25,11 @@
 <%
 	}
 %>
-
+<
 	<!--<div class="title"> title　タイトル -->
 	<!--<h1>店舗検索・一覧</h1></div>-->
 	<!--<div class="search"> search 検索フォーム全体 -->
-
+<div class="shopsearchcontainer">
 	<div class="searchtitle">
 		<!-- searchtitle 検索タイトル -->
 		<h2>店舗検索</h2>
@@ -152,6 +152,6 @@
 			<%} %>
 		</div>
 	</div>
-
+</div>
 </body>
 </html>
