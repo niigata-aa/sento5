@@ -26,7 +26,7 @@
 				<tr>
 					<th>ユーザID</th>
 					<th>ユーザネーム</th>
-					<th>削除</th>
+					<th>削除ボタン</th>
 				</tr>
 				<%
 				for (UserBean user : userList) {
@@ -42,7 +42,8 @@
 						<input type="hidden" name="userName" value="<%=user.getUserName()%>">
 						</div>
 						<div class="submit"><!-- submit ボタン -->
-						<button type="submit">削除ボタン</button>
+						<img src="img/trash.png">
+						<button type="submit">削除</button>
 						</div>
 						</form>
 					</td>

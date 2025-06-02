@@ -49,4 +49,7 @@
 	    justify-content: center; /* 水平方向の中央寄せ */
 	    align-items: center; /* 垂直方向の中央寄せ */
 }
-
+img {
+  width: 30px;  /* 幅をnピクセルに設定 */
+  height: 30px; /* 高さをnピクセルに設定 */
+}
