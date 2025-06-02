@@ -1,72 +1,320 @@
-@charset "UTF-8";
+/* 全体の基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    font-family: sans-serif;
+    font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 検索エリア */
+.searchtitle {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.searchtitle h2 {
+    color: #d32f2f;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 検索コンテナ - 上部中央に縦配置 */
+.searchcontainer {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.search label {
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+/* 入力フィールドのスタイル */
+.search input[type="text"] {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #fafafa; /* 空欄時の色 */
+}
+
+/* 入力フィールドの状態別色設定 */
+.search input[type="text"]:focus {
+    outline: none;
+    border-color: #d32f2f;
+    background-color: #fff8f8; /* 入力中の色 */
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.search input[type="text"]:valid {
+    background-color: #f0f8f0; /* 入力後の色 */
+    border-color: #4caf50;
+}
+
+/* セレクトボックス */
+.search select {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search select:focus {
+    outline: none;
+    border-color: #d32f2f;
+    background-color: #fff8f8;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+/* 検索ボタン */
+.button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button input[type="submit"] {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.button input[type="submit"]:hover {
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+}
+
+/* 店舗一覧エリア */
+.shoplistcontainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.listtitle {
+    text-align: center;
+    margin: 40px 0 30px;
+}
+
+.listtitle h2 {
+    color: #d32f2f;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+}
+
+.listtitle h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    border-radius: 2px;
+}
+
+/* 店舗一覧 - 縦に並ぶ */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* 各店舗詳細ブロック */
+.listdetail {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.listdetail:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+/*    transform: translateY(-2px);*/
+}
+
+.listdetail form {
+    display: flex;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    gap: 20px;
+    height: 200px;
 }
 
-.search{
-	
-	
-	
+/* ラーメン画像 - 左側 */
+.shop-photo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+/*    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
+	object-fit: cover;
+	position: absolute; /* 親要素Aclassを基準に絶対配置 */
+	left: 30%; /* 中央から左に25%の位置に配置 (50% - 25% = 25%) */
+	transform: translateX(-25%); /* 要素の幅の半分だけ左に移動して正確に中央左に */
 }
 
-
-title{
-	
-	
-	
+.shop-photo input[type="image"] {
+	width: 150px;  /* お好みで調整 */
+	height: 150px;
+	border-radius: 5px;
+	object-fit: cover;
+	display: block;
+	margin: 0 auto;
+    transition: transform 0.3s ease;
 }
 
-.searchcontainer{
-	
-	
-	
+.shop-photo input[type="image"]:hover {
+    transform: scale(1.05);
 }
 
-.searchtitle{
-	
-	
-	
+/* 店舗情報 - 右側に縦並び */
+.shop-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+	position: absolute; /* 親要素Aclassを基準に絶対配置 */
+	right: 30%; /* 中央から右に25%の位置に配置 (50% - 25% = 25%) */
+	transform: translateX(25%); /* 要素の幅の半分だけ右に移動して正確に中央右に */
 }
 
-.namesearch{
-	
-	
-	
+.name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
 }
 
-.areasearch{
-	
-	
-	
+.genre {
+    font-size: 14px;
+    color: #666;
+    padding: 4px 12px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    display: inline-block;
+    width: fit-content;
 }
 
-.genre{
-	
-	
-	
+.walk {
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 15px;
+    width: fit-content;
+    font-weight: bold;
 }
 
-.button{
-	
-	
-	
+/* 徒歩圏内・圏外の色分け */
+.walk:contains("徒歩圏内") {
+    background-color: #e8f5e8;
+    color: #2e7d32;
 }
 
-.backbutton{
-	
-	
-	
+.walk:contains("徒歩圏外") {
+    background-color: #fff3e0;
+    color: #f57c00;
 }
 
-.shoplistcontainer{
-	
-	
-	
+/* 該当なしメッセージ */
+.list > p {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .searchcontainer {
+        margin: 0 20px 30px;
+        padding: 20px;
+    }
+    
+    .listdetail form {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .ramen-card {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .shop-info {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .name {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchtitle h2,
+    .listtitle h2 {
+        font-size: 24px;
+    }
+    
+    .searchcontainer {
+        margin: 0 10px 20px;
+        padding: 15px;
+    }
+    
+    .search input[type="text"],
+    .search select {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    
+    .button input[type="submit"] {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+}

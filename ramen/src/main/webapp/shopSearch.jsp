@@ -9,7 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗検索・一覧</title>
-<link rel="stylesheet" href="css/shoplist.css">
+<!--<link rel="stylesheet" href="css/shoplist.css">-->
+<link rel="stylesheet" href="css/shopSearch.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -35,7 +36,7 @@
 
 			<div class="search">
 				<!-- areasearch 地域入力 -->
-				> エリア：<input type="text" name="area"
+				 エリア：<input type="text" name="area"
 					value="<%=request.getAttribute("searchArea") != null ? request.getAttribute("searchArea") : ""%>"
 					placeholder="エリアを入力">
 			</div>
@@ -48,7 +49,7 @@
 			
 				ジャンル： 
 				<select name="genreId">
-					<option value="">選択してください</option>
+					<option value="">ジャンル選択なし</option>
 					<%
 					List<GenreBean> genreList = (List<GenreBean>) request.getAttribute("genreList");
 					Integer searchGenreId = (Integer) request.getAttribute("searchGenreId");
@@ -92,19 +93,24 @@
 			List<ShopBean> shopList = (List<ShopBean>) request.getAttribute("shopList");
 			if (shopList != null && !shopList.isEmpty()) {
 			%>
+			<div class="listdetail">
 			<%
 			for (ShopBean shop : shopList) {
 			%><br>
-			<div class="listdetail">
+			
 				<!-- listdetail 一店舗ごとのブロック -->
 				<form action="shop-detail" method="post">
-					<%=shop.getShopName()%>
+					
 					<div class="shop-photo">
 					<input type="image" src="/ramen/upload/<%=shop.getPhoto()%>">
 					<input type="hidden" name="shopId" value="<%=shop.getShopId()%>"><br>
 					</div>
+					
+					<div class="shop-info">
+					店舗名：
+					<%=shop.getShopName()%><br>
 					<!-- 5/30---------------------------------- -->
-					ジャンル:
+					ジャンル：
 					<%
 					if (shop.getGenre() != null && shop.getGenre().isEmpty()){
 					%>
@@ -123,6 +129,7 @@
 					<%} else {%>
 					徒歩圏外
 					<%} %></div>
+					</div>
 				</form>
 				<%} %>
 			</div>
