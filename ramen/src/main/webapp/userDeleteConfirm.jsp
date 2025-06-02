@@ -21,7 +21,7 @@
 
 <div class="button"><!-- button 	ボタン群 -->
 <input type="submit" value="削除">
-<input type="button"onclick="history.back()"value="戻る"></button>
+<input type="button"onclick="history.back()"value="戻る">
 </div>
 
 </div>

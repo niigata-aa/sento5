@@ -12,6 +12,7 @@
         <%@include file="header.jsp"%>
     <!-- メインコンテンツ -->
     <main class="main-container">
+    システムの説明
         <!-- 平均評価点ランキング -->
         <div class="ave-container">
             <h2>平均評価点ランキング</h2>
