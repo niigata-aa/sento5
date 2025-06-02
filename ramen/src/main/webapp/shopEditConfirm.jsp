@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗編集確認</title>
+<link rel="stylesheet" href="css/shopEditConfirm.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -14,13 +15,43 @@
 	%>
 	<h1>編集確認ページ</h1>
 	<div class="shopeditconfirm"><!--ショップ編集確認一覧  -->
-		店名:<%=editInfo.getShopName() %><br>
-		店名かな:<%=editInfo.getShopKana() %><br>
-		住所:<%=editInfo.getAddress() %><br>
-		開店時間:<%=editInfo.getOpenTime() %><br>
-		閉店時間:<%=editInfo.getCloseTime() %><br>
-		定休日:<%=editInfo.getClosedDay() %><br>
-		詳細:<%=editInfo.getDetail() %><br>
+	
+	<div class="infoitem">
+		店名:<div class="detaile">
+		<%=editInfo.getShopName() %></div><br>
+	</div>	
+	
+	<div class="infoitem">
+		店名かな:<div class="detaile">
+		<%=editInfo.getShopKana() %></div><br>
+	</div>	
+	
+	<div class="infoitem">
+		住所:<div class="detaile">
+		<%=editInfo.getAddress() %></div><br>
+	</div>	
+	
+	<div class="infoitem">
+		開店時間:<div class="detaile">
+		<%=editInfo.getOpenTime() %></div><br>
+	</div>	
+	
+	<div class="infoitem">
+		閉店時間:<div class="detaile">
+		<%=editInfo.getCloseTime() %></div><br>
+	</div>	
+	
+	<div class="infoitem">
+		定休日:<div class="detaile">
+		<%=editInfo.getClosedDay() %></div><br>
+	</div>	
+	
+	<div class="infoitem">
+		詳細:<div class="detaile">
+		<%=editInfo.getDetail() %></div><br>
+	</div>	
+		
+	
 		写真<img class="photo" src="/ramen/upload/<%=editInfo.getPhoto() %>" alt="店舗写真"><br>
 	</div>
 	<div class="back"><!-- 戻るボタン -->
