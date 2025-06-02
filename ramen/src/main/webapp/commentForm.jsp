@@ -18,7 +18,7 @@
 		<input type="hidden" name="shopId" value="<%=shop.getShopId() %>">
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
 	メニュ:<input type="text" name="menu"maxlength="50"required><br>
-	値段:<input type="text" name="value"required><br>
+	値段:<input type="text" name="value"required maxlength="5"><br>
 	写真:<input type="file"name="commentphoto"required><br>
 	評価:
 	<select name="rate"required>
@@ -39,7 +39,7 @@
            } %>
      </select>
      <br>
-	レビュー：<textarea name="review" cols="40"rows="3"required></textarea><br>
+	レビュー：<textarea name="review" cols="40"rows="3"maxlength="300"required></textarea><br>
 	</div><br>
 	
 	<div class="registbutton"><!-- registbutton 登録ボタン -->
