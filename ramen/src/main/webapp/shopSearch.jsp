@@ -11,6 +11,23 @@
 <title>店舗検索・一覧</title>
 <!--<link rel="stylesheet" href="css/shoplist.css">-->
 <link rel="stylesheet" href="css/shopSearch.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var pagetop = $('.pagetop');
+    $(window).scroll(function () {
+       if ($(this).scrollTop() > 100) {
+            pagetop.fadeIn();
+       } else {
+            pagetop.fadeOut();
+            }
+       });
+       pagetop.click(function () {
+           $('body, html').animate({ scrollTop: 0 }, 500);
+              return false;
+   });
+});
+</script>
 </head>
 <body>
 <%
@@ -152,6 +169,7 @@
 			<%} %>
 		</div>
 	</div>
+	<p class="pagetop"><a href="#wrap">▲</a></p>
 </div>
 </body>
 </html>
