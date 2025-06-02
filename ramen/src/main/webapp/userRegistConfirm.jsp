@@ -16,6 +16,10 @@
 <form action="user-regist-servlet" method="post">
 <p>このアカウントで登録しますか</p><br>
 
+<div class="name"><!-- name ユーザネーム確認 -->
+ユーザ名:<%= session.getAttribute("userName") %><br>
+<input type="hidden" name="userName"value="<%=session.getAttribute("userName") %>">
+</div>
 
 <div class="ID"><!-- ID ID確認 -->
 ユーザID：<%=session.getAttribute("userId") %><br>
@@ -27,10 +31,6 @@
 <input type="hidden" name="password" value="<%=session.getAttribute("password") %>">
 </div>
 
-<div class="name"><!-- name ユーザネーム確認 -->
-ユーザ名:<%= session.getAttribute("userName") %><br>
-<input type="hidden" name="userName"value="<%=session.getAttribute("userName") %>">
-</div>
 <input type="submit" value="登録">
 <div class="button"><!--  buttonボタン群 -->
 <input type="button"onclick="history.back()" value="戻る"><br>
