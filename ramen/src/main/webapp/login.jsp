@@ -12,7 +12,7 @@
 <div class="title"><!-- title 	タイトルのみ -->
 <h1>ログインページ</h1>
 </div>
-
+<%= request.getAttribute("Message")!= null ? request.getAttribute("Message"): ""%>
 <div class="login-container"><!-- login-container ログイン全体のコンテナ -->
 
 <p>
