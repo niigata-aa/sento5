@@ -11,6 +11,27 @@
 	margin-top: 5px;	
 }
 
+.move{
+     display: flex;
+     margin-left: 30px;
+}
+
+.move input[type="submit"]{
+    font-size: 16px;
+    height:80px;
+    width: 120px;
+    margin-left: 5px;
+    background-color: #0D0C08;
+	border:none;
+    color:#EBE9EA;
+	cursor: pointer;
+}
+
+.move input[type="submit"]:hover{
+     background-color: #EBE9EA;
+     color:#0D0C08;
+}
+
 
 .username{
     margin-left: auto;

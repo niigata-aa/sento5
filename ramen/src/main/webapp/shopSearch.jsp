@@ -119,9 +119,11 @@
 					</div>
 					
 					<div class="shop-info">
+					<div class="shop-name">
 					店舗名：
-					<%=shop.getShopName()%><br>
+					<%=shop.getShopName()%></div><br>
 					<!-- 5/30---------------------------------- -->
+					<div class="genre">
 					ジャンル：
 					<%
 					if (shop.getGenre() != null && shop.getGenre().isEmpty()){
@@ -129,7 +131,7 @@
 					<%=shop.getGenre()%>
 					<%}else if(shop.getGenre() == null) {%>
 					登録されていません
-					<%} %>
+					<%} %></div>
 					<br>
 					<!-- -------------------------------------- -->
 
