@@ -34,7 +34,24 @@ public class RankingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		String url = "top.jsp";
+						
+		try {
+			//DAOの生成
+			RankingDAO rankdao = new RankingDAO();
+			//DAOの利用
+			List<ShopBean> shoprankList = rankdao.shopRank();
+			request.setAttribute("shoprankList", shoprankList);
+			
+		} catch(ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+				
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request,response);
+
 	}
 
 	/**

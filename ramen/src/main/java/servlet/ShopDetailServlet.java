@@ -48,7 +48,11 @@ public class ShopDetailServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		int shopId = Integer.parseInt(request.getParameter("shopId"));
-		
+		String userId = (String) session.getAttribute("userId");
+		if(userId==null) {
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+		}
 		//DAOの生成
 		ShopDAO shopdao = new ShopDAO();
 		
