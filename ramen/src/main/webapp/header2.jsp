@@ -26,7 +26,7 @@ pageEncoding= "UTF-8" %>
 </form>
 </div>
 
-<div class="name"><!-- name ユーザー名 -->
+<div class="username"><!-- name ユーザー名 -->
 ユーザ名：<%=session.getAttribute("userName") %>
 </div>
 <div class="rogout">
