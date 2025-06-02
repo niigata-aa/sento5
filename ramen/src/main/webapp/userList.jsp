@@ -12,7 +12,7 @@
 <%@include file = "header2.jsp" %>
 	
 	<div class="user-container"><!-- user-container ユーザ全体のコンテナ -->
-	<div class = "head">
+	<div class = "subtitle">
 	<h1>ユーザ一覧</h1>
 	</div>
 	
