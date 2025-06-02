@@ -15,13 +15,10 @@
 			<input type="submit" value="戻る">
 		</form>
 		<%@include file="header.jsp"%>
-		<div class="back">
-			<!-- 戻るボタンだお -->
-			<button type="button" onclick="history.back()">戻る</button>
 
 		</div>
-		</div>
-		<h1>コメント一覧</h1>
+	
+		<h1 class="midasi">コメント一覧</h1>
 		<%
 		List<CommentBean> commentList = (List<CommentBean>) session.getAttribute("commentList");
 		%>
@@ -59,26 +56,22 @@
 				<!-- 削除ボタン -->
 				<form action="coment-delete-confirm-servlet" method="post">
 					<input type="submit" value="削除"> <input type="hidden"
-						name="commentId" value="<%=comment.getCommentId()%>"> <input
-						type="hidden" name="shopId" value="<%=comment.getShopId()%>">
+						name="commentId" value="<%=comment.getCommentId()%>"> 
+					<input	type="hidden" name="shopId" value="<%=comment.getShopId()%>">
 					<input type="hidden" name="genreId"
 						value="<%=comment.getGenreId()%>"> <input type="hidden"
-						name="review" value="<%=comment.getReview()%>"> <input
-						type="hidden" name="rate" value="<%=comment.getRate()%>">
+						name="review" value="<%=comment.getReview()%>"> 
+					<input type="hidden" name="rate" value="<%=comment.getRate()%>">
 					<input type="hidden" name="commentphoto"
-						value="<%=comment.getCommentPhoto()%>"> <input
-						type="hidden" name="menu" value="<%=comment.getMenu()%>">
+						value="<%=comment.getCommentPhoto()%>"> 
+					<input	type="hidden" name="menu" value="<%=comment.getMenu()%>">
 					<input type="hidden" name="value" value="<%=comment.getValue()%>">
 				</form>
-
-
-
-
 		</div>
 		<%
 		}
 		%>
-
+		</div>
 		<%
 		}
 		%>
