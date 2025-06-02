@@ -25,7 +25,7 @@
 <%
 	}
 %>
-<
+
 	<!--<div class="title"> title　タイトル -->
 	<!--<h1>店舗検索・一覧</h1></div>-->
 	<!--<div class="search"> search 検索フォーム全体 -->
