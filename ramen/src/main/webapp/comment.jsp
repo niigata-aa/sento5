@@ -20,6 +20,7 @@
 			<button type="button" onclick="history.back()">戻る</button>
 
 		</div>
+		</div>
 		<h1>コメント一覧</h1>
 		<%
 		List<CommentBean> commentList = (List<CommentBean>) session.getAttribute("commentList");
@@ -38,17 +39,17 @@
 		<%
 		} else {
 		%>
-		<div class="comment">
+		<div class="commentlist">
 			<!-- コメントの要素すべて -->
 			<%
 			for (CommentBean comment : commentList) {
 			%>
-			<div>
+			<div class="comment">
 				店ID:
 				<%=comment.getShopId()%><br> ジャンルID:<%=comment.getGenreId()%><br>
 				レビュー:<%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
 				<div class="image">
-					写真:<img src="/ramen/upload/<%=comment.getCommentPhoto()%>"><br>
+					<img src="/ramen/upload/<%=comment.getCommentPhoto()%>"><br>
 				</div>
 				メニュ:<%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
 				<form action="shop-detail" method="post">
@@ -69,7 +70,6 @@
 						type="hidden" name="menu" value="<%=comment.getMenu()%>">
 					<input type="hidden" name="value" value="<%=comment.getValue()%>">
 				</form>
-			</div>
 
 
 
