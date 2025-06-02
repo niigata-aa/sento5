@@ -9,8 +9,6 @@
 </head>
 <body>
 
-<%@include file = "header2.jsp" %>
-
 <div class="title"><!-- title タイトル -->
 <h1>管理者ページ</h1>
 </div>
