@@ -18,7 +18,7 @@
 
 <div class="inputname"><!-- inputname ユーザネーム入力 -->
 <span>ユーザ名</span><br>
-<input type="text" name="userName" required placeholder="ユーザ名を入力してください"><br>
+<input type="text" name="userName" required placeholder="ユーザ名を入力してください"maxlength="20"><br>
 </div>
 
 <div class="inputID"><!-- inputID ID入力 -->
