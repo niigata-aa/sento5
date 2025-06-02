@@ -10,10 +10,7 @@
 </head>
 <body>
 	<div class="back">
-		<!-- 戻るボタン -->
-		<form action="mypage.jsp" method="post">
-			<input type="submit" value="戻る">
-		</form>
+
 		<%@include file="header.jsp"%>
 
 		</div>
