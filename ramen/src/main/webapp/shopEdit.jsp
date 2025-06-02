@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗編集</title>
+<link rel="stylesheet" href="css/shopEdit.css">
 </head>
 <body>
 	<%@include file="header.jsp"%>
@@ -14,9 +15,10 @@
 	request.setCharacterEncoding("UTF-8");
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail"); 
 %>
+<div class="shopedit">
 	<form action="shop-edit-confirm" method="post">
 
-		<div class="shopedit">		
+				
 			<!-- ショップ編集フォーム -->
 			店名入力<input type="text" name="shopName"maxlength="50"
 				value="<%=shop.getShopName()%>"><br> 
@@ -30,9 +32,9 @@
 			定休日<input type="text" name="closedDay"maxlength="50"value="<%=shop.getClosedDay()%>"> 
 			詳細<input type="text"maxlength="200"
 				name="detail" value="<%=shop.getDetail()%>"><br> 
-			写真
-				<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
-		</div>
+			写真<div class="image">
+				<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"></div>
+		
 		
 
 
@@ -44,6 +46,6 @@
 		<!-- 確認ボタン -->
 			<input type="submit" value="確認">
 	</div>
-		</form>
+		</form></div>
 </body>
 </html>
