@@ -44,7 +44,7 @@ public class CommentSearchServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 
-		String genreId=request.getParameter("genreserch");
+		int genreId=Integer.parseInt(request.getParameter("genreserch"));
 		int shopId=Integer.parseInt(request.getParameter("shopId"));
 
 		List<CommentBean> commentList=null;
@@ -53,10 +53,11 @@ public class CommentSearchServlet extends HttpServlet {
 
 
 			// 検索条件に応じた店舗検索
-			if (genreId==null) {
+			if ((genreId>0) && (genreId<9)) {
 				// 全店舗
 				try {
-					commentList = dao.selectComment(shopId);
+					commentList =dao.selectCategoryComment((genreId),shopId);
+					
 				} catch (ClassNotFoundException e) {
 					// TODO 自動生成された catch ブロック
 					e.printStackTrace();
@@ -64,10 +65,11 @@ public class CommentSearchServlet extends HttpServlet {
 					// TODO 自動生成された catch ブロック
 					e.printStackTrace();
 				}
+				
 
 			} else {
 					try {
-						commentList =dao.selectCategoryComment(Integer.parseInt(genreId),shopId);
+						commentList = dao.selectComment(shopId);
 					} catch (NumberFormatException e) {
 						// TODO 自動生成された catch ブロック
 						e.printStackTrace();
