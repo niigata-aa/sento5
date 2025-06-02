@@ -20,6 +20,7 @@
 			<button type="button" onclick="history.back()">戻る</button>
 
 		</div>
+		<h1>コメント一覧</h1>
 		<%
 		List<CommentBean> commentList = (List<CommentBean>) session.getAttribute("commentList");
 		%>
