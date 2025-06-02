@@ -368,7 +368,7 @@ public class ShopDAO {
 	}
 	public static String selectShopName(int shopId) throws ClassNotFoundException, SQLException {
         String shopName = null; // 戻り値を保持する変数を初期化
-        String sql = "select * from m_shop where shopId=?";
+        String sql = "select * from m_shop where shop_id=?";
 
         try (Connection con = ConnectionManager.getConnection(); // ConnectionManagerはConnectionを返すクラスと仮定
              PreparedStatement pstmt = con.prepareStatement(sql)) {
