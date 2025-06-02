@@ -1,20 +1,39 @@
 @charset "UTF-8";
 .container{
-	background-color:rgb(0, 200, 0);
-}
-.name{
-	color:#EBE9EA;
-	text-align: right;
-	
-}
-.topbutton{
-	text-align: left;
-}
-.outbutton{
-	text-align: right;
+	background-color:#0D0C08;
+    display: flex;
+    align-items: center;
+    height: 95px;
 }
 
-.rogo input[type="image"] {
-    width: 80px;
-    height: 80px;
+.rogo{
+	margin-left: 30px;
+	margin-top: 5px;	
+}
+
+
+.name{
+    margin-left: auto;
+    margin-right: 20px;
+/*	margin-bottom: 14px;*/
+    color:#EBE9EA;
+}
+
+.rogout input[type="submit"]{
+	width: auto;
+	padding: 5px;
+    
+    background-color: #0D0C08;
+	border-style: solid;
+    border-color: #EBE9EA;
+    color:#EBE9EA;
+	border-radius: 3px;
+	cursor: pointer;
+    margin-right: 30px;
+}
+
+.rogout input[type="submit"]:hover{
+    background-color: #EBE9EA;
+    color:#0D0C08;
+	bottom: 19px;
 }

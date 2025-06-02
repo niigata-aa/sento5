@@ -21,7 +21,7 @@ pageEncoding= "UTF-8" %>
 <div class="name"><!-- name ユーザー名 -->
 ログインユーザ：<%=session.getAttribute("userName") %></div>
 
-<div class="outbutton"><!-- outbutton ログアウトボタン -->
+<div class="rogout"><!-- outbutton ログアウトボタン -->
 <form action = "logout-servlet" method = "POST">
 <input type = "submit"  value = "ログアウト">
 </form></div>

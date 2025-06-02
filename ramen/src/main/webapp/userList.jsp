@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ一覧</title>
+<link rel="stylesheet" href="css/userlist.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -23,7 +24,7 @@
 				<tr>
 					<th>ユーザID</th>
 					<th>ユーザネーム</th>
-					<td>削除</td>
+					<th>削除</th>
 				</tr>
 				<%
 				for (UserBean user : userList) {
