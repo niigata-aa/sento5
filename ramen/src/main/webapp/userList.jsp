@@ -16,7 +16,7 @@
 	
 
 	<div class="userall"><!-- userall ユーザ表示-->
-			テーブルの行の固定をCSSで記入する
+			
 			<%
 		List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
 		%>
