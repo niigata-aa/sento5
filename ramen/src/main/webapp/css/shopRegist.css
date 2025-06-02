@@ -14,10 +14,15 @@
 	
 	background-color: aliceblue;
 	padding: 30px;
-	border-radius: 8px;
-	width: 100;
+	border-radius: 10px;
+	max-width: 400px;
+	width: 100%;
+	display: grid;
+	place-content: center;
 	
 }
+
+
 
 .shopregist input[type="submit"]{
 	
@@ -28,10 +33,33 @@
 	border-radius: 8px;
 	cursor: pointer;
 	font-size: 16px;
-	margin: 20px
+	max-width: 150px;
+	margin: 20px auto 0;
 }
 
 .shopregist input[type="submit"]:hover {
     background-color: rgb(0, 0, 151);
 }
 
+.walk {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.back button{
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+
+}
+
+.back button:hover{
+	background-color: rgb(120, 120, 120);
+}

@@ -40,9 +40,10 @@
 		詳細：<input type="text" name="detail"maxlength="200"> <br>
 		
 		<!--修正分-->
+		<div class="walk">
 		徒歩圏内：<input type="radio" name="walkDistance" value="true" checked>
 		徒歩圏外：<input type="radio" name="walkDistance" value="false">
-		<!---->
+		<!----></div>
 		<br>
 		写真：<input type="file" name="image"required>
 		<br>
