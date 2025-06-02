@@ -7,7 +7,7 @@ pageEncoding= "UTF-8" %>
 
 <div class = "rogo"><!-- logo ロゴ -->
 
-<form action="admin.jsp" method="post">
+<form action="admini.jsp" method="post">
 	<input type="image" src="img/rogo4.1.png" >
 </form>
 </div>

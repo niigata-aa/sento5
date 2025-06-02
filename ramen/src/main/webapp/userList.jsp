@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/userlist.css">
 </head>
 <body>
-<%@include file = "header.jsp" %>
+<%@include file = "header2.jsp" %>
 	
 	<div class="user-container"><!-- user-container ユーザ全体のコンテナ -->
 	<div class = "head">
