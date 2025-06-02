@@ -21,12 +21,12 @@
 
 <div class="inputID"><!-- inputID ID入力 -->
 <span>ユーザID</span><br>
-<input type="text" name="userId" placeholder="ユーザID">
+<input type="text" name="userId" placeholder="5桁のユーザID"pattern="\d{5}"/>
 </div><br>
 
 <div class="inputpass"><!-- inputpass パスワード入力 -->
 <span>パスワード</span><br>
-<input type="password" name="password" placeholder="パスワード">
+<input type="password" name="password" placeholder="パスワード"minlength="8"/	>
 </div><br>
 
 <input type="reset"value="クリア"><br>

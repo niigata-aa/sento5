@@ -23,12 +23,12 @@
 
 <div class="inputID"><!-- inputID ID入力 -->
 <span>ユーザID</span><br>
-<input type="text" name="userId" placeholder="ユーザID"required><br>
+<input type="number" name="userId" placeholder="5桁のユーザID"pattern="\d{5}"required/><br>
 </div>
 
 <div class="inputpass"><!-- inputpass パスワード入力 -->
 <span>パスワード</span><br>
-<input type="password" minlength="8" name="password" placeholder="パスワード8文字以上" required><br>
+<input type="password"  name="password" placeholder="パスワード8文字以上"minlength="8" required/><br>
 </div>
 
 <input type="submit"value="登録">
