@@ -143,10 +143,10 @@ $(document).ready(function() {
 					<div class="genre">
 					ジャンル：
 					<%
-					if (shop.getGenre() != null && shop.getGenre().isEmpty()){
+					if (shop.getGenre() != null && shop.getGenre().isEmpty())
 					%>
 					<%=shop.getGenre()%>
-					<%}else if(shop.getGenre() == null) {%>
+					<% if(shop.getGenre() == null) {%>
 					登録されていません
 					<%} %></div>
 					<br>
