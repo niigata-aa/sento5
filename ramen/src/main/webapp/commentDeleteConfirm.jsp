@@ -31,7 +31,8 @@
 	評価：<%=request.getParameter("rate")%><br>
 	</div>
 	<div class="comment">
-	写真：<%=request.getParameter("commentphoto") %><br>
+	写真：
+	<img src="/ramen/upload/<%=request.getParameter("commentphoto") %>"><br>
 	</div>
 	<div class="comment">
 	メニュー：<%=request.getParameter("menu")%><br>
