@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import = "model.Bean.ShopBean,java.util.List"%>
 
 <body>
+<!-- 使ってない -->
 <div class="rankcontainer"><!-- rankcontainer ランキングコンテナ -->
 <form action="shop-detail-servlet" method = "POST">
 <%
