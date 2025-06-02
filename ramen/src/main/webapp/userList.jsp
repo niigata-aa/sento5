@@ -42,7 +42,7 @@
 						<input type="hidden" name="userName" value="<%=user.getUserName()%>">
 						</div>
 						<div class="submit"><!-- submit ボタン -->
-						<button type="submit">削除</button>
+						<button type="submit">削除ボタン</button>
 						</div>
 						</form>
 					</td>

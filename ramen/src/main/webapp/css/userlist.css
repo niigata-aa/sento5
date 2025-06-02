@@ -1,5 +1,5 @@
 @charset "UTF-8";
-subtitle{
+.subtitle{
 	text-align: center;
 }
 
@@ -14,7 +14,7 @@ subtitle{
     margin: 0;
     border-spacing: 0;
 	margin: auto;
-	width: 1400px;
+	width: 750px;
 	height: 74px;
 
 }
@@ -43,3 +43,10 @@ subtitle{
 .userall tr:first-child th:first-child{
     z-index: 1;
 }
+
+.submit{
+		display: flex;
+	    justify-content: center; /* 水平方向の中央寄せ */
+	    align-items: center; /* 垂直方向の中央寄せ */
+}
+
