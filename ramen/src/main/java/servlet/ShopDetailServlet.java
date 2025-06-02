@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +17,7 @@ import model.Bean.CommentBean;
 import model.Bean.ShopBean;
 import model.DAO.CommentDAO;
 import model.DAO.ShopDAO;
+import model.DAO.UserDAO;
 
 /**
  * Servlet implementation class ShopDetailServlet
@@ -57,7 +59,9 @@ public class ShopDetailServlet extends HttpServlet {
 		ShopDAO shopdao = new ShopDAO();
 		
 		CommentDAO commentdao = new CommentDAO();
+		UserDAO userDao=new UserDAO();
 		
+		List<String> userNames = new ArrayList<>(); 
 		
 		
 		try {
@@ -65,9 +69,15 @@ public class ShopDetailServlet extends HttpServlet {
 			ShopBean shopdetail = shopdao.selectShop(shopId);
 			List<CommentBean> commentList = commentdao.selectComment(shopId);
 			
+			
+			for (CommentBean comment : commentList) {
+	            String userName = userDao.selectUserName(comment.getUserId());
+	            userNames.add(userName); // 取得したユーザー名をリストに追加
+	        }
+			
 			//セッションスコープへの属性の設定
 			session.setAttribute("shopdetail", shopdetail);
-
+			request.setAttribute("userNames", userNames);
 			//リクエストスコープへの属性の設定
 			request.setAttribute("commentList", commentList);
 			

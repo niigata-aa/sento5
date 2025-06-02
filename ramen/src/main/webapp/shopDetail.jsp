@@ -131,6 +131,8 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 				<div class="commentlist">
 					<%
 				List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
+				List<String>userNames=(List<String>)request.getAttribute("userNames");
+				int i=0;
 				for (CommentBean comment : commentList) {
 				%>
 				<div class="commentone">
@@ -142,7 +144,8 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 				メニュ：<%=comment.getMenu()%><br>
 					値段：<%=comment.getValue()%>円<br> 評価：<%=comment.getRate()%>/5<br>
 					ジャンル：<%=comment.getGenreId()%><br> レビュー<br>
-					<%=comment.getReview()%><br> ユーザID：<%=comment.getUserId()%><br>
+					<%=comment.getReview()%><br> ユーザ名：<%=userNames.get(i)%><br>
+					<%i++; %>
 				</div>
 					<%} %>
 

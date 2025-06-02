@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
+import model.DAO.UserDAO;
 
 /**
  * Servlet implementation class ComentSearchServlet
@@ -50,6 +52,8 @@ public class CommentSearchServlet extends HttpServlet {
 		List<CommentBean> commentList=null;
 
 		CommentDAO dao=new CommentDAO();
+		UserDAO userDao=new UserDAO();
+		List<String> userNames = new ArrayList<>(); 
 
 
 			// 検索条件に応じた店舗検索
@@ -57,6 +61,10 @@ public class CommentSearchServlet extends HttpServlet {
 				// 全店舗
 				try {
 					commentList =dao.selectCategoryComment((genreId),shopId);
+					for (CommentBean comment : commentList) {
+			            String userName = userDao.selectUserName(comment.getUserId());
+			            userNames.add(userName); // 取得したユーザー名をリストに追加
+			        }
 					
 				} catch (ClassNotFoundException e) {
 					// TODO 自動生成された catch ブロック
@@ -70,6 +78,10 @@ public class CommentSearchServlet extends HttpServlet {
 			} else {
 					try {
 						commentList = dao.selectComment(shopId);
+						for (CommentBean comment : commentList) {
+				            String userName = userDao.selectUserName(comment.getUserId());
+				            userNames.add(userName); // 取得したユーザー名をリストに追加
+						}
 					} catch (NumberFormatException e) {
 						// TODO 自動生成された catch ブロック
 						e.printStackTrace();
@@ -84,6 +96,7 @@ public class CommentSearchServlet extends HttpServlet {
 
 
 			request.setAttribute("commentList", commentList);
+			request.setAttribute("userNames", userNames);
 
 			RequestDispatcher rd = request.getRequestDispatcher("shopDetail.jsp");
 
