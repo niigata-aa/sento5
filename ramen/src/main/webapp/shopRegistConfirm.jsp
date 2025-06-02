@@ -20,46 +20,47 @@
 この内容で登録します<br>
 
 <div class="infoitem">
-店舗名<br>
-<%=shopInfo.getShopName() %><br>
+店舗名<br><div class="detaile">
+<%=shopInfo.getShopName() %></div><br>
 </div>
 
 <div class="infoitem">
-店舗名かな<br>
-<%=shopInfo.getShopKana() %><br>
+店舗名かな<br><div class="detaile">
+<%=shopInfo.getShopKana() %></div><br>
 </div>
 
 <div class="infoitem">
-住所<br>
-<%=shopInfo.getAddress() %><br>
+住所<br><div class="detaile">
+<%=shopInfo.getAddress() %></div><br>
 </div>
 
 <div class="infoitem">
-開店時間<br>
-<%=shopInfo.getOpenTime() %><br>
+開店時間<br><div class="detaile">
+<%=shopInfo.getOpenTime() %></div><br>
 </div>
 
 <div class="infoitem">
-閉店時間<br>
-<%=shopInfo.getCloseTime() %><br>
+閉店時間<br><div class="detaile">
+<%=shopInfo.getCloseTime() %></div><br>
 </div>
 
 <div class="infoitem">
-詳細<br>
-<%=shopInfo.getDetail() %><br>
-</div>
-
-<div class="photo">
-写真<br>
-<img src="/ramen/upload/<%=shopInfo.getPhoto() %>"><br>
+詳細<br><div class="detaile">
+<%=shopInfo.getDetail() %></div><br>
 </div>
 
 <div class="infoitem">
+写真<br><div class="image">
+<img src="/ramen/upload/<%=shopInfo.getPhoto() %>"></div><br>
+</div>
+
+<div class="infoitem">
+<div class="detaile">
 <%if(shopInfo.isWalkingDistance()){%>
 	徒歩圏内
 <% }else{%>
 	徒歩圏外
-<%} %>
+<%} %></div>
 </div>
 
 <div class="regist"> <!-- 登録ボタンですよ -->
