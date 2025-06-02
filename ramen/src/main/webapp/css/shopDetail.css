@@ -1,0 +1,101 @@
+@charset "UTF-8";
+.pagetop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+}
+.pagetop a {
+    display: block;
+    background-color: #ccc;
+    text-align: center;
+    color: #222;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 5px 10px;
+	filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+.pagetop a:hover {
+    display: block;
+    background-color: #b2d1fb;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    padding:5px 10px;
+	filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.admin-button{
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+	margin-bottom: 30px;
+}
+
+.main-container{
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;	
+}
+.shop-container{
+	width: 100%;
+}
+
+.shop-info img{
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 30px;
+	height: auto;
+	max-width: 800px;
+}
+shop-info{
+	text-align: center;
+	justify-content: center;
+}
+.shop-info table{
+	justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.shop-info table th{
+    padding: 12px;
+    border: 1px solid #bbb;
+}
+
+.shop-info table td{
+    padding: 12px;
+    border: 1px solid #bbb;
+}
+
+
+.section-title{
+    margin: 30px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid ; 
+    display: inline-block;
+}
+
+.comment-card{	
+	display: flex;
+	column-gap: 10px;
+	row-gap: 1em;
+	border: solid medium black;
+	border-radius:10px;
+
+}
+
+.comment-card img{
+	width: 200px;  /* お好みで調整 */
+	height: 200px;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
