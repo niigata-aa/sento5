@@ -18,17 +18,17 @@
 
 		<div class="shopedit">		
 			<!-- ショップ編集フォーム -->
-			店名入力<input type="text" name="shopName"
+			店名入力<input type="text" name="shopName"maxlength="50"
 				value="<%=shop.getShopName()%>"><br> 
 			店名かな入力<input
-				type="text" name="shopKana" value="<%=shop.getShopKana()%>"><br>
-			住所<input type="text" name="address" value="<%=shop.getAddress()%>"><br>
+				type="text" name="shopKana"maxlength="50" value="<%=shop.getShopKana()%>"><br>
+			住所<input type="text" name="address" maxlength="50"value="<%=shop.getAddress()%>"><br>
 			開店時間<input type="time" name="openTime"
 				value="<%=shop.getOpenTime()%>"><br> 
 			閉店時間<input
 				type="time" name="closeTime" value="<%=shop.getCloseTime()%>"><br>
-			定休日<input type="text" name="closedDay"value="<%=shop.getClosedDay()%>"> 
-			詳細<input type="text"
+			定休日<input type="text" name="closedDay"maxlength="50"value="<%=shop.getClosedDay()%>"> 
+			詳細<input type="text"maxlength="200"
 				name="detail" value="<%=shop.getDetail()%>"><br> 
 			写真
 				<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真">
