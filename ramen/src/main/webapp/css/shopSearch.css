@@ -215,18 +215,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
+    gap: 2px;
     height: 100%;
 	position: absolute; /* 親要素Aclassを基準に絶対配置 */
 	right: 30%; /* 中央から右に25%の位置に配置 (50% - 25% = 25%) */
 	transform: translateX(25%); /* 要素の幅の半分だけ右に移動して正確に中央右に */
 }
 
-.name {
+.shop-name {
     font-size: 22px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .genre {
