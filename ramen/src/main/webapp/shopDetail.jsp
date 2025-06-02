@@ -79,7 +79,7 @@
 		<input type="hidden" name = "shopId"value="<%= shop.getShopId() %>"> 
 	</form>
 		<table>
-		<tr><th>写真</th><th>評価</th><th>ジャンル</th><th>メニュー</th><th>値段</th><th>レビュー</th></tr>
+		<tr><th>写真</th><th>評価</th><th>ジャンル</th><th>メニュー</th><th>値段</th><th>レビュー</th><th>ユーザID</th></tr>
 			<% 
 		List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
 		for(CommentBean comment : commentList){
@@ -93,6 +93,7 @@
 				<td><%=comment.getMenu()%></td>
 				<td><%=comment.getValue()%></td>
 				<td><%=comment.getReview()%></td>
+				<td><%=comment.getUserId()%></td>
 				<%-- 
 				<%if(roll==0){ %>
 				<td>
