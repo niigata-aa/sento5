@@ -4,22 +4,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>コメント投稿ページ</title>
+<title>コメント投稿</title>
+<link rel="stylesheet" href="css/commentform.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
 <% 
 	ShopBean shop = (ShopBean)session.getAttribute("shopdetail");
 %>
-
-<div class="title"><!-- title タイトル -->
-<h2><%=shop.getShopName() %>コメント投稿ページ</h2></div>
+<div class="commentformtitle"><!-- title タイトル -->
+<h2><%=shop.getShopName() %>コメント投稿</h2>
+</div>
 	<form action="comment-regist-confirm-servlet"method="post"enctype="multipart/form-data">
 		<input type="hidden" name="shopId" value="<%=shop.getShopId() %>">
 	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
-	メニュ:<input type="text" name="menu"maxlength="50"required><br>
+	<div class="comment">
+	メニュー:<input type="text" name="menu"maxlength="50"required><br>
+	</div>
+	<div class="comment">
 	値段:<input type="text" name="value"required maxlength="5"><br>
+	</div>
+	<div class="comment">
 	写真:<input type="file"name="commentphoto"required><br>
+	</div>
+	<div class="comment">
 	評価:
 	<select name="rate"required>
 		<option value="1">1</option>
@@ -28,6 +36,8 @@
 		<option value="4">4</option>
 		<option value="5">5</option>
 	</select><br>
+	</div>
+	<div class="comment">
 	ジャンル
 	<select name="genreId" required>
            <option value="">選択してください</option>
@@ -39,14 +49,18 @@
            } %>
      </select>
      <br>
+     </div>
+     <div class="comment">
 	レビュー：<textarea name="review" cols="40"rows="3"maxlength="300"required></textarea><br>
-	</div><br>
+	</div>
+	<br>
 	
-	<div class="registbutton"><!-- registbutton 登録ボタン -->
-	<input type="submit" value="登録"></div>	
+	<div class="button"><!-- buttonボタン群 -->
+	<input type="button"onclick="history.back()" value="戻る">
+	<input type="submit" value="登録">	
 	</form>
 	
-	<div class="backbutton"><!-- buckbutton 戻るボタン -->
-	<button type="button"onclick="history.back()">戻る</button></div>
+	</div>
+	</div>
 </body>
 </html>
