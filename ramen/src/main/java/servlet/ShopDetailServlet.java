@@ -82,6 +82,7 @@ public class ShopDetailServlet extends HttpServlet {
 			request.setAttribute("commentList", commentList);
 			
 	
+			
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

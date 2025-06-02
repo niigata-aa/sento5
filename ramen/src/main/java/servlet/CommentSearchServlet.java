@@ -97,6 +97,7 @@ public class CommentSearchServlet extends HttpServlet {
 
 			request.setAttribute("commentList", commentList);
 			request.setAttribute("userNames", userNames);
+			
 
 			RequestDispatcher rd = request.getRequestDispatcher("shopDetail.jsp");
 

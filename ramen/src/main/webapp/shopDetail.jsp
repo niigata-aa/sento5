@@ -150,7 +150,7 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					<%} %>
 
 					<%if(commentList==null){ %>
-					コメントはありません。
+					コメントはありません
 					<%} %>
 				</div>
 				</div>
