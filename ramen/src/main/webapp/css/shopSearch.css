@@ -68,10 +68,10 @@ body {
     box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
 }
 
-.search input[type="text"]:valid {
-    background-color: #f0f8f0; /* 入力後の色 */
-    border-color: #4caf50;
-}
+/*.search input[type="text"]:valid {*/
+/*    background-color: #f0f8f0;  入力後の色 */
+/*    border-color: #4caf50;*/
+/*}*/
 
 /* セレクトボックス */
 .search select {
