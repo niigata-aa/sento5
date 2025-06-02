@@ -10,9 +10,11 @@
 </head>
 <body>
 <%@include file = "header.jsp" %>
-	<h1>管理者ページ</h1>
+	
 	<div class="user-container"><!-- user-container ユーザ全体のコンテナ -->
-	<h2>ユーザ一覧</h2>
+	<div class = "head">
+	<h1>ユーザ一覧</h1>
+	</div>
 	
 
 	<div class="userall"><!-- userall ユーザ表示-->
