@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>店舗登録確認</title>
+<link rel="stylesheet" href="css/shopRegistConfirm.css">
 </head>
 <body>
 <%@include file = "header.jsp" %>
@@ -15,23 +16,45 @@
 %>
 <form action="shop-regist-servlet" method="post">
 <div class="shopregistconfirm"> <!-- ショップ登録確認まとめですよい -->
+<div class="registform">
 この内容で登録します<br>
-店舗名
-<%=shopInfo.getShopName() %>
-<br>
-店舗名かな
-<%=shopInfo.getShopKana() %><br>
-住所
-<%=shopInfo.getAddress() %><br>
-開店時間
-<%=shopInfo.getOpenTime() %><br>
-閉店時間
-<%=shopInfo.getCloseTime() %><br>
-詳細
-<%=shopInfo.getDetail() %><br>
-写真
-<img src="/ramen/upload/<%=shopInfo.getPhoto() %>"><br>
 
+<div class="infoitem">
+店舗名<br>
+<%=shopInfo.getShopName() %><br>
+</div>
+
+<div class="infoitem">
+店舗名かな<br>
+<%=shopInfo.getShopKana() %><br>
+</div>
+
+<div class="infoitem">
+住所<br>
+<%=shopInfo.getAddress() %><br>
+</div>
+
+<div class="infoitem">
+開店時間<br>
+<%=shopInfo.getOpenTime() %><br>
+</div>
+
+<div class="infoitem">
+閉店時間<br>
+<%=shopInfo.getCloseTime() %><br>
+</div>
+
+<div class="infoitem">
+詳細<br>
+<%=shopInfo.getDetail() %><br>
+</div>
+
+<div class="photo">
+写真<br>
+<img src="/ramen/upload/<%=shopInfo.getPhoto() %>"><br>
+</div>
+
+<div class="infoitem">
 <%if(shopInfo.isWalkingDistance()){%>
 	徒歩圏内
 <% }else{%>
@@ -41,6 +64,8 @@
 
 <div class="regist"> <!-- 登録ボタンですよ -->
 <input type="submit" value="登録">	
+</div>
+</div>
 </div>
 
 <div class="back"><!-- 戻るボタン -->
