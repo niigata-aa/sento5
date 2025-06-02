@@ -9,12 +9,11 @@
 </head>
 <body>
     <!-- ヘッダー -->
-
         <%@include file="header.jsp"%>
     <!-- メインコンテンツ -->
     <main class="main-container">
    	<h1> Ra-share</h1>
-    <p>「Ra-share」はラーメンの情報提供とラーメンを通じた社内交流ができる社内向けシステムです。</p>
+    <p>「Ra-share」はラーメンの情報提供とラーメンを通じた交流ができる社内向けシステムです！</p>
         <!-- 平均評価点ランキング -->
         <div class="ave-container">
             <h2>平均評価点ランキング</h2>
