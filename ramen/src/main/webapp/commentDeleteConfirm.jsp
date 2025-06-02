@@ -6,31 +6,46 @@
 <head>
 <meta charset="UTF-8">
 <title>コメント削除確認</title>
+<link rel="stylesheet" href="css/commentform.css">
 </head>
 <body>
+	<%@include file = "header.jsp" %>
+	<div class="commentformtitle"><!-- title タイトル -->
 	<h2>投稿削除ページ</h2>
-	<div class="commendeleteconfirm"><!-- コメントの削除確認まとめて -->
-	コメントID<%=session.getAttribute("commentId") %><br> 
-	店ID:<%=request.getParameter("shopId")%><br>
-	カテゴリーID<%=request.getParameter("genreId")%><br>
-	レビュー<%=request.getParameter("review")%><br>
-	評価<%=request.getParameter("rate")%><br>
-	写真<%=request.getParameter("commentphoto") %><br>
-	メニュ<%=request.getParameter("menu")%><br>
-	値段<%=request.getParameter("value")%><br>
 	</div>
-	
-	<div class="back" ><!-- 戻るボタン -->
-	<form action="mypage.jsp" method="post">
-		<input type="submit" value="戻る"> 
-	</form>
-	</div>
-	
-	<div class="commentdelete"><!-- コメントの削除ボタン -->
 	<form action="coment-delete-servlet" method="post">
-		<input type="submit" value="削除する"> 
-		<input type="hidden" name="commentId" value="<%request.getParameter("commentId"); %>">
+	<div class="commentcontainer"><!-- commentcontainer コメント確認 -->
+	<div class="comment">
+	コメントID：<%=session.getAttribute("commentId") %><br> 
+	</div>
+	<div class="comment">
+	店ID：<%=request.getParameter("shopId")%><br>
+	</div>
+	<div class="comment">
+	カテゴリーID：<%=request.getParameter("genreId")%><br>
+	</div>
+	<div class="comment">
+	レビュー：<%=request.getParameter("review")%><br>
+	</div>
+	<div class="comment">
+	評価：<%=request.getParameter("rate")%><br>
+	</div>
+	<div class="comment">
+	写真：<%=request.getParameter("commentphoto") %><br>
+	</div>
+	<div class="comment">
+	メニュー：<%=request.getParameter("menu")%><br>
+	</div>
+	<div class="comment">
+	値段：<%=request.getParameter("value")%><br>
+	</div>
+	
+	<div class="button"><!-- ボタン群 -->
+	<input type="button"onclick="history.back()" value="戻る">
+	<input type="submit" value="削除する"> 
+	<input type="hidden" name="commentId" value="<%request.getParameter("commentId"); %>">
 	</form>
+	</div>
 	</div>
 	
 
