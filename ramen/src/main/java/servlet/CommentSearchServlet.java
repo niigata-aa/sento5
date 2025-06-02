@@ -53,7 +53,7 @@ public class CommentSearchServlet extends HttpServlet {
 
 
 			// 検索条件に応じた店舗検索
-			if ((genreId>0) && (genreId<9)) {
+			if ((genreId>0) && (genreId<10)) {
 				// 全店舗
 				try {
 					commentList =dao.selectCategoryComment((genreId),shopId);
