@@ -18,7 +18,7 @@
 
 		</div>
 	
-		<h1 class="midasi">コメント一覧</h1>
+		<h1>コメント一覧</h1>
 		<%
 		List<CommentBean> commentList = (List<CommentBean>) session.getAttribute("commentList");
 		%>
@@ -42,13 +42,13 @@
 			for (CommentBean comment : commentList) {
 			%>
 			<div class="comment">
+				<div class="image">
+					<img src="/ramen/upload/<%=comment.getCommentPhoto()%>">
+				</div>
 				店ID:
 				<%=comment.getShopId()%><br> ジャンルID:<%=comment.getGenreId()%><br>
-				レビュー:<%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
-				<div class="image">
-					<img src="/ramen/upload/<%=comment.getCommentPhoto()%>"><br>
-				</div>
-				メニュ:<%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
+				レビュー:<br><%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
+				メニュ:<br><%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
 				<form action="shop-detail" method="post">
 					<input type="submit" value="店舗詳細"> <input type="hidden"
 						name="shopId" value="<%=comment.getShopId()%>">
