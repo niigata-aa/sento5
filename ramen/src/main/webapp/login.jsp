@@ -15,7 +15,7 @@
 
 <div class="login-container"><!-- login-container ログイン全体のコンテナ -->
 
-<p style="color:red;">
+<p>
 	<%= request.getAttribute("errorMessage")!= null ? request.getAttribute("errorMessage"): ""%>
 <form action="login-servlet"method="POST">
 
