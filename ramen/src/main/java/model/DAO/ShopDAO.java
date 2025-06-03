@@ -489,6 +489,7 @@ public class ShopDAO {
 	                 "LEFT JOIN m_comment c ON s.shop_id = c.shop_id " +
 	                 "LEFT JOIN m_genre g ON c.genre_id = g.genre_id " +
 	                 "GROUP BY s.shop_id, s.shop_name, s.photo, s.walkDistance";
+	                  
 	    
 	    try(Connection con = ConnectionManager.getConnection();
 	            PreparedStatement pstmt = con.prepareStatement(sql)){
