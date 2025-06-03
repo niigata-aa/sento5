@@ -105,7 +105,7 @@ public class ShopSearchServlet extends HttpServlet {
 	           // 検索条件に応じた店舗検索
 	           if (shopName == null && area == null && genreId == null) {
 	               // 全て未指定：全店舗
-	               shopList = ShopDAO.selectAllshop();
+	               shopList = ShopDAO.selectAllShopWithGenre();
 	           } else {
 	               // 複合検索
 	               shopList = shopDAO.selectShopByMultipleConditions(shopName, area, genreId);

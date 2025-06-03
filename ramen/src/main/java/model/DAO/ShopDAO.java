@@ -398,27 +398,20 @@ public class ShopDAO {
 		       throws SQLException, ClassNotFoundException {
 		   List<ShopBean> shopList = new ArrayList<ShopBean>();
 		   StringBuilder sql = new StringBuilder();
-		   sql.append("SELECT DISTINCT s.shop_id, s.shop_name, s.photo, s.walkDistance");
-		  
+		   
+		   sql.append("SELECT DISTINCT s.shop_id, s.shop_name, s.photo, s.walkDistance, ");
+		   sql.append("GROUP_CONCAT(DISTINCT g.genre_name ORDER BY g.genre_name SEPARATOR ', ') AS genres ");
+		   sql.append("FROM m_shop s ");
+		   
 		   if (genreId != null) {
-		       sql.append(", g.genre_name");
-		       sql.append(" FROM m_shop s INNER JOIN m_comment c ON s.shop_id = c.shop_id");
-		       sql.append(" INNER JOIN m_genre g ON c.genre_id = g.genre_id");
+		       // ジャンル指定がある場合は、そのジャンルでフィルタリング
+		       sql.append("INNER JOIN m_comment c ON s.shop_id = c.shop_id ");
+		       sql.append("INNER JOIN m_genre g ON c.genre_id = g.genre_id ");
 		   } else {
-		       sql.append(" FROM m_shop s");
+		       // ジャンル指定がない場合は、すべてのジャンル情報を取得
+		       sql.append("LEFT JOIN m_comment c ON s.shop_id = c.shop_id ");
+		       sql.append("LEFT JOIN m_genre g ON c.genre_id = g.genre_id ");
 		   }
-		  
-		   //入力によってsql分を調整
-		  
-//		   if (shopName != null && !shopName.trim().isEmpty()) {
-//		       sql.append(" AND s.shop_name LIKE ?");
-//		   }
-//		   if (area != null && !area.trim().isEmpty()) {
-//		       sql.append(" AND s.address LIKE ?");
-//		   }
-//		   if (genreId != null) {
-//		       sql.append(" AND c.genre_id LIKE ?");
-//		   }
 		   
 		   boolean hasCondition = false;
 		   
@@ -437,6 +430,8 @@ public class ShopDAO {
 		       sql.append(" c.genre_id = ?");
 		       hasCondition = true;
 		   }
+		   
+		   sql.append(" GROUP BY s.shop_id, s.shop_name, s.photo, s.walkDistance");
 		  
 		   try(Connection con = ConnectionManager.getConnection();
 		           PreparedStatement pstmt = con.prepareStatement(sql.toString())){
@@ -462,6 +457,7 @@ public class ShopDAO {
 		           String shopNameResult = res.getString("shop_name");
 		           String shopPhoto = res.getString("photo");
 		           boolean walkingDistance = res.getBoolean("walkDistance");
+		           String genres = res.getString("genres"); // 複数ジャンルを取得
 
 
 		           ShopBean shop = new ShopBean();
@@ -469,10 +465,12 @@ public class ShopDAO {
 		           shop.setShopName(shopNameResult);
 		           shop.setPhoto(shopPhoto);
 		           shop.setWalkingDistance(walkingDistance);
+		           shop.setGenre(genres); // ジャンル情報を設定
+
 		          
-		           if (genreId != null) {
-		               shop.setGenre(res.getString("genre_name"));
-		           }
+//		           if (genreId != null) {
+//		               shop.setGenre(res.getString("genre_name"));
+//		           }
 
 
 		           shopList.add(shop);

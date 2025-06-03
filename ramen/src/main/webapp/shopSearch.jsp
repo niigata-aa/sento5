@@ -142,13 +142,13 @@ $(document).ready(function() {
 					<!-- 5/30---------------------------------- -->
 					<div class="genre">
 					ジャンル：
-					<%
-					if (shop.getGenre() != null && shop.getGenre().isEmpty())
-					%>
-					<%=shop.getGenre()%>
-					<% if(shop.getGenre() == null) {%>
-					登録されていません
-					<%} %></div>
+                    <%
+                    if (shop.getGenre() != null && !shop.getGenre().isEmpty()) {
+                    %>
+                    <%=shop.getGenre()%>
+                    <%} else {%>
+                    登録されていません
+                    <%} %></div>
 					<br>
 					<!-- -------------------------------------- -->
 
