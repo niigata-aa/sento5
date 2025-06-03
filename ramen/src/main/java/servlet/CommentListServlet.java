@@ -54,6 +54,8 @@ public class CommentListServlet extends HttpServlet {
 		String userId=(String) session.getAttribute("userId");
 		
 		CommentDAO dao=new CommentDAO();
+		ShopDAO shopDao=new ShopDAO();
+		List<String> shopNames = new ArrayList<>(); 
 		try {
 			
 			commentList=dao.selectUserComment(Integer.parseInt(userId));

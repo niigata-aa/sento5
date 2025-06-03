@@ -74,6 +74,7 @@ public class CommentSearchServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 				
+				
 
 			} else {
 					try {

@@ -64,6 +64,7 @@ public class ShopDetailServlet extends HttpServlet {
 		List<String> userNames = new ArrayList<>(); 
 		
 		
+		
 		try {
 			//DAOの利用
 			ShopBean shopdetail = shopdao.selectShop(shopId);

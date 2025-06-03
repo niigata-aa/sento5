@@ -128,6 +128,7 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					</form>
 				</div>
 
+
 				<div class="commentlist">
 					<%
 				List<CommentBean> commentList = (List<CommentBean>) request.getAttribute("commentList");
