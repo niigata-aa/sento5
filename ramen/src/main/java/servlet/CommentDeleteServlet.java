@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
+import model.DAO.ShopDAO;
 
 /**
  * Servlet implementation class ComentDeleteServlet
@@ -51,6 +53,8 @@ public class CommentDeleteServlet extends HttpServlet {
 		CommentDAO dao=new CommentDAO();
 		
 		int count;
+		ShopDAO shopDao=new ShopDAO();
+		List<String> shopNames = new ArrayList<>(); 
 		
 		try {
 			count=dao.deleteComment(commentId);
@@ -65,10 +69,15 @@ public class CommentDeleteServlet extends HttpServlet {
 		try {
 			
 			commentList=commentdao.selectUserComment(Integer.parseInt(userId));
+			for (CommentBean comment : commentList) {
+	            String shopName = shopDao.selectShopName(comment.getShopId());
+	            shopNames.add(shopName); // 取得したユーザー名をリストに追加
+	        }
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		session.setAttribute("commentList", commentList);
+		request.setAttribute("shopNames", shopNames);
 		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
 		
 		rd.forward(request, response);

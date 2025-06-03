@@ -19,7 +19,7 @@
 	コメントID：<%=session.getAttribute("commentId") %><br> 
 	</div>
 	<div class="comment">
-	店ID：<%=request.getParameter("shopId")%><br>
+	店舗名：<%=session.getAttribute("shopName")%><br>
 	</div>
 	<div class="comment">
 	カテゴリーID：<%=request.getParameter("genreId")%><br>
