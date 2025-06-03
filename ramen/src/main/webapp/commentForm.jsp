@@ -22,7 +22,7 @@
 	メニュー:<input type="text" name="menu"maxlength="50"required><br>
 	</div>
 	<div class="comment">
-	値段:<input type="text" name="value"required maxlength="5"><br>
+	値段:<input type="number" name="value"required maxlength="5"><br>
 	</div>
 	<div class="comment">
 	写真:<input type="file"name="commentphoto"required><br>
