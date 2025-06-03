@@ -54,10 +54,11 @@ public class GenreDAO {
 		String genreName=null;
 		String sql = "SELECT * FROM m_genre WHERE genre_id = ?";
 
+
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				ResultSet res = pstmt.executeQuery()){
-
+			pstmt.setInt(1,genreId);
 			while (res.next()) {
 				genreName = res.getString("genre_name");
 			}
