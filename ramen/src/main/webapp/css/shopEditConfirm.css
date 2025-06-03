@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 
-.shopregistconfirm{
+.shopeditconfirm{
 	
 	display: flex;
 	justify-content: center;
@@ -12,7 +12,7 @@
 	
 }
 
-.registform{
+.editform{
 	
 	background-color: aliceblue;
 	padding: 30px;
@@ -60,7 +60,7 @@
 }
 
 
-.regist input[type="submit"]{
+.edit input[type="submit"]{
 	
 	background-color: blue;
 	color: rgb(255, 255, 255);
@@ -73,7 +73,7 @@
 	margin: 20px auto 0;
 }
 
-.regist input[type="submit"]:hover {
+.edit input[type="submit"]:hover {
     background-color: rgb(0, 0, 151);
 }
 

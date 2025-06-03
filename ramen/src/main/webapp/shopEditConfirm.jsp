@@ -14,15 +14,17 @@
 	ShopBean editInfo = (ShopBean)session.getAttribute("editInfo"); 
 	%>
 	<h1>編集確認ページ</h1>
+	<form action="shop-edit" method="post">
 	<div class="shopeditconfirm"><!--ショップ編集確認一覧  -->
+	<div class="editform">
 	
 	<div class="infoitem">
-		店名:<div class="detaile">
+		店舗名:<div class="detaile">
 		<%=editInfo.getShopName() %></div><br>
 	</div>	
 	
 	<div class="infoitem">
-		店名かな:<div class="detaile">
+		店舗名かな:<div class="detaile">
 		<%=editInfo.getShopKana() %></div><br>
 	</div>	
 	
@@ -51,18 +53,22 @@
 		<%=editInfo.getDetail() %></div><br>
 	</div>	
 		
-	
-		写真<img class="photo" src="/ramen/upload/<%=editInfo.getPhoto() %>" alt="店舗写真"><br>
+	<div class="infoitem">
+	写真<div class="image">
+	<img class="photo" src="/ramen/upload/<%=editInfo.getPhoto() %>" alt="店舗写真"></div><br>
 	</div>
+	
+	<div class="edit"><!-- 登録ボタン -->
+	<input type="submit" value="登録">
+	</div>
+	</div>
+	</div>
+	
 	<div class="back"><!-- 戻るボタン -->
 	<button type="button" onclick="history.back()">戻る</button>
 	</div>
 	
-	<div class="shopedit"><!-- 登録ボタン -->
-	<form action="shop-edit" method="post">
-		<input type="submit" value="登録">
 	</form>
-	</div>
 	
 </body>
 </html>
