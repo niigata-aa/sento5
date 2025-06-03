@@ -23,9 +23,7 @@
 		List<String> shopnameList = (List<String>) request.getAttribute("shopnameList");
 		%>
 
-	<%
-		int i = 0;
-		%>
+	
 	<%
 		if (commentList == null || commentList.isEmpty()) {
 		%>
@@ -36,14 +34,17 @@
 	<div class="commentlist">
 		<!-- コメントの要素すべて -->
 		<%
+		List<String>shopNames=(List<String>)request.getAttribute("shopNames");
+
+		int k=0;
 			for (CommentBean comment : commentList) {
 			%>
 		<div class="comment">
 			<div class="image">
 				<img src="/ramen/upload/<%=comment.getCommentPhoto()%>">
 			</div>
-			店ID:
-			<%=comment.getShopId()%><br> ジャンルID:<%=comment.getGenreId()%><br>
+			店舗名:<%=shopNames.get(k)%><br>
+			ジャンルId:<%=comment.getGenreId()%><br>
 			レビュー:<br><%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
 			メニュー:<br><%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
 			<form action="shop-detail" method="post">
@@ -52,19 +53,29 @@
 			</form>
 			<!-- 削除ボタン -->
 			<form action="coment-delete-confirm-servlet" method="post">
-				<input type="submit" value="削除"> <input type="hidden"
-					name="commentId" value="<%=comment.getCommentId()%>"> <input
+				<input type="submit" value="削除">
+				<input type="hidden"
+					name="shopname" value="<%=shopNames.get(k)%>">
+				 <input type="hidden"
+					name="commentId" value="<%=comment.getCommentId()%>">
+				 <input
 					type="hidden" name="shopId" value="<%=comment.getShopId()%>">
 				<input type="hidden" name="genreId"
-					value="<%=comment.getGenreId()%>"> <input type="hidden"
-					name="review" value="<%=comment.getReview()%>"> <input
-					type="hidden" name="rate" value="<%=comment.getRate()%>"> <input
+					value="<%=comment.getGenreId()%>"> 
+				<input type="hidden"
+					name="review" value="<%=comment.getReview()%>"> 
+				<input
+					type="hidden" name="rate" value="<%=comment.getRate()%>"> 
+				<input
 					type="hidden" name="commentphoto"
-					value="<%=comment.getCommentPhoto()%>"> <input
-					type="hidden" name="menu" value="<%=comment.getMenu()%>"> <input
+					value="<%=comment.getCommentPhoto()%>"> 
+				<input
+					type="hidden" name="menu" value="<%=comment.getMenu()%>"> 
+				<input
 					type="hidden" name="value" value="<%=comment.getValue()%>">
 			</form>
 		</div>
+		<%k++; %>
 		<%
 		}
 		%>
