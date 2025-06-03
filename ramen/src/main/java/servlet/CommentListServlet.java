@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Bean.CommentBean;
 import model.DAO.CommentDAO;
+import model.DAO.GenreDAO;
 import model.DAO.ShopDAO;
 
 /**
@@ -54,7 +55,9 @@ public class CommentListServlet extends HttpServlet {
 		
 		CommentDAO dao=new CommentDAO();
 		ShopDAO shopDao=new ShopDAO();
+		GenreDAO genreDao=new GenreDAO();
 		List<String> shopNames = new ArrayList<>(); 
+		List<String> genreNames = new ArrayList<>(); 
 		try {
 			
 			commentList=dao.selectUserComment(Integer.parseInt(userId));
@@ -62,12 +65,17 @@ public class CommentListServlet extends HttpServlet {
 	            String shopName = shopDao.selectShopName(comment.getShopId());
 	            shopNames.add(shopName); // 取得したユーザー名をリストに追加
 	        }
+			for (CommentBean comment : commentList) {
+	            String genreName = genreDao.selectGenreName(comment.getGenreId());
+	            genreNames.add(genreName); // 取得したユーザー名をリストに追加
+	        }
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
 		session.setAttribute("commentList", commentList);
 		request.setAttribute("shopNames", shopNames);
+		request.setAttribute("genreNames", genreNames);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
 		

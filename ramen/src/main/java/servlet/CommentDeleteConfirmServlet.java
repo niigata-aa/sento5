@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.DAO.GenreDAO;
 import model.DAO.ShopDAO;
 
 /**
@@ -45,11 +46,13 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 		
 		ShopDAO shopDao=new ShopDAO();
 		String shopName=null;
+		GenreDAO genreDao=new GenreDAO();
+		String genreName=null;
 		
 		String shopname=request.getParameter("shopname");
 		int commentId=Integer.parseInt(request.getParameter("commentId"));
 		int shopId=Integer.parseInt(request.getParameter("shopId"));
-		String genreId=request.getParameter("genreId");
+		int genreId=Integer.parseInt(request.getParameter("genreId"));
 		String review=request.getParameter("review");
 		String rate=request.getParameter("rate");
 		String commentPhoto=request.getParameter("commentPhoto");
@@ -65,12 +68,21 @@ public class CommentDeleteConfirmServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		try {
+			 genreName = genreDao.selectGenreName(genreId);
+		} catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		
 		HttpSession session=request.getSession();
 		session.setAttribute("shopname",shopname );
 		session.setAttribute("shopName",shopName );
 		session.setAttribute("commentId",commentId );
-		request.setAttribute("genreId",shopId );
+		session.setAttribute("genreName",genreName );
 		request.setAttribute("genreId",genreId );
 		request.setAttribute("review",review );
 		request.setAttribute("rate",rate );

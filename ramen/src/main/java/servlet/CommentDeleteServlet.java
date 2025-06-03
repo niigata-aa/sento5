@@ -55,7 +55,6 @@ public class CommentDeleteServlet extends HttpServlet {
 		int count;
 		ShopDAO shopDao=new ShopDAO();
 		List<String> shopNames = new ArrayList<>(); 
-		
 		try {
 			count=dao.deleteComment(commentId);
 			
@@ -73,6 +72,7 @@ public class CommentDeleteServlet extends HttpServlet {
 	            String shopName = shopDao.selectShopName(comment.getShopId());
 	            shopNames.add(shopName); // 取得したユーザー名をリストに追加
 	        }
+			
 		}catch (SQLException  |  ClassNotFoundException e) {
 			e.printStackTrace();
 		}
