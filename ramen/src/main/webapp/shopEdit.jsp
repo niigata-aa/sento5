@@ -21,10 +21,10 @@
 				
 			<!-- ショップ編集フォーム -->
 			店名入力<input type="text" name="shopName"maxlength="50"
-				value="<%=shop.getShopName()%>"><br> 
+				value="<%=shop.getShopName()%>" required><br> 
 			店名かな入力<input
-				type="text" name="shopKana"maxlength="50" value="<%=shop.getShopKana()%>"><br>
-			住所<input type="text" name="address" maxlength="50"value="<%=shop.getAddress()%>"><br>
+				type="text" name="shopKana"maxlength="50" value="<%=shop.getShopKana()%>" required><br>
+			住所<input type="text" name="address" maxlength="50"value="<%=shop.getAddress()%>" required><br>
 			開店時間<input type="time" name="openTime"
 				value="<%=shop.getOpenTime()%>"><br> 
 			閉店時間<input
