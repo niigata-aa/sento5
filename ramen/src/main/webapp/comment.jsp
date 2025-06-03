@@ -44,7 +44,7 @@
 				<img src="/ramen/upload/<%=comment.getCommentPhoto()%>">
 			</div>
 			店舗名:<%=shopNames.get(k)%><br>
-			ジャンルId:<%=comment.getGenreId()%><br>
+			<!--  ジャンルId:<%=comment.getGenreId()%><br>-->
 			レビュー:<br><%=comment.getReview()%><br> 評価:<%=comment.getRate()%><br>
 			メニュー:<br><%=comment.getMenu()%><br> 値段:<%=comment.getValue()%><br>
 			<form action="shop-detail" method="post">
