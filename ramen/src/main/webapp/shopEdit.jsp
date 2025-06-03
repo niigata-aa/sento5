@@ -38,7 +38,7 @@
 		
 	<div class="confirm">
 		<!-- 確認ボタン -->
-			<input type="submit" value="確認">
+			<input type="submit" value="確認へ">
 	</div>
 
 	<div class="back">
