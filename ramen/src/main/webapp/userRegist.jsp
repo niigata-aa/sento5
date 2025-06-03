@@ -23,12 +23,12 @@
 
 <div class="inputID"><!-- inputID ID入力 -->
 <span>ユーザID</span><br>
-<input type="text" name="userId" placeholder="5桁のユーザID"maxlength="5"pattern="[0-9]{5}"required/><br>
+<input type="text" name="userId" placeholder="半角数字5桁の社員番号を入力してください"maxlength="5"pattern="[0-9]{5}"required/><br>
 </div>
 
 <div class="inputpass"><!-- inputpass パスワード入力 -->
 <span>パスワード</span><br>
-<input type="password"  name="password"  placeholder="パスワード8文字以上" pattern="[a-zA-Z0-9]+" minlength="8" required/><br>
+<input type="password"  name="password"  placeholder="半角英数字8文字以上のパスワードを入力してください" pattern="[a-zA-Z0-9]+" minlength="8" required/><br>
 </div>
 
 <input type="submit"value="登録">
