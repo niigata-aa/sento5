@@ -197,8 +197,8 @@
 }
 
 .shop-photo input[type="image"] {
-	width: 150px;  /* お好みで調整 */
-	height: 150px;
+	width: 200px;  /* お好みで調整 */
+	height: 200px;
 	border-radius: 5px;
 	object-fit: cover;
 	display: block;
@@ -218,10 +218,13 @@
     flex-direction: column;
     justify-content: center;
     gap: 2px;
-    height: 100%;
+    height: 200px;
+	width: 250px;
 	position: absolute; /* 親要素Aclassを基準に絶対配置 */
 	right: 30%; /* 中央から右に25%の位置に配置 (50% - 25% = 25%) */
 	transform: translateX(25%); /* 要素の幅の半分だけ右に移動して正確に中央右に */
+	min-width: 0; /* flexアイテムの最小幅を0に設定 */
+	max-width: calc(100% - 140px); /* 画像幅(120px) + gap(20px) を除いた残り */
 }
 
 .shop-name {
@@ -230,6 +233,8 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 4px;
+	word-wrap: break-word; /* 長い単語を折り返し */
+    line-height: 1.0; /* 行間を調整 */
 }
 
 .genre {
@@ -238,7 +243,7 @@
     color: #666;
     padding: 4px 12px;
     background-color: #f5f5f5;
-    border-radius: 15px;
+    border-radius: 10px;
     display: inline-block;
     width: fit-content;
 }
@@ -246,7 +251,7 @@
 .walk {
     font-size: 14px;
     padding: 4px 12px;
-    border-radius: 15px;
+    border-radius: 10px;
     width: fit-content;
     font-weight: bold;
 }
