@@ -114,15 +114,15 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 					<form action="coment-search-servlet" method="post">
 						<select name="genreserch">
 							<option value="0">ジャンルを選択してください</option>
-							<option value="1">醤油</option>
-							<option value="2">味噌</option>
-							<option value="3">塩</option>
-							<option value="4">背油</option>
-							<option value="5">豚骨</option>
-							<option value="6">生姜醤油</option>
-							<option value="7">麻婆</option>
-							<option value="8">担々麵</option>
-							<option value="9">その他</option>
+							<option value="1">1,醤油</option>
+							<option value="2">2,味噌</option>
+							<option value="3">3,塩</option>
+							<option value="4">4,背油</option>
+							<option value="5">5,豚骨</option>
+							<option value="6">6,生姜醤油</option>
+							<option value="7">7,麻婆</option>
+							<option value="8">8,担々麵</option>
+							<option value="9">9,その他</option>
 						</select> <input type="submit" value="コメント検索"> <input type="hidden"
 							name="shopId" value="<%=shop.getShopId()%>">
 					</form>
