@@ -18,7 +18,7 @@ public class ShopDAO {
 	 */
 	public static List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
 		List<ShopBean> shopAllList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop ";
+		String sql = "SELECT * FROM m_shop order by shop_id asc ";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 

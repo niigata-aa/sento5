@@ -127,7 +127,9 @@ $(document).ready(function() {
 			%>
 			<div class="listdetail">
 			<%
-			for (ShopBean shop : shopList) {
+		
+				for (int i = shopList.size() - 1; i >= 0; i--) {
+		            ShopBean shop = shopList.get(i);
 			%><br>
 			
 				<!-- listdetail 一店舗ごとのブロック -->
