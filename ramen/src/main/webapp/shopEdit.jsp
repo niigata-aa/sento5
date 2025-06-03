@@ -36,16 +36,16 @@
 				<img src="/ramen/upload/<%=shop.getPhoto() %>" alt="店舗写真"></div>
 		
 		
-
+	<div class="confirm">
+		<!-- 確認ボタン -->
+			<input type="submit" value="確認">
+	</div>
 
 	<div class="back">
 		<!-- 戻るボタン -->
 		<button type="button" onclick="history.back()">戻る</button>
 	</div>
-	<div class="confirm">
-		<!-- 確認ボタン -->
-			<input type="submit" value="確認">
-	</div>
+
 		</form></div>
 </body>
 </html>

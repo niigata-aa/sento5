@@ -48,7 +48,7 @@
 }
 
 .back{
-	text-align: center;
+	text-align: left;
 	margin-top: 20px;
 }
 
@@ -80,4 +80,8 @@
     object-fit: cover;
     display: block;
     margin: 0 auto;
+}
+
+.confirm{
+	text-align: center;
 }
