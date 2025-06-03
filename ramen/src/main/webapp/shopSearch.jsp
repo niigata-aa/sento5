@@ -55,6 +55,9 @@ $(document).ready(function() {
 
 	<form action="shop-search-servlet" method="POST">
 		<div class="searchcontainer">
+		<div class="top">
+		<a href="#shop">店舗一覧へ</a>
+		</div>
 			<div class="search">
 				<!-- namesearch 店名入力 -->
 				店舗名：<input type="text" name="shopName"
@@ -114,7 +117,7 @@ $(document).ready(function() {
 
 		<div class="listtitle">
 			<!-- listtitle タイトル -->
-			<h2>店舗一覧</h2>
+			<h2 id="shop">店舗一覧</h2>
 		</div>
 		<div class="list">
 			<!-- list 一覧 -->

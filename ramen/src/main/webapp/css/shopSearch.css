@@ -359,3 +359,31 @@
     -moz-opacity: 0.5;
     opacity: 0.5;
 }
+
+/* 店舗一覧への移動リンク - 右上固定 */
+.top {
+    position: fixed;
+    top: 120px; /* ヘッダーの高さに応じて調整してください */
+    right: 20px;
+    z-index: 1000; /* 他の要素の上に表示 */
+}
+
+.top a {
+    display: block;
+    background: linear-gradient(135deg, rgb(210, 47, 47), rgb(244, 68, 53));
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap; /* テキストを改行させない */
+}
+
+.top a:hover {
+    background: linear-gradient(135deg, rgb(183, 28, 28), rgb(210, 47, 47));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+}
