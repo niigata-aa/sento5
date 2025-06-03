@@ -142,7 +142,7 @@ ShopBean shop = (ShopBean) session.getAttribute("shopdetail");
 						src="/ramen/upload/<%=comment.getCommentPhoto()%>"
 						alt="<%=comment.getMenu()%>の写真"> 
 				</div>
-				メニュ：<%=comment.getMenu()%><br>
+				メニュー：<%=comment.getMenu()%><br>
 					値段：<%=comment.getValue()%>円<br> 評価：<%=comment.getRate()%>/5<br>
 					ジャンル：<%=comment.getGenreId()%><br> レビュー<br>
 					<%=comment.getReview()%><br> ユーザ名：<%=userNames.get(i)%><br>
