@@ -57,8 +57,9 @@ public class GenreDAO {
 
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
-			ResultSet res = pstmt.executeQuery();
 			pstmt.setInt(1,genreId);
+			ResultSet res = pstmt.executeQuery();
+			
 			while (res.next()) {
 				genreName = res.getString("genre_name");
 			}
