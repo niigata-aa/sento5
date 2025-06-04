@@ -18,7 +18,7 @@ public class ShopDAO {
 	 */
 	public static List<ShopBean> selectAllshop()throws SQLException, ClassNotFoundException{
 		List<ShopBean> shopAllList = new ArrayList<ShopBean>();
-		String sql = "SELECT * FROM m_shop order by shop_id asc ";
+		String sql = "SELECT * FROM m_shop ";
 		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
@@ -489,7 +489,6 @@ public class ShopDAO {
 	                 "LEFT JOIN m_comment c ON s.shop_id = c.shop_id " +
 	                 "LEFT JOIN m_genre g ON c.genre_id = g.genre_id " +
 	                 "GROUP BY s.shop_id, s.shop_name, s.photo, s.walkDistance";
-	                  
 	    
 	    try(Connection con = ConnectionManager.getConnection();
 	            PreparedStatement pstmt = con.prepareStatement(sql)){
