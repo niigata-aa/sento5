@@ -42,9 +42,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	// アップロードされたファイルを保存するフォルダ
-	//プロジェクト内にフォルダは作成しないでOK
-	//サーバーが動くときに、自動的に生成（Tomcatが仮展開する場所に）
+
 	private static final String UPLOAD_DIR = "upload";
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -53,10 +51,8 @@ public class CommentRegistConfirmServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		 // 保存ディレクトリのパス（アプリケーションのルートから相対パス）
  		//フォルダの場所を取得
  		String appPath = request.getServletContext().getRealPath("");
- 		//↑のuploadフォルダの場所
  		String savePath = appPath + File.separator + UPLOAD_DIR;
 
  		// フォルダがなければ作成
@@ -64,8 +60,7 @@ public class CommentRegistConfirmServlet extends HttpServlet {
  		if (!uploadDir.exists())
  			uploadDir.mkdir();
 
- 		// ブラウザから送られてきたファイル（`name="image"`）を受け取る
- 		//getSubmittedFileName()：アップロードされたファイルの「元の名前」を取得
+
  		Part part = request.getPart("commentphoto");
  		String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
@@ -73,7 +68,6 @@ public class CommentRegistConfirmServlet extends HttpServlet {
  		part.write(savePath + File.separator + filename);
 
  		//実際に保存されている場所
- 		//サーバを再公開した場合はファイルはなくなる可能性あり
  		System.out.println(request.getServletContext().getRealPath(""));
  		
 		HttpSession session = request.getSession();

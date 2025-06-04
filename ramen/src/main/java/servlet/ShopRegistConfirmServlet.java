@@ -67,7 +67,6 @@ public class ShopRegistConfirmServlet extends HttpServlet {
 		// "true" なら true, "false" なら false
 			
 		
-     // 保存ディレクトリのパス（アプリケーションのルートから相対パス）
      		//フォルダの場所を取得
      		String appPath = request.getServletContext().getRealPath("");
      		//↑のuploadフォルダの場所
@@ -79,7 +78,6 @@ public class ShopRegistConfirmServlet extends HttpServlet {
      			uploadDir.mkdir();
 
      		// ブラウザから送られてきたファイル（`name="image"`）を受け取る
-     		//getSubmittedFileName()：アップロードされたファイルの「元の名前」を取得
      		Part part = request.getPart("image");
      		String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
@@ -87,7 +85,6 @@ public class ShopRegistConfirmServlet extends HttpServlet {
      		part.write(savePath + File.separator + filename);
 
      		//実際に保存されている場所
-     		//サーバを再公開した場合はファイルはなくなる可能性あり
      		System.out.println(request.getServletContext().getRealPath(""));
 		
 		ShopBean shopInfo = new ShopBean();
