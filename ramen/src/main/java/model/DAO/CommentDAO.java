@@ -115,7 +115,7 @@ public class CommentDAO {
 	public List<CommentBean> selectCategoryComment(int genreId,int shopId)throws SQLException, ClassNotFoundException{
 
 		List<CommentBean> commentCategoryList = new ArrayList<CommentBean>();
-		CommentBean comment = new CommentBean();
+	
 
 		String sql = "SELECT * from m_comment where genre_id = ? AND shop_id=?";
 
@@ -133,6 +133,7 @@ public class CommentDAO {
 
 			//結果の操作
 			while (res.next()) {
+				CommentBean comment = new CommentBean();
 				comment.setCommentId(res.getInt("comment_id"));
 				comment.setUserId(res.getInt("user_id"));
 				comment.setShopId(res.getInt("shop_id"));
